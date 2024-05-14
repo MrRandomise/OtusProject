@@ -1,19 +1,50 @@
+using System;
 using UnityEngine;
+using Zenject;
 
-namespace OtusGame.Core
+namespace OtusProject.CoreInput
 {
-    sealed public class InputManager: IInputManager
+    public enum UseKey
     {
-        public Vector3 Movement(Transform direction, float speed)
-        {
-            return speed * Time.deltaTime * direction.position;
-        }
+        Left,
+        Right,
+        Forward,
+        Backward,
+        Stop,
+        Fire
+    }
 
-        public Transform Rotation(Transform direction, Transform target, float speed)
+    public sealed class InputManager : ITickable
+    {
+        public Action<UseKey> OnUseKey;
+
+        public void Tick()
         {
-            var rotation = Quaternion.LookRotation(direction.position);
-            direction.rotation = Quaternion.Lerp(target.rotation, rotation, Time.deltaTime * speed);
-            return direction;
+            if (Input.GetMouseButtonUp(0))
+            {
+                OnUseKey?.Invoke(UseKey.Fire);
+            }
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                OnUseKey?.Invoke(UseKey.Left);
+            }
+            else if (Input.GetKey(KeyCode.D))
+            {
+                OnUseKey?.Invoke(UseKey.Right);
+            }
+            else if (Input.GetKey(KeyCode.W))
+            {
+                OnUseKey?.Invoke(UseKey.Forward);
+            }
+            else if (Input.GetKey(KeyCode.S))
+            {
+                OnUseKey?.Invoke(UseKey.Backward);
+            }
+            else
+            {
+                OnUseKey?.Invoke(UseKey.Stop);
+            }
         }
     }
 }
