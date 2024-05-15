@@ -5,6 +5,6 @@ namespace OtusProject.Component.Spawn
 {
     [Serializable]
     public struct SpawnActivePool {
-        public Transform value;
+        public Transform Value;
     }
 }

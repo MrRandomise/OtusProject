@@ -5,6 +5,8 @@ using Leopotam.EcsLite.Di;
 using Leopotam.EcsLite.Entities;
 using Leopotam.EcsLite.ExtendedSystems;
 using UnityEngine;
+using OtusProject.MoviementSystem;
+using OtusProject.Systems.View;
 
 namespace EcsEngine
 {
@@ -22,12 +24,15 @@ namespace EcsEngine
             _systems
                 //Systems
                 .Add(new ZombieSpawnSystem())
+                .Add(new ZombieMoviement())
                 //Views
+                .Add(new AnimatorViewSystem())
 #if UNITY_EDITOR
                 .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
 #endif
                 //Clean Up
-                .DelHere<SpawnEvent>();
+                .DelHere<SpawnEvent>()
+                .DelHere<ZombieMoveEvent>();
         }
 
         private void Start()

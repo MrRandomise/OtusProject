@@ -4,6 +4,7 @@ using OtusProject.CoreCamera;
 using OtusProject.Player;
 using OtusProject.CoreInput;
 using OtusProject.PlayerInput;
+using OtusProject.Content;
 
 namespace OtusProject.Installer
 {

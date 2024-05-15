@@ -4,6 +4,6 @@ namespace OtusProject.Component.Spawn
 {
     [Serializable]
     public struct SpawnCountZombie {
-        public int value;
+        public int Value;
     }
 }

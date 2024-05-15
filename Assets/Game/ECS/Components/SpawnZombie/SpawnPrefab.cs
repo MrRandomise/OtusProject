@@ -6,6 +6,6 @@ namespace OtusProject.Component.Spawn
     [Serializable]
     public struct SpawnPrefab 
     {
-        public Entity value;
+        public Entity Value;
     }
 }

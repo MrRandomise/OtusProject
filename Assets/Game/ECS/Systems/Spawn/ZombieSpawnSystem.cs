@@ -6,12 +6,13 @@ using OtusProject.Component.Spawn;
 using OtusProject.Component.Events;
 using UnityEngine;
 using System;
+using OtusProject.Component.Zombie;
 
 namespace OtusProject.SpawnSystem
 {
     sealed class ZombieSpawnSystem : IEcsRunSystem
     {
-        private readonly EcsFilterInject<Inc<SpawnCountZombie, SpawnPoints, SpawnPrefab, SpawnTimeout>> _filter;
+        private readonly EcsFilterInject<Inc<SpawnCountZombie, SpawnPoints, SpawnPrefab, SpawnTimeout, ZombieTarget>> _filter;
         private readonly EcsFilterInject<Inc<PoolContainerTag, SpawnActivePool>> _poolFilter;
         private readonly EcsCustomInject<EntityManager> _entityManager;
         private readonly EcsPoolInject<SpawnEvent> _spawnEventPool;
@@ -34,13 +35,14 @@ namespace OtusProject.SpawnSystem
             foreach (var entity in _filter.Value)
             {
                 ref var timeout = ref _filter.Pools.Inc4.Get(entity);
-                if (_currentSpawnTime >= timeout.value && _spawnCount < _filter.Pools.Inc1.Get(entity).value)
+                if (_currentSpawnTime >= timeout.Value && _spawnCount < _filter.Pools.Inc1.Get(entity).Value)
                 {
-                    var unit = _filter.Pools.Inc3.Get(entity).value;
-                    var index = UnityEngine.Random.Range(0, _filter.Pools.Inc2.Get(entity).value.Count);
-                    var point = _filter.Pools.Inc2.Get(entity).value[index];
-                    _entityManager.Value.Create(unit, point.transform.position,
-                        unit.transform.rotation, _poolFilter.Pools.Inc2.Get(poolEntity).value);
+                    var unit = _filter.Pools.Inc3.Get(entity).Value;
+                    var index = UnityEngine.Random.Range(0, _filter.Pools.Inc2.Get(entity).Value.Count);
+                    var point = _filter.Pools.Inc2.Get(entity).Value[index];
+                    var newUnit = _entityManager.Value.Create(unit, point.transform.position,
+                        unit.transform.rotation, _poolFilter.Pools.Inc2.Get(poolEntity).Value);
+                    newUnit.AddData(new ZombieTarget { Value = _filter.Pools.Inc5.Get(entity).Value});
                     _spawnEventPool.Value.Add(entity);
                     _currentSpawnTime = 0;
                     _spawnCount++;
