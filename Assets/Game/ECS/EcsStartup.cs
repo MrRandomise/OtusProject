@@ -1,4 +1,5 @@
 using OtusProject.Component.Events;
+using OtusProject.Component.Request;
 using OtusProject.SpawnSystem;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
@@ -7,6 +8,7 @@ using Leopotam.EcsLite.ExtendedSystems;
 using UnityEngine;
 using OtusProject.MoviementSystem;
 using OtusProject.Systems.View;
+using Client;
 
 namespace EcsEngine
 {
@@ -24,6 +26,7 @@ namespace EcsEngine
             _systems
                 //Systems
                 .Add(new ZombieSpawnSystem())
+                .Add(new ZombieControl())
                 .Add(new ZombieMoviement())
                 //Views
                 .Add(new AnimatorViewSystem())
@@ -31,8 +34,7 @@ namespace EcsEngine
                 .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
 #endif
                 //Clean Up
-                .DelHere<SpawnEvent>()
-                .DelHere<ZombieMoveEvent>();
+                .DelHere<SpawnEvent>();
         }
 
         private void Start()

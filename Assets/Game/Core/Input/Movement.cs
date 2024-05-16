@@ -1,24 +1,23 @@
+using OtusProject.Player;
 using UnityEngine;
 
 namespace OtusProject.PlayerInput
 {
     public sealed class Movement
     {
-        private readonly bool _canMove;
-        private readonly float _speed;
-        private readonly Transform _targetTransform;
+        private Character _character;
+        private Transform _targetTransform;
 
-        public Movement(bool canMove, float speed, Transform transform)
+        public Movement(Character character)
         {
-            _canMove = canMove;
-            _speed = speed;
-            _targetTransform = transform;
+            _character = character;
+            _targetTransform = character.transform;
         }
 
         public void Update(Vector3 moveDirection)
         {
-            if (!_canMove) return;
-            _targetTransform.position += _speed * Time.deltaTime * moveDirection;
+            if (!_character.CanMove) return;
+            _targetTransform.position += _character.Speed * Time.deltaTime * moveDirection;
         }
     }
 }

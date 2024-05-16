@@ -1,3 +1,4 @@
+using OtusProject.Player;
 using UnityEngine;
 
 namespace OtusProject.PlayerInput
@@ -5,28 +6,26 @@ namespace OtusProject.PlayerInput
     public sealed class RotateCharacter
     {
         private Vector3 _previousMousePosition;
-        private readonly bool _isAlive;
-        private readonly Transform _targetTransform;
+        private Character _character;
         private readonly Camera _camera;
 
-        public RotateCharacter(bool isAlive, Transform targetTransform)
+        public RotateCharacter(Character character)
         {
             _previousMousePosition = Input.mousePosition;
-            _isAlive = isAlive;
-            _targetTransform = targetTransform;
+            _character = character;
             _camera = Camera.main;
         }
 
         public void Update()
         {
-            if (!_isAlive)
+            if (!_character.IsAlive)
                 return;
             var mousePosition = Input.mousePosition;
             if (mousePosition != _previousMousePosition)
             {
                 if (Physics.Raycast(GetMouseRay(), out var hit))
                 {
-                    _targetTransform.LookAt(new Vector3(hit.point.x, _targetTransform.position.y, hit.point.z));
+                    _character.transform.LookAt(new Vector3(hit.point.x, _character.transform.position.y, hit.point.z));
                     _previousMousePosition = mousePosition;
                 }
             }

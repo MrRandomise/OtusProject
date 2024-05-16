@@ -1,5 +1,7 @@
 using UnityEngine;
 using OtusProject.Player;
+using Zenject;
+using OtusProject.Player.Death;
 
 namespace OtusProject.Visual
 {
@@ -9,10 +11,17 @@ namespace OtusProject.Visual
         [SerializeField] private Animator _animator;
         //[SerializeField] private AnimatorDispatcher _dispatcher;
         private PlayerAnimatorController _characterAnimatorController;
+        private DeathPlayer _deatPlayer;
+
+        [Inject]
+        private void Construct(DeathPlayer deathPlayer)
+        {
+            _deatPlayer = deathPlayer;
+        }
 
         private void Awake()
         {
-            _characterAnimatorController = new PlayerAnimatorController(_character, _animator);
+            _characterAnimatorController = new PlayerAnimatorController(_character, _animator, _deatPlayer);
         }
 
         //private void OnEnable()
