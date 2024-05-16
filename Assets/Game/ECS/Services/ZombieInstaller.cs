@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 namespace OtusProject.Content
 {
-    public class ZombieInstaller : EntityInstaller
+    public sealed class ZombieInstaller : EntityInstaller
     {
         [SerializeField] private NavMeshAgent _agent;
         [SerializeField] private int _health;

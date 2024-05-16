@@ -6,7 +6,7 @@ using OtusProject.Component.Zombie;
 
 namespace OtusProject.Content
 {
-    public class SpawnInstaller : EntityInstaller
+    public sealed class SpawnInstaller : EntityInstaller
     {
         [SerializeField] private List<Transform> _spawnPoint;
         [SerializeField] private Entity _spawnPrefab;

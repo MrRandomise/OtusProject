@@ -1,3 +1,4 @@
+using OtusProject.Config.Weapon;
 using OtusProject.PlayerInput;
 using System;
 using UnityEngine;
@@ -6,34 +7,16 @@ namespace OtusProject.Player
 {
     public sealed class Character : MonoBehaviour
     {
-        [SerializeField] private int _health = 5;
-        private Movement _movementCharacter;
-        private RotateCharacter _rotateCharacter;
-
-
+        public int Health = 5;
         public float Speed;
         public float SpeedRotate;
         public bool CanMove = true;
         public bool IsAlive = true;
         public Vector3 MoveDirection;
-        public event Action<int> OnSetHealth;
-
-        public int Health
-        { 
-          get 
-          { 
-                return _health;
-          } 
-          set 
-          {
-                if (value >= 0)
-                {
-                    _health = value;
-                    OnSetHealth?.Invoke(_health);
-                }
-          }
-        }
-
+        public Weapon CurrentWeapon;
+        public event Action OnFireRequest;
+        private Movement _movementCharacter;
+        private RotateCharacter _rotateCharacter;
 
         private void Awake()
         {

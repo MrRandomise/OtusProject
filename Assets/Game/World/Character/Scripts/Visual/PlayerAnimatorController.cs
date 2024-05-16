@@ -10,7 +10,6 @@ namespace OtusProject.Visual
         private readonly Character _character;
         private readonly Animator _animator;
         private readonly DeathPlayer _death;
-        //AnimatorDispatcher animatorDispatcher;
 
         public PlayerAnimatorController(Character character, Animator animator, DeathPlayer Death)
         {
@@ -31,6 +30,10 @@ namespace OtusProject.Visual
         {
             if (!_character.IsAlive) return;
             _animator.SetBool("Move", GetMainStateValue());
+            if(_character.CurrentWeapon.FireRequired)
+            {
+                _animator.SetTrigger("Attack");
+            }
         }
 
         private void DeathAnim()

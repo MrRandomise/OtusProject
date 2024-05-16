@@ -4,7 +4,6 @@ using OtusProject.CoreInput;
 using OtusProject.Player;
 using Zenject;
 
-
 namespace OtusProject.PlayerInput
 {
     public sealed class CharacterInputController : IDisposable, ITickable
@@ -12,7 +11,6 @@ namespace OtusProject.PlayerInput
         private readonly InputManager _inputManager;
         private readonly Character _character;
         private UseKey _lastKey = UseKey.Stop;
-        //private bool _fireRequired;
 
         public CharacterInputController(InputManager input, Character character)
         {
@@ -23,22 +21,16 @@ namespace OtusProject.PlayerInput
 
         private void GetKey(UseKey key)
         {
-            //if (key == UseKey.Fire)
-            //{
-            //    _fireRequired = true;
-            //}
-
-            _lastKey = key;
+            if (key == UseKey.Fire)
+            {
+                _character.CurrentWeapon.FireRequired = true;
+            }
+            _lastKey = key; 
         }
 
         public void Tick()
         {
             _character.MoveDirection = GetDirection();
-            //if (_fireRequired)
-            //{
-            //    _fireRequired = false;
-            //    _character.OnFireRequested?.Invoke();
-            //}
         }
 
         public void Dispose()

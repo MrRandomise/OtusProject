@@ -1,19 +1,21 @@
 using System;
 using Zenject;
-using UnityEngine;
+using OtusProject.Player.Hit;
 
 namespace OtusProject.Player.Death
 {
     public sealed class DeathPlayer : IDisposable
     {
         public event Action OnDeath;
+        private PlayerHit _playerHit;
         private Character _character;
 
         [Inject]
-        private void construct(Character character)
+        private void construct(Character character, PlayerHit playerHit)
         {
+            _playerHit = playerHit;
             _character = character;
-            _character.OnSetHealth += isDead;
+            _playerHit.OnSetHealth += isDead;
         }
 
         private void isDead(int health)
@@ -28,7 +30,7 @@ namespace OtusProject.Player.Death
 
         public void Dispose()
         {
-            _character.OnSetHealth -= isDead;
+            _playerHit.OnSetHealth -= isDead;
         }
     }
 }

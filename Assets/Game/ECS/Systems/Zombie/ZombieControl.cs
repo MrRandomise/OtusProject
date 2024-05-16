@@ -4,9 +4,10 @@ using OtusProject.Component.Events;
 using OtusProject.Component.Pool;
 using OtusProject.Component.Request;
 using OtusProject.Component.Zombie;
-using UnityEngine; 
+using UnityEngine;
 
-namespace Client {
+namespace OtusProject.System.Zombie
+{ 
     sealed class ZombieControl : IEcsRunSystem {
         private readonly EcsFilterInject<Inc<ZombieAttackDistance, ZombieNavAgent, Position, ZombieTarget>> _filter;
         private readonly EcsPoolInject<ZombieMoveRequest> _moveRequest;

@@ -8,7 +8,7 @@ using UnityEngine;
 using System;
 using OtusProject.Component.Zombie;
 
-namespace OtusProject.SpawnSystem
+namespace OtusProject.System.Spawn
 {
     sealed class ZombieSpawnSystem : IEcsRunSystem
     {

@@ -1,14 +1,15 @@
 using OtusProject.Component.Events;
 using OtusProject.Component.Request;
-using OtusProject.SpawnSystem;
+using OtusProject.System.Spawn;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using Leopotam.EcsLite.Entities;
 using Leopotam.EcsLite.ExtendedSystems;
 using UnityEngine;
-using OtusProject.MoviementSystem;
+using OtusProject.System.Zombie;
 using OtusProject.Systems.View;
-using Client;
+using OtusProject.System.Weapon;
+using OtusProject.System.PlayerUpdate;
 
 namespace EcsEngine
 {
@@ -28,8 +29,11 @@ namespace EcsEngine
                 .Add(new ZombieSpawnSystem())
                 .Add(new ZombieControl())
                 .Add(new ZombieMoviement())
+                .Add(new PlayerAtack())
+                .Add(new StartPlayerAttack())
+                .Add(new PlayerUpdate())
                 //Views
-                .Add(new AnimatorViewSystem())
+                .Add(new AnimatorZombieSystem())
 #if UNITY_EDITOR
                 .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
 #endif

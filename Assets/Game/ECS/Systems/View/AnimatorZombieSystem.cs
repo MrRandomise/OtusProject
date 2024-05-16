@@ -1,13 +1,12 @@
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
-using OtusProject.Component.Events;
 using OtusProject.Component.Zombie;
 using OtusProject.Component.Request;
 using UnityEngine;
 
 namespace OtusProject.Systems.View
 {
-    sealed class AnimatorViewSystem : IEcsRunSystem {
+    sealed class AnimatorZombieSystem : IEcsRunSystem {
         private readonly EcsFilterInject<Inc<ZombieAnimator>> _filter;
         private readonly EcsPoolInject<ZombieMoveRequest> _moveRequest;
         private readonly EcsPoolInject<ZombieAttackRequest> _attackRequest;

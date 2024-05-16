@@ -3,7 +3,7 @@ using Leopotam.EcsLite.Di;
 using OtusProject.Component.Request;
 using OtusProject.Component.Zombie;
 
-namespace OtusProject.MoviementSystem
+namespace OtusProject.System.Zombie
 {
     sealed class ZombieMoviement : IEcsRunSystem
     {
