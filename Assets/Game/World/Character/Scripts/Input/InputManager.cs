@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using Zenject;
 
-namespace OtusProject.CoreInput
+namespace OtusProject.PlayerInput
 {
     public enum UseKey
     {

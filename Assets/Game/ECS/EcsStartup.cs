@@ -1,5 +1,4 @@
 using OtusProject.Component.Events;
-using OtusProject.Component.Request;
 using OtusProject.System.Spawn;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
@@ -8,8 +7,7 @@ using Leopotam.EcsLite.ExtendedSystems;
 using UnityEngine;
 using OtusProject.System.Zombie;
 using OtusProject.Systems.View;
-using OtusProject.System.Weapon;
-using OtusProject.System.PlayerUpdate;
+using Client;
 
 namespace EcsEngine
 {
@@ -29,9 +27,7 @@ namespace EcsEngine
                 .Add(new ZombieSpawnSystem())
                 .Add(new ZombieControl())
                 .Add(new ZombieMoviement())
-                .Add(new PlayerAtack())
-                .Add(new StartPlayerAttack())
-                .Add(new PlayerUpdate())
+                .Add(new BulletMove())
                 //Views
                 .Add(new AnimatorZombieSystem())
 #if UNITY_EDITOR

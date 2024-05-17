@@ -1,5 +1,7 @@
 using OtusProject.Player;
 using OtusProject.Player.Death;
+using OtusProject.PlayerInput;
+using OtusProject.PoolsSystem;
 using System;
 using UnityEngine;
 
@@ -10,13 +12,15 @@ namespace OtusProject.Visual
         private readonly Character _character;
         private readonly Animator _animator;
         private readonly DeathPlayer _death;
-
-        public PlayerAnimatorController(Character character, Animator animator, DeathPlayer Death)
+        private PoolsComponent _pools;
+        public PlayerAnimatorController(Character character, Animator animator, DeathPlayer Death, PoolsComponent pools)
         {
             _character = character;
             _death = Death;
             _death.OnDeath += DeathAnim;
             _animator = animator;
+            _pools = pools;
+            _pools.OnBulletEvent += AttackAnim;
         }
 
         private bool GetMainStateValue()
@@ -28,22 +32,30 @@ namespace OtusProject.Visual
 
         public void Update()
         {
-            if (!_character.IsAlive) return;
-            _animator.SetBool("Move", GetMainStateValue());
-            if(_character.CurrentWeapon.FireRequired)
+            if (_character.CanMove) 
+            {
+                _animator.SetBool("Move", GetMainStateValue());
+            } 
+        }
+
+        private void DeathAnim()
+        {
+            _animator.SetBool("Move", false);
+            _animator.SetTrigger("Death");
+        }
+
+        private void AttackAnim()
+        {
+            if(_character.IsAlive)
             {
                 _animator.SetTrigger("Attack");
             }
         }
 
-        private void DeathAnim()
-        {
-            _animator.SetTrigger("Death");
-        }
-
         public void Dispose()
         {
             _death.OnDeath -= DeathAnim;
+            _pools.OnBulletEvent -= AttackAnim;
         }
     }
 }

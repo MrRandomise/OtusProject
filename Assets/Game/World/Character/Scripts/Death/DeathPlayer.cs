@@ -25,6 +25,7 @@ namespace OtusProject.Player.Death
                 _character.CanMove = false;
                 _character.IsAlive = false;
                 OnDeath?.Invoke();
+                _playerHit.OnSetHealth -= isDead;
             }
         }
 

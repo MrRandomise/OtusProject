@@ -2,6 +2,8 @@ using UnityEngine;
 using OtusProject.Player;
 using Zenject;
 using OtusProject.Player.Death;
+using OtusProject.PlayerInput;
+using OtusProject.PoolsSystem;
 
 namespace OtusProject.Visual
 {
@@ -9,30 +11,21 @@ namespace OtusProject.Visual
     {
         [SerializeField] private Character _character;
         [SerializeField] private Animator _animator;
-        //[SerializeField] private AnimatorDispatcher _dispatcher;
         private PlayerAnimatorController _characterAnimatorController;
         private DeathPlayer _deatPlayer;
+        private PoolsComponent _pool;
 
         [Inject]
-        private void Construct(DeathPlayer deathPlayer)
+        private void Construct(DeathPlayer deathPlayer, PoolsComponent pool)
         {
             _deatPlayer = deathPlayer;
+            _pool = pool;
         }
 
         private void Awake()
         {
-            _characterAnimatorController = new PlayerAnimatorController(_character, _animator, _deatPlayer);
+            _characterAnimatorController = new PlayerAnimatorController(_character, _animator, _deatPlayer, _pool);
         }
-
-        //private void OnEnable()
-        //{
-        //    _characterAnimatorController.OnEnable();
-        //}
-
-        //private void OnDisable()
-        //{
-        //    _characterAnimatorController.OnDisable();
-        //}
 
         private void Update()
         {

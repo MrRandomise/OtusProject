@@ -1,9 +1,9 @@
 using System;
 
-namespace OtusProject.Component.Weapon
+namespace OtusProject.Component.Bullet
 {
     [Serializable]
-    public struct ReloadTime {
+    public struct BulletSpeed {
         public float Value;
     }
 }

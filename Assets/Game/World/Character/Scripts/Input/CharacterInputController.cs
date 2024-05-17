@@ -1,8 +1,8 @@
 using System;
 using UnityEngine;
-using OtusProject.CoreInput;
 using OtusProject.Player;
 using Zenject;
+
 
 namespace OtusProject.PlayerInput
 {
@@ -11,6 +11,7 @@ namespace OtusProject.PlayerInput
         private readonly InputManager _inputManager;
         private readonly Character _character;
         private UseKey _lastKey = UseKey.Stop;
+        public event Action OnFireRequest;
 
         public CharacterInputController(InputManager input, Character character)
         {
@@ -23,7 +24,7 @@ namespace OtusProject.PlayerInput
         {
             if (key == UseKey.Fire)
             {
-                _character.CurrentWeapon.FireRequired = true;
+                OnFireRequest?.Invoke();
             }
             _lastKey = key; 
         }

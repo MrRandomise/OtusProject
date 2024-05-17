@@ -6,7 +6,12 @@ namespace OtusProject.Config.Weapon
     {
         public WeaponConfig WeaponConfig;
         public BulletConfig BulletConfig;
-        public bool FireRequired = false;
         public Transform BulletPoint;
+        public Transform BullePool;
+
+        private void Start ()
+        {
+            WeaponConfig.CurrAmmo = WeaponConfig.MaxAmmo;
+        }
     }
 }

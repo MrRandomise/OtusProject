@@ -14,7 +14,6 @@ namespace OtusProject.Player
         public bool IsAlive = true;
         public Vector3 MoveDirection;
         public Weapon CurrentWeapon;
-        public event Action OnFireRequest;
         private Movement _movementCharacter;
         private RotateCharacter _rotateCharacter;
 
