@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: PistolConfig
   m_EditorClassIdentifier: 
   BulletWeapon: {fileID: 11400000, guid: 32795c1b4ffa5734b97845d05f5d770c, type: 2}
-  Bullet: {fileID: 3801140462752451011, guid: 0a53ea62a5edca54f8668dd3aab83e0c, type: 3}
   MaxAmmo: 15
-  CurrAmmo: 15
-  FireRate: 2.5
-  ReloadTime: 2
+  CurrAmmo: 0
+  FireRate: 0.5
+  ReloadTime: 2.5

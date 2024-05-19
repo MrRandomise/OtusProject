@@ -2,8 +2,8 @@ using UnityEngine;
 using OtusProject.Player;
 using Zenject;
 using OtusProject.Player.Death;
+using OtusProject.Config.Weapon;
 using OtusProject.PlayerInput;
-using OtusProject.PoolsSystem;
 
 namespace OtusProject.Visual
 {
@@ -13,18 +13,18 @@ namespace OtusProject.Visual
         [SerializeField] private Animator _animator;
         private PlayerAnimatorController _characterAnimatorController;
         private DeathPlayer _deatPlayer;
-        private PoolsComponent _pool;
+        private BulletInitInEcsWorld _onBullet;
 
         [Inject]
-        private void Construct(DeathPlayer deathPlayer, PoolsComponent pool)
+        private void Construct(DeathPlayer deathPlayer, BulletInitInEcsWorld onBullet)
         {
             _deatPlayer = deathPlayer;
-            _pool = pool;
+            _onBullet = onBullet;
         }
 
         private void Awake()
         {
-            _characterAnimatorController = new PlayerAnimatorController(_character, _animator, _deatPlayer, _pool);
+            _characterAnimatorController = new PlayerAnimatorController(_character, _animator, _deatPlayer, _onBullet);
         }
 
         private void Update()

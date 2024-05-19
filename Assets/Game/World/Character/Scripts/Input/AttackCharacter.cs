@@ -3,8 +3,8 @@ using Zenject;
 using System;
 using UnityEngine;
 using OtusProject.Player;
-using OtusProject.PoolsSystem;
-using OtusProject.BulletSystem;
+using Leopotam.EcsLite.Entities;
+using OtusProject.Content;
 
 namespace OtusProject.PlayerInput
 {
@@ -13,15 +13,16 @@ namespace OtusProject.PlayerInput
         private CharacterInputController _charInput;
         private Weapon _weapon;
         private float _currFireRate;
-        private PoolsComponent _pool;
+        private BulletInitInEcsWorld _bulletInstaller;
+
         [Inject]
-        private void Construct(Character character, CharacterInputController charInput, PoolsComponent pool)
+        private void Construct(Character character, CharacterInputController charInput, BulletInitInEcsWorld bulletInstaller)
         {
             _weapon = character.CurrentWeapon;
             _charInput = charInput;
             _charInput.OnFireRequest += AttackRequest;
             _currFireRate = _weapon.WeaponConfig.FireRate;
-            _pool = pool;
+            _bulletInstaller = bulletInstaller;
         }
 
         public void Tick()
@@ -35,10 +36,7 @@ namespace OtusProject.PlayerInput
             {
                 _weapon.WeaponConfig.CurrAmmo -= 1;
                 _currFireRate = 0;
-                var bullet = _pool.GetOrCreateBullet(_weapon.WeaponConfig.Bullet, _weapon.BulletPoint);
-                var installer = bullet.GetComponent<BulletData>();
-                installer.BulletConfig = _weapon.BulletConfig;
-                installer.BulletPool = _weapon.BullePool;
+                _bulletInstaller.BulletInitial(_weapon);
             }
         }
 

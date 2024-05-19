@@ -7,7 +7,6 @@ namespace OtusProject.Config.Weapon
         public WeaponConfig WeaponConfig;
         public BulletConfig BulletConfig;
         public Transform BulletPoint;
-        public Transform BullePool;
 
         private void Start ()
         {

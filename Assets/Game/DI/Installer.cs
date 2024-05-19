@@ -6,20 +6,26 @@ using OtusProject.PlayerInput;
 using OtusProject.Player.Hit;
 using OtusProject.Player.Death;
 using OtusProject.Visual;
-using OtusProject.PoolsSystem;
+using OtusProject.Config.Weapon;
+using OtusProject.Content;
+using OtusProject.View;
 
 namespace OtusProject.Installer
 {
     public sealed class Installer : MonoInstaller
     {
         [SerializeField] private Character _character;
+        [SerializeField] private BulletSpawnInstaller _bulletSpawner;
+        [SerializeField] private SpawnInstaller _spawnZombie;
         [SerializeField] private Camera _mainCamera;
-        [SerializeField] private PoolsComponent _pool;
+
         public override void InstallBindings()
         {
             Container.Bind<Character>().FromInstance(_character).AsSingle();
-            Container.Bind<PoolsComponent>().FromInstance(_pool).AsSingle();
+            Container.Bind<BulletSpawnInstaller>().FromInstance(_bulletSpawner).AsSingle();
+            Container.Bind<SpawnInstaller>().FromInstance(_spawnZombie).AsSingle();
             Container.Bind<CharacterVisual>().AsSingle();
+            Container.Bind<BulletInitInEcsWorld>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<InputManager>().AsSingle();
             Container.BindInterfacesAndSelfTo<CharacterInputController>().AsSingle();
             Container.BindInterfacesAndSelfTo<AttackCharacter>().AsSingle().NonLazy();
@@ -28,6 +34,7 @@ namespace OtusProject.Installer
             Container.Bind<PlayerHit>().AsSingle().NonLazy();
             Container.Bind<HitEvents>().FromComponentInHierarchy().AsSingle();
             Container.Bind<DeathPlayer>().AsSingle().NonLazy();
+            Container.Bind<StartVawe>().AsSingle().NonLazy();
         }
     }
 }

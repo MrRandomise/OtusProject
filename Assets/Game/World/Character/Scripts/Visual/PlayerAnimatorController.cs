@@ -1,7 +1,6 @@
+using OtusProject.Config.Weapon;
 using OtusProject.Player;
 using OtusProject.Player.Death;
-using OtusProject.PlayerInput;
-using OtusProject.PoolsSystem;
 using System;
 using UnityEngine;
 
@@ -12,15 +11,16 @@ namespace OtusProject.Visual
         private readonly Character _character;
         private readonly Animator _animator;
         private readonly DeathPlayer _death;
-        private PoolsComponent _pools;
-        public PlayerAnimatorController(Character character, Animator animator, DeathPlayer Death, PoolsComponent pools)
+        private BulletInitInEcsWorld _onBulletRequest;
+
+        public PlayerAnimatorController(Character character, Animator animator, DeathPlayer Death, BulletInitInEcsWorld onBulletRequest)
         {
             _character = character;
             _death = Death;
             _death.OnDeath += DeathAnim;
             _animator = animator;
-            _pools = pools;
-            _pools.OnBulletEvent += AttackAnim;
+            _onBulletRequest = onBulletRequest;
+            _onBulletRequest.OnBulletEvent += AttackAnim;
         }
 
         private bool GetMainStateValue()
@@ -55,7 +55,7 @@ namespace OtusProject.Visual
         public void Dispose()
         {
             _death.OnDeath -= DeathAnim;
-            _pools.OnBulletEvent -= AttackAnim;
+            _onBulletRequest.OnBulletEvent -= AttackAnim;
         }
     }
 }

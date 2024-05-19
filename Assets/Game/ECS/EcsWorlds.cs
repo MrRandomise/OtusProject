@@ -1,4 +1,4 @@
-namespace EcsEngine
+namespace OtusProject
 {
     public static class EcsWorlds
     {

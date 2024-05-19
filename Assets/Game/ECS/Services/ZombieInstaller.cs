@@ -1,7 +1,6 @@
 using Leopotam.EcsLite.Entities;
 using UnityEngine;
 using OtusProject.Component.Zombie;
-using OtusProject.Component.Pool;
 using UnityEngine.AI;
 
 namespace OtusProject.Content
@@ -25,7 +24,7 @@ namespace OtusProject.Content
         {
             entity.AddData(new ZombieNavAgent { Value = _agent });
             entity.AddData(new ZombieHealth { Value = _health });
-            entity.AddData(new Position { Value = transform });
+            entity.AddData(new ZombiePosition { Value = transform.position });
             entity.AddData(new ZombieAttackDistance { Value = _attackDistance });
             entity.AddData(new ZombieAnimator { Value = _animator });
         }

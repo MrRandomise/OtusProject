@@ -1,17 +1,21 @@
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using OtusProject.Component.Zombie;
-using OtusProject.Component.Request;
+using OtusProject.Component.Events;
 using UnityEngine;
 
 namespace OtusProject.Systems.View
 {
-    sealed class AnimatorZombieSystem : IEcsRunSystem {
+    internal sealed class AnimatorZombieSystem : IEcsRunSystem 
+    {
         private readonly EcsFilterInject<Inc<ZombieAnimator>> _filter;
-        private readonly EcsPoolInject<ZombieMoveRequest> _moveRequest;
-        private readonly EcsPoolInject<ZombieAttackRequest> _attackRequest;
+        private readonly EcsPoolInject<MoveEvent> _moveRequest;
+        private readonly EcsPoolInject<AttackEvent> _attackRequest;
+        private readonly EcsPoolInject<DeathEvent> _deadRequest;
+
         private readonly int _move = Animator.StringToHash("Move");
         private readonly int _attack = Animator.StringToHash("Attack");
+        private readonly int _death = Animator.StringToHash("Death");
         public void Run(IEcsSystems systems)
         {
             var animatorPool = _filter.Pools.Inc1;
@@ -21,13 +25,17 @@ namespace OtusProject.Systems.View
                 {
                     animatorPool.Get(entity).Value.SetBool(_move, true);
                     animatorPool.Get(entity).Value.SetBool(_attack, false);
-                    _moveRequest.Value.Del(entity);
                 }
                 if (_attackRequest.Value.Has(entity))
                 {
                     animatorPool.Get(entity).Value.SetBool(_attack, true);
                     animatorPool.Get(entity).Value.SetBool(_move, false);
-                    _attackRequest.Value.Del(entity);
+                }
+                if(_deadRequest.Value.Has(entity))
+                {
+                    animatorPool.Get(entity).Value.SetBool(_attack, false);
+                    animatorPool.Get(entity).Value.SetBool(_move, false);
+                    animatorPool.Get(entity).Value.SetTrigger(_death);
                 }
             }
         }
