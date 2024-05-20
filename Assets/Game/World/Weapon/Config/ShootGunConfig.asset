@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8749f322a12722d468c0d81b95039c78, type: 3}
-  m_Name: PistolConfig
+  m_Name: ShootGunConfig
   m_EditorClassIdentifier: 
-  BulletWeapon: {fileID: 11400000, guid: 32795c1b4ffa5734b97845d05f5d770c, type: 2}
-  MaxAmmo: 5
+  MaxAmmo: 10
   CurrAmmo: 0
-  FireRate: 1.2
-  Price: 0
-  Buy: 1
+  FireRate: 2
+  Price: 1
+  Buy: 0

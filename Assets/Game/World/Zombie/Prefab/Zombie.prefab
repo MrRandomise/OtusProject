@@ -424,6 +424,7 @@ MonoBehaviour:
   _rotateSpeed: 1
   _attackDistance: 1.3
   _animator: {fileID: 9198989304959435544}
+  _drop: {fileID: 5587655649314032005, guid: a53c00387ea4aeb49b20ba739e33ba9a, type: 3}
 --- !u!195 &7007686832770771309
 NavMeshAgent:
   m_ObjectHideFlags: 0

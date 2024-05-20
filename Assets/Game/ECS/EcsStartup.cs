@@ -31,6 +31,7 @@ namespace EcsEngine
                 .Add(new ZombieControl())
                 .Add(new ZombieTakeDamage())
                 .Add(new ZombieDeath())
+                .Add(new ZombieDropSystem())
                 .Add(new ZombieMoviement())
                 .Add(new ZombieEndWave())
                 .Add(new BulletSpawn())

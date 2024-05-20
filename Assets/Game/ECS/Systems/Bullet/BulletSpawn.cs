@@ -3,6 +3,7 @@ using Leopotam.EcsLite.Di;
 using Leopotam.EcsLite.Entities;
 using OtusProject.Component.Bullet;
 using OtusProject.Component.Events;
+using UnityEngine;
 
 namespace OtusProject.System.Bullet
 {
@@ -24,7 +25,6 @@ namespace OtusProject.System.Bullet
 
                 if (_bulletEvent.Value.Has(entity))
                 {
-                    
                     var newBullet = _entityManager.Value.Create(bullet, point.transform.position,
                         bullet.transform.rotation, pool);
                     newBullet.GetData<BulletDamage>().Value = damage;

@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{5B40008E-7C81-C63E-4ACB-EB845325B1CA}</ProjectGuid>
+    <ProjectGuid>{2812AA60-F595-4EE7-27F8-02ACABBB3693}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -54,7 +54,7 @@
     <UnityVersion>2022.3.12f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.12f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.12f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
@@ -843,59 +843,59 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Leopotam.EcsLite.ExtendedSystems.csproj">
-      <Project>{E60102C6-C400-1168-4687-7826A7637456}</Project>
+      <Project>{EE13C93E-784B-8A43-8272-A269C6BDBFDD}</Project>
       <Name>Leopotam.EcsLite.ExtendedSystems</Name>
     </ProjectReference>
     <ProjectReference Include="Zenject-Editor.csproj">
-      <Project>{F84BFF2E-CD69-0A77-0B22-762A2DA88573}</Project>
+      <Project>{AB7274D9-822E-90FA-08F9-72A690ADC3B3}</Project>
       <Name>Zenject-Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Leopotam.EcsLite.PhysicsExtensions.csproj">
-      <Project>{4E5F15C6-9E80-8389-ACBF-9825A1BFE576}</Project>
+      <Project>{10695FD0-A4DB-AAC1-84B7-19F57B449811}</Project>
       <Name>Leopotam.EcsLite.PhysicsExtensions</Name>
     </ProjectReference>
     <ProjectReference Include="Zenject.csproj">
-      <Project>{DFBB2A14-C0D3-C455-DA26-998DE2E3587A}</Project>
+      <Project>{03146990-0F02-4ED2-7507-2744F1FE1E79}</Project>
       <Name>Zenject</Name>
     </ProjectReference>
     <ProjectReference Include="Leopotam.EcsLite.Entities.csproj">
-      <Project>{0511C1CE-AF20-0594-7BD7-F3030499E8AF}</Project>
+      <Project>{CA2C4692-7146-4FC8-79EA-98658EFFB889}</Project>
       <Name>Leopotam.EcsLite.Entities</Name>
     </ProjectReference>
     <ProjectReference Include="EcsEngine.csproj">
-      <Project>{D3597EEC-6E0E-6C86-3B35-0A500B63DB75}</Project>
+      <Project>{CA386E4A-C32C-B5C8-A4B8-7EEAA9533BF7}</Project>
       <Name>EcsEngine</Name>
     </ProjectReference>
     <ProjectReference Include="World.csproj">
-      <Project>{F1557FD5-CD12-B1D0-6E01-3D050858F8B7}</Project>
+      <Project>{ED303F30-854A-4A1A-2790-CF5400C107DB}</Project>
       <Name>World</Name>
     </ProjectReference>
     <ProjectReference Include="Zenject-ReflectionBaking-Editor.csproj">
-      <Project>{A976B817-276D-22AA-A27D-F620517A10D8}</Project>
+      <Project>{7B555E97-CE4B-4B34-ECDF-4510378D6F32}</Project>
       <Name>Zenject-ReflectionBaking-Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Leopotam.EcsLite.UnityEditor.csproj">
-      <Project>{26339D7D-11EE-AC1D-44EC-FCA55B030EF9}</Project>
+      <Project>{5AD6E3CE-9627-1CAA-0EB4-7CAE006E4125}</Project>
       <Name>Leopotam.EcsLite.UnityEditor</Name>
     </ProjectReference>
     <ProjectReference Include="Leopotam.EcsLite.csproj">
-      <Project>{603C3630-1E4C-1795-59C5-8114F470DDA8}</Project>
+      <Project>{F74D2651-E85C-3DCC-0DFC-D632E6CA5A47}</Project>
       <Name>Leopotam.EcsLite</Name>
     </ProjectReference>
     <ProjectReference Include="Leopotam.EcsLite.Events.csproj">
-      <Project>{4D0B6A97-74DD-CDA3-3741-014E2985314C}</Project>
+      <Project>{475E9679-B71B-359B-9775-01A2C4D1C032}</Project>
       <Name>Leopotam.EcsLite.Events</Name>
     </ProjectReference>
     <ProjectReference Include="Leopotam.EcsLite.UnityEditor.Runtime.csproj">
-      <Project>{4E60000D-DDC7-3AB6-24E0-8A10C1BD1D65}</Project>
+      <Project>{AF325CF3-C79A-3A5F-A6B0-76B676B4068B}</Project>
       <Name>Leopotam.EcsLite.UnityEditor.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Leopotam.EcsLite.Di.csproj">
-      <Project>{BB087D87-B017-B408-4A3D-07EE0652E68B}</Project>
+      <Project>{1C80A6DA-3463-981C-A8F4-F22E62DAE8AE}</Project>
       <Name>Leopotam.EcsLite.Di</Name>
     </ProjectReference>
     <ProjectReference Include="Zenject-PoolMonitor-Editor.csproj">
-      <Project>{688C83A1-07CD-8A77-3AB2-747A7DAAC866}</Project>
+      <Project>{ADF958BD-0B1E-FB26-3949-9DAB726F2489}</Project>
       <Name>Zenject-PoolMonitor-Editor</Name>
     </ProjectReference>
   </ItemGroup>
