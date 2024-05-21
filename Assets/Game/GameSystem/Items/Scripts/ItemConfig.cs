@@ -1,19 +1,40 @@
-using OtusProject.Items;
 using OtusProject.RecourcesConfig;
 using UnityEngine;
-using AYellowpaper;
 
-namespace OtusProject.Config.Weapon
+namespace OtusProject.ItemSystem
 {
     [CreateAssetMenu(fileName = "Item", menuName = "Config/Item")]
     public sealed class ItemConfig : ScriptableObject
     {
+        public string Name;
         public Sprite ItemIcon;
-        public InterfaceReference<IItems> Item;
+        public IItems Item;
         public ResourceConfig Resource;
-        public float Price;
+        public int Price;
         public int MaxBuy;
+        private int currBuy;
 
+        public void UseItem()
+        {
+            Item = FindItem();
+            Item.UseItem();
+        }
 
+        public IItems FindItem()
+        {
+            return Items.ItemsList.ContainsKey(Name) ? Items.ItemsList[Name]  : null;
+        }
+
+        public void SetCurrBuy()
+        {
+            currBuy++;
+            Debug.Log(currBuy);
+            Resources.UnloadUnusedAssets();
+        }
+
+        public int GetCurrBuy()
+        {
+            return currBuy;
+        }
     }
 }

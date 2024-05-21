@@ -6,10 +6,10 @@ using OtusProject.PlayerInput;
 using OtusProject.Player.Hit;
 using OtusProject.Player.Death;
 using OtusProject.Visual;
-using OtusProject.Config.Weapon;
+using OtusProject.Config.Weapons;
 using OtusProject.Content;
 using OtusProject.View;
-using OtusProject.ShoopSystem;
+using OtusProject.ItemSystem;
 
 namespace OtusProject.Installer
 {
@@ -22,23 +22,23 @@ namespace OtusProject.Installer
 
         public override void InstallBindings()
         {
+            Container.Bind<Camera>().FromInstance(_mainCamera).AsSingle();
             Container.Bind<Character>().FromInstance(_character).AsSingle();
+
             Container.Bind<BulletSpawnInstaller>().FromInstance(_bulletSpawner).AsSingle();
             Container.Bind<SpawnInstaller>().FromInstance(_spawnZombie).AsSingle();
-            Container.Bind<CharacterVisual>().AsSingle();
-            Container.Bind<BulletInitInEcsWorld>().AsSingle().NonLazy();
+            Container.Bind<PlayerSetHealth>().AsSingle().NonLazy();
+            Container.Bind<HitEvents>().FromComponentInHierarchy().AsSingle();
+
+            Container.BindInterfacesAndSelfTo<CameraController>().AsSingle();
             Container.BindInterfacesAndSelfTo<InputManager>().AsSingle();
             Container.BindInterfacesAndSelfTo<CharacterInputController>().AsSingle();
             Container.BindInterfacesAndSelfTo<AttackCharacter>().AsSingle().NonLazy();
-            Container.Bind<Camera>().FromInstance(_mainCamera).AsSingle();
-            Container.BindInterfacesAndSelfTo<CameraController>().AsSingle();
-            Container.Bind<PlayerHit>().AsSingle().NonLazy();
-            Container.Bind<HitEvents>().FromComponentInHierarchy().AsSingle();
+
+            Container.Bind<CharacterVisual>().AsSingle();
+            Container.Bind<BulletInitInEcsWorld>().AsSingle().NonLazy();
             Container.Bind<DeathPlayer>().AsSingle().NonLazy();
             Container.Bind<StartVawe>().AsSingle().NonLazy();
-            Container.Bind<ShoopView>().AsSingle().NonLazy();
-            Container.Bind<ShoopNoBuyTimer>().AsSingle();
-            
         }
     }
 }

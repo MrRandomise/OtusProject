@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -823,7 +823,8 @@ GameObject:
   - component: {fileID: 124174760}
   - component: {fileID: 124174759}
   - component: {fileID: 124174761}
-  - component: {fileID: 124174762}
+  - component: {fileID: 124174763}
+  - component: {fileID: 124174764}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -846,7 +847,8 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 124174761}
-  - {fileID: 124174762}
+  - {fileID: 124174763}
+  - {fileID: 124174764}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -895,7 +897,7 @@ MonoBehaviour:
   _bulletSpawner: {fileID: 319178491}
   _spawnZombie: {fileID: 808649030}
   _mainCamera: {fileID: 963194227}
---- !u!114 &124174762
+--- !u!114 &124174763
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -904,11 +906,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 124174758}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0e0b50a5c50bf74c896fc4b686d9f4f, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f78c9e0d0bd98b438971ef713678f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _startVaweButton: {fileID: 1306507267}
   _shoopMono: {fileID: 974872044}
+--- !u!114 &124174764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124174758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c78ccc707f87c42acec59141d222d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &152687322
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3833,7 +3847,7 @@ MonoBehaviour:
   _target: {fileID: 2003170727}
   _wave: 1
   _spawnTimeout: 0.5
-  _countZombie: 5
+  _countZombie: 0
   _buyMenu: {fileID: 1306507265}
   _readyTimer: 0.1
 --- !u!114 &808649031
@@ -5533,7 +5547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7289018260171597468, guid: 3a148360ff0324d149a8141687e071a4, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -500.90088
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7289018260171597468, guid: 3a148360ff0324d149a8141687e071a4, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -5734,6 +5748,11 @@ Transform:
   - {fileID: 394494691}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1253232313 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4135920720483944021, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
+  m_PrefabInstance: {fileID: 5315083156906744608}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1306507265
 GameObject:
   m_ObjectHideFlags: 0
@@ -6768,7 +6787,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1555597950
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8877,6 +8896,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 83975353}
     m_Modifications:
+    - target: {fileID: 615016950503653382, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
+      propertyPath: WeaponPoint
+      value: 
+      objectReference: {fileID: 1253232313}
     - target: {fileID: 615016950503653382, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
       propertyPath: CurrentWeapon
       value: 

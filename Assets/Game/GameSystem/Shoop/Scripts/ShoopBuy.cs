@@ -1,4 +1,4 @@
-using OtusProject.Config.Weapon;
+using OtusProject.ItemSystem;
 using OtusProject.View;
 using System;
 using UnityEngine;
@@ -27,14 +27,19 @@ namespace OtusProject.ShoopSystem
             if(_config.Resource.GetCountResources() < _config.Price && _view.PriceText.color != _colorError)
             {
                 _view.PriceText.color = _colorError;
-                _timer.Start(ref _view.PriceText);
             }
             else if(_config.Resource.GetCountResources() >= _config.Price)
             {
                 _view.PriceText.color = _colorAccept;
-
-                Remove();
+                _config.Resource.SetCountResources(-_config.Price);
+                _config.SetCurrBuy();
+                _config.UseItem();
+                if (_config.MaxBuy <= _config.GetCurrBuy())
+                {
+                    Remove();
+                }
             }
+            _timer.Start(ref _view.PriceText);
         }
 
         public void Remove()

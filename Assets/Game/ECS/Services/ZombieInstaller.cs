@@ -9,6 +9,7 @@ namespace OtusProject.Content
     {
         [SerializeField] private NavMeshAgent _agent;
         [SerializeField] private int _health;
+        public int Damage;
         [SerializeField] private float _moveSpeed;
         [SerializeField] private float _rotateSpeed;
         [SerializeField] private float _attackDistance;

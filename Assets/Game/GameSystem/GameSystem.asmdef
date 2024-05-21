@@ -1,11 +1,11 @@
 {
-    "name": "GameSystem",
+    "name": "World",
     "rootNamespace": "",
     "references": [
-        "GUID:6055be8ebefd69e48b49212b09b47b2f",
-        "GUID:12b0c6b189605334bb780fa0a2b6450e",
         "GUID:b27023c2f9ea460c8b9d5ec3ff6c9f2c",
-        "GUID:31976cc9e85bdd9459e856fcb40d0d50"
+        "GUID:12b0c6b189605334bb780fa0a2b6450e",
+        "GUID:23eed6c2401dca1419d1ebd180e58c5a",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

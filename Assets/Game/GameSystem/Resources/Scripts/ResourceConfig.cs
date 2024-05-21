@@ -10,12 +10,13 @@ namespace OtusProject.RecourcesConfig
         [SerializeField] private string _nameResources;
         public int GetCountResources()
         {
+            Resources.UnloadUnusedAssets();
             return _ammount;
         }
 
         public void SetCountResources(int count)
         {
-            _ammount = count;
+            _ammount += count;
             Resources.UnloadUnusedAssets();
         }
 

@@ -1,4 +1,4 @@
-using OtusProject.Config.Weapon;
+using OtusProject.ItemSystem;
 using System.Collections.Generic;
 using UnityEngine;
 using OtusProject.View;

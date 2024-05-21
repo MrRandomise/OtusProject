@@ -1,6 +1,6 @@
 using Zenject;
 using OtusProject.View;
-using OtusProject.Config.Weapon;
+using OtusProject.ItemSystem;
 using UnityEngine;
 
 namespace OtusProject.ShoopSystem
