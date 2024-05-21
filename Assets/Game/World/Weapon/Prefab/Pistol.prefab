@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5498509140754455304}
   - component: {fileID: 2605837768546706631}
   - component: {fileID: 5905733044301943236}
-  - component: {fileID: -1137435395127961445}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -85,22 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-1137435395127961445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 452710341269070765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cdaecfc3f811ce4dadbcbf29e461d0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WeaponConfig: {fileID: 11400000, guid: 1c01867a112b21041b81d7db5ecc4ca8, type: 2}
-  BulletConfig: {fileID: 11400000, guid: 32795c1b4ffa5734b97845d05f5d770c, type: 2}
-  BulletPoint: {fileID: 1739950884610806572}
-  BulletPool: {fileID: 0}
 --- !u!1 &8187188866069551225
 GameObject:
   m_ObjectHideFlags: 0

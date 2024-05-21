@@ -3,8 +3,6 @@ using Zenject;
 using System;
 using UnityEngine;
 using OtusProject.Player;
-using Leopotam.EcsLite.Entities;
-using OtusProject.Content;
 
 namespace OtusProject.PlayerInput
 {

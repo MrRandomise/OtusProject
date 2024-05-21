@@ -9,6 +9,7 @@ using OtusProject.Visual;
 using OtusProject.Config.Weapon;
 using OtusProject.Content;
 using OtusProject.View;
+using OtusProject.ShoopSystem;
 
 namespace OtusProject.Installer
 {
@@ -35,6 +36,9 @@ namespace OtusProject.Installer
             Container.Bind<HitEvents>().FromComponentInHierarchy().AsSingle();
             Container.Bind<DeathPlayer>().AsSingle().NonLazy();
             Container.Bind<StartVawe>().AsSingle().NonLazy();
+            Container.Bind<ShoopView>().AsSingle().NonLazy();
+            Container.Bind<ShoopNoBuyTimer>().AsSingle();
+            
         }
     }
 }

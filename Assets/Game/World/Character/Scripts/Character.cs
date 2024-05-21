@@ -21,6 +21,7 @@ namespace OtusProject.Player
         {
             _movementCharacter = new Movement(this);
             _rotateCharacter = new RotateCharacter(this);
+            CurrentWeapon.UseItem();
         }
 
         private void Update()
