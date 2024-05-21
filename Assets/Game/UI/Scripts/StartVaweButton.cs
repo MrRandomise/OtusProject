@@ -7,7 +7,9 @@ namespace OtusProject.View
 {
     public sealed class StartVaweButton : MonoBehaviour
     {
-        public Button StartButton;
         public GameObject Menu;
+        public Button StartButton;
+        public Transform Content;
+        public GameObject ContentPrefab;
     }
 }

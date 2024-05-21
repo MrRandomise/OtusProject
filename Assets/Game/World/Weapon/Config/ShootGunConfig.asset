@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8749f322a12722d468c0d81b95039c78, type: 3}
   m_Name: ShootGunConfig
   m_EditorClassIdentifier: 
+  WeaponIcon: {fileID: 21300000, guid: 2e1e07977f552274b921a72396b96f43, type: 3}
   MaxAmmo: 10
   CurrAmmo: 0
   FireRate: 2
