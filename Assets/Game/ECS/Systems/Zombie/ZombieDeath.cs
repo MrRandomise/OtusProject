@@ -9,7 +9,7 @@ namespace OtusProject.System.Zombie
 {
     internal sealed class ZombieDeath : IEcsRunSystem 
     {        
-        private readonly EcsFilterInject<Inc<ZombieHealth>, Exc<DeadTag>> _filter;
+        private readonly EcsFilterInject<Inc<ZombieCurrHealth>, Exc<InactiveTag, DeadTag>> _filter;
         private readonly EcsPoolInject<DeathEvent> _deadEvent;
         private readonly EcsPoolInject<DeadTag> _deadTag;
         private readonly EcsPoolInject<MoveEvent> _moveEvent;

@@ -8,7 +8,6 @@ namespace OtusProject.Installer
     {
         [SerializeField] private StartVaweButton _startVaweButton;
         [SerializeField] private ShoopMono _shoopMono;
-
         public override void InstallBindings()
         {
             Container.Bind<StartVaweButton>().FromInstance(_startVaweButton).AsSingle();

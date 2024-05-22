@@ -15,10 +15,9 @@ namespace Client {
         private float _currTime = 0;
         public void Run (IEcsSystems systems) 
         {
-            _currTime += Time.deltaTime;
-
             foreach (var entity in _filter.Value)
             {
+                _currTime += Time.deltaTime;
                 foreach (var spawn in _spawnData.Value) 
                 {
                     var spawnCount = _spawnData.Pools.Inc1.Get(spawn);

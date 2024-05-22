@@ -10,18 +10,18 @@ namespace OtusProject.System.Pools
 {
     sealed class ZombiesPools : IEcsRunSystem 
     {
-        private readonly EcsFilterInject<Inc<ZombieAddPoolRequest, ZombieDeathTimeout, ZombieTransform>> _filter;
+        private readonly EcsFilterInject<Inc<ZombieAddPoolRequest, ZombieDeathTimeout, ZombieTransform, ZombieDeathCurrTimeout>> _filter;
         private readonly EcsFilterInject<Inc<SpawnInActivePool>> _pool;
         private readonly EcsPoolInject<ZombieAddPoolRequest> _poolRequest;
         private readonly EcsPoolInject<InactiveTag> _inactiveTag;
-        private float _currTimer = 0;
         public void Run (IEcsSystems systems) 
         {
-            _currTimer += Time.deltaTime;
             foreach (var entity in _filter.Value) 
             {
                 var timer = _filter.Pools.Inc2.Get(entity);
+                ref var _currTimer = ref _filter.Pools.Inc4.Get(entity).Value;
                 ref var zombieTransform = ref _filter.Pools.Inc3.Get(entity).Value;
+                _currTimer += Time.deltaTime;
                 foreach (var pool in _pool.Value)
                 {
                     var inActivePool = _pool.Pools.Inc1.Get(pool);
@@ -29,8 +29,8 @@ namespace OtusProject.System.Pools
                     {
                         zombieTransform.SetParent(inActivePool.Value);
                         _inactiveTag.Value.Add(entity);
-                        _currTimer = 0;
                         _poolRequest.Value.Del(entity);
+                        _currTimer = 0;
                     }
                 }
             }

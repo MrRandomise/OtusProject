@@ -12,17 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cfc376b0c7018c419774c5c2cf6534b, type: 3}
   m_Name: Rifle
   m_EditorClassIdentifier: 
+  Name: Health
   ItemIcon: {fileID: 21300000, guid: a724b2d4744fc724f98f1fe6998d5614, type: 3}
-  Item:
-    mode: 0
-    unityReference: {fileID: 9094972893169885427, guid: e3ea89475fe28814ead825a1e3b3bd77, type: 3}
-    rawReference:
-      rid: -2
   Resource: {fileID: 11400000, guid: 5166c047f099f7346ba762483116530c, type: 2}
   Price: 2
   MaxBuy: 1
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }

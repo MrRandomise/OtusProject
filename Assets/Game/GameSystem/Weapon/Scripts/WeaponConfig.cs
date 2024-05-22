@@ -8,6 +8,7 @@ namespace OtusProject.Config.Weapons
         public int MaxAmmo;
         public int CurrAmmo;
         public float FireRate;
+        public float ReloadTime;
         public string UseKey;
     }
 }

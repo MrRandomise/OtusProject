@@ -20,6 +20,8 @@ namespace OtusProject.Content
         [SerializeField] private GameObject _buyMenu;
         [SerializeField] private float _readyTimer;
         [SerializeField] private float _openShoopTimer;
+        [SerializeField] private Transform _activePool;
+        [SerializeField] private Transform _inActivePool;
 
         protected override void Install(Entity entity)
         {
@@ -34,6 +36,8 @@ namespace OtusProject.Content
             entity.AddData(new SpawnReadyTimer { Value = _readyTimer });
             entity.AddData(new SpawnOpenShoopTimer { Value = _openShoopTimer });
             entity.AddData(new StartWaveRequest ());
+            entity.AddData(new SpawnActivePool { Value = _activePool });
+            entity.AddData(new SpawnInActivePool { Value = _inActivePool });
         }
 
         protected override void Dispose(Entity entity)

@@ -9,10 +9,9 @@ namespace OtusProject.System.Zombie
 {
     internal sealed class ZombieControl : IEcsRunSystem 
     {
-        private readonly EcsFilterInject<Inc<ZombieAttackDistance, ZombiePosition, ZombieTarget>, Exc<DeadTag>> _filter;
+        private readonly EcsFilterInject<Inc<ZombieAttackDistance, ZombiePosition, ZombieTarget>, Exc<InactiveTag, DeadTag, DeathEvent>> _filter;
         private readonly EcsPoolInject<MoveEvent> _moveEvent;
         private readonly EcsPoolInject<AttackEvent> _attackEvent;
-        private readonly EcsPoolInject<DeathEvent> _deadEvent;
 
         public void Run (IEcsSystems systems) 
         {
@@ -20,16 +19,13 @@ namespace OtusProject.System.Zombie
             {
                 var attackDist = _filter.Pools.Inc1.Get(entity).Value;
                 var dist = Vector3.Distance(_filter.Pools.Inc3.Get(entity).Value.position, _filter.Pools.Inc2.Get(entity).Value);
-                if (!_deadEvent.Value.Has(entity))
+                if (dist <= attackDist)
                 {
-                    if (dist <= attackDist)
-                    {
-                        _attackEvent.Value.Add(entity);
-                    }
-                    else
-                    {
-                        _moveEvent.Value.Add(entity);
-                    }
+                    _attackEvent.Value.Add(entity);
+                }
+                else
+                {
+                    _moveEvent.Value.Add(entity);
                 }
             }
         }

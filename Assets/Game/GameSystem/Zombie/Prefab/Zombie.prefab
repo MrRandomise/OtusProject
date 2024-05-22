@@ -422,8 +422,8 @@ MonoBehaviour:
   _agent: {fileID: 7007686832770771309}
   _health: 1
   _moveSpeed: 5
-  _rotateSpeed: 1
-  _attackDistance: 1.3
+  _rotateSpeed: 5
+  _attackDistance: 1.7
   _animator: {fileID: 9198989304959435544}
   _drop: {fileID: 5447127537220448505, guid: a53c00387ea4aeb49b20ba739e33ba9a, type: 3}
   _deathTimeout: 3

@@ -29,11 +29,14 @@ namespace OtusProject.Content
             entity.AddData(new ZombieTag { Value = "Zombie" });
             entity.AddData(new ZombieTransform { Value = transform });
             entity.AddData(new ZombieHealth { Value = _health });
+            entity.AddData(new ZombieCurrHealth { Value = _health });
             entity.AddData(new ZombiePosition { Value = transform.position });
             entity.AddData(new ZombieAttackDistance { Value = _attackDistance });
             entity.AddData(new ZombieAnimator { Value = _animator });
             entity.AddData(new ZombieDrop { Value = _drop });
             entity.AddData(new ZombieDeathTimeout { Value = _deathTimeout });
+            entity.AddData(new ZombieDeathCurrTimeout { Value = 0 });
+
         }
 
         protected override void Dispose(Entity entity)

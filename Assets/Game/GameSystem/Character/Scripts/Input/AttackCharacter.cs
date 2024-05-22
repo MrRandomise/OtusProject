@@ -12,6 +12,7 @@ namespace OtusProject.PlayerInput
         private Weapon _weapon;
         private float _currFireRate;
         private BulletInitInEcsWorld _bulletInstaller;
+        public event Action OnReload;
 
         [Inject]
         private void Construct(Character character, CharacterInputController charInput, BulletInitInEcsWorld bulletInstaller)
@@ -30,11 +31,18 @@ namespace OtusProject.PlayerInput
 
         public void AttackRequest()
         {
-            if (_currFireRate >= _weapon.WeaponConfig.FireRate && _weapon.WeaponConfig.CurrAmmo > 0)
+            if (_weapon.WeaponConfig.CurrAmmo > 0)
             {
-                _weapon.WeaponConfig.CurrAmmo -= 1;
-                _currFireRate = 0;
-                _bulletInstaller.BulletInitial(_weapon);
+                if (_currFireRate >= _weapon.WeaponConfig.FireRate)
+                {
+                    _weapon.WeaponConfig.CurrAmmo -= 1;
+                    _currFireRate = 0;
+                    _bulletInstaller.BulletInitial(_weapon);
+                }
+            }
+            else
+            {
+                OnReload?.Invoke();
             }
         }
 

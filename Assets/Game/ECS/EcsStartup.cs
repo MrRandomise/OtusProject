@@ -28,32 +28,31 @@ namespace EcsEngine
             _systems
                 //Systems
                 .Add(new ZombieStartSpawn())
-                .Add(new ZombiesRespawn())
                 .Add(new ZombieSpawnSystem())
-                .Add(new ZombieControl())
+                .Add(new ZombiesRespawn())
                 .Add(new ZombieTakeDamage())
                 .Add(new ZombieDeath())
                 .Add(new ZombieDropSystem())
-                .Add(new ZombieMoviement())
                 .Add(new ZombieEndWave())
                 .Add(new ZombiesPools())
+                .Add(new ZombieControl())
+                .Add(new ZombieMoviement())
                 .Add(new BulletSpawn())
                 .Add(new BulletHit())
                 .Add(new BulletMove())
-
                 //Views
                 .Add(new AnimatorZombieSystem())
                 .Add(new TransformViewSystem())
+                .Add(new OpenBuyMenu())
 #if UNITY_EDITOR
                 .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
 #endif
-
                 .DelHere<AttackEvent>()
                 .DelHere<MoveEvent>()
                 .DelHere<SpawnEvents>()
                 .DelHere<DeathEvent>()
-                .DelHere<RespawnEvent>();
-            
+                .DelHere<RespawnEvent>()
+                .DelHere<GameOverEvent>();
         }
 
         private void Start()
