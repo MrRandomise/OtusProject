@@ -1,6 +1,5 @@
 using System;
 using Zenject;
-using OtusProject.Player.Hit;
 
 namespace OtusProject.Player.Death
 {

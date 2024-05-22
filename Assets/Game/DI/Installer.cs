@@ -3,13 +3,11 @@ using Zenject;
 using OtusProject.CoreCamera;
 using OtusProject.Player;
 using OtusProject.PlayerInput;
-using OtusProject.Player.Hit;
 using OtusProject.Player.Death;
 using OtusProject.Visual;
 using OtusProject.Config.Weapons;
 using OtusProject.Content;
 using OtusProject.View;
-using OtusProject.ItemSystem;
 
 namespace OtusProject.Installer
 {
@@ -27,8 +25,7 @@ namespace OtusProject.Installer
 
             Container.Bind<BulletSpawnInstaller>().FromInstance(_bulletSpawner).AsSingle();
             Container.Bind<SpawnInstaller>().FromInstance(_spawnZombie).AsSingle();
-            Container.Bind<PlayerSetHealth>().AsSingle().NonLazy();
-            Container.Bind<HitEvents>().FromComponentInHierarchy().AsSingle();
+            Container.BindInterfacesAndSelfTo<PlayerSetHealth>().AsSingle().NonLazy();
 
             Container.BindInterfacesAndSelfTo<CameraController>().AsSingle();
             Container.BindInterfacesAndSelfTo<InputManager>().AsSingle();

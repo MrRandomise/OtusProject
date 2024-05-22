@@ -28,13 +28,16 @@ namespace OtusProject.ItemSystem
         public void SetCurrBuy()
         {
             currBuy++;
-            Debug.Log(currBuy);
-            Resources.UnloadUnusedAssets();
         }
 
         public int GetCurrBuy()
         {
             return currBuy;
+        }
+
+        private void OnDisable()
+        {
+            currBuy = 0;
         }
     }
 }

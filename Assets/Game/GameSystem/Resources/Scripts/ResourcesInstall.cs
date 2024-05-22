@@ -5,12 +5,15 @@ namespace OtusProject.RecourcesConfig
     public class ResourcesInstall : MonoBehaviour
     {
         [SerializeField] private ResourceConfig _resources;
+        [SerializeField] private int _ammount = 1;
 
         private void OnTriggerEnter(Collider other)
         {
-            var _count = _resources.GetCountResources() + 1;
-            _resources.SetCountResources(_count);
-            Destroy(gameObject);
+            if (other.CompareTag("Player"))
+            {
+                _resources.SetCountResources(_ammount);
+                Destroy(gameObject);
+            }
         }
     }
 }

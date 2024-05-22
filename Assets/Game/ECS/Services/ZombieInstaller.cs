@@ -7,14 +7,15 @@ namespace OtusProject.Content
 {
     public sealed class ZombieInstaller : EntityInstaller
     {
+        public int Damage;
         [SerializeField] private NavMeshAgent _agent;
         [SerializeField] private int _health;
-        public int Damage;
         [SerializeField] private float _moveSpeed;
         [SerializeField] private float _rotateSpeed;
         [SerializeField] private float _attackDistance;
         [SerializeField] private Animator _animator;
         [SerializeField] private GameObject _drop;
+        [SerializeField] private float _deathTimeout;
 
         private void Start()
         {
@@ -25,11 +26,14 @@ namespace OtusProject.Content
         protected override void Install(Entity entity)
         {
             entity.AddData(new ZombieNavAgent { Value = _agent });
+            entity.AddData(new ZombieTag { Value = "Zombie" });
+            entity.AddData(new ZombieTransform { Value = transform });
             entity.AddData(new ZombieHealth { Value = _health });
             entity.AddData(new ZombiePosition { Value = transform.position });
             entity.AddData(new ZombieAttackDistance { Value = _attackDistance });
             entity.AddData(new ZombieAnimator { Value = _animator });
             entity.AddData(new ZombieDrop { Value = _drop });
+            entity.AddData(new ZombieDeathTimeout { Value = _deathTimeout });
         }
 
         protected override void Dispose(Entity entity)

@@ -9,12 +9,14 @@ namespace OtusProject.ShoopSystem
     {
         private ShoopMono _shoopMono;
         private ItemsPanel _itemPanel;
+        private ShoopNoBuyTimer _timer;
 
         [Inject]
-        private void Construct(ShoopMono shoopMono)
+        private void Construct(ShoopMono shoopMono, ShoopNoBuyTimer timer)
         {
             _shoopMono = shoopMono;
             _itemPanel = _shoopMono.ContentPrefab;
+            _timer = timer;
             ShoopInitial();
         }
 
@@ -33,7 +35,7 @@ namespace OtusProject.ShoopSystem
             itemContent.Icon.sprite = item.ItemIcon;
             itemContent.CoinIcon.sprite = item.Resource.Icon;
             itemContent.PriceText.text = item.Price.ToString();
-            new ShoopBuy(item, itemContent);
+            new ShoopBuy(item, itemContent, _timer);
         }
     }
 }

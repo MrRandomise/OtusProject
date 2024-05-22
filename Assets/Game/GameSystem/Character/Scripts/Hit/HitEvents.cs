@@ -1,24 +1,25 @@
 using OtusProject.Content;
 using UnityEngine;
-using Zenject;
+using System;
 
-namespace OtusProject.Player.Hit
+namespace OtusProject.Zombie.Hit
 {
     public sealed class HitEvents : MonoBehaviour
     {
-        private PlayerSetHealth _setHealth;
-        [Inject]
-        private void Construct(PlayerSetHealth setHealth)
+        [SerializeField]private ZombieInstaller _installer;
+        public static event Action<int> OnHit;
+        private int _damage;
+
+        private void Awake()
         {
-            _setHealth = setHealth;
+            _damage = _installer.Damage;
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Enemy"))
+            if (other.CompareTag("Player"))
             {
-                var damage = other.GetComponent<ZombieInstaller>().Damage;
-                _setHealth.SetHealth(-damage);
+                OnHit?.Invoke(-_damage);
             }
         }
     }

@@ -10,6 +10,7 @@ using OtusProject.Systems.View;
 using OtusProject.System.Bullet;
 using EcsEngine.Systems.View;
 using Client;
+using OtusProject.System.Pools;
 
 namespace EcsEngine
 {
@@ -27,6 +28,7 @@ namespace EcsEngine
             _systems
                 //Systems
                 .Add(new ZombieStartSpawn())
+                .Add(new ZombiesRespawn())
                 .Add(new ZombieSpawnSystem())
                 .Add(new ZombieControl())
                 .Add(new ZombieTakeDamage())
@@ -34,6 +36,7 @@ namespace EcsEngine
                 .Add(new ZombieDropSystem())
                 .Add(new ZombieMoviement())
                 .Add(new ZombieEndWave())
+                .Add(new ZombiesPools())
                 .Add(new BulletSpawn())
                 .Add(new BulletHit())
                 .Add(new BulletMove())
@@ -48,7 +51,9 @@ namespace EcsEngine
                 .DelHere<AttackEvent>()
                 .DelHere<MoveEvent>()
                 .DelHere<SpawnEvents>()
-                .DelHere<DeathEvent>();
+                .DelHere<DeathEvent>()
+                .DelHere<RespawnEvent>();
+            
         }
 
         private void Start()

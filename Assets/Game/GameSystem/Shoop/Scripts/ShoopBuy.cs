@@ -12,14 +12,14 @@ namespace OtusProject.ShoopSystem
         private ShoopNoBuyTimer _timer;
         private Color _colorError = Color.red;
         private Color _colorAccept = Color.green;
-        
 
-        public ShoopBuy(ItemConfig config, ItemsPanel view)
+        
+        public ShoopBuy(ItemConfig config, ItemsPanel view, ShoopNoBuyTimer timer)
         {
             _config = config;
             _view = view;
             _view.BuyButton.onClick.AddListener(ClickButton);
-            _timer = new ShoopNoBuyTimer();
+            _timer = timer;
         }
 
         private void ClickButton()

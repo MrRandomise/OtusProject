@@ -15,6 +15,7 @@ namespace OtusProject.System.Zombie
         private readonly EcsPoolInject<MoveEvent> _moveEvent;
         private readonly EcsPoolInject<ZombieDeathRequest> _dethRequest;
         private readonly EcsPoolInject<ZombieDropRequest> _dropRequest;
+        private readonly EcsPoolInject<ZombieAddPoolRequest> _poolRequest;
         public void Run (IEcsSystems systems) 
         {
             foreach (var entity in _filter.Value)
@@ -25,6 +26,7 @@ namespace OtusProject.System.Zombie
                     _deadEvent.Value.Add(entity);
                     _dethRequest.Value.Add(entity);
                     _dropRequest.Value.Add(entity);
+                    _poolRequest.Value.Add(entity);
                     _moveEvent.Value.Del(entity);
                 }
             }

@@ -6,7 +6,7 @@ namespace OtusProject.ShoopSystem
 {
     public class ShoopNoBuyTimer : ITickable
     {
-        private Color _colorNormal = Color.red;
+        private Color _colorNormal = Color.white;
         private TMP_Text _text;
         private float _stopTimer = 2;
         private float _currTimer = 0;
@@ -18,7 +18,6 @@ namespace OtusProject.ShoopSystem
             _currTimer = 0;
             _startTimer = true;
         }
-
         private void Stop()
         {
             _text.color =  _colorNormal;
@@ -30,7 +29,7 @@ namespace OtusProject.ShoopSystem
             if (_startTimer)
             {
                 _currTimer += Time.deltaTime;
-                if(_currTimer >= _stopTimer)
+                if (_currTimer >= _stopTimer)
                 {
                     Stop();
                 }

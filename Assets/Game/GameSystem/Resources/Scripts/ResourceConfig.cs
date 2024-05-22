@@ -8,16 +8,15 @@ namespace OtusProject.RecourcesConfig
         public Sprite Icon;
         [SerializeField] private int _ammount;
         [SerializeField] private string _nameResources;
+        private int _currAmoutn;
         public int GetCountResources()
         {
-            Resources.UnloadUnusedAssets();
-            return _ammount;
+            return _currAmoutn;
         }
 
         public void SetCountResources(int count)
         {
-            _ammount += count;
-            Resources.UnloadUnusedAssets();
+            _currAmoutn += count;
         }
 
         public string GetNameResources()
@@ -25,7 +24,11 @@ namespace OtusProject.RecourcesConfig
             return _nameResources;
         }
 
-        
+        private void OnDisable()
+        {
+            _currAmoutn = _ammount;
+        }
+
     }
 }
 

@@ -14,7 +14,7 @@ namespace OtusProject.Installer
             Container.Bind<StartVaweButton>().FromInstance(_startVaweButton).AsSingle();
             Container.Bind<ShoopMono>().FromInstance(_shoopMono).AsSingle();
             Container.Bind<ShoopView>().AsSingle().NonLazy();
-            Container.Bind<ShoopNoBuyTimer>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ShoopNoBuyTimer>().AsSingle().NonLazy();
         }
     }
 }

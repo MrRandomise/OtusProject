@@ -5,6 +5,7 @@ using UnityEngine;
 using OtusProject.Component.Zombie;
 using OtusProject.Component.View;
 using OtusProject.Component.Request;
+using Client;
 
 namespace OtusProject.Content
 {
@@ -18,6 +19,8 @@ namespace OtusProject.Content
         [SerializeField] private int _countZombie;
         [SerializeField] private GameObject _buyMenu;
         [SerializeField] private float _readyTimer;
+        [SerializeField] private float _openShoopTimer;
+
         protected override void Install(Entity entity)
         {
             entity.AddData(new BuyMenu { Value = _buyMenu });
@@ -29,6 +32,7 @@ namespace OtusProject.Content
             entity.AddData(new SpawnCountZombie { Value = _countZombie });
             entity.AddData(new ZombieCurrCount { Value = _countZombie });
             entity.AddData(new SpawnReadyTimer { Value = _readyTimer });
+            entity.AddData(new SpawnOpenShoopTimer { Value = _openShoopTimer });
             entity.AddData(new StartWaveRequest ());
         }
 

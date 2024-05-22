@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3847,9 +3847,10 @@ MonoBehaviour:
   _target: {fileID: 2003170727}
   _wave: 1
   _spawnTimeout: 0.5
-  _countZombie: 0
+  _countZombie: 2
   _buyMenu: {fileID: 1306507265}
   _readyTimer: 0.1
+  _openShoopTimer: 2
 --- !u!114 &808649031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5547,7 +5548,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7289018260171597468, guid: 3a148360ff0324d149a8141687e071a4, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -500.90088
       objectReference: {fileID: 0}
     - target: {fileID: 7289018260171597468, guid: 3a148360ff0324d149a8141687e071a4, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -5769,7 +5770,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1306507266
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8968,7 +8969,8 @@ PrefabInstance:
       propertyPath: BulletInActiovPool
       value: 
       objectReference: {fileID: 1688105109}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 772567685419143362, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
