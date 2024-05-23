@@ -12,7 +12,6 @@ namespace OtusProject.ShoopSystem
         private ShoopNoBuyTimer _timer;
         private Color _colorError = Color.red;
         private Color _colorAccept = Color.green;
-
         
         public ShoopBuy(ItemConfig config, ItemsPanel view, ShoopNoBuyTimer timer)
         {

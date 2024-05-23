@@ -7,7 +7,7 @@ using OtusProject.Component.Zombie;
 namespace OtusProject.System.Bullet
 {
     internal sealed class BulletMove : IEcsRunSystem {
-        private readonly EcsFilterInject<Inc<BulletSpeed, BulletLife, BulletPosition, MoveDirection>> _filter;
+        private readonly EcsFilterInject<Inc<BulletSpeed, BulletLife, BulletPosition, BulletMoveDirection>> _filter;
         public void Run (IEcsSystems systems) 
         {
             var currTime = Time.deltaTime;

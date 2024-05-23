@@ -4,7 +4,7 @@ using UnityEngine;
 namespace OtusProject.Component.Bullet
 {
     [Serializable]
-    public struct MoveDirection {
-         public Vector3 Value;
+    public struct BulletTransform {
+         public Transform Value;
     }
 }

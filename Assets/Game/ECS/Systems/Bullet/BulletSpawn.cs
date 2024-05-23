@@ -3,13 +3,12 @@ using Leopotam.EcsLite.Di;
 using Leopotam.EcsLite.Entities;
 using OtusProject.Component.Bullet;
 using OtusProject.Component.Events;
-using UnityEngine;
 
 namespace OtusProject.System.Bullet
 {
     internal sealed class BulletSpawn : IEcsRunSystem 
     {
-        private readonly EcsFilterInject<Inc<BulletPrefab, BulletSpawnPoint, BulletPool, BulletSpeed, BulletDamage, BulletLife>> _filter;
+        private readonly EcsFilterInject<Inc<BulletPrefab, BulletSpawnPoint, BulletActivePool, BulletSpeed, BulletDamage, BulletLife>> _filter;
         private readonly EcsCustomInject<EntityManager> _entityManager;
         private readonly EcsPoolInject<SpawnEvents> _bulletEvent;
 
@@ -30,7 +29,7 @@ namespace OtusProject.System.Bullet
                     newBullet.GetData<BulletDamage>().Value = damage;
                     newBullet.GetData<BulletSpeed>().Value = speed;
                     newBullet.GetData<BulletLife>().Value = life;
-                    newBullet.GetData<MoveDirection>().Value = point.forward;
+                    newBullet.GetData<BulletMoveDirection>().Value = point.forward;
                 }
             }
         }

@@ -5,7 +5,8 @@ using UnityEngine;
 using OtusProject.Component.Zombie;
 using OtusProject.Component.View;
 using OtusProject.Component.Request;
-using Client;
+using OtusProject.View;
+using Zenject;
 
 namespace OtusProject.Content
 {
@@ -22,6 +23,15 @@ namespace OtusProject.Content
         [SerializeField] private float _openShoopTimer;
         [SerializeField] private Transform _activePool;
         [SerializeField] private Transform _inActivePool;
+        private ZombieView _zombieView;
+        private WaveView  _waveView;
+
+        [Inject]
+        private void Construct(ZombieView zombieView, WaveView waveView)
+        {
+            _zombieView = zombieView;
+            _waveView = waveView;
+        }
 
         protected override void Install(Entity entity)
         {
@@ -38,6 +48,8 @@ namespace OtusProject.Content
             entity.AddData(new StartWaveRequest ());
             entity.AddData(new SpawnActivePool { Value = _activePool });
             entity.AddData(new SpawnInActivePool { Value = _inActivePool });
+            entity.AddData(new ZombieViewComponent { Value = _zombieView });
+            entity.AddData(new WaveViewComponent { Value = _waveView });
         }
 
         protected override void Dispose(Entity entity)

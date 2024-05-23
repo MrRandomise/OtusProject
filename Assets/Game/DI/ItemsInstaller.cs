@@ -1,5 +1,4 @@
 using OtusProject.ItemSystem;
-using OtusProject.ShoopSystem;
 using Zenject;
 
 namespace OtusProject.Installer

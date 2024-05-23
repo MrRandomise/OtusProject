@@ -17,7 +17,7 @@ namespace OtusProject.Content
             entity.AddData(new BulletDamage ());
             entity.AddData(new BulletSpeed ());
             entity.AddData(new BulletLife ());
-            entity.AddData(new BulletPool { Value = _bulletPool });
+            entity.AddData(new BulletActivePool { Value = _bulletPool });
             entity.AddData(new BulletInActivePool { Value = _bulletInActivePool });
             entity.AddData(new BulletSpawnPoint { });
         }

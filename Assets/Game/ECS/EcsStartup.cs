@@ -37,22 +37,29 @@ namespace EcsEngine
                 .Add(new ZombiesPools())
                 .Add(new ZombieControl())
                 .Add(new ZombieMoviement())
+                .Add(new ZombieRotateInAttack())
                 .Add(new BulletSpawn())
                 .Add(new BulletHit())
                 .Add(new BulletMove())
+                .Add(new BulletHitDamage())
+                .Add(new BulletPool())
                 //Views
                 .Add(new AnimatorZombieSystem())
                 .Add(new TransformViewSystem())
                 .Add(new OpenBuyMenu())
+                .Add(new ChangeView())
 #if UNITY_EDITOR
                 .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
+
 #endif
                 .DelHere<AttackEvent>()
                 .DelHere<MoveEvent>()
                 .DelHere<SpawnEvents>()
                 .DelHere<DeathEvent>()
                 .DelHere<RespawnEvent>()
-                .DelHere<GameOverEvent>();
+                .DelHere<BulletHitEvent>()
+                .DelHere<GameOverEvent>()
+                .DelHere<ChangeViewEvent>();
         }
 
         private void Start()

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace OtusProject.View
 {
-    public class ItemsPanel : MonoBehaviour
+    public sealed class ItemsPanel : MonoBehaviour
     {
         public Image Icon;
         public Button BuyButton;
