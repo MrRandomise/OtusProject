@@ -2,9 +2,8 @@ using System;
 
 namespace OtusProject.Weapons
 {
-    interface IRangeWeapon
+    public interface IRangeWeapon
     {
-        event Action OnReload;
         void Reload();
     }
 }

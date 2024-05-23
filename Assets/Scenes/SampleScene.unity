@@ -794,7 +794,6 @@ GameObject:
   - component: {fileID: 124174759}
   - component: {fileID: 124174761}
   - component: {fileID: 124174763}
-  - component: {fileID: 124174764}
   - component: {fileID: 124174765}
   m_Layer: 0
   m_Name: SceneContext
@@ -819,7 +818,6 @@ MonoBehaviour:
   _monoInstallers:
   - {fileID: 124174761}
   - {fileID: 124174763}
-  - {fileID: 124174764}
   - {fileID: 124174765}
   _installerPrefabs: []
   _autoRun: 1
@@ -884,18 +882,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startVaweButton: {fileID: 1306507267}
   _shoopMono: {fileID: 974872044}
---- !u!114 &124174764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 124174758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60c78ccc707f87c42acec59141d222d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &124174765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5720,7 +5706,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 974872043}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.44516087, y: 0.7515851, z: 0.96748674}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6604,7 +6590,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7289018260171597468, guid: 3a148360ff0324d149a8141687e071a4, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -500.90088
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7289018260171597468, guid: 3a148360ff0324d149a8141687e071a4, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -6918,7 +6904,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1306507266
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11007,8 +10993,8 @@ SceneRoots:
   - {fileID: 964186342}
   - {fileID: 1153476846}
   - {fileID: 83975353}
-  - {fileID: 1242263461}
   - {fileID: 974872045}
+  - {fileID: 1242263461}
   - {fileID: 1126398867}
   - {fileID: 124174760}
   - {fileID: 1444006715}

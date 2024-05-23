@@ -1,7 +1,6 @@
 using OtusProject.Player.Death;
 using System;
 using Zenject;
-using UnityEngine;
 using OtusProject.Content;
 using Leopotam.EcsLite.Entities;
 using OtusProject.Component.Events;

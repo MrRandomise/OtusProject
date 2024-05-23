@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 013f64f134549884b8ce9507bcbf0b5f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -124,6 +124,7 @@ MonoBehaviour:
   WeaponConfig: {fileID: 11400000, guid: 11418cb789f356948b7e0316de1bf860, type: 2}
   BulletConfig: {fileID: 11400000, guid: 32795c1b4ffa5734b97845d05f5d770c, type: 2}
   BulletPoint: {fileID: 8570392928536075715}
+  Active: 0
 --- !u!1 &4289886427349453488
 GameObject:
   m_ObjectHideFlags: 0

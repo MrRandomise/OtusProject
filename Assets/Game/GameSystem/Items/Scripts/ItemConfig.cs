@@ -6,12 +6,9 @@ namespace OtusProject.ItemSystem
     [CreateAssetMenu(fileName = "Item", menuName = "Config/Item")]
     public sealed class ItemConfig : ScriptableObject
     {
+        [SerializeReference] public IItems Component;
         public string Name;
         public Sprite ItemIcon;
-
-        [SerializeField] public Items item;
-
-
         public ResourceConfig Resource;
         public int Price;
         public int MaxBuy;
@@ -19,7 +16,7 @@ namespace OtusProject.ItemSystem
 
         public void UseItem()
         {
-            item.Components.BuyItem();
+            Component.BuyItem();
         }
 
         public void SetCurrBuy()

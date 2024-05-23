@@ -3,20 +3,21 @@ using UnityEngine;
 using OtusProject.Player;
 using Zenject;
 
-
 namespace OtusProject.PlayerInput
 {
     public sealed class CharacterInputController : IDisposable, ITickable
     {
         private readonly InputManager _inputManager;
         private readonly Character _character;
-        private UseKey _lastKey = UseKey.Stop;
         public event Action OnFireRequest;
+        public event Action<KeyCode> OnChangeWeapon;
 
+        private bool _isMoving = false;
         public CharacterInputController(InputManager input, Character character)
         {
             _inputManager = input;
             _inputManager.OnUseKey += GetKey;
+            _inputManager.OnKeyboard += UseKeyBoard;
             _character = character;
         }
 
@@ -26,34 +27,33 @@ namespace OtusProject.PlayerInput
             {
                 OnFireRequest?.Invoke();
             }
-            _lastKey = key; 
+            if(key == UseKey.Move) 
+            {
+                _isMoving = true;
+            }
+            else if (key == UseKey.Stop)
+            {
+                _isMoving = false;
+                _character.MoveDirection = Vector3.zero;
+            }
+        }
+        private void UseKeyBoard(KeyCode code)
+        {
+            OnChangeWeapon?.Invoke(code);
         }
 
         public void Tick()
         {
-            _character.MoveDirection = GetDirection();
+            if(_isMoving)
+            {
+                _character.MoveDirection = _character.transform.forward;
+            }
+            
         }
 
         public void Dispose()
         {
             _inputManager.OnUseKey -= GetKey;
-        }
-
-        private Vector3 GetDirection()
-        {
-            switch (_lastKey)
-            {
-                case UseKey.Left:
-                    return -_character.transform.right;
-                case UseKey.Right:
-                    return _character.transform.right;
-                case UseKey.Forward:
-                    return _character.transform.forward;
-                case UseKey.Backward:
-                    return -_character.transform.forward;
-                default:
-                    return Vector3.zero;
-            }
         }
     }
 }

@@ -1,5 +1,6 @@
 using OtusProject.Config.Weapons;
 using OtusProject.PlayerInput;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace OtusProject.Player
@@ -20,6 +21,7 @@ namespace OtusProject.Player
         private void Awake()
         {
             CurrentWeapon.WeaponConfig.CurrAmmo = CurrentWeapon.WeaponConfig.MaxAmmo;
+            CurrentWeapon.Active = true;
             _movementCharacter = new Movement(this);
             _rotateCharacter = new RotateCharacter(this);
         }

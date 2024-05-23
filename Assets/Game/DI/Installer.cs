@@ -9,6 +9,7 @@ using OtusProject.Config.Weapons;
 using OtusProject.Content;
 using OtusProject.View;
 using OtusProject.GameOver;
+using OtusProject.ItemSystem;
 
 namespace OtusProject.Installer
 {
@@ -37,6 +38,7 @@ namespace OtusProject.Installer
             Container.BindInterfacesAndSelfTo<ReloadWeapon>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<DeathPlayer>().AsSingle().NonLazy();
 
+            Container.BindInterfacesAndSelfTo<HealthBottle>().AsSingle().NonLazy();
 
             Container.Bind<CharacterVisual>().AsSingle();
             Container.Bind<BulletInitInEcsWorld>().AsSingle().NonLazy();

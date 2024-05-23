@@ -1,13 +1,15 @@
 using OtusProject.Player;
+using System;
+using UnityEngine;
 using Zenject;
 
 namespace OtusProject.ItemSystem
 {
-    
+    [Serializable]
     public class HealthBottle : IItems
     {
         private static PlayerSetHealth _playerSetHealth;
-        private int _health = 1;
+        [SerializeField] private int _health = 1;
 
         [Inject]
         private void Construct(PlayerSetHealth playerSetHealth)
@@ -15,9 +17,10 @@ namespace OtusProject.ItemSystem
             _playerSetHealth = playerSetHealth;
         }
 
-        public void UseItem()
+        public void BuyItem()
         {
             _playerSetHealth.SetHealth(_health);
+            Debug.Log($"Вылечились на {_health}");
         }
     }
 }

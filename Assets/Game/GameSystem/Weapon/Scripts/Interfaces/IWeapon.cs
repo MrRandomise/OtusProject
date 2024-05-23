@@ -1,13 +1,10 @@
-using System;
+using UnityEngine;
 
 namespace OtusProject.Weapons
 {
-    interface IWeapon
+    public interface IWeapon
     {
-        event Action OnAttack;
-        event Action OnChangeWeapon;
-
-        void Attack();
-        void ChangeWeapon();
+        public void Attack();
+        public void ChangeWeapon(KeyCode code);
     }
 }

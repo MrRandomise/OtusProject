@@ -6,44 +6,40 @@ namespace OtusProject.PlayerInput
 {
     public enum UseKey
     {
-        Left,
-        Right,
-        Forward,
-        Backward,
         Stop,
-        Fire
+        Fire,
+        Move,
+        ChangeWeapon
     }
 
     public sealed class InputManager : ITickable
     {
         public Action<UseKey> OnUseKey;
-
+        public Action<KeyCode> OnKeyboard;
+        private readonly Array keyCodes = Enum.GetValues(typeof(KeyCode));
         public void Tick()
         {
             if (Input.GetMouseButtonUp(0))
             {
                 OnUseKey?.Invoke(UseKey.Fire);
             }
-
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetMouseButtonDown(1))
             {
-                OnUseKey?.Invoke(UseKey.Left);
+                OnUseKey?.Invoke(UseKey.Move);
             }
-            else if (Input.GetKey(KeyCode.D))
-            {
-                OnUseKey?.Invoke(UseKey.Right);
-            }
-            else if (Input.GetKey(KeyCode.W))
-            {
-                OnUseKey?.Invoke(UseKey.Forward);
-            }
-            else if (Input.GetKey(KeyCode.S))
-            {
-                OnUseKey?.Invoke(UseKey.Backward);
-            }
-            else
+            else if(Input.GetMouseButtonUp(1))
             {
                 OnUseKey?.Invoke(UseKey.Stop);
+            }
+            if (Input.anyKey)
+            {
+                foreach (KeyCode keyCode in keyCodes)
+                {
+                    if (Input.GetKeyUp(keyCode))
+                    {
+                        OnKeyboard?.Invoke(keyCode);
+                    }
+                }
             }
         }
     }

@@ -12,18 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cfc376b0c7018c419774c5c2cf6534b, type: 3}
   m_Name: Pistol
   m_EditorClassIdentifier: 
-  Name: Health
+  Component:
+    rid: 4185657684161462287
+  Name: Pistol
   ItemIcon: {fileID: 21300000, guid: 976467f6622997c4eba97caf397946b1, type: 3}
-  item:
-    name: Pistol
-    Components:
-      rid: 4185657684161462278
   Resource: {fileID: 11400000, guid: 5166c047f099f7346ba762483116530c, type: 2}
   Price: 0
   MaxBuy: 1
+  CurrBuy: 1
   references:
     version: 2
     RefIds:
-    - rid: 4185657684161462278
-      type: {class: Pistol, ns: OtusProject.ItemSystem, asm: World}
-      data: 
+    - rid: 4185657684161462287
+      type: {class: WeaponItems, ns: OtusProject.ItemSystem, asm: World}
+      data:
+        Weapon: {fileID: 452710341269070765, guid: 6e77e0a584e4b1e469f39f635bcae909, type: 3}
+        WeaponContainer: {fileID: 0}

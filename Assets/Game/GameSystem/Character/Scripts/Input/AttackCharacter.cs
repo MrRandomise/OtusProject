@@ -6,20 +6,17 @@ using OtusProject.Player;
 
 namespace OtusProject.PlayerInput
 {
-    public sealed class AttackCharacter: IDisposable, ITickable
+    public sealed class AttackCharacter: ITickable
     {
-        private CharacterInputController _charInput;
         private Weapon _weapon;
         private float _currFireRate;
         private BulletInitInEcsWorld _bulletInstaller;
         public event Action OnReload;
 
         [Inject]
-        private void Construct(Character character, CharacterInputController charInput, BulletInitInEcsWorld bulletInstaller)
+        private void Construct(Character character, BulletInitInEcsWorld bulletInstaller)
         {
             _weapon = character.CurrentWeapon;
-            _charInput = charInput;
-            _charInput.OnFireRequest += AttackRequest;
             _currFireRate = _weapon.WeaponConfig.FireRate;
             _bulletInstaller = bulletInstaller;
         }
@@ -44,11 +41,6 @@ namespace OtusProject.PlayerInput
             {
                 OnReload?.Invoke();
             }
-        }
-
-        public void Dispose()
-        {
-            _charInput.OnFireRequest -= AttackRequest;
         }
     }
 }
