@@ -1,6 +1,4 @@
 using OtusProject.Player;
-using System;
-using UnityEngine;
 using Zenject;
 
 namespace OtusProject.ItemSystem
@@ -8,7 +6,7 @@ namespace OtusProject.ItemSystem
     
     public class HealthBottle : IItems
     {
-        private PlayerSetHealth _playerSetHealth;
+        private static PlayerSetHealth _playerSetHealth;
         private int _health = 1;
 
         [Inject]

@@ -3,6 +3,7 @@ using Leopotam.EcsLite.Di;
 using OtusProject.Component.Zombie;
 using OtusProject.Component.Request;
 using OtusProject.Component.Spawn;
+using OtusProject.Component.Events;
 
 namespace OtusProject.System.Spawn
 {
@@ -14,6 +15,7 @@ namespace OtusProject.System.Spawn
         private readonly EcsPoolInject<ZombieDeathRequest> _zombieRequest;
         private readonly EcsPoolInject<BuyMenuRequest> _buyMenuRequest;
         private readonly int _minCountZombie = 1;
+
         public void Run(IEcsSystems systems)
         {
             foreach (var entity in _filter.Value)

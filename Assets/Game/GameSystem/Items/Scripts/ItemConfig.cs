@@ -8,36 +8,33 @@ namespace OtusProject.ItemSystem
     {
         public string Name;
         public Sprite ItemIcon;
-        public IItems Item;
+
+        [SerializeField] public Items item;
+
+
         public ResourceConfig Resource;
         public int Price;
         public int MaxBuy;
-        private int currBuy;
+        public int CurrBuy;
 
         public void UseItem()
         {
-            Item = FindItem();
-            Item.UseItem();
-        }
-
-        public IItems FindItem()
-        {
-            return Items.ItemsList.ContainsKey(Name) ? Items.ItemsList[Name]  : null;
+            item.Components.BuyItem();
         }
 
         public void SetCurrBuy()
         {
-            currBuy++;
+            CurrBuy++;
         }
 
         public int GetCurrBuy()
         {
-            return currBuy;
+            return CurrBuy;
         }
 
         private void OnDisable()
         {
-            currBuy = 0;
+            CurrBuy = 0;
         }
     }
 }

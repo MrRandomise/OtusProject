@@ -1,23 +1,31 @@
-using System.Collections.Generic;
+using System;
+using UnityEngine;
 using Zenject;
 
 namespace OtusProject.ItemSystem
 {
-    public class Items : IInitializable
+    [Serializable]
+    public sealed class Items
     {
-        public static Dictionary<string, IItems> ItemsList = new();
-        private IItems _health;
+        [SerializeField] private string name;
 
-        [Inject]
-        private void Construct(HealthBottle health)
+        [SerializeReference] public IItems Components;
+
+        public Items(
+            string name,
+            IItems components
+        )
         {
-            _health = health;
+            this.name = name;
+            Components = components;
         }
 
-        public void Initialize()
+        public string Name => name;
+
+        [Inject]
+        private void Construct()
         {
-            ItemsList.Add("Health", _health);
+            Debug.Log("test");
         }
     }
 }
-

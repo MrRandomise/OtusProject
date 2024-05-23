@@ -6,5 +6,7 @@ namespace OtusProject.Component.Events
     public struct ChangeViewEvent
     {
         public int Value;
+        public int ViewValue;
+
     }
 }

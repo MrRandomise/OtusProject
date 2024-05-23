@@ -1,6 +1,5 @@
 using OtusProject.Config.Weapons;
 using OtusProject.PlayerInput;
-using System;
 using UnityEngine;
 
 namespace OtusProject.Player

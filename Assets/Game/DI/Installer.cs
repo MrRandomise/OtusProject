@@ -37,6 +37,7 @@ namespace OtusProject.Installer
             Container.BindInterfacesAndSelfTo<ReloadWeapon>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<DeathPlayer>().AsSingle().NonLazy();
 
+
             Container.Bind<CharacterVisual>().AsSingle();
             Container.Bind<BulletInitInEcsWorld>().AsSingle().NonLazy();
 
