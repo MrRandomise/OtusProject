@@ -2,6 +2,8 @@ using System;
 using UnityEngine;
 using OtusProject.Player;
 using Zenject;
+using OtusProject.Config.Weapons;
+using OtusProject.Weapons;
 
 namespace OtusProject.PlayerInput
 {
@@ -10,14 +12,13 @@ namespace OtusProject.PlayerInput
         private readonly InputManager _inputManager;
         private readonly Character _character;
         public event Action OnFireRequest;
-        public event Action<KeyCode> OnChangeWeapon;
-
+        public event Action<IWeapon> OnChangeWeapon;
         private bool _isMoving = false;
         public CharacterInputController(InputManager input, Character character)
         {
             _inputManager = input;
-            _inputManager.OnUseKey += GetKey;
-            _inputManager.OnKeyboard += UseKeyBoard;
+            _inputManager.OnUseMouse += GetKey;
+            _inputManager.OnUseKeyboard += KeyboardPress;
             _character = character;
         }
 
@@ -37,9 +38,26 @@ namespace OtusProject.PlayerInput
                 _character.MoveDirection = Vector3.zero;
             }
         }
-        private void UseKeyBoard(KeyCode code)
+
+        public void KeyboardPress(KeyCode code)
         {
-            OnChangeWeapon?.Invoke(code);
+            var prevWeapon = GetItem(code);
+            if (prevWeapon != null )
+            {
+                OnChangeWeapon?.Invoke(prevWeapon);
+            }
+        }
+
+        private IWeapon GetItem(KeyCode code)
+        {
+            foreach (var item in _character.ListWeapon)
+            {
+                if (item.Key == code)
+                {
+                    return item.Value;
+                }
+            }
+            return null;
         }
 
         public void Tick()
@@ -48,12 +66,12 @@ namespace OtusProject.PlayerInput
             {
                 _character.MoveDirection = _character.transform.forward;
             }
-            
         }
 
         public void Dispose()
         {
-            _inputManager.OnUseKey -= GetKey;
+            _inputManager.OnUseMouse -= GetKey;
+            _inputManager.OnUseKeyboard -= KeyboardPress;
         }
     }
 }

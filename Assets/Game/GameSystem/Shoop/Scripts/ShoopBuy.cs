@@ -17,11 +17,11 @@ namespace OtusProject.ShoopSystem
         {
             _config = config;
             _view = view;
-            _view.BuyButton.onClick.AddListener(ClickButton);
+            _view.BuyButton.onClick.AddListener(BuyShoop);
             _timer = timer;
         }
 
-        private void ClickButton()
+        public void BuyShoop()
         {
             if(_config.Resource.GetCountResources() < _config.Price && _view.PriceText.color != _colorError)
             {
@@ -49,7 +49,7 @@ namespace OtusProject.ShoopSystem
 
         public void Dispose()
         {
-            _view.BuyButton.onClick.RemoveListener(ClickButton);
+            _view.BuyButton.onClick.RemoveListener(BuyShoop);
         }
     }
 }

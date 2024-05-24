@@ -16,4 +16,4 @@ MonoBehaviour:
   CurrAmmo: 0
   FireRate: 2
   ReloadTime: 0.3
-  UseKey: 3
+  UseKey: 51

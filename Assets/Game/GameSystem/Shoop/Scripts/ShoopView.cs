@@ -32,7 +32,7 @@ namespace OtusProject.ShoopSystem
         {
             var itemContent = GameObject.Instantiate(_itemPanel);
             itemContent.transform.SetParent(_shoopMono.Content);
-            itemContent.Icon.sprite = item.ItemIcon;
+            itemContent.Icon.sprite = item.Component.GetIcon();
             itemContent.CoinIcon.sprite = item.Resource.Icon;
             itemContent.PriceText.text = item.Price.ToString();
             new ShoopBuy(item, itemContent, _timer);

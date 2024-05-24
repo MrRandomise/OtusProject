@@ -15,7 +15,6 @@ MonoBehaviour:
   Component:
     rid: 4185657684161462281
   Name: Health
-  ItemIcon: {fileID: 21300000, guid: 358bd270282ea401097181de54f93190, type: 3}
   Resource: {fileID: 11400000, guid: 5166c047f099f7346ba762483116530c, type: 2}
   Price: 5
   MaxBuy: 25
@@ -27,3 +26,4 @@ MonoBehaviour:
       type: {class: HealthBottle, ns: OtusProject.ItemSystem, asm: World}
       data:
         _health: 2
+        ItemIcon: {fileID: 21300000, guid: 358bd270282ea401097181de54f93190, type: 3}

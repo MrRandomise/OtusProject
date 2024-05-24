@@ -1,10 +1,18 @@
+using OtusProject.Config.Weapons;
+using OtusProject.PlayerInput;
 using UnityEngine;
 
 namespace OtusProject.Weapons
 {
     public interface IWeapon
     {
+        void Ininital(CharacterInputController inputManager, AttackCharacter fire, ReloadWeapon reloadWeapon, ChangeWeapon change);
         public void Attack();
-        public void ChangeWeapon(KeyCode code);
+        public void ChangeWeapon(IWeapon weapon);
+        public WeaponConfig GetConfig();
+        public GameObject GetPrefab();
+        public BulletConfig GetBulletConfig();
+        Transform GetBulletPoint();
+        void Reload();
     }
 }

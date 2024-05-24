@@ -1,3 +1,4 @@
+using OtusProject.Config.Weapons;
 using OtusProject.View;
 using UnityEngine;
 using Zenject;
@@ -17,7 +18,7 @@ namespace OtusProject.Installer
             Container.Bind<CoinView>().FromInstance(_coinView).AsSingle();
             Container.Bind<WaveView>().FromInstance(_waveView).AsSingle();
             Container.Bind<ItemsContentView>().FromInstance(_itemContent).AsSingle();
-            Container.Bind<ItemsView>().FromInstance(_itemView).AsSingle();
+            Container.Bind<ItemsView>().FromInstance(_itemView).AsSingle();            
         }
     }
 }

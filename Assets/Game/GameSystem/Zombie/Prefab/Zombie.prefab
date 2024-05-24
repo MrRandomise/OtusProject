@@ -420,7 +420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 1
   _agent: {fileID: 7007686832770771309}
-  _health: 4
+  _health: 1
   _moveSpeed: 5
   _rotateSpeed: 5
   _attackDistance: 1.7

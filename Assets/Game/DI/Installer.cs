@@ -20,29 +20,30 @@ namespace OtusProject.Installer
         [SerializeField] private SpawnInstaller _spawnZombie;
         [SerializeField] private Camera _mainCamera;
         [SerializeField] private GameOverMenu _gameOverMenu;
+
         public override void InstallBindings()
         {
-            
+            Container.Bind<RangeWeaponItems>().AsSingle().NonLazy();
             Container.Bind<Camera>().FromInstance(_mainCamera).AsSingle();
             Container.Bind<Character>().FromInstance(_character).AsSingle();
             Container.Bind<BulletSpawnInstaller>().FromInstance(_bulletSpawner).AsSingle();
             Container.Bind<SpawnInstaller>().FromInstance(_spawnZombie).AsSingle();
-
             Container.BindInterfacesAndSelfTo<GameOverMenu>().FromInstance(_gameOverMenu).AsSingle();
             Container.BindInterfacesAndSelfTo<GameOverSystem>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<PlayerSetHealth>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<CameraController>().AsSingle();
             Container.BindInterfacesAndSelfTo<InputManager>().AsSingle();
-            Container.BindInterfacesAndSelfTo<CharacterInputController>().AsSingle();
             Container.BindInterfacesAndSelfTo<AttackCharacter>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<ReloadWeapon>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<CharacterInputController>().AsSingle();
             Container.BindInterfacesAndSelfTo<DeathPlayer>().AsSingle().NonLazy();
-
+            Container.BindInterfacesAndSelfTo<ChangeViewWeapon>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<HealthBottle>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<RangeWeapon>().FromComponentInHierarchy().AsSingle();
 
+            Container.Bind<ChangeWeapon>().AsSingle().NonLazy();
             Container.Bind<CharacterVisual>().AsSingle();
             Container.Bind<BulletInitInEcsWorld>().AsSingle().NonLazy();
-
             Container.Bind<StartVawe>().AsSingle().NonLazy();
             
         }

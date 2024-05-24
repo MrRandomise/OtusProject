@@ -8,16 +8,15 @@ namespace OtusProject.PlayerInput
 {
     public sealed class AttackCharacter: ITickable
     {
-        private Weapon _weapon;
-        private float _currFireRate;
+        private Character _character;
+        private float _currFireRate = 0;
         private BulletInitInEcsWorld _bulletInstaller;
         public event Action OnReload;
 
         [Inject]
         private void Construct(Character character, BulletInitInEcsWorld bulletInstaller)
         {
-            _weapon = character.CurrentWeapon;
-            _currFireRate = _weapon.WeaponConfig.FireRate;
+            _character = character;
             _bulletInstaller = bulletInstaller;
         }
 
@@ -28,13 +27,13 @@ namespace OtusProject.PlayerInput
 
         public void AttackRequest()
         {
-            if (_weapon.WeaponConfig.CurrAmmo > 0)
+            if (_character.CurrentWeapon.GetConfig().CurrAmmo > 0)
             {
-                if (_currFireRate >= _weapon.WeaponConfig.FireRate)
+                if (_currFireRate >= _character.CurrentWeapon.GetConfig().FireRate)
                 {
-                    _weapon.WeaponConfig.CurrAmmo -= 1;
+                    _character.CurrentWeapon.GetConfig().CurrAmmo -= 1;
                     _currFireRate = 0;
-                    _bulletInstaller.BulletInitial(_weapon);
+                    _bulletInstaller.BulletInitial(_character.CurrentWeapon);
                 }
             }
             else

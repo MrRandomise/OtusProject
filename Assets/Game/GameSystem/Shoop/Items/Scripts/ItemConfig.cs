@@ -8,7 +8,6 @@ namespace OtusProject.ItemSystem
     {
         [SerializeReference] public IItems Component;
         public string Name;
-        public Sprite ItemIcon;
         public ResourceConfig Resource;
         public int Price;
         public int MaxBuy;

@@ -12,16 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8749f322a12722d468c0d81b95039c78, type: 3}
   m_Name: PistolConfig
   m_EditorClassIdentifier: 
-  WeaponItem:
-    rid: 4185657684161462285
   MaxAmmo: 5
-  CurrAmmo: 2
+  CurrAmmo: 1
   FireRate: 1.2
   ReloadTime: 1.5
-  UseKey: 1
-  references:
-    version: 2
-    RefIds:
-    - rid: 4185657684161462285
-      type: {class: Pistol, ns: OtusProject.ItemSystem, asm: World}
-      data: 
+  UseKey: 49

@@ -1,5 +1,4 @@
 using OtusProject.Player;
-using OtusProject.PlayerInput;
 using System;
 using UnityEngine;
 using Zenject;
@@ -8,7 +7,7 @@ namespace OtusProject.Config.Weapons
 {
     public class ReloadWeapon : ITickable
     {
-        private WeaponConfig _weaponConfig;
+        private Character _character;
         private float _currTimer = 0;
         private float _reloadTimer;
         private bool _startTimer = false;
@@ -17,8 +16,7 @@ namespace OtusProject.Config.Weapons
         [Inject]
         private void Construct(Character character)
         {
-            _weaponConfig = character.CurrentWeapon.WeaponConfig;
-            _reloadTimer = _weaponConfig.ReloadTime;
+            _character = character;
         }
 
         public void Tick()
@@ -28,7 +26,7 @@ namespace OtusProject.Config.Weapons
                 _currTimer += Time.deltaTime;
                 if(_currTimer > _reloadTimer)
                 {
-                    _weaponConfig.CurrAmmo = _weaponConfig.MaxAmmo;
+                    _character.CurrentWeapon.GetConfig().CurrAmmo = _character.CurrentWeapon.GetConfig().MaxAmmo;
                     _startTimer = false;
                     OnStopReload?.Invoke();
                 }
@@ -39,6 +37,7 @@ namespace OtusProject.Config.Weapons
         {
             if(!_startTimer)
             {
+                _reloadTimer = _character.CurrentWeapon.GetConfig().ReloadTime;
                 _currTimer = 0;
                 _startTimer = true;
             }

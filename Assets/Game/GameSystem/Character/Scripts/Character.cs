@@ -1,7 +1,8 @@
-using OtusProject.Config.Weapons;
 using OtusProject.PlayerInput;
+using OtusProject.Weapons;
 using System.Collections.Generic;
 using UnityEngine;
+using OtusProject.ItemSystem;
 
 namespace OtusProject.Player
 {
@@ -13,15 +14,15 @@ namespace OtusProject.Player
         public bool CanMove = true;
         public bool IsAlive = true;
         public Vector3 MoveDirection;
-        public Weapon CurrentWeapon;
-        public Transform WeaponPoint;
+        public IWeapon CurrentWeapon;
+        [SerializeReference] public IItems Component;
+        public Dictionary<KeyCode, IWeapon> ListWeapon = new Dictionary<KeyCode, IWeapon>();
         private Movement _movementCharacter;
         private RotateCharacter _rotateCharacter;
 
         private void Awake()
         {
-            CurrentWeapon.WeaponConfig.CurrAmmo = CurrentWeapon.WeaponConfig.MaxAmmo;
-            CurrentWeapon.Active = true;
+            FirstWeapon();
             _movementCharacter = new Movement(this);
             _rotateCharacter = new RotateCharacter(this);
         }
@@ -30,6 +31,11 @@ namespace OtusProject.Player
         {
             _movementCharacter.Update(MoveDirection);
             _rotateCharacter.Update();
+        }
+
+        private void FirstWeapon()
+        {
+            Component.BuyItem();
         }
     }
 }

@@ -3,7 +3,6 @@ using OtusProject.Player;
 using Zenject;
 using OtusProject.Player.Death;
 using OtusProject.Config.Weapons;
-using OtusProject.PlayerInput;
 
 namespace OtusProject.Visual
 {
