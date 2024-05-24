@@ -20,7 +20,7 @@ namespace OtusProject.ItemSystem
         private static AttackCharacter _attack;
         private static ReloadWeapon _reload;
         private static ChangeWeapon _change;
-
+        private const int _alpha = 5;
         private static Character _character;
 
         [Inject]
@@ -40,6 +40,7 @@ namespace OtusProject.ItemSystem
             var menuPrefab = GameObject.Instantiate(WeaponMenuPrefab, WeaponMenuPrefab.transform.position, Quaternion.identity, WeaponMenuContainer);
             if(_character.CurrentWeapon != null)
             {
+                _character.CurrentWeapon.GetConfig().View.OpacityItems();
                 _character.CurrentWeapon.GetPrefab().gameObject.SetActive(false);
             }
             _character.ListWeapon.Add(Weapon.WeaponConfig.UseKey, item);
@@ -50,6 +51,8 @@ namespace OtusProject.ItemSystem
             menuPrefab.ItemIcon.sprite = ItemIcon;
             menuPrefab.ItemCount.text = item.WeaponConfig.MaxAmmo.ToString();
             menuPrefab.ItemMaxCount.text = item.WeaponConfig.MaxAmmo.ToString();
+            menuPrefab.ItemIcon.sprite = ItemIcon;
+            menuPrefab.Key.text = item.WeaponConfig.UseKey.ToString().Remove(0, _alpha);
         }
 
         public Sprite GetIcon()

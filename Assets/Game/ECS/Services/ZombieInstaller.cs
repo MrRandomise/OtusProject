@@ -15,6 +15,7 @@ namespace OtusProject.Content
         [SerializeField] private float _attackDistance;
         [SerializeField] private Animator _animator;
         [SerializeField] private GameObject _drop;
+        [SerializeField] private Transform _healthBar;
         [SerializeField] private float _deathTimeout;
 
         private void Start()
@@ -37,6 +38,7 @@ namespace OtusProject.Content
             entity.AddData(new ZombieDrop { Value = _drop });
             entity.AddData(new ZombieDeathTimeout { Value = _deathTimeout });
             entity.AddData(new ZombieDeathCurrTimeout { Value = 0 });
+            entity.AddData(new HealthBar { Value = _healthBar });
         }
 
         protected override void Dispose(Entity entity)

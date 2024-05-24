@@ -6,31 +6,47 @@ namespace OtusProject.PlayerInput
 {
     public enum UseKey
     {
+        Left,
+        Right,
+        Forward,
+        Backward,
         Stop,
-        Fire,
-        Move
+        Fire
     }
 
     public sealed class InputManager : ITickable
     {
-        public Action<UseKey> OnUseMouse;
+        public Action<UseKey> OnUseKey;
         public Action<KeyCode> OnUseKeyboard;
         private readonly Array keyCodes = Enum.GetValues(typeof(KeyCode));
         public void Tick()
         {
             if (Input.GetMouseButtonUp(0))
             {
-                OnUseMouse?.Invoke(UseKey.Fire);
+                OnUseKey?.Invoke(UseKey.Fire);
             }
-            if (Input.GetMouseButtonDown(1))
+
+            if (Input.GetKey(KeyCode.A))
             {
-                OnUseMouse?.Invoke(UseKey.Move);
+                OnUseKey?.Invoke(UseKey.Left);
             }
-            else if(Input.GetMouseButtonUp(1))
+            else if (Input.GetKey(KeyCode.D))
             {
-                OnUseMouse?.Invoke(UseKey.Stop);
+                OnUseKey?.Invoke(UseKey.Right);
             }
-            if (Input.anyKey && !Input.GetMouseButtonUp(0) && !Input.GetMouseButtonDown(1))
+            else if (Input.GetKey(KeyCode.W))
+            {
+                OnUseKey?.Invoke(UseKey.Forward);
+            }
+            else if (Input.GetKey(KeyCode.S))
+            {
+                OnUseKey?.Invoke(UseKey.Backward);
+            }
+            else
+            {
+                OnUseKey?.Invoke(UseKey.Stop);
+            }
+            if (!Input.GetMouseButtonUp(0) && !Input.GetMouseButtonDown(1) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S))
             {
                 foreach (KeyCode keyCode in keyCodes)
                 {

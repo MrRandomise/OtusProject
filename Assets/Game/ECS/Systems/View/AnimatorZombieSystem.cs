@@ -13,7 +13,6 @@ namespace OtusProject.Systems.View
         private readonly EcsPoolInject<MoveEvent> _moveRequest;
         private readonly EcsPoolInject<AttackEvent> _attackRequest;
         private readonly EcsPoolInject<DeathEvent> _deadRequest;
-        private readonly EcsPoolInject<GameOverEvent> _gameOverEvent;
         
         private readonly int _move = Animator.StringToHash("Move");
         private readonly int _stop = Animator.StringToHash("Stop");

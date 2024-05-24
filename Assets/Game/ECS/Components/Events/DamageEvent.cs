@@ -3,7 +3,7 @@ using System;
 namespace OtusProject.Component.Events
 {
     [Serializable]
-    public struct DamageRequest
+    public struct DamageEvent
     {
         public int Value;
     }

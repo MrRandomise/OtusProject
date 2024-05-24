@@ -7,7 +7,7 @@ namespace OtusProject.System.Bullet
     internal sealed class BulletHitDamage : IEcsRunSystem
     {
         private readonly EcsFilterInject<Inc<BulletHitEvent>> _filter;
-        private readonly EcsPoolInject<DamageRequest> _damageRequest;
+        private readonly EcsPoolInject<DamageEvent> _damageRequest;
 
         public void Run(IEcsSystems systems)
         {

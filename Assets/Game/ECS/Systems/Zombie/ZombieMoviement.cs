@@ -8,22 +8,23 @@ namespace OtusProject.System.Zombie
 {
     internal sealed class ZombieMoviement : IEcsRunSystem
     {
-        private readonly EcsFilterInject<Inc<ZombieNavAgent, ZombieTarget, ZombiePosition>, Exc<DeadTag, InactiveTag>> _filter;
-        private readonly EcsPoolInject<DeathEvent> _deathEvent;
+        private readonly EcsFilterInject<Inc<ZombieNavAgent, ZombieTarget, ZombiePosition>, Exc<InactiveTag>> _filter;
         private readonly EcsPoolInject<MoveEvent> _moveEvent;
+        private readonly EcsPoolInject<DeadTag> _inactiveTag;
         public void Run(IEcsSystems systems)
         {
             foreach (var entity in _filter.Value)
             {
+                _moveEvent.Value.Add(entity);
                 var agent = _filter.Pools.Inc1.Get(entity);
                 ref var position = ref _filter.Pools.Inc3.Get(entity);
-                if (_moveEvent.Value.Has(entity) && !_deathEvent.Value.Has(entity))
+                var target = _filter.Pools.Inc2.Get(entity).Value;
+                if(!_inactiveTag.Value.Has(entity))
                 {
-                    var target = _filter.Pools.Inc2.Get(entity).Value;
                     agent.Value.destination = target.position;
                     position.Value = agent.Value.transform.position;
                 }
-                else if (_deathEvent.Value.Has(entity))
+                else
                 {
                     agent.Value.destination = position.Value;
                 }

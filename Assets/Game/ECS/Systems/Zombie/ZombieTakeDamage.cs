@@ -8,9 +8,9 @@ namespace OtusProject.System.Zombie
     internal sealed class ZombieTakeDamage : IEcsRunSystem 
     {
         
-        private readonly EcsFilterInject<Inc<DamageRequest>> _filter;
+        private readonly EcsFilterInject<Inc<DamageEvent>> _filter;
         private readonly EcsPoolInject<ZombieCurrHealth> _health;
-        private readonly EcsPoolInject<DamageRequest> _damage;
+
         public void Run (IEcsSystems systems) {
             var damage = _filter.Pools.Inc1;
             foreach (var entity in _filter.Value)
@@ -18,7 +18,6 @@ namespace OtusProject.System.Zombie
                 if (_health.Value.Has(entity))
                 {
                     _health.Value.Get(entity).Value -= damage.Get(entity).Value;
-                    _damage.Value.Del(entity);
                 }
             }
         }

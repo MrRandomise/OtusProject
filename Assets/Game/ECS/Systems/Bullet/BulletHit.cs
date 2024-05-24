@@ -10,7 +10,7 @@ namespace OtusProject.System.Bullet
 {
     internal sealed class BulletHit : IEcsRunSystem
     {
-        private readonly EcsFilterInject<Inc<BulletPosition, BulletDamage>, Exc<InactiveTag>> _filter;
+        private readonly EcsFilterInject<Inc<BulletPosition, BulletDamage>, Exc<BulletInactiveTag>> _filter;
         private readonly EcsFilterInject<Inc<ZombiePosition>> _targetFilter;
         private readonly EcsPoolInject<BulletHitEvent> _bulletHit;
         private readonly EcsPoolInject<BulletAddPoolRequest> _poolRequest;

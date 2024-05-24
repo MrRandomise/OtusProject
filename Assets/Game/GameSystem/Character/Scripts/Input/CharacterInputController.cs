@@ -2,7 +2,6 @@ using System;
 using UnityEngine;
 using OtusProject.Player;
 using Zenject;
-using OtusProject.Config.Weapons;
 using OtusProject.Weapons;
 
 namespace OtusProject.PlayerInput
@@ -13,11 +12,11 @@ namespace OtusProject.PlayerInput
         private readonly Character _character;
         public event Action OnFireRequest;
         public event Action<IWeapon> OnChangeWeapon;
-        private bool _isMoving = false;
+        private UseKey _lastKey = UseKey.Stop;
         public CharacterInputController(InputManager input, Character character)
         {
             _inputManager = input;
-            _inputManager.OnUseMouse += GetKey;
+            _inputManager.OnUseKey += GetKey;
             _inputManager.OnUseKeyboard += KeyboardPress;
             _character = character;
         }
@@ -28,15 +27,7 @@ namespace OtusProject.PlayerInput
             {
                 OnFireRequest?.Invoke();
             }
-            if(key == UseKey.Move) 
-            {
-                _isMoving = true;
-            }
-            else if (key == UseKey.Stop)
-            {
-                _isMoving = false;
-                _character.MoveDirection = Vector3.zero;
-            }
+            _lastKey = key;
         }
 
         public void KeyboardPress(KeyCode code)
@@ -62,15 +53,29 @@ namespace OtusProject.PlayerInput
 
         public void Tick()
         {
-            if(_isMoving)
+            _character.MoveDirection = GetDirection();
+        }
+
+        private Vector3 GetDirection()
+        {
+            switch (_lastKey)
             {
-                _character.MoveDirection = _character.transform.forward;
+                case UseKey.Left:
+                    return -_character.transform.right;
+                case UseKey.Right:
+                    return _character.transform.right;
+                case UseKey.Forward:
+                    return _character.transform.forward;
+                case UseKey.Backward:
+                    return -_character.transform.forward;
+                default:
+                    return Vector3.zero;
             }
         }
 
         public void Dispose()
         {
-            _inputManager.OnUseMouse -= GetKey;
+            _inputManager.OnUseKey -= GetKey;
             _inputManager.OnUseKeyboard -= KeyboardPress;
         }
     }

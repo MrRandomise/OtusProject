@@ -99,6 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _resources: {fileID: 11400000, guid: 5166c047f099f7346ba762483116530c, type: 2}
+  _ammount: 1
+  _view: {fileID: 0}
 --- !u!135 &4312299782740554108
 SphereCollider:
   m_ObjectHideFlags: 0

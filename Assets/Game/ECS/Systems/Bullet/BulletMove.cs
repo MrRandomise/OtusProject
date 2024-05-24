@@ -14,7 +14,6 @@ namespace OtusProject.System.Bullet
             
             foreach (var entity in _filter.Value) 
             {
-                //Debug.Log(currTime);
                 if (currTime <= _filter.Pools.Inc2.Get(entity).Value)
                 {
                     ref var position = ref _filter.Pools.Inc3.Get(entity);

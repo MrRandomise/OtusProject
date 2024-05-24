@@ -15,4 +15,4 @@ MonoBehaviour:
   Bullet: {fileID: 2557774204630130911, guid: ddd4f6f0df8cfa046b927861d7bb0aa2, type: 3}
   Damage: 1
   Speed: 10
-  LifeTime: 5
+  LifeTime: 1

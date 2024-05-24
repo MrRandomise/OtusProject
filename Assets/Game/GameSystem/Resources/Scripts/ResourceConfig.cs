@@ -1,4 +1,6 @@
 using UnityEngine;
+using TMPro;
+using OtusProject.View;
 
 namespace OtusProject.RecourcesConfig
 {
@@ -9,6 +11,7 @@ namespace OtusProject.RecourcesConfig
         [SerializeField] private int _ammount;
         [SerializeField] private string _nameResources;
         private int _currAmoutn;
+
         public int GetCountResources()
         {
             return _currAmoutn;

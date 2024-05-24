@@ -10,6 +10,7 @@ using OtusProject.Content;
 using OtusProject.View;
 using OtusProject.GameOver;
 using OtusProject.ItemSystem;
+using OtusProject.RecourcesConfig;
 
 namespace OtusProject.Installer
 {

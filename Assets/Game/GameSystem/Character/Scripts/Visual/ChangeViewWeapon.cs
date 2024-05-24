@@ -8,6 +8,7 @@ namespace OtusProject.Config.Weapons
     {
         private Character _character;
         private BulletInitInEcsWorld _attack;
+
         [Inject]
         private void Construct(Character character, BulletInitInEcsWorld attack)
         {
