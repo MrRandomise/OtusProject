@@ -2,6 +2,7 @@ using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using OtusProject.Component.Events;
 using OtusProject.Component.Zombie;
+using UnityEngine;
 
 namespace OtusProject.System.Zombie
 {

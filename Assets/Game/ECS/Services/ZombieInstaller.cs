@@ -2,26 +2,24 @@ using Leopotam.EcsLite.Entities;
 using UnityEngine;
 using OtusProject.Component.Zombie;
 using UnityEngine.AI;
+using OtusProject.Config.Zombie;
 
 namespace OtusProject.Content
 {
     public sealed class ZombieInstaller : EntityInstaller
     {
         public int Damage;
-        [SerializeField] private NavMeshAgent _agent;
-        [SerializeField] private int _health;
-        [SerializeField] private float _moveSpeed;
-        [SerializeField] private float _rotateSpeed;
-        [SerializeField] private float _attackDistance;
-        [SerializeField] private Animator _animator;
+        [SerializeField] private NavMeshAgent _agent; 
+        [SerializeField] private ZombieConfig _zombieConfig;
         [SerializeField] private GameObject _drop;
+        [SerializeField] private Animator _animator;
         [SerializeField] private Transform _healthBar;
-        [SerializeField] private float _deathTimeout;
 
-        private void Start()
+        private void Awake()
         {
-            _agent.speed = _moveSpeed;
-            _agent.stoppingDistance = _attackDistance;
+            _agent.speed = _zombieConfig.MoveSpeed;
+            _agent.stoppingDistance = _zombieConfig.AttackDistance;
+            Damage = _zombieConfig.Damage;
         }
 
         protected override void Install(Entity entity)
@@ -29,14 +27,14 @@ namespace OtusProject.Content
             entity.AddData(new ZombieNavAgent { Value = _agent });
             entity.AddData(new ZombieTag { Value = "Zombie" });
             entity.AddData(new ZombieTransform { Value = transform });
-            entity.AddData(new ZombieHealth { Value = _health });
-            entity.AddData(new ZombieCurrHealth { Value = _health });
+            entity.AddData(new ZombieHealth { Value = _zombieConfig.Health });
+            entity.AddData(new ZombieCurrHealth { Value = _zombieConfig.Health });
             entity.AddData(new ZombiePosition { Value = transform.position });
-            entity.AddData(new ZombieRotateSpeed { Value = _rotateSpeed });
-            entity.AddData(new ZombieAttackDistance { Value = _attackDistance });
+            entity.AddData(new ZombieRotateSpeed { Value = _zombieConfig.RotateSpeed });
+            entity.AddData(new ZombieAttackDistance { Value = _zombieConfig.AttackDistance });
             entity.AddData(new ZombieAnimator { Value = _animator });
             entity.AddData(new ZombieDrop { Value = _drop });
-            entity.AddData(new ZombieDeathTimeout { Value = _deathTimeout });
+            entity.AddData(new ZombieDeathTimeout { Value = _zombieConfig.DeathTimeout });
             entity.AddData(new ZombieDeathCurrTimeout { Value = 0 });
             entity.AddData(new HealthBar { Value = _healthBar });
         }

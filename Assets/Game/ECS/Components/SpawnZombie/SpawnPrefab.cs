@@ -1,11 +1,12 @@
 using Leopotam.EcsLite.Entities;
 using System;
+using System.Collections.Generic;
 
 namespace OtusProject.Component.Spawn
 {
     [Serializable]
     public struct SpawnPrefab 
     {
-        public Entity Value;
+        public List<Entity> Value;
     }
 }

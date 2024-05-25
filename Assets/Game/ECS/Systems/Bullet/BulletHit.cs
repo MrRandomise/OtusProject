@@ -23,7 +23,7 @@ namespace OtusProject.System.Bullet
                 bulletPos.y = 0;
                 foreach (var target in _targetFilter.Value)
                 {
-                    if (Vector3.Distance(_targetFilter.Pools.Inc1.Get(target).Value, bulletPos) < 0.5f)
+                    if (Vector3.Distance(_targetFilter.Pools.Inc1.Get(target).Value, bulletPos) < 1f)
                     {
                         _bulletHit.Value.Add(target).Value = _filter.Pools.Inc2.Get(entity).Value;
                         _poolRequest.Value.Add(entity);

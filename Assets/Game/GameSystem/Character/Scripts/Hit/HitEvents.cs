@@ -10,7 +10,7 @@ namespace OtusProject.Zombie.Hit
         public static event Action<int> OnHit;
         private int _damage;
 
-        private void Awake()
+        private void Start()
         {
             _damage = _installer.Damage;
         }

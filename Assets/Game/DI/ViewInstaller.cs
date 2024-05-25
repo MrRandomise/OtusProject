@@ -14,9 +14,10 @@ namespace OtusProject.Installer
         [SerializeField] private HealthView _healthView;
         [SerializeField] private ItemsContentView _itemContent;
         [SerializeField] private ItemsView _itemView;
-
+        [SerializeField] private Transform _mapSpawn;
         public override void InstallBindings()
         {
+            Container.Bind<Transform>().FromInstance(_mapSpawn).AsSingle();
             Container.Bind<ZombieView>().FromInstance(_zombieView).AsSingle();
             Container.Bind<CoinView>().FromInstance(_coinView).AsSingle();
             Container.Bind<WaveView>().FromInstance(_waveView).AsSingle();

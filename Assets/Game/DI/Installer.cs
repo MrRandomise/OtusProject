@@ -11,6 +11,7 @@ using OtusProject.View;
 using OtusProject.GameOver;
 using OtusProject.ItemSystem;
 using OtusProject.RecourcesConfig;
+using OtusProject.Config.Map;
 
 namespace OtusProject.Installer
 {
@@ -46,7 +47,8 @@ namespace OtusProject.Installer
             Container.Bind<CharacterVisual>().AsSingle();
             Container.Bind<BulletInitInEcsWorld>().AsSingle().NonLazy();
             Container.Bind<StartVawe>().AsSingle().NonLazy();
-            
+            Container.Bind<MapLoader>().AsSingle().NonLazy();
+            Container.Bind<startScene>().FromComponentInHierarchy().AsSingle().NonLazy();
         }
     }
 }

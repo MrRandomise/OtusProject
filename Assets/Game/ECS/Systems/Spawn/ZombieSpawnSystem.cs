@@ -59,8 +59,11 @@ namespace OtusProject.System.Spawn
                             var unit = _filter.Pools.Inc3.Get(entity).Value;
                             var index = UnityEngine.Random.Range(0, _filter.Pools.Inc2.Get(entity).Value.Count);
                             var point = _filter.Pools.Inc2.Get(entity).Value[index];
-                            var newUnit = _entityManager.Value.Create(unit, point.transform.position,
-                                unit.transform.rotation, _poolFilter.Pools.Inc1.Get(poolEntity).Value);
+                            var zombieIndex = UnityEngine.Random.Range(0, _filter.Pools.Inc3.Get(entity).Value.Count);
+                            var prefab = _filter.Pools.Inc3.Get(entity).Value[zombieIndex];
+
+                            var newUnit = _entityManager.Value.Create(prefab, point.transform.position,
+                                prefab.transform.rotation, _poolFilter.Pools.Inc1.Get(poolEntity).Value);
                             newUnit.AddData(new ZombieTarget { Value = _filter.Pools.Inc5.Get(entity).Value });
                         }
                         else

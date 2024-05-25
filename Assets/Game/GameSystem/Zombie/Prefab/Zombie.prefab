@@ -420,14 +420,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 1
   _agent: {fileID: 7007686832770771309}
-  _health: 4
-  _moveSpeed: 5
-  _rotateSpeed: 5
-  _attackDistance: 1.7
-  _animator: {fileID: 9198989304959435544}
+  _zombieConfig: {fileID: 11400000, guid: b24e82cc533e8ac448659e4e49934b4c, type: 2}
   _drop: {fileID: 5447127537220448505, guid: a53c00387ea4aeb49b20ba739e33ba9a, type: 3}
+  _animator: {fileID: 9198989304959435544}
   _healthBar: {fileID: 8619388749585688162}
-  _deathTimeout: 3
 --- !u!195 &7007686832770771309
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -447,7 +443,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1.5
-  m_BaseOffset: 0.2
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1 &1940466354182665151

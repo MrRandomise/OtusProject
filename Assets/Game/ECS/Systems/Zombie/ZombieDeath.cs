@@ -4,8 +4,6 @@ using OtusProject.Component.Bullet;
 using OtusProject.Component.Events;
 using OtusProject.Component.Zombie;
 using OtusProject.Component.Request;
-using OtusProject.Component.Spawn;
-using TMPro;
 
 namespace OtusProject.System.Zombie
 {

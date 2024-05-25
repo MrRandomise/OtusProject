@@ -13,7 +13,7 @@ namespace OtusProject.Content
     public sealed class SpawnInstaller : EntityInstaller
     {
         [SerializeField] private List<Transform> _spawnPoint;
-        [SerializeField] private Entity _spawnPrefab;
+        [SerializeField] private List<Entity> _spawnPrefab = new List<Entity>();
         [SerializeField] private Transform _target;
         [SerializeField] private int _wave;
         [SerializeField] private float _spawnTimeout;
