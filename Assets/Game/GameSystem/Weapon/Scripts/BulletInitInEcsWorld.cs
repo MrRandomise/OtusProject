@@ -23,11 +23,11 @@ namespace OtusProject.Config.Weapons
         {
             var bulletConfig = weapon.GetBulletConfig();
             _entity.GetData<BulletPrefab>().Value = bulletConfig.Bullet;
-            _entity.GetData<BulletDamage>().Value = bulletConfig.Damage;
             _entity.GetData<BulletSpeed>().Value = bulletConfig.Speed;
             _entity.GetData<BulletLife>().Value = bulletConfig.LifeTime;
             _entity.GetData<BulletSpawnPoint>().Value = weapon.GetBulletPoint();
             _entity.SetData(new SpawnEvents());
+            _entity.SetData(new BulletEffects { Value = bulletConfig.Effects });
             OnBulletEvent?.Invoke();
         }
     }

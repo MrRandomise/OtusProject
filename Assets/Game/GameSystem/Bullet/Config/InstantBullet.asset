@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2550fe4f03327324cb69874ffad5922d, type: 3}
+  m_Name: InstantBullet
+  m_EditorClassIdentifier: 
+  Effects:
+    rid: 7372975947670880263
+  Bullet: {fileID: 2557774204630130911, guid: 2fed408e27f05ee4699e66ed0f74886a, type: 3}
+  Speed: 10
+  LifeTime: 3
+  references:
+    version: 2
+    RefIds:
+    - rid: 7372975947670880263
+      type: {class: InstantDeath, ns: OtusProject.Config.Effects, asm: World}
+      data:
+        Name: Instant Death
+        Description: "\u041C\u0433\u043D\u043E\u0432\u043D\u0435\u043D\u043D\u043E\u0435
+          \u0443\u0431\u0438\u0439\u0441\u0442\u0432\u043E"

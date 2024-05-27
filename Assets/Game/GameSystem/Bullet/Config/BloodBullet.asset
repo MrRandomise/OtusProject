@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2550fe4f03327324cb69874ffad5922d, type: 3}
+  m_Name: BloodBullet
+  m_EditorClassIdentifier: 
+  Effects:
+    rid: 7372975947670880262
+  Bullet: {fileID: 2557774204630130911, guid: 1de8ac03f15248b48a27f270f7a33716, type: 3}
+  Speed: 10
+  LifeTime: 3
+  references:
+    version: 2
+    RefIds:
+    - rid: 7372975947670880262
+      type: {class: Blood, ns: OtusProject.Config.Effects, asm: World}
+      data:
+        Name: Blood
+        DamagePerSec: 1
+        TimeDamage: 3
+        Description: "\u041D\u0430\u043D\u0435\u0441\u0435\u043D\u0438\u0435 x \u0443\u0440\u043E\u043D\u0430
+          \u0432 n \u0441\u0435\u043A\u0443\u043D\u0434"

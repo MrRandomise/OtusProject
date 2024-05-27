@@ -10,7 +10,7 @@ namespace OtusProject.System.Bullet
 {
     internal sealed class BulletHit : IEcsRunSystem
     {
-        private readonly EcsFilterInject<Inc<BulletPosition, BulletDamage>, Exc<BulletInactiveTag>> _filter;
+        private readonly EcsFilterInject<Inc<BulletPosition, BulletEffects>, Exc<BulletInactiveTag>> _filter;
         private readonly EcsFilterInject<Inc<ZombiePosition>> _targetFilter;
         private readonly EcsPoolInject<BulletHitEvent> _bulletHit;
         private readonly EcsPoolInject<BulletAddPoolRequest> _poolRequest;
@@ -23,7 +23,7 @@ namespace OtusProject.System.Bullet
                 bulletPos.y = 0;
                 foreach (var target in _targetFilter.Value)
                 {
-                    if (Vector3.Distance(_targetFilter.Pools.Inc1.Get(target).Value, bulletPos) < 1f)
+                    if (Vector3.Distance(_targetFilter.Pools.Inc1.Get(target).Value, bulletPos) < 1.5f)
                     {
                         _bulletHit.Value.Add(target).Value = _filter.Pools.Inc2.Get(entity).Value;
                         _poolRequest.Value.Add(entity);

@@ -153,6 +153,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponConfig: {fileID: 11400000, guid: 679917a73fe6b9a47969c044e2b59f63, type: 2}
-  BulletConfig: {fileID: 11400000, guid: 32795c1b4ffa5734b97845d05f5d770c, type: 2}
+  BulletConfig: {fileID: 11400000, guid: f63566e149cf2944a95fab0887601d49, type: 2}
   BulletPoint: {fileID: 469091223532365656}
-  WeaponMenu: {fileID: 1755757796903639614, guid: f383745e431689843b93aee98f582621, type: 3}

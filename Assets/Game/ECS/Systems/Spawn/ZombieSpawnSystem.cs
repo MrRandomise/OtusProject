@@ -20,7 +20,7 @@ namespace OtusProject.System.Spawn
         private readonly EcsPoolInject<SpawnEvents> _spawnEvent;
         private readonly EcsPoolInject<StartSpawnRequest> _startSpawn;
         private readonly EcsPoolInject<ZombieAddPoolRequest> _respawnEvent;
-
+        private readonly EcsPoolInject<BulletEffects> _effects;
         private int _spawnCount = 0;
         private float _currentSpawnTime = 0;
         public void Run(IEcsSystems systems)
@@ -61,10 +61,10 @@ namespace OtusProject.System.Spawn
                             var point = _filter.Pools.Inc2.Get(entity).Value[index];
                             var zombieIndex = UnityEngine.Random.Range(0, _filter.Pools.Inc3.Get(entity).Value.Count);
                             var prefab = _filter.Pools.Inc3.Get(entity).Value[zombieIndex];
-
                             var newUnit = _entityManager.Value.Create(prefab, point.transform.position,
                                 prefab.transform.rotation, _poolFilter.Pools.Inc1.Get(poolEntity).Value);
                             newUnit.AddData(new ZombieTarget { Value = _filter.Pools.Inc5.Get(entity).Value });
+                            newUnit.AddData(new ZombieCurrEntity { Value = newUnit }); 
                         }
                         else
                         {

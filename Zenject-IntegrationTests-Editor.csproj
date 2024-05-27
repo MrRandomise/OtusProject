@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{D80FF281-F9F8-DC97-20AD-C4A870D244F7}</ProjectGuid>
+    <ProjectGuid>{6F3B78C5-3F79-1675-C0E9-D5C61944D6D7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Zenject-IntegrationTests-Editor</AssemblyName>
@@ -54,7 +54,7 @@
     <UnityVersion>2022.3.12f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.12f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.12f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
@@ -736,15 +736,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Zenject-TestFramework.csproj">
-      <Project>{0838F380-8FCE-8592-AD92-9F3C0BFED433}</Project>
+      <Project>{925CEA22-D438-0C49-666D-DD3ADA005261}</Project>
       <Name>Zenject-TestFramework</Name>
     </ProjectReference>
     <ProjectReference Include="Zenject.csproj">
-      <Project>{DFBB2A14-C0D3-C455-DA26-998DE2E3587A}</Project>
+      <Project>{03146990-0F02-4ED2-7507-2744F1FE1E79}</Project>
       <Name>Zenject</Name>
     </ProjectReference>
     <ProjectReference Include="Zenject-IntegrationTests.csproj">
-      <Project>{3C423444-3830-B68D-D68E-CF95756F7DEA}</Project>
+      <Project>{E325066E-E9F0-9105-E130-2CB917A62BC9}</Project>
       <Name>Zenject-IntegrationTests</Name>
     </ProjectReference>
   </ItemGroup>

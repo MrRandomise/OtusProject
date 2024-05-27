@@ -17,7 +17,7 @@ namespace OtusProject.View
         private GameObject _menu;
         private Character _character;
         private MapLoader _loader;
-
+        private float _characterPosY = 0.9f;
         [Inject]
         private void Construct(Character character, StartVaweButton startButton, SpawnInstaller spawnInstaller, MapLoader loader)
         {
@@ -33,7 +33,7 @@ namespace OtusProject.View
         {
             _loader.LoadMap();
             _spawnInstaller.SetData(new StartWaveRequest());
-            _character.transform.position = Vector3.zero;
+            _character.transform.position = new Vector3(0, _characterPosY, 0) ;
             _menu.SetActive(false);
         }
 

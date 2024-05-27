@@ -36,7 +36,6 @@ namespace OtusProject.Player
         private void FirstWeapon()
         {
             Component.BuyItem();
-
         }
     }
 }

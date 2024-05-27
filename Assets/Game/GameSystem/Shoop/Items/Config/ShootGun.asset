@@ -18,7 +18,7 @@ MonoBehaviour:
   Resource: {fileID: 11400000, guid: 5166c047f099f7346ba762483116530c, type: 2}
   Price: 3
   MaxBuy: 1
-  CurrBuy: 1
+  CurrBuy: 0
   references:
     version: 2
     RefIds:

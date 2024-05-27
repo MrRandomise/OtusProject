@@ -2,7 +2,6 @@
 using Leopotam.EcsLite.Di;
 using OtusProject.Component.Bullet;
 using OtusProject.Component.Events;
-using OtusProject.Component.Request;
 using OtusProject.Component.Zombie;
 using UnityEngine;
 
@@ -11,7 +10,7 @@ namespace OtusProject.System.Zombie
 {
     internal class ZmbieHealthBar : IEcsRunSystem
     {
-        private readonly EcsFilterInject<Inc<ZombieHealth, DamageEvent>> _filter;
+        private readonly EcsFilterInject<Inc<ZombieHealth>> _filter;
         private readonly EcsFilterInject<Inc<InactiveTag>> _respawnFilter;
         private readonly EcsPoolInject<HealthBar> _healthBarLine;
         private readonly EcsPoolInject<ZombieCurrHealth> _healthCurrentPool;

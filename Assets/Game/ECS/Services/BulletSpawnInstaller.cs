@@ -14,7 +14,6 @@ namespace OtusProject.Content
         protected override void Install(Entity entity)
         {
             entity.AddData(new BulletPrefab ());
-            entity.AddData(new BulletDamage ());
             entity.AddData(new BulletSpeed ());
             entity.AddData(new BulletLife ());
             entity.AddData(new BulletActivePool { Value = _bulletPool });

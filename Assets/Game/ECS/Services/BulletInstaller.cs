@@ -1,6 +1,5 @@
 using Leopotam.EcsLite.Entities;
 using OtusProject.Component.Bullet;
-using UnityEngine.EventSystems;
 
 namespace OtusProject.Content
 {
@@ -8,7 +7,6 @@ namespace OtusProject.Content
     {
         protected override void Install(Entity entity)
         {
-            entity.AddData(new BulletDamage());
             entity.AddData(new BulletSpeed());
             entity.AddData(new BulletLife());
             entity.AddData(new BulletMoveDirection());

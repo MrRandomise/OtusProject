@@ -30,4 +30,3 @@ MonoBehaviour:
         WeaponMenuContainer: {fileID: 0}
         WeaponMenuPrefab: {fileID: 9073103617799431881, guid: f383745e431689843b93aee98f582621, type: 3}
         ItemIcon: {fileID: 21300000, guid: 976467f6622997c4eba97caf397946b1, type: 3}
-        _character: {fileID: 0}

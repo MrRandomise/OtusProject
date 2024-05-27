@@ -1,7 +1,5 @@
 using OtusProject.View;
 using UnityEngine;
-using Zenject;
-
 namespace OtusProject.RecourcesConfig
 {
     public class ResourcesInstall : MonoBehaviour

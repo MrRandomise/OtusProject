@@ -33,9 +33,9 @@ namespace EcsEngine
                 .Add(new ZombiesPools())
                 .Add(new ZombieControl())
                 .Add(new BulletHit())
-                .Add(new BulletHitDamage())
-                .Add(new ZombieTakeDamage())
+                .Add(new ZombieTakeEffects())
                 .Add(new ZmbieHealthBar())
+                .Add(new ZombieDealDamage())
                 .Add(new ZombieDeath())
                 .Add(new ZombieDropSystem())
                 .Add(new ZombieEndWave())
@@ -60,8 +60,7 @@ namespace EcsEngine
                 .DelHere<RespawnEvent>()
                 .DelHere<BulletHitEvent>()
                 .DelHere<GameOverEvent>()
-                .DelHere<ChangeViewEvent>()
-                .DelHere<DamageEvent>();
+                .DelHere<ChangeViewEvent>();
             
         }
 
