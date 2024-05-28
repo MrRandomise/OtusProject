@@ -48,8 +48,6 @@ namespace OtusProject.Installer
             Container.Bind<CharacterVisual>().AsSingle();
             Container.Bind<BulletInitInEcsWorld>().AsSingle().NonLazy();
             Container.Bind<StartVawe>().AsSingle().NonLazy();
-            Container.Bind<MapLoader>().AsSingle().NonLazy();
-            Container.Bind<startScene>().FromComponentInHierarchy().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<Blood>().AsCached().NonLazy();
         }
     }

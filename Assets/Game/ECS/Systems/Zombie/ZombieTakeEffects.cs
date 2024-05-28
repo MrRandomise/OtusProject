@@ -10,7 +10,6 @@ namespace OtusProject.System.Zombie
         
         private readonly EcsFilterInject<Inc<BulletHitEvent, ZombieCurrEntity, ZombieCurrHealth>> _filter;
         private readonly EcsPoolInject<ZombieCurrHealth> _health;
-        private readonly EcsPoolInject<DamageRequest> _damageRequest;
         public void Run (IEcsSystems systems) {
             var damage = _filter.Pools.Inc1;
             foreach (var entity in _filter.Value)

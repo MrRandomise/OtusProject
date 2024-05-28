@@ -45,10 +45,7 @@ namespace OtusProject.Config.Effects
                 if (_currTimer >= _oneSecond)
                 {
                     _startTimer = TakeDamage();
-                    if (!_startTimer)
-                    {
-                        _currTimer = 0;
-                    }
+                    _currTimer = 0;
                 }
             }
         }

@@ -4,11 +4,11 @@ using OtusProject.Component.Events;
 using OtusProject.Component.Request;
 using OtusProject.Component.Spawn;
 using OtusProject.Component.Zombie;
-using OtusProject.Systems.View;
 using UnityEngine;
 
-namespace Client {
-    internal sealed class ZombieStartSpawn : IEcsRunSystem 
+namespace Client
+{
+    internal sealed class ZombieStartSpawn : IEcsRunSystem
     {
         private readonly EcsFilterInject<Inc<StartWaveRequest>> _filter;
         private readonly EcsFilterInject<Inc<SpawnCountZombie, ZombieCurrCount, SpawnReadyTimer>> _spawnData;
@@ -18,12 +18,12 @@ namespace Client {
         private float _currTime = 0;
         private readonly int _waveComponent = 0;
         private int _waveCount = 1;
-        public void Run (IEcsSystems systems) 
+        public void Run(IEcsSystems systems)
         {
             foreach (var entity in _filter.Value)
             {
                 _currTime += Time.deltaTime;
-                foreach (var spawn in _spawnData.Value) 
+                foreach (var spawn in _spawnData.Value)
                 {
                     var spawnCount = _spawnData.Pools.Inc1.Get(spawn);
                     var SpawnReadyTimer = _spawnData.Pools.Inc3.Get(spawn);

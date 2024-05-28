@@ -10,6 +10,7 @@ namespace OtusProject.Content
             entity.AddData(new BulletSpeed());
             entity.AddData(new BulletLife());
             entity.AddData(new BulletMoveDirection());
+            entity.AddData(new CurrBulletLife { Value = 0 });
             entity.AddData(new BulletTransform { Value = transform });
             entity.AddData(new BulletPosition { Value = transform.position });
         }

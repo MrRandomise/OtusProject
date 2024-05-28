@@ -3,6 +3,8 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Zenject;
+using OtusProject.Config.Map;
 
 namespace OtusProject.MenuButton
 {
@@ -12,12 +14,16 @@ namespace OtusProject.MenuButton
         [SerializeField] private GameObject LoadMenu;
         [SerializeField] private Image _progressImage;
         [SerializeField] private TMP_Text _progressText;
+        [Inject]
+        private readonly MapLoader _mapLoader;
         private const string _gameScene = "GameScene";
 
-        public void LoadGameScene()
+        public async void LoadGameScene()
         {
             Menu.transform.localScale = Vector3.zero;
             LoadMenu.SetActive(true);
+            await _mapLoader.InitializedMap();
+            _mapLoader.ChangeMap();
             StartCoroutine(LoadSceneGame());
         }
 

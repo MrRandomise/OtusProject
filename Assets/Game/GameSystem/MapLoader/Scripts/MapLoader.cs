@@ -10,35 +10,35 @@ namespace OtusProject.Config.Map
 {
     public sealed class MapLoader
     {
+        public GameObject CurrMap;
         private List<GameObject> LoadMaps = new List<GameObject>();
-        private const int mapCount = 6;
-        private GameObject currMap;
         private Transform _mapPoint;
         private AsyncOperationHandle<GameObject> _mapHandle;
-        [Inject]
-        private void Construct(Transform mapPoint)
-        {
-            _mapPoint = mapPoint;
-        }
+        private readonly string _spawnPoint = "MapSpawn";
+        private readonly int mapCount = 6;
 
-        public void LoadMap()
+        public void ChangeMap()
         {
             var index = Random.Range(1, LoadMaps.Count);
-            currMap.gameObject.SetActive(false);
-            currMap = LoadMaps[index];
-            currMap.gameObject.SetActive(true);
-            NavMeshBuilder.BuildNavMeshAsync();
+            if(CurrMap != null)
+            {
+                CurrMap.gameObject.SetActive(false);
+            }
+            CurrMap = LoadMaps[index];
+            CurrMap.gameObject.SetActive(true);
         }
 
         public async Task InitializedMap()
         {
-            for(int  i = 1; i < mapCount; i++)
+            _mapPoint = GameObject.FindGameObjectWithTag(_spawnPoint).transform;
+            for (int  i = 1; i < mapCount; i++)
             {
                 _mapHandle = Addressables.LoadAssetAsync<GameObject>($"Map{i}");
                 await _mapHandle.Task;
-                currMap = GameObject.Instantiate(_mapHandle.Result, _mapPoint);
-                LoadMaps.Add(currMap);
-                currMap.SetActive(false);
+                CurrMap = GameObject.Instantiate(_mapHandle.Result, _mapPoint);
+                LoadMaps.Add(CurrMap);
+                NavMeshBuilder.BuildNavMeshAsync();
+                CurrMap.SetActive(false);
             }
         }
     }

@@ -1,22 +1,24 @@
-using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
 namespace OtusProject.Config.Map
 {
-    public class startScene : MonoBehaviour
+    public class StartScene : MonoBehaviour
     {
-        private MapLoader _loader;
-
         [Inject]
-        private void Construct(MapLoader loader)
-        {
-            _loader = loader;
-        }
+        private readonly MapLoader _mapLoader;
+        [SerializeField] private bool _debug;
+
         private async void Awake()
         {
-            await _loader.InitializedMap();
-            _loader.LoadMap();
+            if (_debug)
+            {
+                if (_mapLoader.CurrMap == null)
+                {
+                     await _mapLoader.InitializedMap();
+                    _mapLoader.ChangeMap();
+                }
+            }
         }
     }
 }

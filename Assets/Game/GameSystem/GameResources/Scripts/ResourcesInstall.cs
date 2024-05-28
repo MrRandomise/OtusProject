@@ -1,26 +1,19 @@
-using OtusProject.View;
 using UnityEngine;
+
 namespace OtusProject.RecourcesConfig
 {
     public class ResourcesInstall : MonoBehaviour
     {
         [SerializeField] private ResourceConfig _resources;
-        [SerializeField] private int _ammount = 1;
-        [SerializeField] private CoinView _view;
+        [SerializeField] private int _howGet = 1;
 
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
             {
-                _resources.SetCountResources(_ammount);
-                UpdateView();
+                _resources.SetCountResources(_howGet);
                 Destroy(gameObject);
             }
-        }
-
-        private void UpdateView()
-        {
-            _view.Value.text = $"{_resources.GetCountResources()} x";
         }
     }
 }
