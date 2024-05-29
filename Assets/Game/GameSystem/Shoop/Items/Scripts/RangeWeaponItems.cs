@@ -12,17 +12,16 @@ namespace OtusProject.ItemSystem
     public sealed class RangeWeaponItems : IItems
     {
         [SerializeField] public RangeWeapon Weapon;
-        [SerializeField] public Transform WeaponContainer;
-        [SerializeField] public Transform WeaponMenuContainer;
         [SerializeField] public ItemsView WeaponMenuPrefab;
         [SerializeField] public Sprite ItemIcon;
         private static CharacterInputController _characterInputController;
         private static AttackCharacter _attack;
         private static ReloadWeapon _reload;
         private static ChangeWeapon _change;
-        private const int _alpha = 5;
         private static Character _character;
-
+        private static Transform _weaponContainer;
+        private static Transform _weaponMenuContainer;
+        private const int _alpha = 5;
         [Inject]
         private void Construct(Character character, CharacterInputController inputManager, AttackCharacter attack, ReloadWeapon reload, ChangeWeapon change)
         {
@@ -31,13 +30,15 @@ namespace OtusProject.ItemSystem
             _reload = reload;
             _change = change;
             _characterInputController = inputManager;
+            _weaponContainer = GameObject.FindGameObjectWithTag("WeaponContainer").transform;
+            _weaponMenuContainer = GameObject.FindGameObjectWithTag("WeaponContent").transform;
         }
 
         public void BuyItem()
         {
             Debug.Log("Купили оружие!");
-            var item = GameObject.Instantiate(Weapon, WeaponContainer.transform.position, WeaponContainer.transform.rotation, WeaponContainer);
-            var menuPrefab = GameObject.Instantiate(WeaponMenuPrefab, WeaponMenuPrefab.transform.position, Quaternion.identity, WeaponMenuContainer);
+            var item = GameObject.Instantiate(Weapon, _weaponContainer.position, _weaponContainer.rotation, _weaponContainer);
+            var menuPrefab = GameObject.Instantiate(WeaponMenuPrefab, WeaponMenuPrefab.transform.position, Quaternion.identity, _weaponMenuContainer);
             if(_character.CurrentWeapon != null)
             {
                 _character.CurrentWeapon.GetConfig().View.OpacityItems();

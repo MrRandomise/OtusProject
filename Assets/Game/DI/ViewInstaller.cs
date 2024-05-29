@@ -9,7 +9,6 @@ namespace OtusProject.Installer
     public sealed class ViewInstaller : MonoInstaller
     {
         [SerializeField] private ZombieView _zombieView;
-        [SerializeField] private CoinView _coinView;
         [SerializeField] private WaveView _waveView;
         [SerializeField] private HealthView _healthView;
         [SerializeField] private ItemsContentView _itemContent;
@@ -17,7 +16,6 @@ namespace OtusProject.Installer
         public override void InstallBindings()
         {
             Container.Bind<ZombieView>().FromInstance(_zombieView).AsSingle();
-            Container.Bind<CoinView>().FromInstance(_coinView).AsSingle();
             Container.Bind<WaveView>().FromInstance(_waveView).AsSingle();
             Container.Bind<HealthView>().FromInstance(_healthView).AsSingle();
             Container.Bind<ItemsContentView>().FromInstance(_itemContent).AsSingle();

@@ -39,9 +39,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenject-TestFramework", "Ze
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leopotam.EcsLite.Di", "Leopotam.EcsLite.Di.csproj", "{1C80A6DA-3463-981C-A8F4-F22E62DAE8AE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameResources", "GameResources.csproj", "{EF003F21-86E3-4C0C-E689-77AA3D5E4C05}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leopotam.EcsLite.UnityEditor.Runtime", "Leopotam.EcsLite.UnityEditor.Runtime.csproj", "{AF325CF3-C79A-3A5F-A6B0-76B676B4068B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenject-PoolMonitor-Editor", "Zenject-PoolMonitor-Editor.csproj", "{ADF958BD-0B1E-FB26-3949-9DAB726F2489}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Map", "Map.csproj", "{0B43A513-28D6-7888-DA03-EC732EDAAF96}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -125,6 +129,10 @@ Global
 		{1C80A6DA-3463-981C-A8F4-F22E62DAE8AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C80A6DA-3463-981C-A8F4-F22E62DAE8AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C80A6DA-3463-981C-A8F4-F22E62DAE8AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF003F21-86E3-4C0C-E689-77AA3D5E4C05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF003F21-86E3-4C0C-E689-77AA3D5E4C05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF003F21-86E3-4C0C-E689-77AA3D5E4C05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF003F21-86E3-4C0C-E689-77AA3D5E4C05}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AF325CF3-C79A-3A5F-A6B0-76B676B4068B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AF325CF3-C79A-3A5F-A6B0-76B676B4068B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF325CF3-C79A-3A5F-A6B0-76B676B4068B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -133,6 +141,10 @@ Global
 		{ADF958BD-0B1E-FB26-3949-9DAB726F2489}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADF958BD-0B1E-FB26-3949-9DAB726F2489}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADF958BD-0B1E-FB26-3949-9DAB726F2489}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B43A513-28D6-7888-DA03-EC732EDAAF96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B43A513-28D6-7888-DA03-EC732EDAAF96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B43A513-28D6-7888-DA03-EC732EDAAF96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B43A513-28D6-7888-DA03-EC732EDAAF96}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -23,7 +23,6 @@ namespace OtusProject.System.Bullet
                 var zombieTransform = _poolTimer.Pools.Inc2.Get(entity).Value;
                 ref var currBulletLife = ref _poolTimer.Pools.Inc3.Get(entity).Value;
                 currBulletLife = _currTimer;
-                Debug.Log(currBulletLife);
                 foreach (var pool in _pool.Value)
                 {
                     var inActivePool = _pool.Pools.Inc1.Get(pool);

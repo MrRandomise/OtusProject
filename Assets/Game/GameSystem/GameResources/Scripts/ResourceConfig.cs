@@ -29,11 +29,10 @@ namespace OtusProject.RecourcesConfig
             return _nameResources;
         }
 
-        private void OnDisable()
+        private void OnEnable()
         {
             _currAmoutn = _ammount;
         }
-
     }
 }
 

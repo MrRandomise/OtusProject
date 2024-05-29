@@ -155,3 +155,5 @@ MonoBehaviour:
   WeaponConfig: {fileID: 11400000, guid: 679917a73fe6b9a47969c044e2b59f63, type: 2}
   BulletConfig: {fileID: 11400000, guid: f63566e149cf2944a95fab0887601d49, type: 2}
   BulletPoint: {fileID: 469091223532365656}
+  WeaponContainer: {fileID: 0}
+  WeaponMenuContainer: {fileID: 0}

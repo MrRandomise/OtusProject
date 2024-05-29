@@ -31,9 +31,9 @@ namespace OtusProject.PlayerInput
             {
                 if (_currFireRate >= _character.CurrentWeapon.GetConfig().FireRate)
                 {
+                    _bulletInstaller.BulletInitial(_character.CurrentWeapon);
                     _character.CurrentWeapon.GetConfig().CurrAmmo -= 1;
                     _currFireRate = 0;
-                    _bulletInstaller.BulletInitial(_character.CurrentWeapon);
                 }
             }
             else

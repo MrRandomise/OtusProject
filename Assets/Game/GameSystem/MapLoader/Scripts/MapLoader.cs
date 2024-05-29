@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEditor.AI;
 using UnityEngine.ResourceManagement.AsyncOperations;
-using Zenject;
 
 namespace OtusProject.Config.Map
 {
@@ -26,6 +25,7 @@ namespace OtusProject.Config.Map
             }
             CurrMap = LoadMaps[index];
             CurrMap.gameObject.SetActive(true);
+            NavMeshBuilder.BuildNavMeshAsync();
         }
 
         public async Task InitializedMap()
@@ -37,7 +37,6 @@ namespace OtusProject.Config.Map
                 await _mapHandle.Task;
                 CurrMap = GameObject.Instantiate(_mapHandle.Result, _mapPoint);
                 LoadMaps.Add(CurrMap);
-                NavMeshBuilder.BuildNavMeshAsync();
                 CurrMap.SetActive(false);
             }
         }
