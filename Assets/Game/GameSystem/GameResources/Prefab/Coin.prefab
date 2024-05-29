@@ -99,8 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _resources: {fileID: 11400000, guid: 5166c047f099f7346ba762483116530c, type: 2}
-  _ammount: 1
-  _view: {fileID: 0}
+  _howGet: 1
 --- !u!135 &4312299782740554108
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -120,5 +119,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1
+  m_Radius: 1.262805
   m_Center: {x: 0, y: 0, z: 0}

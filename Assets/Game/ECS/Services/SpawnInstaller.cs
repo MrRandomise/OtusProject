@@ -25,7 +25,9 @@ namespace OtusProject.Content
         [SerializeField] private Transform _inActivePool;
         private ZombieView _zombieView;
         private WaveView  _waveView;
-
+        private int _initialWave = 0;
+        private float _initialCurrTime = 0;
+        private float _initialCurrBuyMenuTimer = 0;
         [Inject]
         private void Construct(ZombieView zombieView, WaveView waveView)
         {
@@ -45,11 +47,14 @@ namespace OtusProject.Content
             entity.AddData(new ZombieCurrCount { Value = _countZombie });
             entity.AddData(new SpawnReadyTimer { Value = _readyTimer });
             entity.AddData(new SpawnOpenShoopTimer { Value = _openShoopTimer });
-            entity.AddData(new StartWaveRequest ());
             entity.AddData(new SpawnActivePool { Value = _activePool });
             entity.AddData(new SpawnInActivePool { Value = _inActivePool });
             entity.AddData(new ZombieViewComponent { Value = _zombieView });
             entity.AddData(new WaveViewComponent { Value = _waveView });
+            entity.AddData(new CurrTimerWave { Value = _initialWave });
+            entity.AddData(new CurrSpawnTime { Value = _initialCurrTime });
+            entity.AddData(new CurrBuyMenuTimer { Value = _initialCurrBuyMenuTimer });
+            entity.AddData(new StartWaveRequest ());
         }
 
         protected override void Dispose(Entity entity)

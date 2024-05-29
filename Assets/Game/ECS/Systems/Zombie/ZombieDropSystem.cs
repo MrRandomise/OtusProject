@@ -16,7 +16,7 @@ namespace OtusProject.System.Zombie
             {
                 if(_dropRequest.Value.Has(entity))
                 {
-                    GameObject.Instantiate(pref.Get(entity).Value, pos.Get(entity).Value, Quaternion.identity);
+                    GameObject.Instantiate(pref.Get(entity).Value, pos.Get(entity).Value, new Quaternion(pos.Get(entity).Value.x, 0, pos.Get(entity).Value.z, 0));
                     _dropRequest.Value.Del(entity);
                 }
             }

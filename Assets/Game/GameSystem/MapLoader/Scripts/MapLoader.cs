@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEditor.AI;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace OtusProject.Config.Map
@@ -25,7 +24,6 @@ namespace OtusProject.Config.Map
             }
             CurrMap = LoadMaps[index];
             CurrMap.gameObject.SetActive(true);
-            NavMeshBuilder.BuildNavMeshAsync();
         }
 
         public async Task InitializedMap()

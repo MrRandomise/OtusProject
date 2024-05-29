@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
+
 namespace OtusProject.View
 {
     public class ItemsView : MonoBehaviour

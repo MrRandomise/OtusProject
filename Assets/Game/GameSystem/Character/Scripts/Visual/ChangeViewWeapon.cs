@@ -14,6 +14,7 @@ namespace OtusProject.Config.Weapons
             _character = character;
             _attack = attack;
             _attack.OnBulletEvent += ChangeAmmoView;
+            ReloadWeapon.OnStopReload += ChangeAmmoView;
         }
 
         private void ChangeAmmoView()
@@ -25,6 +26,7 @@ namespace OtusProject.Config.Weapons
         public void Dispose()
         {
             _attack.OnBulletEvent -= ChangeAmmoView;
+            ReloadWeapon.OnStopReload -= ChangeAmmoView;
         }
     }
 }

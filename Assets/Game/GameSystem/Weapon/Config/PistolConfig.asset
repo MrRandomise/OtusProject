@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PistolConfig
   m_EditorClassIdentifier: 
   MaxAmmo: 5
-  CurrAmmo: 1
+  CurrAmmo: 5
   FireRate: 1.2
-  ReloadTime: 1.5
+  ReloadTime: 5
   UseKey: 49

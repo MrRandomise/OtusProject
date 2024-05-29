@@ -1,7 +1,6 @@
 ﻿using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using OtusProject.Component.Bullet;
-using OtusProject.Component.Events;
 using OtusProject.Component.Zombie;
 using UnityEngine;
 

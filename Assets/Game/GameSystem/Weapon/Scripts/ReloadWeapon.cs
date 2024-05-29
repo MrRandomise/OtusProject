@@ -11,7 +11,7 @@ namespace OtusProject.Config.Weapons
         private float _currTimer = 0;
         private float _reloadTimer;
         private bool _startTimer = false;
-        public event Action OnStopReload;
+        public static event Action OnStopReload;
 
         [Inject]
         private void Construct(Character character)

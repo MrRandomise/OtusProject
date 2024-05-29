@@ -7,9 +7,9 @@ namespace OtusProject.RecourcesConfig
         [SerializeField] private ResourceConfig _resources;
         [SerializeField] private int _howGet = 1;
 
-        private void OnTriggerEnter(Collider other)
+        private void OnCollisionEnter(Collision collision)
         {
-            if (other.CompareTag("Player"))
+            if (collision.gameObject.CompareTag("Player"))
             {
                 _resources.SetCountResources(_howGet);
                 Destroy(gameObject);

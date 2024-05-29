@@ -32,6 +32,7 @@ namespace EcsEngine
                 .Add(new ZombiesRespawn())
                 .Add(new ZombiesPools())
                 .Add(new ZombieControl())
+                .Add(new BulletSpawn())
                 .Add(new BulletHit())
                 .Add(new ZombieTakeEffects())
                 .Add(new ZombieDealDamage())
@@ -41,7 +42,6 @@ namespace EcsEngine
                 .Add(new ZombieEndWave())
                 .Add(new ZombieMoviement())
                 .Add(new ZombieRotateInAttack())
-                .Add(new BulletSpawn())
                 .Add(new BulletMove())
                 .Add(new BulletPool())
                 //Views
