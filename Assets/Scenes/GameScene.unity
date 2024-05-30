@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1468,10 +1468,18 @@ MonoBehaviour:
   - {fileID: 755599659}
   - {fileID: 920759352}
   _spawnPrefab:
-  - {fileID: 8819501177562052067, guid: 8a7c304447108ba47b1eeb8d6a9b6383, type: 3}
   - {fileID: 8819501177562052067, guid: b74456f1d7163ad449eae054540230b7, type: 3}
-  - {fileID: 8819501177562052067, guid: 93b3bcfd2aa4e1a40bfab43247959c61, type: 3}
-  - {fileID: 8819501177562052067, guid: 65ecfdadac8304248802c76f7b39a0d7, type: 3}
+  - {fileID: 8819501177562052067, guid: e417943fa026d7047b3923669c38cde9, type: 3}
+  - {fileID: 8819501177562052067, guid: a69c80d49e9d7a64cba5149c80cd9235, type: 3}
+  - {fileID: 8819501177562052067, guid: 040a4281cb20be347a765ff859da4d24, type: 3}
+  - {fileID: 8819501177562052067, guid: 630fab7e3dcc9b94eb1f81d84f424ad4, type: 3}
+  - {fileID: 8819501177562052067, guid: d5518fb5cfd79f54bb5355438b752e1a, type: 3}
+  - {fileID: 8819501177562052067, guid: 8c770af8c7f879e45bb952e1c1bdd17a, type: 3}
+  - {fileID: 8819501177562052067, guid: d56fa87254ba1c040acf891a210e1f69, type: 3}
+  - {fileID: 8819501177562052067, guid: 0bd676612832c294a8ba2a532ce190d5, type: 3}
+  - {fileID: 8819501177562052067, guid: 6b71e44eb878dc946a427473d3eb7c04, type: 3}
+  - {fileID: 8819501177562052067, guid: bcb6493a6b8d57c4da99d3d353c3701f, type: 3}
+  - {fileID: 8819501177562052067, guid: 4dbbc9bd73d4d344cbcf37082261b3f2, type: 3}
   _target: {fileID: 2003170727}
   _wave: 1
   _spawnTimeout: 0.5
@@ -2518,11 +2526,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Menu: {fileID: 522451064}
---- !u!4 &1253232313 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4135920720483944021, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
-  m_PrefabInstance: {fileID: 5315083156906744608}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1297924608
 GameObject:
   m_ObjectHideFlags: 0
@@ -3876,78 +3879,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 83975353}
     m_Modifications:
-    - target: {fileID: 1008600120455848, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
-      propertyPath: m_TagString
-      value: WeaponContainer
-      objectReference: {fileID: 0}
-    - target: {fileID: 615016950503653382, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
-      propertyPath: CanMove
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 615016950503653382, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
-      propertyPath: Component
-      value: 4185657702175211520
-      objectReference: {fileID: 0}
-    - target: {fileID: 615016950503653382, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
-      propertyPath: FirstItem
-      value: 
-      objectReference: {fileID: 11400000, guid: cc63c3c25307e8c45a066e93b55cad92, type: 2}
-    - target: {fileID: 615016950503653382, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
-      propertyPath: FirstWeapon
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 615016950503653382, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
-      propertyPath: WeaponPoint
-      value: 
-      objectReference: {fileID: 1253232313}
-    - target: {fileID: 615016950503653382, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
-      propertyPath: CurrentWeapon
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 615016950503653382, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
-      propertyPath: weaponContainer
-      value: 
-      objectReference: {fileID: 1253232313}
-    - target: {fileID: 615016950503653382, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
-      propertyPath: managedReferences[4185657702175211520]
-      value: World OtusProject.ItemSystem.RangeWeaponItems
-      objectReference: {fileID: 0}
     - target: {fileID: 615016950503653382, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
       propertyPath: managedReferences[4185657702175211520].Weapon
       value: 
-      objectReference: {fileID: 4689134852123654915, guid: 6e77e0a584e4b1e469f39f635bcae909, type: 3}
-    - target: {fileID: 615016950503653382, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
-      propertyPath: managedReferences[4185657702175211520].ItemIcon
-      value: 
-      objectReference: {fileID: 21300000, guid: 976467f6622997c4eba97caf397946b1, type: 3}
-    - target: {fileID: 615016950503653382, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
-      propertyPath: managedReferences[4185657702175211520].WeaponContainer
-      value: 
-      objectReference: {fileID: 1253232313}
-    - target: {fileID: 615016950503653382, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
-      propertyPath: managedReferences[4185657702175211520].WeaponMenuPrefab
-      value: 
-      objectReference: {fileID: 9073103617799431881, guid: f383745e431689843b93aee98f582621, type: 3}
-    - target: {fileID: 615016950503653382, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
-      propertyPath: managedReferences[4185657702175211520].WeaponMenuContainer
-      value: 
-      objectReference: {fileID: 1302729596}
-    - target: {fileID: 3527056786363750248, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3527056786363750248, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
-      propertyPath: m_ProvidesContacts
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3936634260142882833, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
-      propertyPath: _bullet
-      value: 
-      objectReference: {fileID: -8615168311416123638, guid: 0a53ea62a5edca54f8668dd3aab83e0c, type: 3}
-    - target: {fileID: 3936634260142882833, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
-      propertyPath: _character
-      value: 
-      objectReference: {fileID: 2003170728}
+      objectReference: {fileID: 2366061512907134588, guid: 398d195547acf3c4aab01c53e2e061b7, type: 3}
     - target: {fileID: 4197741944979665917, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3992,61 +3927,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[Character]'
       objectReference: {fileID: 0}
-    - target: {fileID: 6407205800575911888, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
-      propertyPath: WeaponMenu
-      value: 
-      objectReference: {fileID: 1755757796903639614, guid: f383745e431689843b93aee98f582621, type: 3}
-    - target: {fileID: 7624264863407973448, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
-      propertyPath: BullePool
-      value: 
-      objectReference: {fileID: 1688105109}
-    - target: {fileID: 7624264863407973448, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
-      propertyPath: BulletPool
-      value: 
-      objectReference: {fileID: 415917644}
-    - target: {fileID: 7624264863407973448, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
-      propertyPath: BulletInActiovPool
-      value: 
-      objectReference: {fileID: 1688105109}
-    - target: {fileID: 8405932198014075262, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
-      propertyPath: m_Drag
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8405932198014075262, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
-      propertyPath: m_Mass
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8405932198014075262, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
-      propertyPath: m_UseGravity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8405932198014075262, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
-    - target: {fileID: 8405932198014075262, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
-      propertyPath: m_ImplicitCom
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8405932198014075262, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8405932198014075262, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
-      propertyPath: m_ImplicitTensor
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9003735667012348316, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9003735667012348316, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 40
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 2283757529246769022, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}

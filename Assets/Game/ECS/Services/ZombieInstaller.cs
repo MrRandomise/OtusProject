@@ -3,18 +3,18 @@ using UnityEngine;
 using OtusProject.Component.Zombie;
 using UnityEngine.AI;
 using OtusProject.Config.Zombie;
+using System;
 
 namespace OtusProject.Content
 {
     public sealed class ZombieInstaller : EntityInstaller
     {
-        public int Damage;
         [SerializeField] private NavMeshAgent _agent; 
         [SerializeField] private ZombieConfig _zombieConfig;
         [SerializeField] private GameObject _drop;
         [SerializeField] private Animator _animator;
         [SerializeField] private Transform _healthBar;
-
+        [NonSerialized] public int Damage;
         private void Awake()
         {
             _agent.speed = _zombieConfig.MoveSpeed;

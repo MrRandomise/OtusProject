@@ -25,8 +25,6 @@ MonoBehaviour:
     - rid: 4185657700686757898
       type: {class: RangeWeaponItems, ns: OtusProject.ItemSystem, asm: World}
       data:
-        Weapon: {fileID: 4689134852123654915, guid: 6e77e0a584e4b1e469f39f635bcae909, type: 3}
-        WeaponContainer: {fileID: 0}
-        WeaponMenuContainer: {fileID: 0}
+        Weapon: {fileID: 2366061512907134588, guid: 398d195547acf3c4aab01c53e2e061b7, type: 3}
         WeaponMenuPrefab: {fileID: 9073103617799431881, guid: f383745e431689843b93aee98f582621, type: 3}
         ItemIcon: {fileID: 21300000, guid: 976467f6622997c4eba97caf397946b1, type: 3}
