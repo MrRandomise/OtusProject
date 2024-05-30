@@ -1,3 +1,4 @@
+using OtusProject.Player;
 using System;
 using UnityEngine;
 using Zenject;
@@ -19,11 +20,18 @@ namespace OtusProject.PlayerInput
         public Action<UseKey> OnUseKey;
         public Action<KeyCode> OnUseKeyboard;
         private readonly Array keyCodes = Enum.GetValues(typeof(KeyCode));
+        private Character _character;
+        InputManager(Character character)
+        {
+            _character = character;
+        }
+
         public void Tick()
         {
             if (Input.GetMouseButtonUp(0))
             {
-                OnUseKey?.Invoke(UseKey.Fire);
+                if(!_character.JoystickInput)
+                    OnUseKey?.Invoke(UseKey.Fire);
             }
 
             if (Input.GetKey(KeyCode.A))

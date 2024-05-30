@@ -15,6 +15,7 @@ namespace OtusProject.Player
         public bool IsAlive = true;
         public Vector3 MoveDirection;
         public IWeapon CurrentWeapon;
+        public bool JoystickInput = false;
         [SerializeReference] public IItems Component;
         public Dictionary<KeyCode, IWeapon> ListWeapon = new Dictionary<KeyCode, IWeapon>();
         private Movement _movementCharacter;
@@ -30,7 +31,7 @@ namespace OtusProject.Player
         private void Update()
         {
             _movementCharacter.Update(MoveDirection);
-            _rotateCharacter.Update();
+            _rotateCharacter.Update(JoystickInput);
         }
 
         private void FirstWeapon()

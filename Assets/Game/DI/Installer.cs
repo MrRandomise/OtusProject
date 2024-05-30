@@ -10,8 +10,6 @@ using OtusProject.Content;
 using OtusProject.View;
 using OtusProject.GameOver;
 using OtusProject.ItemSystem;
-using OtusProject.RecourcesConfig;
-using OtusProject.Config.Map;
 using OtusProject.Config.Effects;
 
 namespace OtusProject.Installer
@@ -31,6 +29,7 @@ namespace OtusProject.Installer
             Container.Bind<Character>().FromInstance(_character).AsSingle();
             Container.Bind<BulletSpawnInstaller>().FromInstance(_bulletSpawner).AsSingle();
             Container.Bind<SpawnInstaller>().FromInstance(_spawnZombie).AsSingle();
+            Container.Bind<FixedJoystick>().FromComponentInHierarchy().AsSingle();
             Container.BindInterfacesAndSelfTo<GameOverMenu>().FromInstance(_gameOverMenu).AsSingle();
             Container.BindInterfacesAndSelfTo<GameOverSystem>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<PlayerSetHealth>().AsSingle().NonLazy();
@@ -43,7 +42,9 @@ namespace OtusProject.Installer
             Container.BindInterfacesAndSelfTo<ChangeViewWeapon>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<HealthBottle>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<RangeWeapon>().FromComponentInHierarchy().AsSingle();
-
+            Container.BindInterfacesAndSelfTo<JoystickInput>().AsSingle().NonLazy();
+            Container.Bind<JoystickAttack>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<ClickWeaponChange>().AsSingle().NonLazy();
             Container.Bind<ChangeWeapon>().AsSingle().NonLazy();
             Container.Bind<CharacterVisual>().AsSingle();
             Container.Bind<BulletInitInEcsWorld>().AsSingle().NonLazy();

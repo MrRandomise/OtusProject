@@ -1,7 +1,5 @@
 using Leopotam.EcsLite.Entities;
 using OtusProject.Component.Bullet;
-using OtusProject.Component.View;
-using Unity.VisualScripting.YamlDotNet.Core.Tokens;
 using UnityEngine;
 
 namespace OtusProject.Content

@@ -21,7 +21,7 @@ namespace OtusProject.PlayerInput
             _character = character;
         }
 
-        private void GetKey(UseKey key)
+        public void GetKey(UseKey key)
         {
             if (key == UseKey.Fire)
             {
