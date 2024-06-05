@@ -1,6 +1,6 @@
 using System;
 
-namespace OtusProject.Component.Bullet
+namespace OtusProject.Component
 {
     [Serializable]
     public struct InactiveTag {

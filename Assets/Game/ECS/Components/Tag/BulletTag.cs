@@ -1,10 +1,9 @@
-﻿using System;
+using System;
 
-namespace OtusProject.Component.Bullet
+namespace OtusProject.Component
 {
     [Serializable]
-    public struct BulletTag
-    {
-        public string Value;
+    public struct BulletTag {
+        
     }
 }

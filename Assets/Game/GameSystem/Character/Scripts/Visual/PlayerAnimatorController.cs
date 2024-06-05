@@ -12,7 +12,7 @@ namespace OtusProject.Visual
         private readonly Animator _animator;
         private readonly DeathPlayer _death;
         private BulletInitInEcsWorld _onBulletRequest;
-
+        private PlayerSetHealth _setHealth;
         public PlayerAnimatorController(Character character, Animator animator, DeathPlayer Death, BulletInitInEcsWorld onBulletRequest)
         {
             _character = character;

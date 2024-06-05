@@ -21,7 +21,6 @@ namespace OtusProject.Config.Weapons
             _character.CurrentWeapon = weapon;
             _character.CurrentWeapon.GetPrefab().SetActive(true);
             _character.CurrentWeapon.GetConfig().View.ShowItems();
-
         }
     }
 }

@@ -1,10 +1,9 @@
-﻿using System;
+using System;
 
-namespace OtusProject.Component.Zombie
+namespace OtusProject.Component
 {
     [Serializable]
-    public struct ZombieTag
-    {
-        public string Value;
+    public struct ZombieTag {
+        
     }
 }

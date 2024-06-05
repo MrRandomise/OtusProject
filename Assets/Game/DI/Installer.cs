@@ -6,8 +6,6 @@ using OtusProject.PlayerInput;
 using OtusProject.Player.Death;
 using OtusProject.Visual;
 using OtusProject.Config.Weapons;
-using OtusProject.Content;
-using OtusProject.View;
 using OtusProject.GameOver;
 using OtusProject.ItemSystem;
 using OtusProject.Config.Effects;
@@ -17,8 +15,6 @@ namespace OtusProject.Installer
     public sealed class Installer : MonoInstaller
     {
         [SerializeField] private Character _character;
-        [SerializeField] private BulletSpawnInstaller _bulletSpawner;
-        [SerializeField] private SpawnInstaller _spawnZombie;
         [SerializeField] private Camera _mainCamera;
         [SerializeField] private GameOverMenu _gameOverMenu;
 
@@ -27,8 +23,6 @@ namespace OtusProject.Installer
             Container.Bind<RangeWeaponItems>().AsSingle().NonLazy();
             Container.Bind<Camera>().FromInstance(_mainCamera).AsSingle();
             Container.Bind<Character>().FromInstance(_character).AsSingle();
-            Container.Bind<BulletSpawnInstaller>().FromInstance(_bulletSpawner).AsSingle();
-            Container.Bind<SpawnInstaller>().FromInstance(_spawnZombie).AsSingle();
             Container.Bind<FixedJoystick>().FromComponentInHierarchy().AsSingle();
             Container.BindInterfacesAndSelfTo<GameOverMenu>().FromInstance(_gameOverMenu).AsSingle();
             Container.BindInterfacesAndSelfTo<GameOverSystem>().AsSingle().NonLazy();
@@ -48,8 +42,7 @@ namespace OtusProject.Installer
             Container.Bind<ChangeWeapon>().AsSingle().NonLazy();
             Container.Bind<CharacterVisual>().AsSingle();
             Container.Bind<BulletInitInEcsWorld>().AsSingle().NonLazy();
-            Container.Bind<StartVawe>().AsSingle().NonLazy();
-            Container.BindInterfacesAndSelfTo<Blood>().AsCached().NonLazy();
+            Container.BindInterfacesAndSelfTo<BloodBullet>().AsCached().NonLazy();
         }
     }
 }

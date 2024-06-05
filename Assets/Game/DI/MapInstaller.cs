@@ -1,13 +1,15 @@
 using OtusProject.Config.Map;
 using UnityEngine;
 using Zenject;
-
-public class MapInstaller : MonoInstaller
+namespace OtusProject.Installer
 {
-    [SerializeField] private StartScene _startScene;
-    public override void InstallBindings()
+    public class MapInstaller : MonoInstaller
     {
-        Container.Bind<MapLoader>().AsSingle().NonLazy();
-        Container.Bind<StartScene>().FromComponentInNewPrefab(_startScene).AsSingle().NonLazy();
+        [SerializeField] private StartScene _startScene;
+        public override void InstallBindings()
+        {
+            Container.Bind<MapLoader>().AsSingle().NonLazy();
+            Container.Bind<StartScene>().FromComponentInNewPrefab(_startScene).AsSingle().NonLazy();
+        }
     }
 }

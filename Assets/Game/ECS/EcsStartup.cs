@@ -1,4 +1,3 @@
-using OtusProject.System.Spawn;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using Leopotam.EcsLite.Entities;
@@ -8,9 +7,6 @@ using OtusProject.Component.Events;
 using OtusProject.System.Zombie;
 using OtusProject.Systems.View;
 using OtusProject.System.Bullet;
-using EcsEngine.Systems.View;
-using Client;
-using OtusProject.System.Pools;
 
 namespace EcsEngine
 {
@@ -27,41 +23,26 @@ namespace EcsEngine
             _systems = new EcsSystems(_world);
             _systems
                 //Systems
-                .Add(new ZombieStartSpawn())
-                .Add(new ZombieSpawnSystem())
-                .Add(new ZombiesRespawn())
-                .Add(new ZombiesPools())
                 .Add(new ZombieControl())
-                .Add(new BulletSpawn())
-                .Add(new BulletHit())
-                .Add(new ZombieTakeEffects())
-                .Add(new ZombieDealDamage())
-                .Add(new ZmbieHealthBar())
-                .Add(new ZombieDeath())
-                .Add(new ZombieDropSystem())
-                .Add(new ZombieEndWave())
                 .Add(new ZombieMoviement())
-                .Add(new ZombieRotateInAttack())
+                .Add(new HitSystem())
+                .Add(new ZombieTakeEffects())
+                .Add(new DamageSystem())
+                .Add(new DeathSystem())
+                .Add(new DropSystem())
+                .Add(new ZombieMoviement())
+                .Add(new RotateInAttackSystem())
                 .Add(new BulletMove())
-                .Add(new BulletPool())
                 //Views
                 .Add(new AnimatorZombieSystem())
-                .Add(new TransformViewSystem())
-                .Add(new OpenBuyMenu())
-                .Add(new ChangeView())
 #if UNITY_EDITOR
                 .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
 
 #endif
                 .DelHere<AttackEvent>()
                 .DelHere<MoveEvent>()
-                .DelHere<SpawnEvents>()
                 .DelHere<DeathEvent>()
-                .DelHere<RespawnEvent>()
-                .DelHere<BulletHitEvent>()
-                .DelHere<GameOverEvent>()
-                .DelHere<ChangeViewEvent>();
-            
+                .DelHere<HitEvent>();
         }
 
         private void Start()

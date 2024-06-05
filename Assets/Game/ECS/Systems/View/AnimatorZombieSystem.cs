@@ -9,7 +9,6 @@ namespace OtusProject.Systems.View
     internal sealed class AnimatorZombieSystem : IEcsRunSystem 
     {
         private readonly EcsFilterInject<Inc<ZombieAnimator>> _filter;
-        private readonly EcsFilterInject<Inc<GameOverEvent>> _gameOver;
         private readonly EcsPoolInject<MoveEvent> _moveRequest;
         private readonly EcsPoolInject<AttackEvent> _attackRequest;
         private readonly EcsPoolInject<DeathEvent> _deadRequest;
@@ -38,12 +37,6 @@ namespace OtusProject.Systems.View
                     animatorPool.Get(entity).Value.SetBool(_attack, false);
                     animatorPool.Get(entity).Value.SetBool(_move, false);
                     animatorPool.Get(entity).Value.SetTrigger(_death);
-                }
-                foreach (var gameover in _gameOver.Value)
-                {
-                        animatorPool.Get(entity).Value.SetBool(_attack, false);
-                        animatorPool.Get(entity).Value.SetBool(_move, false);
-                        animatorPool.Get(entity).Value.SetBool(_stop, true);
                 }
             }
         }

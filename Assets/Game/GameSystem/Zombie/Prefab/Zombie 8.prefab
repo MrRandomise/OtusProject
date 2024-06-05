@@ -62,10 +62,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _agent: {fileID: 7007686832770771309}
+  _target: {fileID: 0}
   _zombieConfig: {fileID: 11400000, guid: 2a03c833f7bd4bc41ad02ce5087c7e86, type: 2}
   _drop: {fileID: 5447127537220448505, guid: a53c00387ea4aeb49b20ba739e33ba9a, type: 3}
   _animator: {fileID: 6776304413590906796}
-  _healthBar: {fileID: 8619388749585688162}
 --- !u!195 &7007686832770771309
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -423,10 +423,5 @@ PrefabInstance:
 --- !u!4 &5663257544023136766 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3510638482712478539, guid: 1de73014727a3ea4ba63ed9a05f3c31f, type: 3}
-  m_PrefabInstance: {fileID: 9092668290973047477}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &8619388749585688162 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 698512885846228183, guid: 1de73014727a3ea4ba63ed9a05f3c31f, type: 3}
   m_PrefabInstance: {fileID: 9092668290973047477}
   m_PrefabAsset: {fileID: 0}
