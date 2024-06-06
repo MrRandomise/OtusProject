@@ -1,31 +1,26 @@
-using Codice.Client.BaseCommands.Merge;
 using UnityEngine;
-using Zenject;
+using Leopotam.EcsLite.Entities;
+using EcsEngine;
 
 namespace OtusProject.Pools
 {
     public sealed class PoolSystem
     {
         private IPoolView _pool;
-        [Inject]
-        private PoolCreator _poolCreator;
-        private PoolBase<GameObject> _poolBase;
-
-        public PoolSystem(IPoolView pool)
+        private PoolBase<Entity> _poolBase;
+        private EntityManager _entityManager;
+        private EcsStartup _ecsStartup;
+        public PoolSystem(IPoolView pool, EcsStartup ecsStartup)
         {
             _pool = pool;
-            _poolBase = new PoolBase<GameObject>(Preload, GetAction, ReturnAction);
-            _poolCreator = new PoolCreator();
+            _ecsStartup = ecsStartup;
+            _poolBase = new PoolBase<Entity>(Preload, GetAction, ReturnAction);
         }
 
-        public GameObject Preload()
-        {
-            var t = _poolCreator.CreatObject(_pool.GetGameObject(), _pool.GetSpawnPoint(), _pool.GetActivePools());
-            return t;
-        }
-        public void GetAction(GameObject prefab) => prefab.transform.SetParent(_pool.GetActivePools());
-        public void ReturnAction(GameObject prefab) => prefab.transform.SetParent(_pool.GetInActivePools());
-        public GameObject ActivePool() => _poolBase.Get();
-        public void InActivePool(GameObject obj) => _poolBase.Return(obj);
+        public Entity Preload() => _ecsStartup.EntityManager.Create(_pool.GetGameObject(), _pool.GetSpawnPoint(), Quaternion.identity, _pool.GetActivePools());
+        public void GetAction(Entity prefab) => prefab.transform.SetParent(_pool.GetActivePools());
+        public void ReturnAction(Entity prefab) => prefab.transform.SetParent(_pool.GetInActivePools());
+        public Entity ActivePool() => _poolBase.Get();
+        public void InActivePool(Entity obj) => _poolBase.Return(obj);
     }
 }

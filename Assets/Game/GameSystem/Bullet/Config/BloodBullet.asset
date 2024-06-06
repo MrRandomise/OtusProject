@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: BloodBullet
   m_EditorClassIdentifier: 
   Effects:
-    rid: 7372975947670880262
+    rid: 2036248381247979521
   Bullet: {fileID: 2557774204630130911, guid: 1de8ac03f15248b48a27f270f7a33716, type: 3}
   Speed: 10
   LifeTime: 3
   references:
     version: 2
     RefIds:
-    - rid: 7372975947670880262
-      type: {class: Blood, ns: OtusProject.Config.Effects, asm: World}
+    - rid: 2036248381247979521
+      type: {class: BloodBullet, ns: OtusProject.Config.Effects, asm: World}
       data:
         Name: Blood
         DamagePerSec: 1
         Timer: 3
         Description: "\u041D\u0430\u043D\u0435\u0441\u0435\u043D\u0438\u0435 x \u0443\u0440\u043E\u043D\u0430
-          \u0432 n \u0441\u0435\u043A\u0443\u043D\u0434"
+          \u0432 \u0441\u0435\u043A\u0443\u043D\u0434\u0443 n \u0441\u0435\u043A\u0443\u043D\u0434"

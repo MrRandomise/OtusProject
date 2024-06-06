@@ -10,16 +10,23 @@ using OtusProject.System.Bullet;
 
 namespace EcsEngine
 {
-    sealed class EcsStartup : MonoBehaviour
-    {
-        EcsWorld _world;
-        IEcsSystems _systems;
-        private EntityManager _entityManager;
+    public sealed class EcsStartup : MonoBehaviour
+    {        
+        private EcsWorld _world;
+        private IEcsSystems _systems;
+        public EntityManager EntityManager;
+
+
+        public EcsWorld GetWorld()
+        {
+            return _world;
+        }
 
         private void Awake()
         {
-            _entityManager = new EntityManager();
+            EntityManager = new EntityManager();
             _world = new EcsWorld();
+            EntityManager.Initialize(_world);
             _systems = new EcsSystems(_world);
             _systems
                 //Systems
@@ -47,8 +54,7 @@ namespace EcsEngine
 
         private void Start()
         {
-            _entityManager.Initialize(_world);
-            _systems.Inject(_entityManager);
+            _systems.Inject(EntityManager);
             _systems.Init();
         }
 

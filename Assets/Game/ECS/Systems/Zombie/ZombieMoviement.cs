@@ -9,16 +9,11 @@ namespace OtusProject.System.Zombie
 {
     internal sealed class ZombieMoviement : IEcsRunSystem
     {
-        private readonly EcsFilterInject<Inc<ZombieTag>> _filter1;
-        private readonly EcsFilterInject<Inc<ZombieNavAgent, ZombieTarget, CurrentTransform>, Exc<InactiveTag>> _filter;
+        private readonly EcsFilterInject<Inc<ZombieNavAgent, ZombieTarget, CurrentTransform>, Exc<InactiveTag, MoveEvent>> _filter;
         private readonly EcsPoolInject<MoveEvent> _moveEvent;
         private readonly EcsPoolInject<DeadTag> _inactiveTag;
         public void Run(IEcsSystems systems)
         {
-            foreach (var entity in _filter1.Value)
-            {
-                Debug.Log("test");
-            }
 
             foreach (var entity in _filter.Value)
             {

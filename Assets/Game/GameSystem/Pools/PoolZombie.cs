@@ -1,3 +1,4 @@
+using EcsEngine;
 using OtusProject.Waves;
 using System;
 using UnityEngine;
@@ -17,14 +18,14 @@ namespace OtusProject.Pools
         private int _currentCountZombie = 0;
         private int _countZombie = 0;
 
-        PoolZombie(WaveSystem waveSystem, PoolZombieView view)
+        PoolZombie(WaveSystem waveSystem, PoolZombieView view, EcsStartup ecsStartup)
         {
             _waveSystem = waveSystem;
             _waveSystem.OnStartWave += StartSpawnActivePool;
             _waveSystem.OnStopWave += StopSpawnActivePool;
             _view = view;
             _countZombie = _view.InitialCountZombie;
-            _poolSystem = new PoolSystem(_view);
+            _poolSystem = new PoolSystem(_view, ecsStartup);
         }
 
         private void StartSpawnActivePool()

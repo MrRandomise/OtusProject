@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: InstantBullet
   m_EditorClassIdentifier: 
   Effects:
-    rid: 7372975947670880263
+    rid: 2036248381247979523
   Bullet: {fileID: 2557774204630130911, guid: 2fed408e27f05ee4699e66ed0f74886a, type: 3}
   Speed: 10
   LifeTime: 3
   references:
     version: 2
     RefIds:
-    - rid: 7372975947670880263
-      type: {class: InstantDeath, ns: OtusProject.Config.Effects, asm: World}
+    - rid: 2036248381247979523
+      type: {class: DeathBullet, ns: OtusProject.Config.Effects, asm: World}
       data:
         Name: Instant Death
         Description: "\u041C\u0433\u043D\u043E\u0432\u043D\u0435\u043D\u043D\u043E\u0435

@@ -1,3 +1,4 @@
+using Leopotam.EcsLite.Entities;
 using System;
 using System.Collections.Generic;
 

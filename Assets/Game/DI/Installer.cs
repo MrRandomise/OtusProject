@@ -9,6 +9,8 @@ using OtusProject.Config.Weapons;
 using OtusProject.GameOver;
 using OtusProject.ItemSystem;
 using OtusProject.Config.Effects;
+using Leopotam.EcsLite.Entities;
+using EcsEngine;
 
 namespace OtusProject.Installer
 {
@@ -43,6 +45,7 @@ namespace OtusProject.Installer
             Container.Bind<CharacterVisual>().AsSingle();
             Container.Bind<BulletInitInEcsWorld>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<BloodBullet>().AsCached().NonLazy();
+            Container.Bind<EcsStartup>().FromComponentInHierarchy().AsSingle().NonLazy();
         }
     }
 }

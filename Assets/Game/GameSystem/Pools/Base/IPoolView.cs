@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using Leopotam.EcsLite.Entities;
 using UnityEngine;
 
 namespace OtusProject.Pools
@@ -7,8 +7,8 @@ namespace OtusProject.Pools
     {
         public Transform GetActivePools();
         public Transform GetInActivePools();
-        public GameObject GetGameObject();
-        public Transform GetSpawnPoint();
+        public Entity GetGameObject();
+        public Vector3 GetSpawnPoint();
     }
 }
 

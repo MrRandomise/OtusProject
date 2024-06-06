@@ -6,7 +6,7 @@ namespace OtusProject.Pools
 {
     public sealed class PoolZombieView : MonoBehaviour, IPoolView
     {
-        [SerializeField] private  List<Transform> SpawnPoint;
+        [SerializeField] private List<Transform> SpawnPoint;
         [SerializeField] private Transform ActivePool;
         [SerializeField] private Transform InActivePool;
         [SerializeField] private List<Entity> SpawnPrefab = new List<Entity>();
@@ -18,10 +18,10 @@ namespace OtusProject.Pools
             return ActivePool;
         }
 
-        public GameObject GetGameObject()
+        public Entity GetGameObject()
         {
             var index = Random.Range(0, SpawnPrefab.Count);
-            return SpawnPrefab[index].gameObject;
+            return SpawnPrefab[index];
         }
 
         public Transform GetInActivePools()
@@ -29,10 +29,10 @@ namespace OtusProject.Pools
             return InActivePool;
         }
 
-        public Transform GetSpawnPoint()
+        public Vector3 GetSpawnPoint()
         {
             var index = Random.Range(0, SpawnPoint.Count);
-            return SpawnPoint[index];
+            return SpawnPoint[index].position;
         }
 
     }

@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: SpeedBullet
   m_EditorClassIdentifier: 
   Effects:
-    rid: 7372975947670880264
+    rid: 2036248381247979522
   Bullet: {fileID: 2557774204630130911, guid: e0dcb378ea4d1b94fb1a6c2981d85913, type: 3}
   Speed: 10
   LifeTime: 3
   references:
     version: 2
     RefIds:
-    - rid: 7372975947670880264
-      type: {class: Speed, ns: OtusProject.Config.Effects, asm: World}
+    - rid: 2036248381247979522
+      type: {class: SlowSpeedBullet, ns: OtusProject.Config.Effects, asm: World}
       data:
         Name: Speed
-        SpeedRate: 3
+        SpeedRate: 0
         Damage: 1
         Description: "\u0423\u043C\u0435\u043D\u044C\u0448\u0435\u043D\u0438\u0435
           \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u0438 \u043F\u0435\u0440\u0435\u0434\u0432\u0438\u0436\u0435\u043D\u0438\u044F
