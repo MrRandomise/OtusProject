@@ -1,5 +1,5 @@
 using UnityEngine;
-using OtusProject.Player;
+using OtusProject.Content;
 using Zenject;
 using OtusProject.Player.Death;
 using OtusProject.Config.Weapons;
@@ -8,7 +8,7 @@ namespace OtusProject.Visual
 {
     public sealed class CharacterVisual : MonoBehaviour
     {
-        [SerializeField] private Character _character;
+        [SerializeField] private CharacterInstaller _character;
         [SerializeField] private Animator _animator;
         private PlayerAnimatorController _characterAnimatorController;
         private DeathPlayer _deatPlayer;

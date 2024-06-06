@@ -1,4 +1,4 @@
-using OtusProject.Player;
+using OtusProject.Content;
 using System;
 using UnityEngine;
 using Zenject;
@@ -20,8 +20,8 @@ namespace OtusProject.PlayerInput
         public Action<UseKey> OnUseKey;
         public Action<KeyCode> OnUseKeyboard;
         private readonly Array keyCodes = Enum.GetValues(typeof(KeyCode));
-        private Character _character;
-        InputManager(Character character)
+        private CharacterInstaller _character;
+        InputManager(CharacterInstaller character)
         {
             _character = character;
         }

@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa05ab0d72ef0134185e64cc51b33c84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _character: {fileID: 615016950503653382}
+  _character: {fileID: 0}
   _animator: {fileID: 2998094625754096501}
 --- !u!1 &5391201161038669389
 GameObject:
@@ -89,7 +89,8 @@ GameObject:
   - component: {fileID: 4197741944979665917}
   - component: {fileID: 3527056786363750248}
   - component: {fileID: 8405932198014075262}
-  - component: {fileID: 615016950503653382}
+  - component: {fileID: 5036163871950602962}
+  - component: {fileID: 5737579966390170825}
   m_Layer: 0
   m_Name: '[Character]'
   m_TagString: Player
@@ -144,7 +145,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5391201161038669389}
   serializedVersion: 4
-  m_Mass: 1000
+  m_Mass: 100
   m_Drag: 10
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -163,7 +164,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &615016950503653382
+--- !u!114 &5036163871950602962
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,26 +173,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 5391201161038669389}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbb5443288202bc458b8b27a65a58092, type: 3}
+  m_Script: {fileID: 11500000, guid: fbd6a35104234e9e9fea3a91a768a571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  installers:
+  - {fileID: 5737579966390170825}
+--- !u!114 &5737579966390170825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5391201161038669389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9084a4c4a6530548bdc37a39bd12b2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 5
   Speed: 5
-  SpeedRotate: 1
+  SpeedRotate: 5
   CanMove: 1
   IsAlive: 1
+  JoystickInput: 0
   MoveDirection: {x: 0, y: 0, z: 0}
-  Component:
-    rid: 4185657702175211520
-  references:
-    version: 2
-    RefIds:
-    - rid: 4185657702175211520
-      type: {class: RangeWeaponItems, ns: OtusProject.ItemSystem, asm: World}
-      data:
-        Weapon: {fileID: 4689134852123654915, guid: 6e77e0a584e4b1e469f39f635bcae909, type: 3}
-        WeaponMenuPrefab: {fileID: 9073103617799431881, guid: f383745e431689843b93aee98f582621, type: 3}
-        ItemIcon: {fileID: 21300000, guid: 976467f6622997c4eba97caf397946b1, type: 3}
 --- !u!1001 &2998094625761569693
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,24 +1,29 @@
 using System;
 using UnityEngine;
-using OtusProject.Player;
+using OtusProject.Content;
 using Zenject;
 using OtusProject.Weapons;
+using Leopotam.EcsLite.Entities;
+using OtusProject.Component;
 
 namespace OtusProject.PlayerInput
 {
     public sealed class CharacterInputController : IDisposable, ITickable
     {
         private readonly InputManager _inputManager;
-        private readonly Character _character;
+        private readonly CharacterInstaller _characterInstaller;
         public event Action OnFireRequest;
         public event Action<IWeapon> OnChangeWeapon;
         private UseKey _lastKey = UseKey.Stop;
-        public CharacterInputController(InputManager input, Character character)
+        private Entity _character;
+
+        public CharacterInputController(InputManager input, CharacterInstaller character)
         {
             _inputManager = input;
             _inputManager.OnUseKey += GetKey;
             _inputManager.OnUseKeyboard += KeyboardPress;
-            _character = character;
+            _characterInstaller = character;
+            _character = _characterInstaller.GetComponent<Entity>();
         }
 
         public void GetKey(UseKey key)
@@ -41,19 +46,19 @@ namespace OtusProject.PlayerInput
 
         private IWeapon GetItem(KeyCode code)
         {
-            foreach (var item in _character.ListWeapon)
-            {
-                if (item.Key == code)
-                {
-                    return item.Value;
-                }
-            }
+            //foreach (var item in _character.ListWeapon)
+            //{
+            //    if (item.Key == code)
+            //    {
+            //        return item.Value;
+            //    }
+            //}
             return null;
         }
 
         public void Tick()
         {
-            _character.MoveDirection = GetDirection();
+            _character.GetData<MoveDirection>().Value = GetDirection();
         }
 
         private Vector3 GetDirection()

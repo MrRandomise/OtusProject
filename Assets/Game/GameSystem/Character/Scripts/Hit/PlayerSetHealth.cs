@@ -1,3 +1,4 @@
+using OtusProject.Content;
 using OtusProject.Zombie.Hit;
 using System;
 using Zenject;
@@ -7,10 +8,10 @@ namespace OtusProject.Player
     public sealed class PlayerSetHealth: IDisposable
     {
         public event Action OnSetHealth;
-        private Character _character;
+        private CharacterInstaller _character;
 
         [Inject]
-        private void Construct(Character character)
+        private void Construct(CharacterInstaller character)
         {
             _character = character;
             HitEvents.OnHit += SetHealth;

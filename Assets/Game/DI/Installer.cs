@@ -9,14 +9,14 @@ using OtusProject.Config.Weapons;
 using OtusProject.GameOver;
 using OtusProject.ItemSystem;
 using OtusProject.Config.Effects;
-using Leopotam.EcsLite.Entities;
+using OtusProject.Content;
 using EcsEngine;
 
 namespace OtusProject.Installer
 {
     public sealed class Installer : MonoInstaller
     {
-        [SerializeField] private Character _character;
+        [SerializeField] private CharacterInstaller _character;
         [SerializeField] private Camera _mainCamera;
         [SerializeField] private GameOverMenu _gameOverMenu;
 
@@ -24,7 +24,7 @@ namespace OtusProject.Installer
         {
             Container.Bind<RangeWeaponItems>().AsSingle().NonLazy();
             Container.Bind<Camera>().FromInstance(_mainCamera).AsSingle();
-            Container.Bind<Character>().FromInstance(_character).AsSingle();
+            Container.Bind<CharacterInstaller>().FromInstance(_character).AsSingle();
             Container.Bind<FixedJoystick>().FromComponentInHierarchy().AsSingle();
             Container.BindInterfacesAndSelfTo<GameOverMenu>().FromInstance(_gameOverMenu).AsSingle();
             Container.BindInterfacesAndSelfTo<GameOverSystem>().AsSingle().NonLazy();

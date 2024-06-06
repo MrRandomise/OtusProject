@@ -1,5 +1,5 @@
 using OtusProject.Config.Weapons;
-using OtusProject.Player;
+using OtusProject.Content;
 using OtusProject.PlayerInput;
 using OtusProject.View;
 using System;
@@ -18,12 +18,12 @@ namespace OtusProject.ItemSystem
         private static AttackCharacter _attack;
         private static ReloadWeapon _reload;
         private static ChangeWeapon _change;
-        private static Character _character;
+        private static CharacterInstaller _character;
         private static Transform _weaponContainer;
         private static Transform _weaponMenuContainer;
         private const int _alpha = 5;
         [Inject]
-        private void Construct(Character character, CharacterInputController inputManager, AttackCharacter attack, ReloadWeapon reload, ChangeWeapon change)
+        private void Construct(CharacterInstaller character, CharacterInputController inputManager, AttackCharacter attack, ReloadWeapon reload, ChangeWeapon change)
         {
             _character = character;
             _attack = attack;

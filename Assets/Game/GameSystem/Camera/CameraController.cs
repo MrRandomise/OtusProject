@@ -1,4 +1,4 @@
-using OtusProject.Player;
+using OtusProject.Content;
 using UnityEngine;
 using Zenject;
 
@@ -7,10 +7,10 @@ namespace OtusProject.CoreCamera
     public sealed class CameraController : ITickable
     {
         private readonly Camera _camera;
-        private readonly Character _character;
+        private readonly CharacterInstaller _character;
         private readonly Vector3 _initPos;
 
-        public CameraController(Camera camera, Character playerModel)
+        public CameraController(Camera camera, CharacterInstaller playerModel)
         {
             _camera = camera;
             _character = playerModel;

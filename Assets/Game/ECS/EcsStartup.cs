@@ -32,6 +32,8 @@ namespace EcsEngine
                 //Systems
                 .Add(new ZombieControl())
                 .Add(new ZombieMoviement())
+                .Add(new MoviementCharacter())
+                .Add(new RotateCharacter())
                 .Add(new HitSystem())
                 .Add(new ZombieTakeEffects())
                 .Add(new DamageSystem())

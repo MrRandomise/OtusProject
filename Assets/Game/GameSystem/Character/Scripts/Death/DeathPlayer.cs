@@ -1,16 +1,16 @@
 using System;
 using Zenject;
-
+using OtusProject.Content;
 namespace OtusProject.Player.Death
 {
     public sealed class DeathPlayer : IDisposable
     {
         public event Action OnDeath;
         private PlayerSetHealth _setHealth;
-        private Character _character;
+        private CharacterInstaller _character;
 
         [Inject]
-        private void construct(Character character, PlayerSetHealth playerHit)
+        private void construct(CharacterInstaller character, PlayerSetHealth playerHit)
         {
             _setHealth = playerHit;
             _character = character;

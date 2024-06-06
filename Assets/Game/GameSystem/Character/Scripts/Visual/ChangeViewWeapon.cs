@@ -1,15 +1,15 @@
-﻿using OtusProject.Player;
+﻿using OtusProject.Content;
 using System;
 using Zenject;
 namespace OtusProject.Config.Weapons
 {
     public sealed class ChangeViewWeapon : IDisposable
     {
-        private Character _character;
+        private CharacterInstaller _character;
         private BulletInitInEcsWorld _attack;
 
         [Inject]
-        private void Construct(Character character, BulletInitInEcsWorld attack)
+        private void Construct(CharacterInstaller character, BulletInitInEcsWorld attack)
         {
             _character = character;
             _attack = attack;
@@ -19,8 +19,8 @@ namespace OtusProject.Config.Weapons
 
         private void ChangeAmmoView()
         {
-            _character.CurrentWeapon.GetConfig().View.ItemCount.text = _character.CurrentWeapon.GetConfig().CurrAmmo.ToString();
-            _character.CurrentWeapon.GetConfig().View.ItemMaxCount.text = _character.CurrentWeapon.GetConfig().MaxAmmo.ToString();
+            //_character.CurrentWeapon.GetConfig().View.ItemCount.text = _character.CurrentWeapon.GetConfig().CurrAmmo.ToString();
+            //_character.CurrentWeapon.GetConfig().View.ItemMaxCount.text = _character.CurrentWeapon.GetConfig().MaxAmmo.ToString();
         }
 
         public void Dispose()

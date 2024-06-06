@@ -1,5 +1,5 @@
 using OtusProject.Config.Map;
-using OtusProject.Player;
+using OtusProject.Content;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,11 +10,11 @@ namespace OtusProject.Waves
         [SerializeField] private GameObject _menu;
         [SerializeField] private Button _startButton;
         private readonly MapLoader _loader;
-        private readonly Character _character;
+        private readonly CharacterInstaller _character;
         public readonly float StartTimeout = 3;
         public readonly float EndTimeout = 3;
 
-        public WaveView(MapLoader loader, Character character)
+        public WaveView(MapLoader loader, CharacterInstaller character)
         {
             _character = character;
             _startButton.onClick.AddListener(StartNextWave);

@@ -1,5 +1,6 @@
 using OtusProject.Config.Weapons;
 using OtusProject.Player;
+using OtusProject.Content;
 using OtusProject.Player.Death;
 using System;
 using UnityEngine;
@@ -8,12 +9,12 @@ namespace OtusProject.Visual
 {
     public sealed class PlayerAnimatorController : IDisposable
     {
-        private readonly Character _character;
+        private readonly CharacterInstaller _character;
         private readonly Animator _animator;
         private readonly DeathPlayer _death;
         private BulletInitInEcsWorld _onBulletRequest;
         private PlayerSetHealth _setHealth;
-        public PlayerAnimatorController(Character character, Animator animator, DeathPlayer Death, BulletInitInEcsWorld onBulletRequest)
+        public PlayerAnimatorController(CharacterInstaller character, Animator animator, DeathPlayer Death, BulletInitInEcsWorld onBulletRequest)
         {
             _character = character;
             _death = Death;
@@ -32,10 +33,10 @@ namespace OtusProject.Visual
 
         public void Update()
         {
-            if (_character.CanMove) 
-            {
-                _animator.SetBool("Move", GetMainStateValue());
-            } 
+            //if (_character.CanMove) 
+            //{
+            //    _animator.SetBool("Move", GetMainStateValue());
+            //} 
         }
 
         private void DeathAnim()
