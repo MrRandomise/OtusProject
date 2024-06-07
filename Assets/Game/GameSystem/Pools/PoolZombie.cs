@@ -1,5 +1,7 @@
 using EcsEngine;
+using Leopotam.EcsLite.Entities;
 using OtusProject.Waves;
+using OtusProject.Component;
 using System;
 using UnityEngine;
 using Zenject;
@@ -7,9 +9,8 @@ using Zenject;
 namespace OtusProject.Pools
 {
 
-    public sealed class PoolZombie: ITickable, IDisposable
+    public sealed class PoolZombie: ITickable, IDisposable, IInActiveEvent
     {
-
         private WaveSystem _waveSystem;
         private PoolSystem _poolSystem;
         private PoolZombieView _view;
@@ -47,7 +48,8 @@ namespace OtusProject.Pools
                 {
                     _currentCountZombie++;
                     _currentTimer = 0;
-                    _poolSystem.ActivePool();
+                    var zombie = _poolSystem.ActivePool();
+                    zombie.GetData<Pool>().Value = this;
                     if (_currentCountZombie == _view.InitialCountZombie)
                     {
                         _currentCountZombie = 0;
@@ -56,6 +58,11 @@ namespace OtusProject.Pools
                     }
                 }
             }
+        }
+
+        public void InActiveEvent(Entity _entity)
+        {
+            _poolSystem.InActivePool(_entity);
         }
 
         public void Dispose()

@@ -21,26 +21,26 @@ namespace OtusProject.Config.Weapons
 
         public void Tick()
         {
-            //if(_startTimer)
-            //{
-            //    _currTimer += Time.deltaTime;
-            //    if(_currTimer > _reloadTimer)
-            //    {
-            //        _character.CurrentWeapon.GetConfig().CurrAmmo = _character.CurrentWeapon.GetConfig().MaxAmmo;
-            //        _startTimer = false;
-            //        OnStopReload?.Invoke();
-            //    }
-            //}
+            if (_startTimer)
+            {
+                _currTimer += Time.deltaTime;
+                if (_currTimer > _reloadTimer)
+                {
+                    _character.CurrentWeapon.GetConfig().CurrAmmo = _character.CurrentWeapon.GetConfig().MaxAmmo;
+                    _startTimer = false;
+                    OnStopReload?.Invoke();
+                }
+            }
         }
 
         public void Reload() 
         {
-            //if(!_startTimer)
-            //{
-            //    _reloadTimer = _character.CurrentWeapon.GetConfig().ReloadTime;
-            //    _currTimer = 0;
-            //    _startTimer = true;
-            //}
+            if (!_startTimer)
+            {
+                _reloadTimer = _character.CurrentWeapon.GetConfig().ReloadTime;
+                _currTimer = 0;
+                _startTimer = true;
+            }
         }
     }
 }

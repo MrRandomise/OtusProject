@@ -3,6 +3,7 @@ using Zenject;
 using System;
 using UnityEngine;
 using OtusProject.Content;
+using OtusProject.Pools;
 
 namespace OtusProject.PlayerInput
 {
@@ -10,14 +11,14 @@ namespace OtusProject.PlayerInput
     {
         private CharacterInstaller _character;
         private float _currFireRate = 0;
-        private BulletInitInEcsWorld _bulletInstaller;
         public event Action OnReload;
+        private PoolBullet _poolBullet;
 
         [Inject]
-        private void Construct(CharacterInstaller character, BulletInitInEcsWorld bulletInstaller)
+        private void Construct(CharacterInstaller character, PoolBullet poolBullet)
         {
             _character = character;
-            _bulletInstaller = bulletInstaller;
+            _poolBullet = poolBullet;
         }
 
         public void Tick()
@@ -27,19 +28,19 @@ namespace OtusProject.PlayerInput
 
         public void AttackRequest()
         {
-            //if (_character.CurrentWeapon.GetConfig().CurrAmmo > 0)
-            //{
-            //    if (_currFireRate >= _character.CurrentWeapon.GetConfig().FireRate)
-            //    {
-            //        _character.CurrentWeapon.GetConfig().CurrAmmo -= 1;
-            //        _currFireRate = 0;
-            //        _bulletInstaller.BulletInitial(_character.CurrentWeapon);
-            //    }
-            //}
-            //else
-            //{
-            //    OnReload?.Invoke();
-            //}
+            if (_character.CurrentWeapon.GetConfig().CurrAmmo > 0)
+            {
+                if (_currFireRate >= _character.CurrentWeapon.GetConfig().FireRate)
+                {
+                    _character.CurrentWeapon.GetConfig().CurrAmmo -= 1;
+                    _currFireRate = 0;
+                    _poolBullet.BulletInitial(_character.CurrentWeapon);
+                }
+            }
+            else
+            {
+                OnReload?.Invoke();
+            }
         }
     }
 }

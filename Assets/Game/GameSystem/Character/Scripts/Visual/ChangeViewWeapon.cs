@@ -6,14 +6,13 @@ namespace OtusProject.Config.Weapons
     public sealed class ChangeViewWeapon : IDisposable
     {
         private CharacterInstaller _character;
-        private BulletInitInEcsWorld _attack;
 
         [Inject]
-        private void Construct(CharacterInstaller character, BulletInitInEcsWorld attack)
+        private void Construct(CharacterInstaller character)
         {
             _character = character;
-            _attack = attack;
-            _attack.OnBulletEvent += ChangeAmmoView;
+            //_attack = attack;
+            //_attack.OnBulletEvent += ChangeAmmoView;
             ReloadWeapon.OnStopReload += ChangeAmmoView;
         }
 
@@ -25,7 +24,7 @@ namespace OtusProject.Config.Weapons
 
         public void Dispose()
         {
-            _attack.OnBulletEvent -= ChangeAmmoView;
+            //_attack.OnBulletEvent -= ChangeAmmoView;
             ReloadWeapon.OnStopReload -= ChangeAmmoView;
         }
     }

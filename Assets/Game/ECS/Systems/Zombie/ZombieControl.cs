@@ -1,7 +1,6 @@
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using OtusProject.Component;
-using OtusProject.Component.Zombie;
 using OtusProject.Component.Events;
 using UnityEngine;
 
@@ -9,7 +8,7 @@ namespace OtusProject.System.Zombie
 {
     internal sealed class ZombieControl : IEcsRunSystem 
     {
-        private readonly EcsFilterInject<Inc<AttackDistance, CurrentTransform, ZombieTarget>, Exc<InactiveTag, DeadTag, DeathEvent>> _filter;
+        private readonly EcsFilterInject<Inc<AttackDistance, CurrentTransform, Target>, Exc<InactiveTag, DeadTag, DeathEvent>> _filter;
         private readonly EcsPoolInject<AttackEvent> _attackEvent;
 
         public void Run (IEcsSystems systems) 

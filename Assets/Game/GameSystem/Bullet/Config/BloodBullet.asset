@@ -15,7 +15,7 @@ MonoBehaviour:
   Effects:
     rid: 2036248381247979521
   Bullet: {fileID: 2557774204630130911, guid: 1de8ac03f15248b48a27f270f7a33716, type: 3}
-  Speed: 10
+  Speed: 5
   LifeTime: 3
   references:
     version: 2

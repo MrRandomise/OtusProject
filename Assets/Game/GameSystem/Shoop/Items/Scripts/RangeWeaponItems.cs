@@ -30,30 +30,29 @@ namespace OtusProject.ItemSystem
             _reload = reload;
             _change = change;
             _characterInputController = inputManager;
-            //_weaponContainer = GameObject.FindGameObjectWithTag("WeaponContainer").transform;
-            //_weaponMenuContainer = GameObject.FindGameObjectWithTag("WeaponContent").transform;
+            _weaponContainer = GameObject.FindGameObjectWithTag("WeaponContainer").transform;
+            _weaponMenuContainer = GameObject.FindGameObjectWithTag("WeaponContent").transform;
         }
 
         public void BuyItem()
         {
-            //Debug.Log("Купили оружие!");
-            //var item = GameObject.Instantiate(Weapon, _weaponContainer.position, _weaponContainer.rotation, _weaponContainer);
-            //var menuPrefab = GameObject.Instantiate(WeaponMenuPrefab, WeaponMenuPrefab.transform.position, Quaternion.identity, _weaponMenuContainer);
-            //if(_character.CurrentWeapon != null)
-            //{
-            //    _character.CurrentWeapon.GetConfig().View.OpacityItems();
-            //    _character.CurrentWeapon.GetPrefab().gameObject.SetActive(false);
-            //}
-            //_character.ListWeapon.Add(Weapon.WeaponConfig.UseKey, item);
-            //_character.CurrentWeapon = item;
-            //_character.CurrentWeapon.GetPrefab().SetActive(true);
-            //_character.CurrentWeapon.Ininital(_characterInputController, _attack, _reload, _change);
-            //item.WeaponConfig.View = menuPrefab;
-            //menuPrefab.ItemIcon.sprite = ItemIcon;
-            //menuPrefab.ItemCount.text = item.WeaponConfig.MaxAmmo.ToString();
-            //menuPrefab.ItemMaxCount.text = item.WeaponConfig.MaxAmmo.ToString();
-            //menuPrefab.ItemIcon.sprite = ItemIcon;
-            //menuPrefab.Key.text = item.WeaponConfig.UseKey.ToString().Remove(0, _alpha);
+            var item = GameObject.Instantiate(Weapon, _weaponContainer.position, _weaponContainer.rotation, _weaponContainer);
+            var menuPrefab = GameObject.Instantiate(WeaponMenuPrefab, WeaponMenuPrefab.transform.position, Quaternion.identity, _weaponMenuContainer);
+            if (_character.CurrentWeapon != null)
+            {
+                _character.CurrentWeapon.GetConfig().View.OpacityItems();
+                _character.CurrentWeapon.GetPrefab().gameObject.SetActive(false);
+            }
+            _character.ListWeapon.Add(Weapon.WeaponConfig.UseKey, item);
+            _character.CurrentWeapon = item;
+            _character.CurrentWeapon.GetPrefab().SetActive(true);
+            _character.CurrentWeapon.Ininital(_characterInputController, _attack, _reload, _change);
+            item.WeaponConfig.View = menuPrefab;
+            menuPrefab.ItemIcon.sprite = ItemIcon;
+            menuPrefab.ItemCount.text = item.WeaponConfig.MaxAmmo.ToString();
+            menuPrefab.ItemMaxCount.text = item.WeaponConfig.MaxAmmo.ToString();
+            menuPrefab.ItemIcon.sprite = ItemIcon;
+            menuPrefab.Key.text = item.WeaponConfig.UseKey.ToString().Remove(0, _alpha);
         }
 
         public Sprite GetIcon()

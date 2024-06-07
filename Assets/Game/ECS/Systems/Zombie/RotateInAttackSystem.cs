@@ -3,12 +3,11 @@ using Leopotam.EcsLite.Di;
 using OtusProject.Component.Events;
 using OtusProject.Component;
 using UnityEngine;
-using OtusProject.Component.Zombie;
 namespace OtusProject.System.Zombie
 {
     sealed class RotateInAttackSystem : IEcsRunSystem 
     {
-        private readonly EcsFilterInject<Inc<RotateSpeed, CurrentTransform, AttackEvent, ZombieTarget>> _filter;
+        private readonly EcsFilterInject<Inc<RotateSpeed, CurrentTransform, AttackEvent, Target>> _filter;
         public void Run (IEcsSystems systems) 
         {
             foreach(var entity in _filter.Value)

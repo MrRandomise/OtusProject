@@ -6,7 +6,6 @@ using UnityEngine;
 using OtusProject.Component.Events;
 using OtusProject.System.Zombie;
 using OtusProject.Systems.View;
-using OtusProject.System.Bullet;
 
 namespace EcsEngine
 {
@@ -31,25 +30,22 @@ namespace EcsEngine
             _systems
                 //Systems
                 .Add(new ZombieControl())
-                .Add(new ZombieMoviement())
-                .Add(new MoviementCharacter())
-                .Add(new RotateCharacter())
-                .Add(new HitSystem())
-                .Add(new ZombieTakeEffects())
+                .Add(new MoviementSystem())
+                .Add(new NavMashSystem())
+                .Add(new RotateCharacterSystem())
+                .Add(new TakeBulletEffectsSystem())
                 .Add(new DamageSystem())
                 .Add(new DeathSystem())
+                .Add(new LifeTimerSystem())
                 .Add(new DropSystem())
-                .Add(new ZombieMoviement())
                 .Add(new RotateInAttackSystem())
-                .Add(new BulletMove())
                 //Views
-                .Add(new AnimatorZombieSystem())
+                .Add(new AnimatorSystem())
 #if UNITY_EDITOR
                 .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
 
 #endif
                 .DelHere<AttackEvent>()
-                .DelHere<MoveEvent>()
                 .DelHere<DeathEvent>()
                 .DelHere<HitEvent>();
         }

@@ -53,23 +53,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 884e895d96cae3f4e96c655e42735a4c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.064
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 884e895d96cae3f4e96c655e42735a4c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071069
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 884e895d96cae3f4e96c655e42735a4c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -4.3578812e-33
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 884e895d96cae3f4e96c655e42735a4c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 4.3297796e-17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 884e895d96cae3f4e96c655e42735a4c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.70710665
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 884e895d96cae3f4e96c655e42735a4c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponConfig: {fileID: 11400000, guid: 1c01867a112b21041b81d7db5ecc4ca8, type: 2}
-  BulletConfig: {fileID: 11400000, guid: f63566e149cf2944a95fab0887601d49, type: 2}
+  BulletConfig: {fileID: 11400000, guid: 32795c1b4ffa5734b97845d05f5d770c, type: 2}
   BulletPoint: {fileID: 3946541586419288137}
 --- !u!4 &2267703593505435982 stripped
 Transform:

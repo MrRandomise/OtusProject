@@ -42,8 +42,6 @@ namespace OtusProject.Installer
             Container.Bind<JoystickAttack>().FromComponentInHierarchy().AsSingle();
             Container.Bind<ClickWeaponChange>().AsSingle().NonLazy();
             Container.Bind<ChangeWeapon>().AsSingle().NonLazy();
-            Container.Bind<CharacterVisual>().AsSingle();
-            Container.Bind<BulletInitInEcsWorld>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<BloodBullet>().AsCached().NonLazy();
             Container.Bind<EcsStartup>().FromComponentInHierarchy().AsSingle().NonLazy();
         }

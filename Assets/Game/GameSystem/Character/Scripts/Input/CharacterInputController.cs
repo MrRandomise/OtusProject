@@ -46,13 +46,13 @@ namespace OtusProject.PlayerInput
 
         private IWeapon GetItem(KeyCode code)
         {
-            //foreach (var item in _character.ListWeapon)
-            //{
-            //    if (item.Key == code)
-            //    {
-            //        return item.Value;
-            //    }
-            //}
+            foreach (var item in _characterInstaller.ListWeapon)
+            {
+                if (item.Key == code)
+                {
+                    return item.Value;
+                }
+            }
             return null;
         }
 

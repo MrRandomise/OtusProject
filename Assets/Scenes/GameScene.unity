@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1137,7 +1137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce5cb7ca463cc2d449baa9448be70bd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _poolZombieView: {fileID: 808649030}
+  _poolZombieInstall: {fileID: 808649030}
+  _poolBulletInstall: {fileID: 319178491}
   _waveView: {fileID: 974872046}
 --- !u!1 &146205543
 GameObject:
@@ -2151,14 +2152,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 319178490}
-  - component: {fileID: 319178492}
+  - component: {fileID: 319178491}
   m_Layer: 0
   m_Name: '[BULLET]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &319178490
 Transform:
   m_ObjectHideFlags: 0
@@ -2175,7 +2176,7 @@ Transform:
   - {fileID: 415917644}
   m_Father: {fileID: 83975353}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &319178492
+--- !u!114 &319178491
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2184,11 +2185,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 319178489}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbd6a35104234e9e9fea3a91a768a571, type: 3}
+  m_Script: {fileID: 11500000, guid: b900e8f5e56ac4540ba35ac4e9f69a94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  installers:
-  - {fileID: 0}
+  SpawnPoint: {fileID: 0}
+  PrefabBullet: {fileID: 0}
+  ActivePool: {fileID: 415917644}
+  InActivePool: {fileID: 1688105109}
 --- !u!1 &320759147
 GameObject:
   m_ObjectHideFlags: 0
@@ -6269,7 +6272,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 808649028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8439f833431d9964c964b9020156d186, type: 3}
+  m_Script: {fileID: 11500000, guid: 9124be288e57c5f4bbc48a7769ef4551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnPoint:
@@ -6297,7 +6300,7 @@ MonoBehaviour:
   - {fileID: 8819501177562052067, guid: bcb6493a6b8d57c4da99d3d353c3701f, type: 3}
   - {fileID: 8819501177562052067, guid: 4dbbc9bd73d4d344cbcf37082261b3f2, type: 3}
   SpawnTimeout: 1.5
-  InitialCountZombie: 6
+  InitialCountZombie: 1
 --- !u!1 &848176643
 GameObject:
   m_ObjectHideFlags: 0
@@ -14877,8 +14880,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[CHARACTER]'
       objectReference: {fileID: 0}
+    - target: {fileID: 5737579966390170825, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
+      propertyPath: managedReferences[3586390447863627783].Weapon
+      value: 
+      objectReference: {fileID: 2366061512907134588, guid: 398d195547acf3c4aab01c53e2e061b7, type: 3}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 242635737209140440, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5a41d3aae12b614f82b9847145b0175, type: 3}

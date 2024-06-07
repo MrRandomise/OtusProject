@@ -8,7 +8,6 @@ namespace OtusProject.Pools
     {
         private IPoolView _pool;
         private PoolBase<Entity> _poolBase;
-        private EntityManager _entityManager;
         private EcsStartup _ecsStartup;
         public PoolSystem(IPoolView pool, EcsStartup ecsStartup)
         {
