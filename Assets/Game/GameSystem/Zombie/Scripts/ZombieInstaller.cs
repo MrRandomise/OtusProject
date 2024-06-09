@@ -4,17 +4,15 @@ using UnityEngine.AI;
 using OtusProject.Config.Zombie;
 using System;
 using OtusProject.Component;
-using OtusProject.Pools;
-using Zenject;
 
 namespace OtusProject.Content
 {
     public sealed class ZombieInstaller : EntityInstaller
     {
         [SerializeField] private NavMeshAgent _agent;
-        [SerializeField] private Transform _target;
+        [SerializeField] private Entity _target;
         [SerializeField] private ZombieConfig _zombieConfig;
-        [SerializeField] private GameObject _drop;
+        [SerializeField] private Entity _drop;
         [SerializeField] private Animator _animator;
         [NonSerialized] public int Damage;
 

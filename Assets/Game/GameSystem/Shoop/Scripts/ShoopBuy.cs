@@ -23,21 +23,21 @@ namespace OtusProject.ShoopSystem
 
         public void BuyShoop()
         {
-            if(_config.Resource.GetCountResources() < _config.Price && _view.PriceText.color != _colorError)
-            {
-                _view.PriceText.color = _colorError;
-            }
-            else if(_config.Resource.GetCountResources() >= _config.Price)
-            {
-                _view.PriceText.color = _colorAccept;
-                _config.Resource.SetCountResources(-_config.Price);
-                _config.SetCurrBuy();
-                _config.UseItem();
-                if (_config.MaxBuy <= _config.GetCurrBuy())
-                {
-                    Remove();
-                }
-            }
+            //if(_config.Resource.GetCountResources() < _config.Price && _view.PriceText.color != _colorError)
+            //{
+            //    _view.PriceText.color = _colorError;
+            //}
+            //else if(_config.Resource.GetCountResources() >= _config.Price)
+            //{
+            //    _view.PriceText.color = _colorAccept;
+            //    _config.Resource.SetCountResources(-_config.Price);
+            //    _config.SetCurrBuy();
+            //    _config.UseItem();
+            //    if (_config.MaxBuy <= _config.GetCurrBuy())
+            //    {
+            //        Remove();
+            //    }
+            //}
             _timer.Start(ref _view.PriceText);
         }
 

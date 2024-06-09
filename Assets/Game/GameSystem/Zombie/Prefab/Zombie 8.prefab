@@ -66,7 +66,7 @@ MonoBehaviour:
   _agent: {fileID: 7007686832770771309}
   _target: {fileID: 0}
   _zombieConfig: {fileID: 11400000, guid: 2a03c833f7bd4bc41ad02ce5087c7e86, type: 2}
-  _drop: {fileID: 5447127537220448505, guid: a53c00387ea4aeb49b20ba739e33ba9a, type: 3}
+  _drop: {fileID: 1073815549831257955, guid: a53c00387ea4aeb49b20ba739e33ba9a, type: 3}
   _animator: {fileID: 6776304413590906796}
 --- !u!195 &7007686832770771309
 NavMeshAgent:
@@ -226,6 +226,10 @@ PrefabInstance:
     - target: {fileID: 3814770796534210175, guid: d547cb8bfdb5b494a97a308fd5c74a6a, type: 3}
       propertyPath: m_Name
       value: RBoxContainer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4248590524579191607, guid: d547cb8bfdb5b494a97a308fd5c74a6a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -403,6 +407,10 @@ PrefabInstance:
       propertyPath: _installer
       value: 
       objectReference: {fileID: 4312122862954274890}
+    - target: {fileID: 8329310294957001096, guid: 66ad85de652a3f14bb9aa79f1228d338, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

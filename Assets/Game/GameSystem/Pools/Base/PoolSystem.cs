@@ -19,7 +19,13 @@ namespace OtusProject.Pools
         public Entity Preload() => _ecsStartup.EntityManager.Create(_pool.GetGameObject(), _pool.GetSpawnPoint(), Quaternion.identity, _pool.GetActivePools());
         public void GetAction(Entity prefab) => prefab.transform.SetParent(_pool.GetActivePools());
         public void ReturnAction(Entity prefab) => prefab.transform.SetParent(_pool.GetInActivePools());
-        public Entity ActivePool() => _poolBase.Get();
+        public Entity ActivePool()
+        {
+            var prefab = _poolBase.Get();
+            prefab.transform.position = _pool.GetSpawnPoint();
+            return prefab;
+        }
+
         public void InActivePool(Entity obj) => _poolBase.Return(obj);
     }
 }

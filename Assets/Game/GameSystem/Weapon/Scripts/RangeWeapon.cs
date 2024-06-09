@@ -12,7 +12,7 @@ namespace OtusProject.Config.Weapons
         public Transform BulletPoint;
 
         private CharacterInputController InputManager;
-        private AttackCharacter Fire;
+        private AttackInputCharacter Fire;
         private ReloadWeapon ReloadWeapon;
         private ChangeWeapon Change;
 
@@ -51,7 +51,7 @@ namespace OtusProject.Config.Weapons
             return BulletPoint;
         }
 
-        public void Ininital(CharacterInputController inputManager, AttackCharacter fire, ReloadWeapon reloadWeapon, ChangeWeapon change)
+        public void Ininital(CharacterInputController inputManager, AttackInputCharacter fire, ReloadWeapon reloadWeapon, ChangeWeapon change)
         {
             InputManager = inputManager;
             Fire = fire;

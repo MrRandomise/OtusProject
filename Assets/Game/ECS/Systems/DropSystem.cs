@@ -2,13 +2,15 @@ using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using OtusProject.Component;
 using OtusProject.Component.Request;
-using UnityEngine;
+using OtusProject.ECSEvent;
 
 namespace OtusProject.System.Zombie
 {
-    internal sealed class DropSystem : IEcsRunSystem {
+    internal sealed class DropSystem : IEcsRunSystem 
+    {
         private readonly EcsFilterInject<Inc<Drops, CurrentTransform, ZombieTag>> _filter;
         private readonly EcsPoolInject<DropRequest> _dropRequest;
+        private EcsCustomInject<OnDeathInECS> _onDeath;
         public void Run (IEcsSystems systems) {
             var pref = _filter.Pools.Inc1;
             var pos = _filter.Pools.Inc2;
@@ -16,7 +18,7 @@ namespace OtusProject.System.Zombie
             {
                 if(_dropRequest.Value.Has(entity))
                 {
-                    Object.Instantiate(pref.Get(entity).Value, pos.Get(entity).Value.position, new Quaternion(pos.Get(entity).Value.rotation.x, 0, pos.Get(entity).Value.rotation.z, 0));
+                    _onDeath.Value.OnDeathEvent(_filter.Pools.Inc1.Get(entity).Value, _filter.Pools.Inc2.Get(entity).Value);
                     _dropRequest.Value.Del(entity);
                 }
             }

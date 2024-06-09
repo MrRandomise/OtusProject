@@ -16,7 +16,6 @@ namespace OtusProject.Content
             entity.AddData(new LifeTime ());
             entity.AddData(new BulletTag ());
             entity.AddData(new CurrentTimer { Value = 0} );
-            entity.AddData(new LifeTimerRequest());
             entity.AddData(new CurrentEntity { Value = entity });
             entity.AddData(new BulletEffects());
         }

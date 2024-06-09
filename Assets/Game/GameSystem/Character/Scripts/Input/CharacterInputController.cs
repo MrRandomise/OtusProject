@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-using OtusProject.Content;
+using OtusProject.Player;
 using Zenject;
 using OtusProject.Weapons;
 using Leopotam.EcsLite.Entities;

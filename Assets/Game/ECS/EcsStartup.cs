@@ -6,6 +6,8 @@ using UnityEngine;
 using OtusProject.Component.Events;
 using OtusProject.System.Zombie;
 using OtusProject.Systems.View;
+using OtusProject.ECSEvent;
+using Zenject;
 
 namespace EcsEngine
 {
@@ -14,7 +16,15 @@ namespace EcsEngine
         private EcsWorld _world;
         private IEcsSystems _systems;
         public EntityManager EntityManager;
+        private OnDeathInECS _onDeathECS;
+        private OnHitInECS _onHitEcs;
 
+        [Inject]
+        private void Construct(OnDeathInECS onDeathECS, OnHitInECS onHitEcs)
+        {
+            _onDeathECS = onDeathECS;
+            _onHitEcs = onHitEcs;
+        }
 
         public EcsWorld GetWorld()
         {
@@ -24,18 +34,19 @@ namespace EcsEngine
         private void Awake()
         {
             EntityManager = new EntityManager();
+
             _world = new EcsWorld();
             EntityManager.Initialize(_world);
             _systems = new EcsSystems(_world);
             _systems
-                //Systems
-                .Add(new ZombieControl())
+                 //Systems
+                .Add(new DeathSystem())
+                .Add(new ZombieAttackSystem())
                 .Add(new MoviementSystem())
                 .Add(new NavMashSystem())
                 .Add(new RotateCharacterSystem())
                 .Add(new TakeBulletEffectsSystem())
                 .Add(new DamageSystem())
-                .Add(new DeathSystem())
                 .Add(new LifeTimerSystem())
                 .Add(new DropSystem())
                 .Add(new RotateInAttackSystem())
@@ -53,6 +64,8 @@ namespace EcsEngine
         private void Start()
         {
             _systems.Inject(EntityManager);
+            _systems.Inject(_onDeathECS);
+            _systems.Inject(_onHitEcs);
             _systems.Init();
         }
 

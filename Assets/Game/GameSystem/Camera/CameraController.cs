@@ -1,4 +1,4 @@
-using OtusProject.Content;
+using OtusProject.Player;
 using UnityEngine;
 using Zenject;
 

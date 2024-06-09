@@ -33,7 +33,11 @@ namespace OtusProject.Systems.View
                 {
                     animatorPool.Get(entity).Value.SetBool(_attack, true);
                 }
-                if(_deadRequest.Value.Has(entity))
+                if (!_attackRequest.Value.Has(entity) && animatorPool.Get(entity).Value.GetBool(_attack))
+                {
+                    animatorPool.Get(entity).Value.SetBool(_attack, false);
+                }
+                if (_deadRequest.Value.Has(entity))
                 {
                     animatorPool.Get(entity).Value.SetBool(_attack, false);
                     animatorPool.Get(entity).Value.SetBool(_move, false);

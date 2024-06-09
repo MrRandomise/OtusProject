@@ -66,7 +66,7 @@ MonoBehaviour:
   _agent: {fileID: 7007686832770771309}
   _target: {fileID: 0}
   _zombieConfig: {fileID: 11400000, guid: b24e82cc533e8ac448659e4e49934b4c, type: 2}
-  _drop: {fileID: 5447127537220448505, guid: a53c00387ea4aeb49b20ba739e33ba9a, type: 3}
+  _drop: {fileID: 1073815549831257955, guid: a53c00387ea4aeb49b20ba739e33ba9a, type: 3}
   _animator: {fileID: 4593853192503715170}
 --- !u!195 &7007686832770771309
 NavMeshAgent:

@@ -1,5 +1,5 @@
 using OtusProject.Config.Map;
-using OtusProject.Content;
+using OtusProject.Player;
 using UnityEngine;
 using UnityEngine.UI;
 

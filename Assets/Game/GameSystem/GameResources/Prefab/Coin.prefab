@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 3646823591401484846}
   - component: {fileID: -9099466976058931861}
   - component: {fileID: 4312299782740554108}
+  - component: {fileID: -5460058322168846695}
+  - component: {fileID: 1073815549831257955}
   m_Layer: 0
   m_Name: Coin
-  m_TagString: Untagged
+  m_TagString: Resources
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,8 +100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39ed6d9df5ccc5a4788d5990c887dbad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _resources: {fileID: 11400000, guid: 5166c047f099f7346ba762483116530c, type: 2}
-  _howGet: 1
+  ID: 1
+  Resources: {fileID: 11400000, guid: 5166c047f099f7346ba762483116530c, type: 2}
+  HowGet: 1
+  View: {fileID: 0}
 --- !u!135 &4312299782740554108
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -115,9 +119,50 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 1.262805
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &-5460058322168846695
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5447127537220448505}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1073815549831257955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5447127537220448505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbd6a35104234e9e9fea3a91a768a571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  installers:
+  - {fileID: -9099466976058931861}

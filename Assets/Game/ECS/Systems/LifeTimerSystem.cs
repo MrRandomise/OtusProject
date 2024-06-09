@@ -8,7 +8,7 @@ namespace OtusProject.System.Zombie
 {
     internal sealed class LifeTimerSystem : IEcsRunSystem
     {
-        private readonly EcsFilterInject<Inc<LifeTimerRequest, LifeTime, CurrentTimer, Pool, CurrentEntity>, Exc<InactiveTag, DeadTag>> _filter;
+        private readonly EcsFilterInject<Inc<LifeTimerRequest, LifeTime, CurrentTimer, Pool, CurrentEntity>> _filter;
         private EcsPoolInject<LifeTimerRequest> _timeRequest;
         public void Run(IEcsSystems systems)
         {

@@ -1,4 +1,3 @@
-using OtusProject.Player.Death;
 using System;
 using Zenject;
 using OtusProject.Content;

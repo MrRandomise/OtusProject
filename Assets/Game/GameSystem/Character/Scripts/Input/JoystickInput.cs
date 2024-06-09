@@ -1,5 +1,5 @@
 using UnityEngine;
-using OtusProject.Content;
+using OtusProject.Player;
 using Zenject;
 using Leopotam.EcsLite.Entities;
 using OtusProject.Component;

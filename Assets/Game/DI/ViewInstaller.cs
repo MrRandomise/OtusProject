@@ -1,6 +1,6 @@
+using OtusProject.Player;
 using OtusProject.RecourcesConfig;
 using OtusProject.View;
-using OtusProject.Visual;
 using UnityEngine;
 using Zenject;
 
@@ -20,7 +20,8 @@ namespace OtusProject.Installer
             Container.Bind<HealthView>().FromInstance(_healthView).AsSingle();
             Container.Bind<ItemsContentView>().FromInstance(_itemContent).AsSingle();
             Container.Bind<ItemsView>().FromInstance(_itemView).AsSingle();
-            Container.BindInterfacesAndSelfTo<HealthUpdate>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<SetViewResources>().AsSingle().NonLazy();
+            Container.Bind<UpdateViewHealth>().AsSingle().NonLazy();
         }
     }
 }

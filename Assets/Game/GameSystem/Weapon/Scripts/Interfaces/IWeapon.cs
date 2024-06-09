@@ -6,7 +6,7 @@ namespace OtusProject.Weapons
 {
     public interface IWeapon
     {
-        void Ininital(CharacterInputController inputManager, AttackCharacter fire, ReloadWeapon reloadWeapon, ChangeWeapon change);
+        void Ininital(CharacterInputController inputManager, AttackInputCharacter fire, ReloadWeapon reloadWeapon, ChangeWeapon change);
         public void Attack();
         public void ChangeWeapon(IWeapon weapon);
         public WeaponConfig GetConfig();

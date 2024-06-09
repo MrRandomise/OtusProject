@@ -7,7 +7,7 @@ namespace OtusProject.System.Zombie
 {
     internal sealed class RotateCharacterSystem : IEcsRunSystem
     {
-        private readonly EcsFilterInject<Inc<Speed, CurrentTransform, MoveDirection, CharacterTag, MousePosition, MainCamera>, Exc<InactiveTag, DeadTag>> _filter;
+        private readonly EcsFilterInject<Inc<Speed, CurrentTransform, MoveDirection, CharacterTag, MousePosition, MainCamera>, Exc<DeadTag>> _filter;
 
         public void Run(IEcsSystems systems)
         {

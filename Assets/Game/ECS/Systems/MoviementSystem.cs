@@ -12,6 +12,7 @@ namespace OtusProject.System.Zombie
         {
             foreach (var entity in _filter.Value)
             {
+
                 ref var position = ref _filter.Pools.Inc2.Get(entity);
                 ref var moveDirection = ref _filter.Pools.Inc3.Get(entity);
                 ref var moveSpeed = ref _filter.Pools.Inc1.Get(entity);

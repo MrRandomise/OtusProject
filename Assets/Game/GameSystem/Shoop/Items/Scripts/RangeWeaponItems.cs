@@ -1,5 +1,5 @@
 using OtusProject.Config.Weapons;
-using OtusProject.Content;
+using OtusProject.Player;
 using OtusProject.PlayerInput;
 using OtusProject.View;
 using System;
@@ -15,7 +15,7 @@ namespace OtusProject.ItemSystem
         [SerializeField] public ItemsView WeaponMenuPrefab;
         [SerializeField] public Sprite ItemIcon;
         private static CharacterInputController _characterInputController;
-        private static AttackCharacter _attack;
+        private static AttackInputCharacter _attack;
         private static ReloadWeapon _reload;
         private static ChangeWeapon _change;
         private static CharacterInstaller _character;
@@ -23,7 +23,7 @@ namespace OtusProject.ItemSystem
         private static Transform _weaponMenuContainer;
         private const int _alpha = 5;
         [Inject]
-        private void Construct(CharacterInstaller character, CharacterInputController inputManager, AttackCharacter attack, ReloadWeapon reload, ChangeWeapon change)
+        private void Construct(CharacterInstaller character, CharacterInputController inputManager, AttackInputCharacter attack, ReloadWeapon reload, ChangeWeapon change)
         {
             _character = character;
             _attack = attack;

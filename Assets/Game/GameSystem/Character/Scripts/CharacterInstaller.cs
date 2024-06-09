@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using OtusProject.Weapons;
 using OtusProject.ItemSystem;
 
-namespace OtusProject.Content
+namespace OtusProject.Player
 {
     public class CharacterInstaller : EntityInstaller
     {
@@ -25,6 +25,7 @@ namespace OtusProject.Content
         {
             entity.AddData(new MaxHealth { Value = Health });
             entity.AddData(new CurrentHealth { Value = Health });
+            entity.AddData(new CurrentEntity { Value = entity });
             entity.AddData(new Speed { Value = Speed });
             entity.AddData(new RotateSpeed { Value = SpeedRotate });
             entity.AddData(new CurrentTransform { Value = transform });

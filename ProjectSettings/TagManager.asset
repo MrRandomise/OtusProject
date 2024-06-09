@@ -9,6 +9,7 @@ TagManager:
   - WeaponContent
   - WeaponContainer
   - Zombie
+  - Resources
   layers:
   - Default
   - TransparentFX
