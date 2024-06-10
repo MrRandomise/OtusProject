@@ -18,7 +18,7 @@ namespace OtusProject.System.Zombie
                 ref var health = ref  _filter.Pools.Inc2.Get(entity).Value;
                 var damage = _filter.Pools.Inc1.Get(entity).Value;
                 health -= damage;
-                _oHit.Value.OnHitEvent(_filter.Pools.Inc3.Get(entity).Value);
+                _oHit.Value.HitEvent(_filter.Pools.Inc3.Get(entity).Value);
                 _damageRequest.Value.Del(entity);
             }
         }

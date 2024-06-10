@@ -68,6 +68,7 @@ MonoBehaviour:
   _zombieConfig: {fileID: 11400000, guid: b24e82cc533e8ac448659e4e49934b4c, type: 2}
   _drop: {fileID: 1073815549831257955, guid: a53c00387ea4aeb49b20ba739e33ba9a, type: 3}
   _animator: {fileID: 7913676425002054894}
+  _healthBar: {fileID: 8619388749585688162}
 --- !u!195 &7007686832770771309
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -475,5 +476,10 @@ PrefabInstance:
 --- !u!4 &5663257544023136766 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3510638482712478539, guid: 1de73014727a3ea4ba63ed9a05f3c31f, type: 3}
+  m_PrefabInstance: {fileID: 9092668290973047477}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8619388749585688162 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 698512885846228183, guid: 1de73014727a3ea4ba63ed9a05f3c31f, type: 3}
   m_PrefabInstance: {fileID: 9092668290973047477}
   m_PrefabAsset: {fileID: 0}

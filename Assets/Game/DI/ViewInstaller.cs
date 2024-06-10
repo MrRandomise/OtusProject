@@ -15,6 +15,7 @@ namespace OtusProject.Installer
             Container.Bind<UpdateViewHealth>().AsSingle().NonLazy();
             Container.Bind<KillZombieManager>().AsSingle().NonLazy();
             Container.Bind<KillZombieView>().AsSingle().NonLazy();
+            Container.Bind<ZombieHealthBarUpdate>().AsSingle().NonLazy();
         }
     }
 }

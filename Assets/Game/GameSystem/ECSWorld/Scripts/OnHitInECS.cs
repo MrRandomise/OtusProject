@@ -5,11 +5,11 @@ namespace OtusProject.ECSEvent
 {
     public sealed class OnHitInECS
     {
-        public event Action<Entity> OnDeath;
+        public event Action<Entity> OnHitEvents;
 
-        public void OnHitEvent(Entity entity)
+        public void HitEvent(Entity entity)
         {
-            OnDeath?.Invoke(entity);
+            OnHitEvents?.Invoke(entity);
         }
     }
 }

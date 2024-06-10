@@ -14,6 +14,7 @@ namespace OtusProject.Content
         [SerializeField] private ZombieConfig _zombieConfig;
         [SerializeField] private Entity _drop;
         [SerializeField] private Animator _animator;
+        [SerializeField] private Transform _healthBar;
         [NonSerialized] public int Damage;
 
         private void Awake()
@@ -40,6 +41,7 @@ namespace OtusProject.Content
             entity.AddData(new ZombieTag ());
             entity.AddData(new CurrentTimer { Value = 0 });
             entity.AddData(new CurrentEntity { Value = entity });
+            entity.AddData(new HealthBar { Value = _healthBar });
         }
 
         protected override void Dispose(Entity entity)
