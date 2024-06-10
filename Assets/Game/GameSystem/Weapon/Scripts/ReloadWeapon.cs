@@ -1,17 +1,17 @@
 using OtusProject.Player;
 using System;
-using UnityEngine;
 using Zenject;
+using UnityEngine;
 
 namespace OtusProject.Config.Weapons
 {
-    public class ReloadWeapon : ITickable
+    public sealed class ReloadWeapon : ITickable
     {
         private CharacterInstaller _character;
         private float _currTimer = 0;
         private float _reloadTimer;
         private bool _startTimer = false;
-        public static event Action OnStopReload;
+        public  event Action OnStopReload;
 
         [Inject]
         private void Construct(CharacterInstaller character)
@@ -33,7 +33,7 @@ namespace OtusProject.Config.Weapons
             }
         }
 
-        public void Reload() 
+        public void Reload()
         {
             if (!_startTimer)
             {

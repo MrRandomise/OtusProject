@@ -1,6 +1,5 @@
 using Leopotam.EcsLite.Entities;
 using OtusProject.Component;
-using OtusProject.Content;
 using OtusProject.View;
 using OtusProject.Zombie.Hit;
 using System;

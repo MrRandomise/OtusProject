@@ -11,6 +11,7 @@ namespace OtusProject.PlayerInput
         private CharacterInstaller _character;
         private float _currFireRate = 0;
         public event Action OnReload;
+        public event Action OnFire; 
         private PoolBulletSystem _poolBullet;
 
         [Inject]
@@ -36,7 +37,7 @@ namespace OtusProject.PlayerInput
                         _poolBullet.BulletInitial(_character.CurrentWeapon);
                         _character.CurrentWeapon.GetConfig().CurrAmmo -= 1;
                         _currFireRate = 0;
-
+                        OnFire?.Invoke();
                     }
                 }
                 else

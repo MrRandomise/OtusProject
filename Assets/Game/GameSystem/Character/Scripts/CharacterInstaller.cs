@@ -17,7 +17,7 @@ namespace OtusProject.Player
         public bool JoystickInput = false;
         public Vector3 MoveDirection;
         public IWeapon CurrentWeapon;
-        [SerializeField] private Animator _animator;
+        public Animator Animator;
         [SerializeReference] public IItems Component;
         public Dictionary<KeyCode, IWeapon> ListWeapon = new Dictionary<KeyCode, IWeapon>();
 
@@ -32,7 +32,7 @@ namespace OtusProject.Player
             entity.AddData(new MoveDirection { Value = MoveDirection});
             entity.AddData(new MainCamera { Value = Camera.main });
             entity.AddData(new MousePosition { Value = Input.mousePosition });
-            entity.AddData(new ObjectAnimator { Value = _animator });
+            entity.AddData(new ObjectAnimator { Value = Animator });
             entity.AddData(new CharacterTag());
             Component.BuyItem();
         }

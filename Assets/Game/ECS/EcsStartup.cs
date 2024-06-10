@@ -53,14 +53,18 @@ namespace EcsEngine
                 .Add(new DropSystem())
                 .Add(new RotateInAttackSystem())
                 //Views
-                .Add(new AnimatorSystem())
+                .Add(new AnimatorMoveSystem())
+                .Add(new AnimatorAttackSystem())
+                .Add(new AnimatorDamageSystem())
+                .Add(new AnimatorDeathSystem())
 #if UNITY_EDITOR
                 .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
 
 #endif
                 .DelHere<AttackEvent>()
                 .DelHere<DeathEvent>()
-                .DelHere<HitEvent>();
+                .DelHere<HitEvent>()
+                .DelHere<DamageEvent>();
         }
 
         private void Start()

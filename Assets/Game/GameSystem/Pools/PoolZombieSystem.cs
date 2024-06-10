@@ -5,7 +5,7 @@ using OtusProject.Component;
 using System;
 using UnityEngine;
 using Zenject;
-using OtusProject.Component.Request;
+
 
 namespace OtusProject.Pools
 {
@@ -18,6 +18,7 @@ namespace OtusProject.Pools
         private float _currentTimer = 0;
         private bool _startTimer = false;
         private int _currentCountZombie = 0;
+        public event Action<Entity> OnSpawnEvent;
 
         PoolZombieSystem(WaveSystem waveSystem, PoolZombieManager manager, EcsStartup ecsStartup)
         {
@@ -48,11 +49,11 @@ namespace OtusProject.Pools
                     _currentCountZombie++;
                     _currentTimer = 0;
                     var zombie = _poolSystem.ActivePool();
-                    InitialZombie(zombie);
+                    zombie.GetData<Pool>().Value = this;
+                    OnSpawnEvent?.Invoke(zombie);
                     if (_currentCountZombie == _manager.InitialCountZombie)
                     {
                         _currentCountZombie = 0;
-                        _manager.InitialCountZombie *= 2;
                         _startTimer = false;
                     }
                 }
@@ -63,25 +64,7 @@ namespace OtusProject.Pools
         {
             _poolSystem.InActivePool(_entity);
         }
-
-
-        private void InitialZombie(Entity zombie)
-        {
-            zombie.GetData<Pool>().Value = this;
-            zombie.GetData<CurrentHealth>().Value = zombie.GetData<MaxHealth>().Value;
-            if (zombie.HasData<InactiveTag>())
-            {
-                zombie.RemoveData<DeathRequest>();
-            }
-            if (zombie.HasData<InactiveTag>())
-            {
-                zombie.RemoveData<InactiveTag>();
-            }
-            if (zombie.HasData<DeadTag>())
-            {
-                zombie.RemoveData<DeadTag>();
-            }
-        }
+        
 
         public void Dispose()
         {

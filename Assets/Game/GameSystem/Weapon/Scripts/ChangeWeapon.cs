@@ -16,11 +16,11 @@ namespace OtusProject.Config.Weapons
 
         public void Change(IWeapon weapon)
         {
-            //_character.CurrentWeapon.GetConfig().View.OpacityItems();
-            //_character.CurrentWeapon.GetPrefab().SetActive(false);
-            //_character.CurrentWeapon = weapon;
-            //_character.CurrentWeapon.GetPrefab().SetActive(true);
-            //_character.CurrentWeapon.GetConfig().View.ShowItems();
+            _character.CurrentWeapon.GetConfig().View.OpacityItems();
+            _character.CurrentWeapon.GetPrefab().SetActive(false);
+            _character.CurrentWeapon = weapon;
+            _character.CurrentWeapon.GetPrefab().SetActive(true);
+            _character.CurrentWeapon.GetConfig().View.ShowItems();
         }
     }
 }

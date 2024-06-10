@@ -1,5 +1,6 @@
 using Leopotam.EcsLite.Entities;
 using OtusProject.Component;
+using OtusProject.Pools;
 using OtusProject.View;
 using OtusProject.Zombie.Hit;
 using UnityEngine;

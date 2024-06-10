@@ -18,7 +18,7 @@ namespace OtusProject.Installer
             Container.BindInterfacesAndSelfTo<PoolZombieSystem>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<PoolBulletSystem>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<PoolResourcesSystem>().AsSingle().NonLazy();
-            
+            Container.BindInterfacesAndSelfTo<PoolInitializeSpawnZombie>().AsSingle().NonLazy();
         }
     }
 }

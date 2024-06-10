@@ -28,14 +28,11 @@ namespace OtusProject.Installer
             Container.BindInterfacesAndSelfTo<CameraController>().AsSingle();
             Container.BindInterfacesAndSelfTo<InputManager>().AsSingle();
             Container.BindInterfacesAndSelfTo<AttackInputCharacter>().AsSingle().NonLazy();
-            Container.BindInterfacesAndSelfTo<ReloadWeapon>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<CharacterInputController>().AsSingle();
-            Container.BindInterfacesAndSelfTo<ChangeViewWeapon>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<HealthBottle>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<RangeWeapon>().FromComponentInHierarchy().AsSingle();
-            Container.Bind<ClickWeaponChange>().AsSingle().NonLazy();
-            Container.Bind<ChangeWeapon>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<BloodBullet>().AsCached().NonLazy();
+            Container.BindInterfacesAndSelfTo<ReloadWeapon>().AsSingle().NonLazy();
             Container.Bind<EcsStartup>().FromComponentInHierarchy().AsSingle().NonLazy();
             Container.Bind<OnDeathInECS>().AsSingle();
             Container.Bind<OnHitInECS>().AsSingle();
