@@ -1,16 +1,18 @@
-using OtusProject.ShoopSystem;
-using UnityEngine;
+using OtusProject.Shoop;
+using OtusProject.View;
 using Zenject;
+using UnityEngine;
 namespace OtusProject.Installer
 {
     public class ShoopInstaller : MonoInstaller
     {
-        [SerializeField] private ShoopMono _shoopMono;
         public override void InstallBindings()
         {
-            Container.Bind<ShoopMono>().FromInstance(_shoopMono).AsSingle();
-            Container.Bind<ShoopView>().AsSingle().NonLazy();
-            Container.BindInterfacesAndSelfTo<ShoopNoBuyTimer>().AsSingle().NonLazy();
+            Container.Bind<ShoopMeneger>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<ShoopSystem>().AsSingle().NonLazy();
+            Container.Bind<ShopPopup>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<ItemsContentView>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<ItemsView>().FromComponentInHierarchy().AsSingle();
         }
     }
 }

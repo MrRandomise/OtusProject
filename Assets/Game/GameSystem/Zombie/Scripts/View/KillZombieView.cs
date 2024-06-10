@@ -8,26 +8,23 @@ namespace OtusProject.View
     {
         private OnDeathInECS _onDeathInECS;
         private ZombieView _zombieView;
-        private int ZombiKilled = 0;
+        private KillZombieManager _killZombieManager;
 
-        KillZombieView(OnDeathInECS onDeathInECS, ZombieView zombieView)
+        KillZombieView(OnDeathInECS onDeathInECS, ZombieView zombieView, KillZombieManager killZombieManager)
         {
             _onDeathInECS = onDeathInECS;
             _zombieView = zombieView;
             _onDeathInECS.OnDeath += OnZombieDeath;
-            SetZombieKilled(0);
+            _killZombieManager = killZombieManager;
         }
 
-        private void OnZombieDeath(Entity res, Transform pos)
+        private void OnZombieDeath(Entity entity, Transform pos)
         {
-            ZombiKilled++;
-            _zombieView.Kills.text = $"x {ZombiKilled}";
-        }
-
-
-        public void SetZombieKilled(int zombieKilled)
-        {
-            ZombiKilled = zombieKilled;
+            if (entity.CompareTag("Zombie"))
+            {
+                var count = _killZombieManager.GetZombieKilled();
+                _zombieView.Kills.text = $"x {count}";
+            }
         }
     }
 }

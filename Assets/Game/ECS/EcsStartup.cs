@@ -18,12 +18,14 @@ namespace EcsEngine
         public EntityManager EntityManager;
         private OnDeathInECS _onDeathECS;
         private OnHitInECS _onHitEcs;
-
+        private OnDropInECS _onDropEcs;
+        
         [Inject]
-        private void Construct(OnDeathInECS onDeathECS, OnHitInECS onHitEcs)
+        private void Construct(OnDeathInECS onDeathECS, OnHitInECS onHitEcs, OnDropInECS onDropEcs)
         {
             _onDeathECS = onDeathECS;
             _onHitEcs = onHitEcs;
+            _onDropEcs = onDropEcs;
         }
 
         public EcsWorld GetWorld()
@@ -66,6 +68,8 @@ namespace EcsEngine
             _systems.Inject(EntityManager);
             _systems.Inject(_onDeathECS);
             _systems.Inject(_onHitEcs);
+            _systems.Inject(_onDropEcs);
+            
             _systems.Init();
         }
 

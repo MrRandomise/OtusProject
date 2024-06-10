@@ -1,28 +1,27 @@
-using Zenject;
-using OtusProject.View;
 using OtusProject.ItemSystem;
+using System.Collections.Generic;
 using UnityEngine;
+using OtusProject.View;
 
-namespace OtusProject.ShoopSystem
+namespace OtusProject.Shoop
 {
-    public sealed class ShoopView 
+    public class ShoopMeneger : MonoBehaviour
     {
-        private ShoopMono _shoopMono;
-        private ItemsPanel _itemPanel;
-        private ShoopNoBuyTimer _timer;
+        public List<ItemConfig> sellItem = new List<ItemConfig>();
+        public Transform Content;
+        public ItemsPanel ContentPrefab;
 
-        [Inject]
-        private void Construct(ShoopMono shoopMono, ShoopNoBuyTimer timer)
+        private ItemsPanel _itemPanel;
+
+        private void Awake()
         {
-            _shoopMono = shoopMono;
-            _itemPanel = _shoopMono.ContentPrefab;
-            _timer = timer;
+            _itemPanel = ContentPrefab;
             ShoopInitial();
         }
 
         private void ShoopInitial()
         {
-            foreach(var item in _shoopMono.sellItem)
+            foreach (var item in sellItem)
             {
                 Add(item);
             }
@@ -31,11 +30,11 @@ namespace OtusProject.ShoopSystem
         public void Add(ItemConfig item)
         {
             var itemContent = GameObject.Instantiate(_itemPanel);
-            itemContent.transform.SetParent(_shoopMono.Content);
+            itemContent.transform.SetParent(Content);
             itemContent.Icon.sprite = item.Component.GetIcon();
             itemContent.CoinIcon.sprite = item.Resource.Icon;
             itemContent.PriceText.text = item.Price.ToString();
-            new ShoopBuy(item, itemContent, _timer);
         }
     }
 }
+

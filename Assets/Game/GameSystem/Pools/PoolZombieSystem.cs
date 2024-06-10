@@ -5,6 +5,7 @@ using OtusProject.Component;
 using System;
 using UnityEngine;
 using Zenject;
+using OtusProject.Component.Request;
 
 namespace OtusProject.Pools
 {
@@ -17,7 +18,6 @@ namespace OtusProject.Pools
         private float _currentTimer = 0;
         private bool _startTimer = false;
         private int _currentCountZombie = 0;
-        private int _countZombie = 0;
 
         PoolZombieSystem(WaveSystem waveSystem, PoolZombieManager manager, EcsStartup ecsStartup)
         {
@@ -25,7 +25,6 @@ namespace OtusProject.Pools
             _waveSystem.OnStartWave += StartSpawnActivePool;
             _waveSystem.OnStopWave += StopSpawnActivePool;
             _manager = manager;
-            _countZombie = _manager.InitialCountZombie;
             _poolSystem = new PoolSystem(_manager, ecsStartup);
         }
 
@@ -49,15 +48,11 @@ namespace OtusProject.Pools
                     _currentCountZombie++;
                     _currentTimer = 0;
                     var zombie = _poolSystem.ActivePool();
-                    zombie.GetData<Pool>().Value = this;
-                    if(zombie.HasData<InactiveTag>())
-                    {
-                        zombie.RemoveData<InactiveTag>();
-                    }
+                    InitialZombie(zombie);
                     if (_currentCountZombie == _manager.InitialCountZombie)
                     {
                         _currentCountZombie = 0;
-                        _countZombie *= 2;
+                        _manager.InitialCountZombie *= 2;
                         _startTimer = false;
                     }
                 }
@@ -67,6 +62,25 @@ namespace OtusProject.Pools
         public void InActiveEvent(Entity _entity)
         {
             _poolSystem.InActivePool(_entity);
+        }
+
+
+        private void InitialZombie(Entity zombie)
+        {
+            zombie.GetData<Pool>().Value = this;
+            zombie.GetData<CurrentHealth>().Value = zombie.GetData<MaxHealth>().Value;
+            if (zombie.HasData<InactiveTag>())
+            {
+                zombie.RemoveData<DeathRequest>();
+            }
+            if (zombie.HasData<InactiveTag>())
+            {
+                zombie.RemoveData<InactiveTag>();
+            }
+            if (zombie.HasData<DeadTag>())
+            {
+                zombie.RemoveData<DeadTag>();
+            }
         }
 
         public void Dispose()

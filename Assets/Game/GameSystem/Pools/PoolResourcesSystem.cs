@@ -12,14 +12,14 @@ namespace OtusProject.Pools
     { 
         private PoolSystem _poolSystem;
         private PoolResourcesManager _manager;
-        private OnDeathInECS _onDeathInECS;
+        private OnDropInECS _onDropInECS;
 
-        PoolResourcesSystem(PoolResourcesManager view, EcsStartup ecsStartup, OnDeathInECS onDeathInECS)
+        PoolResourcesSystem(PoolResourcesManager view, EcsStartup ecsStartup, OnDropInECS onDropInECS)
         {
             _manager = view;
             _poolSystem = new PoolSystem(_manager, ecsStartup);
-            _onDeathInECS = onDeathInECS;
-            _onDeathInECS.OnDeath += ResourceInitial;
+            _onDropInECS = onDropInECS;
+            _onDropInECS.OnDrop += ResourceInitial;
         }
 
         public void ResourceInitial(Entity res, Transform pos)
@@ -45,7 +45,7 @@ namespace OtusProject.Pools
 
         public void Dispose()
         {
-            _onDeathInECS.OnDeath -= ResourceInitial;
+            _onDropInECS.OnDrop -= ResourceInitial;
         }
     }
 }

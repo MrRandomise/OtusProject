@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace OtusProject.ShoopSystem
+namespace OtusProject.Shoop
 {
     public class ShoopNoBuyTimer : ITickable
     {

@@ -22,8 +22,8 @@ namespace OtusProject.ItemSystem
         private static Transform _weaponContainer;
         private static Transform _weaponMenuContainer;
         private const int _alpha = 5;
-        [Inject]
-        private void Construct(CharacterInstaller character, CharacterInputController inputManager, AttackInputCharacter attack, ReloadWeapon reload, ChangeWeapon change)
+
+        RangeWeaponItems(CharacterInstaller character, CharacterInputController inputManager, AttackInputCharacter attack, ReloadWeapon reload, ChangeWeapon change)
         {
             _character = character;
             _attack = attack;

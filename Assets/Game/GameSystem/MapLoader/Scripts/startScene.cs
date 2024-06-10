@@ -15,7 +15,7 @@ namespace OtusProject.Config.Map
             {
                 if (_mapLoader.CurrMap == null)
                 {
-                     await _mapLoader.InitializedMap();
+                    await _mapLoader.InitializedMap();
                     _mapLoader.ChangeMap();
                 }
             }

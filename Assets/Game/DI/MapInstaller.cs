@@ -1,6 +1,7 @@
 using OtusProject.Config.Map;
-using UnityEngine;
 using Zenject;
+using UnityEngine;
+
 namespace OtusProject.Installer
 {
     public class MapInstaller : MonoInstaller

@@ -4,39 +4,42 @@ using Zenject;
 
 namespace OtusProject.Waves
 {
-    public sealed class WaveSystem: ITickable
+    public sealed class WaveSystem : ITickable, IInitializable
     {
         public event Action OnStartWave;
         public event Action OnStopWave;
-        private readonly WaveView _waveView;
+        private readonly float _startTimeout = 3;
+        private readonly float _endTimeout = 3;
+        private int _currentWave = 0;
         private float _currentTimer = 0;
         private bool _startTimer = false;
         private bool _stopTimer = false;
-
-        public WaveSystem(WaveView waveView)
+        
+        public void Initialize()
         {
-            _waveView = waveView;
-            Star();
+            Start();
         }
 
-        public void Star() => _startTimer = true;
-        public void Stop() => _startTimer = true;
+        public void Start() => _startTimer = true;
+        public void Stop() => _stopTimer = true;
+        public int GetCurrentWave() => _currentWave;
 
         private void EnableTimer()
         {
             _currentTimer += Time.deltaTime;
-            if (_currentTimer >= _waveView.StartTimeout)
+            if (_currentTimer >= _startTimeout)
             {
                 _currentTimer = 0;
                 _startTimer = false;
+                _currentWave++;
                 OnStartWave?.Invoke();
             }
         }
 
-        private void DisableTimer() 
+        private void DisableTimer()
         {
             _currentTimer += Time.deltaTime;
-            if (_currentTimer >= _waveView.EndTimeout)
+            if (_currentTimer >= _endTimeout)
             {
                 _currentTimer = 0;
                 _stopTimer = false;
@@ -46,7 +49,7 @@ namespace OtusProject.Waves
 
         public void Tick()
         {
-            if(_startTimer)
+            if (_startTimer)
             {
                 EnableTimer();
             }
@@ -57,3 +60,4 @@ namespace OtusProject.Waves
         }
     }
 }
+
