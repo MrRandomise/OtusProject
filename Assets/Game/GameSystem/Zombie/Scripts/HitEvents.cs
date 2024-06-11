@@ -8,7 +8,7 @@ namespace OtusProject.Zombie.Hit
     public sealed class HitEvents : MonoBehaviour
     {
         [SerializeField]private ZombieInstaller _installer;
-        public static event Action<int, Entity> OnHit;
+        public static event Action<int> OnHit;
         private int _damage;
 
         private void Start()
@@ -20,7 +20,7 @@ namespace OtusProject.Zombie.Hit
         {
             if (other.CompareTag("Player") && other.TryGetComponent(out Entity entity))
             {
-                OnHit?.Invoke(-_damage, entity);
+                OnHit?.Invoke(-_damage);
             }
         }
     }

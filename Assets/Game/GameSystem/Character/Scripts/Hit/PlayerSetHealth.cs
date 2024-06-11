@@ -11,19 +11,22 @@ namespace OtusProject.Player
     {
         private HealthView _healthView;
         private CharacterInstaller _characterInstaller;
+        private Entity _entity;
+
         [Inject]
         private void Construct(HealthView healthView, CharacterInstaller character)
         {
             HitEvents.OnHit += SetHealth;
             _healthView = healthView;
             _characterInstaller = character;
+            _entity = _characterInstaller.GetComponent<Entity>();
             UpdateHealthView(_characterInstaller.Health);
         }
 
-        public void SetHealth(int damage, Entity entity)
+        public void SetHealth(int damage)
         {
-            entity.GetData<CurrentHealth>().Value += damage;
-            if(entity.GetData<CurrentHealth>().Value <= 0)
+            _entity.GetData<CurrentHealth>().Value += damage;
+            if(_entity.GetData<CurrentHealth>().Value <= 0)
             {
                 _characterInstaller.CanMove = false;
                 _characterInstaller.IsAlive = false;

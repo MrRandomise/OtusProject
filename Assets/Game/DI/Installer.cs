@@ -19,7 +19,7 @@ namespace OtusProject.Installer
     {
         public override void InstallBindings()
         {
-            Container.Bind<RangeWeaponItems>().AsSingle().NonLazy();
+            
             Container.Bind<Camera>().FromComponentInHierarchy().AsSingle();
             Container.Bind<CharacterInstaller>().FromComponentInHierarchy().AsSingle();
             Container.BindInterfacesAndSelfTo<GameOverMenu>().FromComponentInHierarchy().AsSingle();
@@ -30,9 +30,8 @@ namespace OtusProject.Installer
             Container.BindInterfacesAndSelfTo<AttackInputCharacter>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<CharacterInputController>().AsSingle();
             Container.BindInterfacesAndSelfTo<HealthBottle>().AsSingle().NonLazy();
-            Container.BindInterfacesAndSelfTo<RangeWeapon>().FromComponentInHierarchy().AsSingle();
-            Container.BindInterfacesAndSelfTo<BloodBullet>().AsCached().NonLazy();
-            Container.BindInterfacesAndSelfTo<ReloadWeapon>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<AtttackAnimator>().AsSingle().NonLazy();    
+            Container.Bind<KillZombieManager>().AsSingle().NonLazy();
             Container.Bind<EcsStartup>().FromComponentInHierarchy().AsSingle().NonLazy();
             Container.Bind<OnDeathInECS>().AsSingle();
             Container.Bind<OnHitInECS>().AsSingle();

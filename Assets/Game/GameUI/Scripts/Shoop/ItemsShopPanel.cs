@@ -1,15 +1,12 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace OtusProject.View
 {
-    public sealed class ItemsPanel : MonoBehaviour
+    public sealed class ItemsShopPanel : MonoBehaviour
     {
         public Image Icon;
-        public Button BuyButton;
-        public Image CoinIcon;
-        public TMP_Text PriceText;
+        public BuyButton BuyButton;
 
         public void RemoveContent()
         { 

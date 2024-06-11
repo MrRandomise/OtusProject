@@ -12,25 +12,5 @@ namespace OtusProject.ItemSystem
         public int Price;
         public int MaxBuy;
         public int CurrBuy;
-
-        public void UseItem()
-        {
-            Component.BuyItem();
-        }
-
-        public void SetCurrBuy()
-        {
-            CurrBuy++;
-        }
-
-        public int GetCurrBuy()
-        {
-            return CurrBuy;
-        }
-
-        private void OnDisable()
-        {
-            CurrBuy = 0;
-        }
     }
 }

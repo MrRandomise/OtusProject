@@ -6,7 +6,7 @@ using Zenject;
 
 namespace OtusProject.View
 {
-    public class ItemsView : MonoBehaviour
+    public class WeaponPanel : MonoBehaviour
     {
         public Image ItemIcon;
         public TMP_Text ItemCount;

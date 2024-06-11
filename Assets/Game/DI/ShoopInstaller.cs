@@ -11,8 +11,6 @@ namespace OtusProject.Installer
             Container.Bind<ShoopMeneger>().FromComponentInHierarchy().AsSingle();
             Container.Bind<ShoopSystem>().AsSingle().NonLazy();
             Container.Bind<ShopPopup>().FromComponentInHierarchy().AsSingle();
-            Container.Bind<ItemsContentView>().FromComponentInHierarchy().AsSingle();
-            Container.Bind<ItemsView>().FromComponentInHierarchy().AsSingle();
         }
     }
 }

@@ -13,7 +13,7 @@ public class ClickWeaponChange : IDisposable
     void construct(CharacterInputController controller)
     {
         _controller = controller;
-        ItemsView.OnClickItemsView += ChangeButton;
+        WeaponPanel.OnClickItemsView += ChangeButton;
     }
 
     public void ChangeButton(string key)
@@ -26,6 +26,6 @@ public class ClickWeaponChange : IDisposable
 
     public void Dispose()
     {
-        ItemsView.OnClickItemsView -= ChangeButton;
+        WeaponPanel.OnClickItemsView -= ChangeButton;
     }
 }

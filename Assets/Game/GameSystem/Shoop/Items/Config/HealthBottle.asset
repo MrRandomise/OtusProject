@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HealthBottle
   m_EditorClassIdentifier: 
   Component:
-    rid: 4185657684161462281
+    rid: 3586390584120311810
   Name: Health
   Resource: {fileID: 11400000, guid: 5166c047f099f7346ba762483116530c, type: 2}
   Price: 5
@@ -22,8 +22,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 4185657684161462281
+    - rid: 3586390584120311810
       type: {class: HealthBottle, ns: OtusProject.ItemSystem, asm: World}
       data:
         _health: 2
-        ItemIcon: {fileID: 21300000, guid: 358bd270282ea401097181de54f93190, type: 3}
+        ItemIcon: {fileID: 21300000, guid: 1ce28bd91c12d6f448070dc9ee197d89, type: 3}

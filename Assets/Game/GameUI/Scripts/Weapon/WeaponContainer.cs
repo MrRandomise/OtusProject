@@ -1,7 +1,7 @@
 using UnityEngine;
 namespace OtusProject.View
 {
-    public sealed class ItemsContentView : MonoBehaviour
+    public sealed class WeaponContainer : MonoBehaviour
     {
         public Transform Content;
 

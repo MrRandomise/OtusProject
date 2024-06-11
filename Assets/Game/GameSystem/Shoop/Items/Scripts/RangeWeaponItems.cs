@@ -12,7 +12,7 @@ namespace OtusProject.ItemSystem
     public sealed class RangeWeaponItems : IItems
     {
         [SerializeField] public RangeWeapon Weapon;
-        [SerializeField] public ItemsView WeaponMenuPrefab;
+        [SerializeField] public WeaponPanel WeaponMenuPrefab;
         [SerializeField] public Sprite ItemIcon;
         private static CharacterInputController _characterInputController;
         private static AttackInputCharacter _attack;

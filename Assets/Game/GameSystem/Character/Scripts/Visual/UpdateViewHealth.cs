@@ -11,17 +11,17 @@ namespace OtusProject.Player
     public class UpdateViewHealth
     {
         private HealthView _healthView;
-
-        [Inject]
-        private void Construct(HealthView healthView)
+        private Entity _entity;
+        UpdateViewHealth(HealthView healthView, CharacterInstaller characterInstaller)
         {
             HitEvents.OnHit += UpdateHealthView;
             _healthView = healthView;
+            _entity = characterInstaller.GetComponent<Entity>();
         }
 
-        private void UpdateHealthView(int health, Entity entity)
+        private void UpdateHealthView(int health)
         {
-            _healthView.Value.text = $"x {entity.GetData<CurrentHealth>().Value}";
+            _healthView.Value.text = $"x {_entity.GetData<CurrentHealth>().Value}";
         }
     }
 }

@@ -1,27 +1,26 @@
 using OtusProject.ItemSystem;
+using OtusProject.View;
 using System.Collections.Generic;
 using UnityEngine;
-using OtusProject.View;
 
 namespace OtusProject.Shoop
 {
     public class ShoopMeneger : MonoBehaviour
     {
-        public List<ItemConfig> sellItem = new List<ItemConfig>();
-        public Transform Content;
-        public ItemsPanel ContentPrefab;
-
-        private ItemsPanel _itemPanel;
+        [SerializeField] private List<ItemConfig> _sellItem = new List<ItemConfig>();
+        [SerializeField] private ItemsShopPanel _shopPanel;
+        [SerializeField] private Transform _container;
+        private ContentItemCreator _creator;
 
         private void Awake()
         {
-            _itemPanel = ContentPrefab;
+            _creator = new ContentItemCreator(_shopPanel, _container);
             ShoopInitial();
         }
 
         private void ShoopInitial()
         {
-            foreach (var item in sellItem)
+            foreach (var item in _sellItem)
             {
                 Add(item);
             }
@@ -29,11 +28,10 @@ namespace OtusProject.Shoop
 
         public void Add(ItemConfig item)
         {
-            var itemContent = GameObject.Instantiate(_itemPanel);
-            itemContent.transform.SetParent(Content);
+            var itemContent = _creator.AddItemPanel();
             itemContent.Icon.sprite = item.Component.GetIcon();
-            itemContent.CoinIcon.sprite = item.Resource.Icon;
-            itemContent.PriceText.text = item.Price.ToString();
+            itemContent.BuyButton.SetIcon(item.Resource.Icon);
+            itemContent.BuyButton.SetPrice(item.Price.ToString());
         }
     }
 }

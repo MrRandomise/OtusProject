@@ -474,6 +474,7 @@ GameObject:
   - component: {fileID: 1177674794342184074}
   - component: {fileID: 1177674794342184077}
   - component: {fileID: 1177674794342184076}
+  - component: {fileID: 6295244466465702539}
   m_Layer: 5
   m_Name: ButtonBuy
   m_TagString: Untagged
@@ -583,6 +584,25 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6295244466465702539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177674794342184078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 341ce48a45cf3d9489aca3a38767dbc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 1177674794342184076}
+  _buttonBackground: {fileID: 522703922462160462}
+  _availableButtonSprite: {fileID: 21300000, guid: b468efb495e5848bdb74c1a81d0eca83, type: 3}
+  _lockedButtonSprite: {fileID: 21300000, guid: a7d6d0d0eddfb49bb87c66e4d6920105, type: 3}
+  _priceText: {fileID: 1177674792728911021}
+  _priceIcon: {fileID: 1177674793663963352}
+  _state: 0
 --- !u!1 &1177674794577338287
 GameObject:
   m_ObjectHideFlags: 0

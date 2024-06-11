@@ -14,7 +14,7 @@ namespace OtusProject.Config.Weapons
         public float FireRate;
         public float ReloadTime;
         public KeyCode UseKey;
-        [NonSerialized] public ItemsView View;
+        [NonSerialized] public WeaponPanel View;
 
         private void OnDisable()
         {
