@@ -32,7 +32,6 @@ namespace OtusProject.View
         [SerializeField]
         private State _state;
 
-        private UnityAction _action;
         public void AddListener(UnityAction action)
         {
             _button.onClick.AddListener(action);
@@ -40,7 +39,7 @@ namespace OtusProject.View
 
         public void RemoveListener(UnityAction action)
         {
-            _button.onClick.RemoveListener(_action);
+            _button.onClick.RemoveListener(action);
         }
 
         public void SetPrice(string price)

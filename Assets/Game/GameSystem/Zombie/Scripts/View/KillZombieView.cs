@@ -7,10 +7,10 @@ namespace OtusProject.View
     public class KillZombieView
     {
         private OnDeathInECS _onDeathInECS;
-        private ZombieView _zombieView;
+        private KillsView _zombieView;
         private KillZombieManager _killZombieManager;
 
-        KillZombieView(OnDeathInECS onDeathInECS, ZombieView zombieView, KillZombieManager killZombieManager)
+        KillZombieView(OnDeathInECS onDeathInECS, KillsView zombieView, KillZombieManager killZombieManager)
         {
             _onDeathInECS = onDeathInECS;
             _zombieView = zombieView;
@@ -23,7 +23,7 @@ namespace OtusProject.View
             if (entity.CompareTag("Zombie"))
             {
                 var count = _killZombieManager.GetZombieKilled();
-                _zombieView.Kills.text = $"x {count}";
+                _zombieView.SetKillView(count);
             }
         }
     }

@@ -1,7 +1,7 @@
 using UnityEngine;
 namespace OtusProject.ItemSystem
 {
-    public interface IItems
+    public interface IProduct
     {
         public Sprite GetIcon();
         void BuyItem();

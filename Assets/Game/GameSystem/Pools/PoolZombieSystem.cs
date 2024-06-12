@@ -5,6 +5,7 @@ using OtusProject.Component;
 using System;
 using UnityEngine;
 using Zenject;
+using OtusProject.Player;
 
 
 namespace OtusProject.Pools
@@ -15,17 +16,19 @@ namespace OtusProject.Pools
         private WaveSystem _waveSystem;
         private PoolSystem _poolSystem;
         private PoolZombieManager _manager;
+        private Entity _entity;
         private float _currentTimer = 0;
         private bool _startTimer = false;
         private int _currentCountZombie = 0;
         public event Action<Entity> OnSpawnEvent;
 
-        PoolZombieSystem(WaveSystem waveSystem, PoolZombieManager manager, EcsStartup ecsStartup)
+        PoolZombieSystem(WaveSystem waveSystem, PoolZombieManager manager, EcsStartup ecsStartup, CharacterInstaller characterInstaller)
         {
             _waveSystem = waveSystem;
             _waveSystem.OnStartWave += StartSpawnActivePool;
             _waveSystem.OnStopWave += StopSpawnActivePool;
             _manager = manager;
+            _entity = characterInstaller.GetComponent<Entity>();
             _poolSystem = new PoolSystem(_manager, ecsStartup);
         }
 
@@ -50,6 +53,7 @@ namespace OtusProject.Pools
                     _currentTimer = 0;
                     var zombie = _poolSystem.ActivePool();
                     zombie.GetData<Pool>().Value = this;
+                    zombie.GetData<Target>().Value = _entity;
                     OnSpawnEvent?.Invoke(zombie);
                     if (_currentCountZombie == _manager.InitialCountZombie)
                     {

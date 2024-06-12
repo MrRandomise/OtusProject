@@ -5,6 +5,7 @@ using Zenject;
 using OtusProject.Weapons;
 using Leopotam.EcsLite.Entities;
 using OtusProject.Component;
+using UnityEngine.TextCore.Text;
 
 namespace OtusProject.PlayerInput
 {
@@ -63,19 +64,23 @@ namespace OtusProject.PlayerInput
 
         private Vector3 GetDirection()
         {
-            switch (_lastKey)
+            if (_characterInstaller.IsAlive && _characterInstaller.CanMove)
             {
-                case UseKey.Left:
-                    return -_character.transform.right;
-                case UseKey.Right:
-                    return _character.transform.right;
-                case UseKey.Forward:
-                    return _character.transform.forward;
-                case UseKey.Backward:
-                    return -_character.transform.forward;
-                default:
-                    return Vector3.zero;
+                switch (_lastKey)
+                {
+                    case UseKey.Left:
+                        return -_character.transform.right;
+                    case UseKey.Right:
+                        return _character.transform.right;
+                    case UseKey.Forward:
+                        return _character.transform.forward;
+                    case UseKey.Backward:
+                        return -_character.transform.forward;
+                    default:
+                        return Vector3.zero;
+                }
             }
+            return Vector3.zero;
         }
 
         public void Dispose()

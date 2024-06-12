@@ -10,7 +10,6 @@ namespace OtusProject.Content
     public sealed class ZombieInstaller : EntityInstaller
     {
         [SerializeField] private NavMeshAgent _agent;
-        [SerializeField] private Entity _target;
         [SerializeField] private ZombieConfig _zombieConfig;
         [SerializeField] private Entity _drop;
         [SerializeField] private Animator _animator;
@@ -34,7 +33,7 @@ namespace OtusProject.Content
             entity.AddData(new AttackDistance { Value = _zombieConfig.AttackDistance });
             entity.AddData(new ObjectAnimator { Value = _animator });
             entity.AddData(new Drops { Value = _drop });
-            entity.AddData(new Target { Value = _target });
+            entity.AddData(new Target ());
             entity.AddData(new MoveDirection());
             entity.AddData(new Pool ());
             entity.AddData(new LifeTime {Value = _zombieConfig.DeathTimeout });

@@ -5,7 +5,7 @@ using Leopotam.EcsLite.Entities;
 
 namespace OtusProject.Zombie.Hit
 {
-    public sealed class HitEvents : MonoBehaviour
+    public sealed class HitZombieInTarget : MonoBehaviour
     {
         [SerializeField]private ZombieInstaller _installer;
         public static event Action<int> OnHit;

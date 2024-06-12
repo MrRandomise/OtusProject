@@ -3,10 +3,10 @@ using OtusProject.Component.Request;
 using OtusProject.Component;
 using System;
 using UnityEngine;
-namespace OtusProject.Config.Effects
+namespace OtusProject.Effects
 {
     [Serializable]
-    public sealed class DeathBullet : IEffects
+    public sealed class DeathBulletType : IEffects
     {
         [SerializeField] public string Name = "Instant Death";
         [SerializeField] public string Description = "Мгновненное убийство";

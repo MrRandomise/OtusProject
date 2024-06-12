@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace OtusProject.View
 {
-    public sealed class ItemsShopPanel : MonoBehaviour
+    public sealed class ProductView : MonoBehaviour
     {
         public Image Icon;
         public BuyButton BuyButton;

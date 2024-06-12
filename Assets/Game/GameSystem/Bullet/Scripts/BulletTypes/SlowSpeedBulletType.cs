@@ -3,10 +3,10 @@ using System;
 using UnityEngine;
 using OtusProject.Component;
 using OtusProject.Component.Request;
-namespace OtusProject.Config.Effects
+namespace OtusProject.Effects
 {
     [Serializable]
-    public sealed class SlowSpeedBullet : IEffects
+    public sealed class SlowSpeedBulletType : IEffects
     {
         [SerializeField] public string Name = "Speed";
         [SerializeField] public float SpeedRate;

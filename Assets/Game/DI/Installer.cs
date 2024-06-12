@@ -3,10 +3,7 @@ using Zenject;
 using OtusProject.CoreCamera;
 using OtusProject.Player;
 using OtusProject.PlayerInput;
-using OtusProject.Config.Weapons;
 using OtusProject.GameOver;
-using OtusProject.ItemSystem;
-using OtusProject.Config.Effects;
 using OtusProject.Content;
 using EcsEngine;
 using OtusProject.RecourcesConfig;
@@ -17,11 +14,12 @@ namespace OtusProject.Installer
 {
     public sealed class Installer : MonoInstaller
     {
+        [SerializeField] private CharacterInstaller _character;
         public override void InstallBindings()
         {
             
             Container.Bind<Camera>().FromComponentInHierarchy().AsSingle();
-            Container.Bind<CharacterInstaller>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<CharacterInstaller>().FromInstance(_character).AsSingle();
             Container.BindInterfacesAndSelfTo<GameOverMenu>().FromComponentInHierarchy().AsSingle();
             Container.BindInterfacesAndSelfTo<GameOverSystem>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<PlayerSetHealth>().AsSingle().NonLazy();
@@ -29,8 +27,8 @@ namespace OtusProject.Installer
             Container.BindInterfacesAndSelfTo<InputManager>().AsSingle();
             Container.BindInterfacesAndSelfTo<AttackInputCharacter>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<CharacterInputController>().AsSingle();
-            Container.BindInterfacesAndSelfTo<HealthBottle>().AsSingle().NonLazy();
-            Container.BindInterfacesAndSelfTo<AtttackAnimator>().AsSingle().NonLazy();    
+            Container.BindInterfacesAndSelfTo<AtttackAnimator>().AsSingle().NonLazy();
+            Container.Bind<ResourcesStorage>().FromComponentInHierarchy().AsSingle();
             Container.Bind<KillZombieManager>().AsSingle().NonLazy();
             Container.Bind<EcsStartup>().FromComponentInHierarchy().AsSingle().NonLazy();
             Container.Bind<OnDeathInECS>().AsSingle();
@@ -39,7 +37,7 @@ namespace OtusProject.Installer
             Container.Bind<ResourcesInstaler>().AsCached();
             Container.Bind<BulletInstaller>().AsCached();
             Container.Bind<ZombieInstaller>().AsCached();
-            Container.Bind<ResourcesStorage>().FromComponentInHierarchy().AsSingle();
+
 
 
             //Container.Bind<FixedJoystick>().FromComponentInHierarchy().AsSingle();

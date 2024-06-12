@@ -1,8 +1,7 @@
 using OtusProject.Player;
-using OtusProject.Weapons;
 using Zenject;
 
-namespace OtusProject.Config.Weapons
+namespace OtusProject.Weapons
 {
     public sealed class ChangeWeapon 
     {
@@ -16,11 +15,11 @@ namespace OtusProject.Config.Weapons
 
         public void Change(IWeapon weapon)
         {
-            _character.CurrentWeapon.GetConfig().View.OpacityItems();
+            _character.CurrentWeapon.GetConfig().WeaponContent.OpacityItems();
             _character.CurrentWeapon.GetPrefab().SetActive(false);
             _character.CurrentWeapon = weapon;
             _character.CurrentWeapon.GetPrefab().SetActive(true);
-            _character.CurrentWeapon.GetConfig().View.ShowItems();
+            _character.CurrentWeapon.GetConfig().WeaponContent.ShowItems();
         }
     }
 }

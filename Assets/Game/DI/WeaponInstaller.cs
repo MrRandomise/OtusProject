@@ -1,5 +1,5 @@
-﻿using OtusProject.Config.Effects;
-using OtusProject.Config.Weapons;
+﻿using OtusProject.Effects;
+using OtusProject.Weapons;
 using OtusProject.ItemSystem;
 using OtusProject.View;
 using Zenject;
@@ -10,14 +10,13 @@ namespace OtusProject.Installer
     {
         public override void InstallBindings()
         {
-            Container.Bind<RangeWeaponItems>().AsSingle().NonLazy();
+            Container.Bind<WeaponsItem>().AsSingle().NonLazy();
             Container.Bind<WeaponContainer>().FromComponentInHierarchy().AsSingle();
             Container.Bind<WeaponPanel>().FromComponentInHierarchy().AsSingle();
-            Container.BindInterfacesAndSelfTo<RangeWeapon>().FromComponentInHierarchy().AsSingle();
-            Container.BindInterfacesAndSelfTo<BloodBullet>().AsCached().NonLazy();
+            Container.Bind<IWeapon>().To<RangeWeapon>().FromComponentInHierarchy().AsSingle();
+            Container.BindInterfacesAndSelfTo<BloodBulletType>().AsCached().NonLazy();
             Container.BindInterfacesAndSelfTo<ReloadWeapon>().AsSingle().NonLazy();
             Container.Bind<ChangeWeapon>().AsSingle().NonLazy();
-            Container.Bind<ClickWeaponChange>().AsSingle().NonLazy();
         }
     }
 }

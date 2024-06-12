@@ -1,29 +1,28 @@
-using OtusProject.Player;
+using OtusProject.View;
 using System;
+using UnityEngine;
+
 namespace OtusProject.RecourcesConfig
 {
     public class SetViewResources : IDisposable
     {
-        private GetResources _getResources;
         private ResourcesStorage _resourcesStorage;
-        SetViewResources(CharacterInstaller characterInstaller, ResourcesStorage resourcesStorage)
+        private CoinView _coinView;
+        SetViewResources(ResourcesStorage resourcesStorage, CoinView coinView)
         {
-            _getResources = characterInstaller.GetComponent<GetResources>();
-            _getResources.onGetResources += UpdateViewResources;
             _resourcesStorage = resourcesStorage;
+            _coinView = coinView;
+            _resourcesStorage.OnChangeResources += UpdateViewResources;
         }
 
-        private void UpdateViewResources(ResourcesInstaler key)
+        private void UpdateViewResources(int ammount)
         {
-            _resourcesStorage.SetAmmountResources(key);
-            var tMP_Text = key.View.Value;
-            var ammount = _resourcesStorage.GetAmmountResources(key);
-            tMP_Text.text = $" x {ammount}";
+            _coinView.SetCoinView(ammount);
         }
 
         public void Dispose()
         {
-            _getResources.onGetResources -= UpdateViewResources;
+            _resourcesStorage.OnChangeResources -= UpdateViewResources;
         }
     }
 }

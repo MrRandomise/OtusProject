@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2550fe4f03327324cb69874ffad5922d, type: 3}
-  m_Name: BloodBullet
+  m_Name: BloodBulletType
   m_EditorClassIdentifier: 
   Effects:
-    rid: 2036248381247979521
+    rid: 2036248543753142274
   Bullet: {fileID: 2557774204630130911, guid: 1de8ac03f15248b48a27f270f7a33716, type: 3}
   Speed: 5
   LifeTime: 3
   references:
     version: 2
     RefIds:
-    - rid: 2036248381247979521
-      type: {class: BloodBullet, ns: OtusProject.Config.Effects, asm: World}
+    - rid: 2036248543753142274
+      type: {class: BloodBulletType, ns: OtusProject.Effects, asm: World}
       data:
         Name: Blood
         DamagePerSec: 1

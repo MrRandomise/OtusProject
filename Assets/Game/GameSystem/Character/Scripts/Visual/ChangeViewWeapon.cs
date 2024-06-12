@@ -2,7 +2,7 @@
 using OtusProject.PlayerInput;
 using System;
 
-namespace OtusProject.Config.Weapons
+namespace OtusProject.Weapons
 {
     public sealed class ChangeViewWeapon : IDisposable
     {
@@ -21,8 +21,8 @@ namespace OtusProject.Config.Weapons
 
         private void ChangeAmmoView()
         {
-            _character.CurrentWeapon.GetConfig().View.ItemCount.text = _character.CurrentWeapon.GetConfig().CurrAmmo.ToString();
-            _character.CurrentWeapon.GetConfig().View.ItemMaxCount.text = _character.CurrentWeapon.GetConfig().MaxAmmo.ToString();
+            _character.CurrentWeapon.GetConfig().WeaponContent.ItemCount.text = _character.CurrentWeapon.GetConfig().CurrAmmo.ToString();
+            _character.CurrentWeapon.GetConfig().WeaponContent.ItemMaxCount.text = _character.CurrentWeapon.GetConfig().MaxAmmo.ToString();
         }
 
         public void Dispose()

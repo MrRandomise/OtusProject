@@ -22,6 +22,10 @@ namespace OtusProject.Systems.View
                 {
                     animatorPool.Get(entity).Value.SetBool(_attack, true);
                 }
+                if (!_attackRequest.Value.Has(entity) && animatorPool.Get(entity).Value.GetBool(_attack))
+                {
+                    animatorPool.Get(entity).Value.SetBool(_attack, false);
+                }
             }
         }
     }

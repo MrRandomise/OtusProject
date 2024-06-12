@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cfc376b0c7018c419774c5c2cf6534b, type: 3}
   m_Name: Pistol
   m_EditorClassIdentifier: 
-  Component:
-    rid: 4185657700686757898
+  Product:
+    rid: 2036248540932997128
   Name: Pistol
   Resource: {fileID: 11400000, guid: 5166c047f099f7346ba762483116530c, type: 2}
   Price: 0
@@ -22,9 +22,11 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 4185657700686757898
-      type: {class: RangeWeaponItems, ns: OtusProject.ItemSystem, asm: World}
+    - rid: 2036248540932997128
+      type: {class: WeaponsItem, ns: OtusProject.ItemSystem, asm: World}
       data:
         Weapon: {fileID: 2366061512907134588, guid: 398d195547acf3c4aab01c53e2e061b7, type: 3}
         WeaponMenuPrefab: {fileID: 9073103617799431881, guid: f383745e431689843b93aee98f582621, type: 3}
         ItemIcon: {fileID: 21300000, guid: 976467f6622997c4eba97caf397946b1, type: 3}
+        WeaponContainer: {fileID: 0}
+        WeaponMenuContainer: {fileID: 0}

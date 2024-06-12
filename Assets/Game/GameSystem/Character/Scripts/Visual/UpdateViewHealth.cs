@@ -1,27 +1,30 @@
 using Leopotam.EcsLite.Entities;
 using OtusProject.Component;
-using OtusProject.Pools;
 using OtusProject.View;
-using OtusProject.Zombie.Hit;
-using UnityEngine;
-using Zenject;
-
+using System;
 namespace OtusProject.Player
 {
-    public class UpdateViewHealth
+    public class UpdateViewHealth : IDisposable
     {
         private HealthView _healthView;
-        private Entity _entity;
-        UpdateViewHealth(HealthView healthView, CharacterInstaller characterInstaller)
+        private PlayerSetHealth _playerSetHealth;
+
+        UpdateViewHealth(HealthView healthView, CharacterInstaller characterInstaller, PlayerSetHealth playerSetHealth)
         {
-            HitEvents.OnHit += UpdateHealthView;
             _healthView = healthView;
-            _entity = characterInstaller.GetComponent<Entity>();
+            _playerSetHealth = playerSetHealth;
+            _playerSetHealth.OnChangeHealth += UpdateHealthView;
+            UpdateHealthView(characterInstaller.Health);
         }
 
         private void UpdateHealthView(int health)
         {
-            _healthView.Value.text = $"x {_entity.GetData<CurrentHealth>().Value}";
+            _healthView.SetHealthView(health);
+        }
+
+        public void Dispose()
+        {
+            _playerSetHealth.OnChangeHealth -= UpdateHealthView;
         }
     }
 }

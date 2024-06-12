@@ -18,7 +18,7 @@ namespace OtusProject.Player
         public Vector3 MoveDirection;
         public IWeapon CurrentWeapon;
         public Animator Animator;
-        [SerializeReference] public IItems Component;
+        [SerializeReference] public IProduct Component;
         public Dictionary<KeyCode, IWeapon> ListWeapon = new Dictionary<KeyCode, IWeapon>();
 
         protected override void Install(Entity entity)

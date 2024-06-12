@@ -1,9 +1,10 @@
+using OtusProject.Player;
 using OtusProject.PlayerInput;
-using OtusProject.Weapons;
 using System;
 using UnityEngine;
+using Zenject;
 
-namespace OtusProject.Config.Weapons
+namespace OtusProject.Weapons
 {
     public sealed class RangeWeapon : MonoBehaviour, IWeapon, IDisposable
     {
@@ -11,10 +12,10 @@ namespace OtusProject.Config.Weapons
         public BulletConfig BulletConfig;
         public Transform BulletPoint;
 
-        private CharacterInputController InputManager;
-        private AttackInputCharacter Fire;
-        private ReloadWeapon ReloadWeapon;
-        private ChangeWeapon Change;
+        private CharacterInputController _inputManager;
+        private AttackInputCharacter _fire;
+        private ReloadWeapon _reloadWeapon;
+        private ChangeWeapon _change;
 
         public WeaponConfig GetConfig()
         {
@@ -33,17 +34,17 @@ namespace OtusProject.Config.Weapons
 
         public void Attack()
         {
-            Fire.AttackRequest();
+            _fire.AttackRequest();
         }
 
         public void ChangeWeapon(IWeapon weapon)
         {
-            Change.Change(weapon);
+            _change.Change(weapon);
         }
 
         public void Reload()
         {
-            ReloadWeapon.Reload();
+            _reloadWeapon.Reload();
         }
 
         public Transform GetBulletPoint()
@@ -53,20 +54,20 @@ namespace OtusProject.Config.Weapons
 
         public void Ininital(CharacterInputController inputManager, AttackInputCharacter fire, ReloadWeapon reloadWeapon, ChangeWeapon change)
         {
-            InputManager = inputManager;
-            Fire = fire;
-            ReloadWeapon = reloadWeapon;
-            Change = change;
-            InputManager.OnFireRequest += Attack;
-            Fire.OnReload += Reload;
-            InputManager.OnChangeWeapon += ChangeWeapon;
+            _inputManager = inputManager;
+            _fire = fire;
+            _reloadWeapon = reloadWeapon;
+            _change = change;
+            _inputManager.OnFireRequest += Attack;
+            _fire.OnReload += Reload;
+            _inputManager.OnChangeWeapon += ChangeWeapon;
         }
 
         public void Dispose()
         {
-            InputManager.OnFireRequest += Attack;
-            Fire.OnReload += Reload;
-            InputManager.OnChangeWeapon += ChangeWeapon;
+            _inputManager.OnFireRequest += Attack;
+            _fire.OnReload += Reload;
+            _inputManager.OnChangeWeapon += ChangeWeapon;
         }
     }
 }

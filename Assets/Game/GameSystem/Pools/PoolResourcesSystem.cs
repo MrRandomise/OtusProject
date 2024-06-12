@@ -5,6 +5,7 @@ using OtusProject.ECSEvent;
 using System;
 using OtusProject.Component;
 using UnityEngine;
+using System.Security.Cryptography;
 
 namespace OtusProject.Pools
 {

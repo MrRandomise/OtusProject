@@ -1,7 +1,6 @@
 using Leopotam.EcsLite.Entities;
 using OtusProject.Component;
 using OtusProject.Component.Bullet;
-using OtusProject.Component.Request;
 
 namespace OtusProject.Content
 {

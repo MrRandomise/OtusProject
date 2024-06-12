@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cfc376b0c7018c419774c5c2cf6534b, type: 3}
   m_Name: HealthBottle
   m_EditorClassIdentifier: 
-  Component:
-    rid: 3586390584120311810
+  Product:
+    rid: 2036248538483523590
   Name: Health
   Resource: {fileID: 11400000, guid: 5166c047f099f7346ba762483116530c, type: 2}
-  Price: 5
+  Price: 1
   MaxBuy: 25
   CurrBuy: 0
   references:
     version: 2
     RefIds:
-    - rid: 3586390584120311810
+    - rid: 2036248538483523590
       type: {class: HealthBottle, ns: OtusProject.ItemSystem, asm: World}
       data:
-        _health: 2
+        _health: 1
         ItemIcon: {fileID: 21300000, guid: 1ce28bd91c12d6f448070dc9ee197d89, type: 3}

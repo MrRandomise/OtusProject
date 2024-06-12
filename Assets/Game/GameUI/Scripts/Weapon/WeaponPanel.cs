@@ -12,7 +12,6 @@ namespace OtusProject.View
         public TMP_Text ItemCount;
         public TMP_Text ItemMaxCount;
         public TMP_Text Key;
-        public static Action<string> OnClickItemsView;
 
         public void ShowItems()
         {
@@ -28,11 +27,6 @@ namespace OtusProject.View
             ItemCount.color = new Color(1f, 1f, 1f, 0.5f);
             ItemMaxCount.color = new Color(1f, 1f, 1f, 0.5f);
             Key.color = new Color(1f, 1f, 1f, 0.5f);
-        }
-
-        public void ChangeButton()
-        {
-            OnClickItemsView?.Invoke(Key.text);
         }
     }
 }

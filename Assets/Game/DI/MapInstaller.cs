@@ -1,6 +1,7 @@
 using OtusProject.Config.Map;
 using Zenject;
 using UnityEngine;
+using OtusProject.MenuButton;
 
 namespace OtusProject.Installer
 {

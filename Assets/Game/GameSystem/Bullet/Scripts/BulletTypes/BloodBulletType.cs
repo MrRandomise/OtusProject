@@ -4,10 +4,10 @@ using System;
 using UnityEngine;
 using Zenject;
 
-namespace OtusProject.Config.Effects
+namespace OtusProject.Effects
 {
     [Serializable]
-    public sealed class BloodBullet : IEffects, ITickable
+    public sealed class BloodBulletType : IEffects, ITickable
     {
         [SerializeField] public string Name = "Blood";
         [SerializeField] public int DamagePerSec = 1;

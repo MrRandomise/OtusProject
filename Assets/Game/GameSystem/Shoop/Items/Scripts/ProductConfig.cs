@@ -4,13 +4,18 @@ using UnityEngine;
 namespace OtusProject.ItemSystem
 {
     [CreateAssetMenu(fileName = "Item", menuName = "Config/Item")]
-    public sealed class ItemConfig : ScriptableObject
+    public sealed class ProductConfig : ScriptableObject
     {
-        [SerializeReference] public IItems Component;
+        [SerializeReference] public IProduct Product;
         public string Name;
         public ResourceConfig Resource;
         public int Price;
         public int MaxBuy;
         public int CurrBuy;
+
+        private void OnDisable()
+        {
+            CurrBuy = 0;
+        }
     }
 }

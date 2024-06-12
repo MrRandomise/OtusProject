@@ -1,27 +1,22 @@
-using System.Collections;
-using TMPro;
-using UnityEngine.UI;
-using UnityEngine;
+п»їusing UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
-using OtusProject.Config.Map;
+using OtusProject.MenuButton;
+using System.Collections;
 
-namespace OtusProject.MenuButton
+namespace OtusProject.Config.Map
 {
-    public sealed class NewGameButton : MonoBehaviour
+    public sealed class NewGameClick : MonoBehaviour
     {
-        [SerializeField] private GameObject Menu;
-        [SerializeField] private GameObject LoadMenu;
-        [SerializeField] private Image _progressImage;
-        [SerializeField] private TMP_Text _progressText;
+        [SerializeField] private NewGameView _newGameView;
         [Inject]
         private readonly MapLoader _mapLoader;
         private const string _gameScene = "GameScene";
 
         public async void LoadGameScene()
         {
-            Menu.transform.localScale = Vector3.zero;
-            LoadMenu.SetActive(true);
+            _newGameView.Menu.transform.localScale = Vector3.zero;
+            _newGameView.LoadMenu.SetActive(true);
             await _mapLoader.InitializedMap();
             _mapLoader.ChangeMap();
             StartCoroutine(LoadSceneGame());
@@ -33,8 +28,8 @@ namespace OtusProject.MenuButton
             while (!Operation.isDone)
             {
                 float Progress = Operation.progress;
-                _progressText.text = $"{(Progress * 100).ToString("0")}%"; //Процент загрузки
-                _progressImage.fillAmount = Progress;
+                _newGameView.ProgressText.text = $"{(Progress * 100).ToString("0")}%";
+                _newGameView.ProgressImage.fillAmount = Progress;
                 yield return null;
             }
         }

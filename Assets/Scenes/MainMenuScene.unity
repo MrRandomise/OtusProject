@@ -230,7 +230,7 @@ PrefabInstance:
     - target: {fileID: 343026308344123410, guid: d1ebed702588f42bba379a80e6e03e25, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 779766754}
+      objectReference: {fileID: 779766755}
     - target: {fileID: 343026308344123410, guid: d1ebed702588f42bba379a80e6e03e25, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -241,7 +241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 343026308344123410, guid: d1ebed702588f42bba379a80e6e03e25, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: OtusProject.MenuButton.NewGameButton, GameUI
+      value: OtusProject.Config.Map.NewGameClick, Map
       objectReference: {fileID: 0}
     - target: {fileID: 343026308344123410, guid: d1ebed702588f42bba379a80e6e03e25, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -278,23 +278,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 343026308344123408, guid: d1ebed702588f42bba379a80e6e03e25, type: 3}
       insertIndex: -1
       addedObject: {fileID: 779766754}
+    - targetCorrespondingSourceObject: {fileID: 343026308344123408, guid: d1ebed702588f42bba379a80e6e03e25, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 779766755}
   m_SourcePrefab: {fileID: 100100000, guid: d1ebed702588f42bba379a80e6e03e25, type: 3}
 --- !u!224 &26643975 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 343026308344123409, guid: d1ebed702588f42bba379a80e6e03e25, type: 3}
   m_PrefabInstance: {fileID: 26643974}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &181249096 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4690097896471085049, guid: 9c171fd930b1044a5ad60370b0787e0d, type: 3}
-  m_PrefabInstance: {fileID: 685380073}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &212861675 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7289018260698985210, guid: 3a148360ff0324d149a8141687e071a4, type: 3}
@@ -639,8 +631,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Menu: {fileID: 212861675}
   LoadMenu: {fileID: 1750902683}
-  _progressImage: {fileID: 1839055624}
-  _progressText: {fileID: 181249096}
+  ProgressImage: {fileID: 0}
+  ProgressText: {fileID: 0}
+--- !u!114 &779766755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779766753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 482b7e0eb263b3d43b7848348b711337, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _newGameView: {fileID: 779766754}
 --- !u!1 &792720479
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,6 +969,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Zombie KILLER
       objectReference: {fileID: 0}
+    - target: {fileID: 8084754808830938636, guid: 3a148360ff0324d149a8141687e071a4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1133,6 +1142,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Exit
       objectReference: {fileID: 0}
+    - target: {fileID: 343026308344123408, guid: d1ebed702588f42bba379a80e6e03e25, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 343026308344123409, guid: d1ebed702588f42bba379a80e6e03e25, type: 3}
       propertyPath: m_Pivot.x
       value: 1
@@ -1281,17 +1294,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34f5f2c9393727f40ae29ff9f76d3a79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1839055624 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6394268198979738081, guid: 9c171fd930b1044a5ad60370b0787e0d, type: 3}
-  m_PrefabInstance: {fileID: 685380073}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2109635568

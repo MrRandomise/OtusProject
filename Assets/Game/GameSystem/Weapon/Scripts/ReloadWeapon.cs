@@ -3,7 +3,7 @@ using System;
 using Zenject;
 using UnityEngine;
 
-namespace OtusProject.Config.Weapons
+namespace OtusProject.Weapons
 {
     public sealed class ReloadWeapon : ITickable
     {

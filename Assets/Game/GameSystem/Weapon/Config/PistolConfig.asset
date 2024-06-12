@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8749f322a12722d468c0d81b95039c78, type: 3}
   m_Name: PistolConfig
   m_EditorClassIdentifier: 
+  WeaponContent: {fileID: 9073103617799431881, guid: f383745e431689843b93aee98f582621, type: 3}
   MaxAmmo: 5
   CurrAmmo: 5
   FireRate: 1.2

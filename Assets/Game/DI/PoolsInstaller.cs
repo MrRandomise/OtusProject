@@ -1,5 +1,4 @@
 using OtusProject.Pools;
-using OtusProject.RecourcesConfig;
 using UnityEngine;
 using Zenject;
 
@@ -11,7 +10,6 @@ namespace OtusProject.Installer
         [SerializeField] private PoolBulletManager _poolBulletInstall;
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<SetPoolResources>().AsSingle().NonLazy();
             Container.Bind<PoolZombieManager>().FromInstance(_poolZombieInstall).AsSingle();
             Container.Bind<PoolBulletManager>().FromInstance(_poolBulletInstall).AsSingle();
             Container.Bind<PoolResourcesManager>().FromComponentInHierarchy().AsSingle();

@@ -1,10 +1,8 @@
 using Leopotam.EcsLite.Entities;
-using OtusProject.Component.Bullet;
-using OtusProject.Content;
 using UnityEngine;
 
 
-namespace OtusProject.Config.Weapons
+namespace OtusProject.Weapons
 {
     [CreateAssetMenu(fileName = "BulletConfig", menuName = "Config/Bullet")]
     public sealed class BulletConfig : ScriptableObject

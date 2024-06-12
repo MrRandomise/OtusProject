@@ -1,4 +1,4 @@
-using OtusProject.Player;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
@@ -7,42 +7,49 @@ namespace OtusProject.RecourcesConfig
 {
     public class ResourcesStorage : MonoBehaviour
     {
-        [SerializeField] private List<ResourcesInstaler> List = new List<ResourcesInstaler>();
-        private Dictionary<int, int> Resources = new Dictionary<int, int>();
-        private GetResources _getResources;
+        [SerializeField] private List<ResourcesInstaler> _resourceList = new List<ResourcesInstaler>();
+        private Dictionary<int, int> _currentResources = new Dictionary<int, int>();
+        public event Action<int> OnChangeResources;
 
-        [Inject]
-        private void Construct(CharacterInstaller characterInstaller)
+        private void Awake()
         {
-            _getResources = characterInstaller.GetComponent<GetResources>();
-            _getResources.onGetResources += SetAmmountResources;
             InitialStorage();
         }
 
-        public void SetAmmountResources(ResourcesInstaler key)
+        public void SetAmmountResources(int id, int newAmmount)
         {
-            Resources[key.ID] += key.HowGet;
+            _currentResources[id] += newAmmount;
+            var ammount = GetAmmountResources(id);
+            OnChangeResources?.Invoke(ammount);
         }
 
-        public int GetAmmountResources(ResourcesInstaler key)
+        public int GetAmmountResources(int key)
         {
-            return Resources[key.ID];
+            return _currentResources[key];
         }
 
         private void InitialStorage()
         {
-            foreach (var item in List) 
+            foreach (var item in _resourceList) 
             {
                 var ammount = item.Resources.InitAmmount;
-                Resources.Add(item.ID, ammount);
+                var id = GetKeyInInstaller(item);
+                _currentResources.Add(id, ammount);
             }
         }
-
-        private void OnDisable()
-        {
-            _getResources.onGetResources -= SetAmmountResources;
-        }
-
         
+        private ResourcesInstaler GetInstallerInKey(int id)
+        {
+            foreach(var item in _resourceList)
+            {
+                if(item.Resources.ID == id)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+        public int GetKeyInInstaller(ResourcesInstaler key) => key.Resources.ID;
+
     }
 }

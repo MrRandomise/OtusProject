@@ -7,5 +7,6 @@ namespace OtusProject.Component.Events
     {
         public IEffects Effect;
         public Entity target;
+        public Entity Bullet;
     }
 }

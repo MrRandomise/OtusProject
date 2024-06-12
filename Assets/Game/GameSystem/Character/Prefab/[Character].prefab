@@ -76,7 +76,6 @@ GameObject:
   - component: {fileID: 8405932198014075262}
   - component: {fileID: 5036163871950602962}
   - component: {fileID: 5737579966390170825}
-  - component: {fileID: 7246363497779545952}
   m_Layer: 0
   m_Name: '[Character]'
   m_TagString: Player
@@ -183,7 +182,7 @@ MonoBehaviour:
   IsAlive: 1
   JoystickInput: 0
   MoveDirection: {x: 0, y: 0, z: 0}
-  _animator: {fileID: 2998094625754096501}
+  Animator: {fileID: 0}
   Component:
     rid: 2036248471598268417
   references:
@@ -195,18 +194,8 @@ MonoBehaviour:
         Weapon: {fileID: 2366061512907134588, guid: 398d195547acf3c4aab01c53e2e061b7, type: 3}
         WeaponMenuPrefab: {fileID: 9073103617799431881, guid: f383745e431689843b93aee98f582621, type: 3}
         ItemIcon: {fileID: 21300000, guid: 976467f6622997c4eba97caf397946b1, type: 3}
---- !u!114 &7246363497779545952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5391201161038669389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30daf5dca2e08d44e99e513aedb366cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+        WeaponContainer: {fileID: 0}
+        WeaponMenuContainer: {fileID: 0}
 --- !u!1001 &2998094625761569693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -319,11 +308,6 @@ PrefabInstance:
       addedObject: {fileID: 4880234279241163478}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f08c704964481c84a8c4daa91bd9831b, type: 3}
---- !u!95 &2998094625754096501 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 9570536, guid: f08c704964481c84a8c4daa91bd9831b, type: 3}
-  m_PrefabInstance: {fileID: 2998094625761569693}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2998094625761159935 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 442722, guid: f08c704964481c84a8c4daa91bd9831b, type: 3}

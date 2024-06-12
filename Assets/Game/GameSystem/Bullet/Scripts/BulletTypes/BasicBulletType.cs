@@ -2,10 +2,10 @@ using Leopotam.EcsLite.Entities;
 using OtusProject.Component.Request;
 using System;
 using UnityEngine;
-namespace OtusProject.Config.Effects
+namespace OtusProject.Effects
 {
     [Serializable]
-    public sealed  class BasicBullet : IEffects
+    public sealed  class BasicBulletType : IEffects
     {
         [SerializeField] public string Name = "Basic";
         [SerializeField] public int Damage = 1;

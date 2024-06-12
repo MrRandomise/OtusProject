@@ -5,15 +5,15 @@ namespace OtusProject.Shoop
 {
     public sealed class ContentItemCreator
     {
-        private ItemsShopPanel _contentPrefab;
+        private ProductView _contentPrefab;
         private Transform _container;
-        public ContentItemCreator(ItemsShopPanel contentPrefab, Transform container)
+        public ContentItemCreator(ProductView contentPrefab, Transform container)
         {
             _contentPrefab = contentPrefab;
             _container = container;
         }
         
-        public ItemsShopPanel AddItemPanel() => GameObject.Instantiate(_contentPrefab, _contentPrefab.transform.position, Quaternion.identity, _container);
+        public ProductView AddItemPanel() => GameObject.Instantiate(_contentPrefab, _contentPrefab.transform.position, Quaternion.identity, _container);
 
     }
 }

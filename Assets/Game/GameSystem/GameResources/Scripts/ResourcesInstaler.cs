@@ -6,10 +6,8 @@ namespace OtusProject.RecourcesConfig
 {
     public class ResourcesInstaler : EntityInstaller
     {
-        public int ID = 1;
         public ResourceConfig Resources;
-        public int HowGet = 1;
-        public CoinView View;
+        public int Ammount = 1;
 
         protected override void Install(Entity entity)
         {

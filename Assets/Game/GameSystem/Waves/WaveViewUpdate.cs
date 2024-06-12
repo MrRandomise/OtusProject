@@ -18,7 +18,7 @@ namespace OtusProject.Waves
 
         private void ViewUpdate()
         {
-            _waveView.Waves.text = $"x {_waveSystem.GetCurrentWave()}";
+            _waveView.SetWaveView(_waveSystem.GetCurrentWave());
         }
 
         public void Dispose()

@@ -9,38 +9,32 @@ namespace OtusProject.Player
 {
     public sealed class PlayerSetHealth: IDisposable
     {
-        private HealthView _healthView;
         private CharacterInstaller _characterInstaller;
         private Entity _entity;
+        public event Action<int> OnChangeHealth;
 
         [Inject]
         private void Construct(HealthView healthView, CharacterInstaller character)
         {
-            HitEvents.OnHit += SetHealth;
-            _healthView = healthView;
+            HitZombieInTarget.OnHit += SetHealth;
             _characterInstaller = character;
             _entity = _characterInstaller.GetComponent<Entity>();
-            UpdateHealthView(_characterInstaller.Health);
         }
 
-        public void SetHealth(int damage)
+        public void SetHealth(int health)
         {
-            _entity.GetData<CurrentHealth>().Value += damage;
-            if(_entity.GetData<CurrentHealth>().Value <= 0)
+            _entity.GetData<CurrentHealth>().Value += health;
+            OnChangeHealth?.Invoke(_entity.GetData<CurrentHealth>().Value);
+            if (_entity.GetData<CurrentHealth>().Value <= 0)
             {
                 _characterInstaller.CanMove = false;
                 _characterInstaller.IsAlive = false;
             }
         }
 
-        private void UpdateHealthView(int health)
-        {
-            _healthView.Value.text = $"x {health}";
-        }
-
         public void Dispose()
         {
-            HitEvents.OnHit -= SetHealth;
+            HitZombieInTarget.OnHit -= SetHealth;
         }
     }
 }
