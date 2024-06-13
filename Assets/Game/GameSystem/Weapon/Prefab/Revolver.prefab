@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponConfig: {fileID: 11400000, guid: 1c01867a112b21041b81d7db5ecc4ca8, type: 2}
-  BulletConfig: {fileID: 11400000, guid: 32795c1b4ffa5734b97845d05f5d770c, type: 2}
+  BulletConfig: {fileID: 11400000, guid: e0c08d5cd8d18f341a2520d5b524a5a8, type: 2}
   BulletPoint: {fileID: 3946541586419288137}
 --- !u!4 &2267703593505435982 stripped
 Transform:

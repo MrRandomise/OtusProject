@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2550fe4f03327324cb69874ffad5922d, type: 3}
-  m_Name: SpeedBulletType
+  m_Name: SlowBullet
   m_EditorClassIdentifier: 
   Effects:
-    rid: 2036248543753142276
+    rid: 3586390624310394883
   Bullet: {fileID: 2557774204630130911, guid: e0dcb378ea4d1b94fb1a6c2981d85913, type: 3}
   Speed: 5
   LifeTime: 3
   references:
     version: 2
     RefIds:
-    - rid: 2036248543753142276
-      type: {class: SlowSpeedBulletType, ns: OtusProject.Effects, asm: World}
+    - rid: 3586390624310394883
+      type: {class: SlowingEffects, ns: OtusProject.Effects, asm: World}
       data:
         Name: Speed
         SpeedRate: 0

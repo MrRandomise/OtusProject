@@ -16,7 +16,7 @@ namespace OtusProject.Shoop
         {
             if(CanBay(product))
             {
-                var resId = product.Resource.ID;
+                var resId = product.Resource.name;
                 _resource.SetAmmountResources(resId, -product.Price);
                 product.CurrBuy++;
                 product.Product.BuyItem();
@@ -25,7 +25,7 @@ namespace OtusProject.Shoop
 
         public bool CanBay(ProductConfig product)
         {
-            var resId = product.Resource.ID;
+            var resId = product.Resource.name;
             return _resource.GetAmmountResources(resId) >= product.Price;
         }
     }

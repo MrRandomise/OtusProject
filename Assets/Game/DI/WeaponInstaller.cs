@@ -14,7 +14,7 @@ namespace OtusProject.Installer
             Container.Bind<WeaponContainer>().FromComponentInHierarchy().AsSingle();
             Container.Bind<WeaponPanel>().FromComponentInHierarchy().AsSingle();
             Container.Bind<IWeapon>().To<RangeWeapon>().FromComponentInHierarchy().AsSingle();
-            Container.BindInterfacesAndSelfTo<BloodBulletType>().AsCached().NonLazy();
+            Container.BindInterfacesAndSelfTo<BleedingEffects>().AsCached().NonLazy();
             Container.BindInterfacesAndSelfTo<ReloadWeapon>().AsSingle().NonLazy();
             Container.Bind<ChangeWeapon>().AsSingle().NonLazy();
         }

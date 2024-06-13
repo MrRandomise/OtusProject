@@ -10,7 +10,7 @@ namespace OtusProject.RecourcesConfig
         private PoolResourcesSystem _poolSystem;
         private ResourcesStorage _resourcesStorage;
         private Entity _currentEntity;
-        private int _id;
+        private string _id;
 
         [Inject]
         private void Construct(PoolResourcesSystem poolSystem, ResourcesStorage resourcesStorage)
@@ -18,7 +18,7 @@ namespace OtusProject.RecourcesConfig
             _poolSystem = poolSystem;
             _resourcesStorage = resourcesStorage;
             _currentEntity = GetComponent<Entity>();
-            _id = GetComponent<ResourcesInstaler>().Resources.ID;
+            _id = GetComponent<ResourcesInstaler>().Resources.name;
         }
 
         private void OnTriggerEnter(Collider other)

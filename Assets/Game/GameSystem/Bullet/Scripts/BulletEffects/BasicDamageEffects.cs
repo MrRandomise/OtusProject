@@ -5,7 +5,7 @@ using UnityEngine;
 namespace OtusProject.Effects
 {
     [Serializable]
-    public sealed  class BasicBulletType : IEffects
+    public sealed  class BasicDamageEffects : IEffects
     {
         [SerializeField] public string Name = "Basic";
         [SerializeField] public int Damage = 1;

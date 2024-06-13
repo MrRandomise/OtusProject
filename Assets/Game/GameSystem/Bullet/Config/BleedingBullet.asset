@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2550fe4f03327324cb69874ffad5922d, type: 3}
-  m_Name: BloodBulletType
+  m_Name: BleedingBullet
   m_EditorClassIdentifier: 
   Effects:
-    rid: 2036248543753142274
+    rid: 3586390624310394884
   Bullet: {fileID: 2557774204630130911, guid: 1de8ac03f15248b48a27f270f7a33716, type: 3}
   Speed: 5
   LifeTime: 3
   references:
     version: 2
     RefIds:
-    - rid: 2036248543753142274
-      type: {class: BloodBulletType, ns: OtusProject.Effects, asm: World}
+    - rid: 3586390624310394884
+      type: {class: BleedingEffects, ns: OtusProject.Effects, asm: World}
       data:
-        Name: Blood
-        DamagePerSec: 1
-        Timer: 3
-        Description: "\u041D\u0430\u043D\u0435\u0441\u0435\u043D\u0438\u0435 x \u0443\u0440\u043E\u043D\u0430
+        _name: Blood
+        _damagePerSec: 1
+        _timer: 3
+        _description: "\u041D\u0430\u043D\u0435\u0441\u0435\u043D\u0438\u0435 x \u0443\u0440\u043E\u043D\u0430
           \u0432 \u0441\u0435\u043A\u0443\u043D\u0434\u0443 n \u0441\u0435\u043A\u0443\u043D\u0434"

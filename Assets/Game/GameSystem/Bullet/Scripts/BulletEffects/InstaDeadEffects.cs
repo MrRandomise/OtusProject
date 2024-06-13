@@ -6,7 +6,7 @@ using UnityEngine;
 namespace OtusProject.Effects
 {
     [Serializable]
-    public sealed class DeathBulletType : IEffects
+    public sealed class InstaDeadEffects : IEffects
     {
         [SerializeField] public string Name = "Instant Death";
         [SerializeField] public string Description = "Мгновненное убийство";

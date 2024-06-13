@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2550fe4f03327324cb69874ffad5922d, type: 3}
-  m_Name: InstantBulletType
+  m_Name: InstaBullet
   m_EditorClassIdentifier: 
   Effects:
-    rid: 2036248543753142275
+    rid: 3586390624310394882
   Bullet: {fileID: 2557774204630130911, guid: 2fed408e27f05ee4699e66ed0f74886a, type: 3}
   Speed: 5
   LifeTime: 3
   references:
     version: 2
     RefIds:
-    - rid: 2036248543753142275
-      type: {class: DeathBulletType, ns: OtusProject.Effects, asm: World}
+    - rid: 3586390624310394882
+      type: {class: InstaDeadEffects, ns: OtusProject.Effects, asm: World}
       data:
         Name: Instant Death
         Description: "\u041C\u0433\u043D\u043E\u0432\u043D\u0435\u043D\u043D\u043E\u0435

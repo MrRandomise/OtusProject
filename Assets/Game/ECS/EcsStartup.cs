@@ -8,6 +8,7 @@ using OtusProject.System.Zombie;
 using OtusProject.Systems.View;
 using OtusProject.ECSEvent;
 using Zenject;
+using OtusProject.System.Effects;
 
 namespace EcsEngine
 {
@@ -48,6 +49,8 @@ namespace EcsEngine
                 .Add(new NavMashSystem())
                 .Add(new RotateCharacterSystem())
                 .Add(new TakeBulletEffectsSystem())
+                .Add(new BleendingEffectSystem())
+                .Add(new SlowingEffectSystem())
                 .Add(new DamageSystem())
                 .Add(new LifeTimerSystem())
                 .Add(new DropSystem())
