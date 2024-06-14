@@ -13,7 +13,7 @@ namespace OtusProject.Installer
         {
             Container.Bind<ShopSystem>().AsSingle().NonLazy();
             Container.Bind<ShopPopup>().FromInstance(_shopPopup).AsSingle();
-            Container.Bind<IProduct>().To<HealthBottle>().AsSingle().NonLazy();    
+            Container.Bind<IProduct>().To<HealthBottleBuyer>().AsSingle().NonLazy();    
         }
     }
 }

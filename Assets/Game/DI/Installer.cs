@@ -22,7 +22,7 @@ namespace OtusProject.Installer
             Container.Bind<CharacterInstaller>().FromInstance(_character).AsSingle();
             Container.BindInterfacesAndSelfTo<GameOverMenu>().FromComponentInHierarchy().AsSingle();
             Container.BindInterfacesAndSelfTo<GameOverSystem>().AsSingle().NonLazy();
-            Container.BindInterfacesAndSelfTo<PlayerSetHealth>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<PlayerHealth>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<CameraController>().AsSingle();
             Container.BindInterfacesAndSelfTo<InputManager>().AsSingle();
             Container.BindInterfacesAndSelfTo<AttackInputCharacter>().AsSingle().NonLazy();

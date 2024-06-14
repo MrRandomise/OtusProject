@@ -27,7 +27,7 @@ namespace OtusProject.View
 
         private void Awake()
         {
-            _waveSystem.OnStopWave += ShowPopup;
+            _waveSystem.OnStopTimerEndWave += ShowPopup;
             _creator = new ContentItemCreator(_productView, _container);
             ShoopInitial();
         }
@@ -63,7 +63,7 @@ namespace OtusProject.View
 
         private void OnDisable()
         {
-            _waveSystem.OnStopWave -= ShowPopup;
+            _waveSystem.OnStopTimerEndWave -= ShowPopup;
         }
     }
 }

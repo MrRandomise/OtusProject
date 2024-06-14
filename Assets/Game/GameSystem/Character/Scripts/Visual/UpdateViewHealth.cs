@@ -7,9 +7,9 @@ namespace OtusProject.Player
     public class UpdateViewHealth : IDisposable
     {
         private HealthView _healthView;
-        private PlayerSetHealth _playerSetHealth;
+        private PlayerHealth _playerSetHealth;
 
-        UpdateViewHealth(HealthView healthView, CharacterInstaller characterInstaller, PlayerSetHealth playerSetHealth)
+        UpdateViewHealth(HealthView healthView, CharacterInstaller characterInstaller, PlayerHealth playerSetHealth)
         {
             _healthView = healthView;
             _playerSetHealth = playerSetHealth;

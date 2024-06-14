@@ -1,8 +1,6 @@
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
 namespace OtusProject.View
 {
@@ -12,7 +10,6 @@ namespace OtusProject.View
         public TMP_Text ItemCount;
         public TMP_Text ItemMaxCount;
         public TMP_Text Key;
-
         public void ShowItems()
         {
             ItemIcon.color = new Color(1f, 1f, 1f, 1f);

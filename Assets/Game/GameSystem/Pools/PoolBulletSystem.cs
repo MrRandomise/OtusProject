@@ -3,10 +3,9 @@ using Leopotam.EcsLite.Entities;
 using OtusProject.Component;
 using OtusProject.Component.Bullet;
 using OtusProject.Component.Request;
-using OtusProject.Weapons;
 using OtusProject.Content;
 using System;
-
+using OtusProject.Inventary;
 namespace OtusProject.Pools
 {
 
@@ -15,26 +14,29 @@ namespace OtusProject.Pools
         private PoolSystem _poolSystem;
         private PoolBulletManager _manager;
         private Entity _bullet;
+        private WeaponInventory _weapon;
 
-        PoolBulletSystem(PoolBulletManager view, EcsStartup ecsStartup)
+        PoolBulletSystem(PoolBulletManager view, EcsStartup ecsStartup, WeaponInventory weapon)
         {
             _manager = view;
+            _weapon = weapon;
             _poolSystem = new PoolSystem(_manager, ecsStartup);
         }
 
-        public void BulletInitial(IWeapon weapon)
+        public void BulletInitial()
         {
-            var bulletConfig = weapon.GetBulletConfig();
+            ref var bulletConfig = ref _weapon.GetActiveWeapon().BulletConfig;
             BulleCollision.OnBulletHit += InActiveEvent;
             _manager.PrefabBullet = bulletConfig.Bullet;
-            _manager.SpawnPoint = weapon.GetBulletPoint();
+            _manager.SpawnPoint = _weapon.GetActiveWeapon().Point;
             _bullet = _poolSystem.ActivePool();
+
             _bullet.GetData<Speed>().Value = bulletConfig.Speed;
-            _bullet.GetData<MoveDirection>().Value = weapon.GetBulletPoint().forward;
+            _bullet.GetData<MoveDirection>().Value = _weapon.GetActiveWeapon().Point.forward;
             _bullet.GetData<LifeTime>().Value = bulletConfig.LifeTime;
             _bullet.GetData<Pool>().Value = this;
             _bullet.GetData<BulletEffects>().Value = bulletConfig.Effects;
-            if(_bullet.TryGetData(out LifeTimerRequest data))
+            if (_bullet.TryGetData(out LifeTimerRequest data))
             {
                 _bullet.GetData<CurrentTimer>().Value = 0;
             }

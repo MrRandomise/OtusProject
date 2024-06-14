@@ -1,25 +1,31 @@
-using OtusProject.Player;
-using Zenject;
+using OtusProject.Inventary;
+using System;
 
 namespace OtusProject.Weapons
 {
-    public sealed class ChangeWeapon 
+    public sealed class ChangeWeapon : IDisposable
     {
-        private CharacterInstaller _character;
+        private WeaponInventory _inventory;
 
-        [Inject]
-        private void Construct(CharacterInstaller character)
+        ChangeWeapon(WeaponInventory inventory)
         {
-            _character = character;
+            _inventory = inventory;
+            _inventory.OnChangeActive += Change;
         }
 
-        public void Change(IWeapon weapon)
+        public void Change(Weapon weapon)
         {
-            _character.CurrentWeapon.GetConfig().WeaponContent.OpacityItems();
-            _character.CurrentWeapon.GetPrefab().SetActive(false);
-            _character.CurrentWeapon = weapon;
-            _character.CurrentWeapon.GetPrefab().SetActive(true);
-            _character.CurrentWeapon.GetConfig().WeaponContent.ShowItems();
+            if (weapon != null)
+            {
+                weapon.gameObject.SetActive(false);
+            }
+            var newWeapon = _inventory.GetActiveWeapon();
+            newWeapon.gameObject.SetActive(true);
+        }
+
+        public void Dispose()
+        {
+            _inventory.OnChangeActive -= Change;
         }
     }
 }

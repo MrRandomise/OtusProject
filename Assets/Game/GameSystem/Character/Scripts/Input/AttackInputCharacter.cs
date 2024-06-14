@@ -3,22 +3,28 @@ using System;
 using UnityEngine;
 using OtusProject.Player;
 using OtusProject.Pools;
+using OtusProject.Inventary;
 
 namespace OtusProject.PlayerInput
 {
-    public sealed class AttackInputCharacter: ITickable
+    public sealed class AttackInputCharacter: ITickable, IDisposable
     {
         private CharacterInstaller _character;
+        private WeaponInventory _inventary;
         private float _currFireRate = 0;
         public event Action OnReload;
         public event Action OnFire; 
         private PoolBulletSystem _poolBullet;
+        private CharacterInputController _controller;
 
         [Inject]
-        private void Construct(CharacterInstaller character, PoolBulletSystem poolBullet)
+        private void Construct(WeaponInventory inventory, CharacterInstaller character, PoolBulletSystem poolBullet, CharacterInputController controller)
         {
             _character = character;
+            _inventary = inventory;
             _poolBullet = poolBullet;
+            _controller = controller;
+            _controller.OnFireRequest += AttackRequest;
         }
 
         public void Tick()
@@ -30,12 +36,13 @@ namespace OtusProject.PlayerInput
         {
             if (_character.IsAlive)
             {
-                if (_character.CurrentWeapon.GetConfig().CurrAmmo > 0)
+                var weapon = _inventary.GetActiveWeapon();
+                if (weapon.WeaponConfig.CurrAmmo > 0)
                 {
-                    if (_currFireRate >= _character.CurrentWeapon.GetConfig().FireRate)
+                    if (_currFireRate >= weapon.WeaponConfig.FireRate)
                     {
-                        _poolBullet.BulletInitial(_character.CurrentWeapon);
-                        _character.CurrentWeapon.GetConfig().CurrAmmo -= 1;
+                        _poolBullet.BulletInitial();
+                        weapon.WeaponConfig.CurrAmmo -= 1;
                         _currFireRate = 0;
                         OnFire?.Invoke();
                     }
@@ -45,6 +52,11 @@ namespace OtusProject.PlayerInput
                     OnReload?.Invoke();
                 }
             }
+        }
+
+        public void Dispose()
+        {
+            _controller.OnFireRequest -= AttackRequest;
         }
     }
 }

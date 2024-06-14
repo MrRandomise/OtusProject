@@ -60,6 +60,8 @@ namespace EcsEngine
                 .Add(new AnimatorAttackSystem())
                 .Add(new AnimatorDamageSystem())
                 .Add(new AnimatorDeathSystem())
+                .Add(new AnimatorEndWaveSystem())
+                
 #if UNITY_EDITOR
                 .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
 
@@ -67,6 +69,7 @@ namespace EcsEngine
                 .DelHere<AttackEvent>()
                 .DelHere<DeathEvent>()
                 .DelHere<HitEvent>()
+                .DelHere<EndWaveEvent>()
                 .DelHere<DamageEvent>();
         }
 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ZombieBasic2
   m_EditorClassIdentifier: 
   Health: 3
-  MoveSpeed: 6
+  MoveSpeed: 2
   RotateSpeed: 2
   AttackDistance: 1.3
   DeathTimeout: 2

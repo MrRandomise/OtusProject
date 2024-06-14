@@ -2,10 +2,9 @@ using System;
 using UnityEngine;
 using OtusProject.Player;
 using Zenject;
-using OtusProject.Weapons;
 using Leopotam.EcsLite.Entities;
 using OtusProject.Component;
-using UnityEngine.TextCore.Text;
+using OtusProject.Inventary;
 
 namespace OtusProject.PlayerInput
 {
@@ -13,14 +12,15 @@ namespace OtusProject.PlayerInput
     {
         private readonly InputManager _inputManager;
         private readonly CharacterInstaller _characterInstaller;
+        private readonly WeaponInventory _weaponInventory;
         public event Action OnFireRequest;
-        public event Action<IWeapon> OnChangeWeapon;
         private UseKey _lastKey = UseKey.Stop;
         private Entity _character;
 
-        public CharacterInputController(InputManager input, CharacterInstaller character)
+        public CharacterInputController(InputManager input, CharacterInstaller character, WeaponInventory weaponInventory)
         {
             _inputManager = input;
+            _weaponInventory = weaponInventory;
             _inputManager.OnUseKey += GetKey;
             _inputManager.OnUseKeyboard += KeyboardPress;
             _characterInstaller = character;
@@ -38,23 +38,10 @@ namespace OtusProject.PlayerInput
 
         public void KeyboardPress(KeyCode code)
         {
-            var prevWeapon = GetItem(code);
-            if (prevWeapon != null )
+            if (_weaponInventory.TryGetWeapon(code, out var weapon))
             {
-                OnChangeWeapon?.Invoke(prevWeapon);
+                _weaponInventory.ChangeActiveWeapon(weapon.WeaponConfig.UseKey);
             }
-        }
-
-        private IWeapon GetItem(KeyCode code)
-        {
-            foreach (var item in _characterInstaller.ListWeapon)
-            {
-                if (item.Key == code)
-                {
-                    return item.Value;
-                }
-            }
-            return null;
         }
 
         public void Tick()

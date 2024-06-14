@@ -105,6 +105,7 @@
     <Compile Include="Assets\Game\DI\WaveInstaller.cs" />
     <Compile Include="Assets\Pack\TinyUIKit\Assets\Scripts\Demo\DemoDropDown.cs" />
     <Compile Include="Assets\Pack\TinyUIKit\Assets\Scripts\U31Kit\U31Slider.cs" />
+    <Compile Include="Assets\AddWeapon.cs" />
     <Compile Include="Assets\Game\DI\WeaponInstaller.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
   </ItemGroup>

@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8749f322a12722d468c0d81b95039c78, type: 3}
   m_Name: ShootGunConfig
   m_EditorClassIdentifier: 
-  WeaponContent: {fileID: 9073103617799431881, guid: f383745e431689843b93aee98f582621, type: 3}
+  _currentWeapon: {fileID: 6023783555553910724, guid: 3b1db6e668af3894296294d959333695, type: 3}
+  Weapon: {fileID: 6023783555553910724, guid: 3b1db6e668af3894296294d959333695, type: 3}
+  BulletConfig: {fileID: 11400000, guid: f63566e149cf2944a95fab0887601d49, type: 2}
+  WeaponView: {fileID: 9073103617799431881, guid: f383745e431689843b93aee98f582621, type: 3}
   MaxAmmo: 10
   CurrAmmo: 10
   FireRate: 2

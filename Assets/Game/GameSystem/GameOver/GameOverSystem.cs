@@ -1,35 +1,34 @@
 using System;
 using Zenject;
-using OtusProject.Content;
 using Leopotam.EcsLite.Entities;
-using OtusProject.Component.Events;
+using OtusProject.Player;
 
 namespace OtusProject.GameOver
 {
     public sealed class GameOverSystem : IDisposable
     {
-        //private DeathPlayer _deathPlayer;
-        //private GameOverMenu _gameOverMenu;
-        //private Entity _spawn;
+        private PlayerHealth _health;
+        private GameOverMenu _gameOverMenu;
 
-        //[Inject]
-        //private void construct(DeathPlayer deathPlayer, GameOverMenu gameOverMenu, SpawnInstaller spawn)
-        //{
-        //    _deathPlayer = deathPlayer;
-        //    _spawn = spawn.GetComponent<Entity>();
-        //    _deathPlayer.OnDeath += StopGame;
-        //    _gameOverMenu = gameOverMenu;
-        //}
+        [Inject]
+        private void construct(PlayerHealth helaht, GameOverMenu gameOverMenu)
+        {
+            _health = helaht;
+            _health.OnChangeHealth += StopGame;
+            _gameOverMenu = gameOverMenu;
+        }
 
-        //private void StopGame()
-        //{
-        //    _gameOverMenu.Menu.SetActive(true);
-        //    _spawn.SetData(new GameOverEvent());
-        //}
+        private void StopGame(int health)
+        {
+            if(health <= 0)
+            {
+                _gameOverMenu.Menu.SetActive(true);
+            }
+        }
 
         public void Dispose()
         {
-        //    _deathPlayer.OnDeath -= StopGame;
+            _health.OnChangeHealth -= StopGame;
         }
     }
 }

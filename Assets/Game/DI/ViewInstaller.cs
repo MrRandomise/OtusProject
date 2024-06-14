@@ -8,8 +8,7 @@ namespace OtusProject.Installer
 {
     public sealed class ViewInstaller : MonoInstaller
     {
-        [SerializeField] private ResourcesHitEvent resourcesHitEvent;
-
+        [SerializeField] private ResourcesHitEvent _resourcesHitEvent;
         public override void InstallBindings()
         {
             Container.Bind<KillsView>().FromComponentInHierarchy().AsSingle();
@@ -19,7 +18,7 @@ namespace OtusProject.Installer
             Container.BindInterfacesAndSelfTo<ZombieHealthBarUpdate>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<UpdateViewHealth>().AsSingle().NonLazy();
             Container.Bind<KillZombieView>().AsSingle().NonLazy();
-            Container.Bind<ResourcesHitEvent>().FromComponentInNewPrefab(resourcesHitEvent).AsCached();
+            Container.Bind<ResourcesHitEvent>().FromComponentInNewPrefab(_resourcesHitEvent).AsCached();
         }
     }
 }

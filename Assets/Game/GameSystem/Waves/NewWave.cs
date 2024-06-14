@@ -16,7 +16,7 @@ namespace OtusProject.View
             _character = character;
             _loader = loader;
             _waveSystem = waveSystem;
-            _waveSystem.OnStopWave += LoadNewWave;
+            _waveSystem.OnStopTimerEndWave += LoadNewWave;
         }
 
         public void LoadNewWave()
@@ -27,7 +27,7 @@ namespace OtusProject.View
 
         public void Dispose()
         {
-            _waveSystem.OnStopWave -= LoadNewWave;
+            _waveSystem.OnStopTimerEndWave -= LoadNewWave;
         }
     }
 }

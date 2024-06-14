@@ -8,10 +8,12 @@ namespace OtusProject.Waves
     public sealed class WaveSystem : ITickable, IInitializable
     {
         private CharacterInstaller _characterInstaller;
-        public event Action OnStartWave;
-        public event Action OnStopWave;
-        private readonly float _startTimeout = 3;
-        private readonly float _endTimeout = 3;
+        public event Action OnStopTimerStartWave;
+        public event Action OnSartWave;
+        public event Action OnEndWave;
+        public event Action OnStopTimerEndWave;
+        public readonly float _startTimeout = 3;
+        public readonly float _endTimeout = 3;
         private int _currentWave = 0;
         private float _currentTimer = 0;
         private bool _startTimer = false;
@@ -29,15 +31,20 @@ namespace OtusProject.Waves
 
         public void Start()
         {
+            OnSartWave?.Invoke();
             _characterInstaller.IsAlive = true;
             _startTimer = true;
         }
 
-        public void Stop() => _stopTimer = true;
+        public void Stop()
+        {
+            OnEndWave?.Invoke();
+            _stopTimer = true;
+        }
 
         public int GetCurrentWave() => _currentWave;
 
-        private void EnableTimer()
+        private void EnableWaveTimer()
         {
             _currentTimer += Time.deltaTime;
             if (_currentTimer >= _startTimeout)
@@ -45,11 +52,11 @@ namespace OtusProject.Waves
                 _currentTimer = 0;
                 _startTimer = false;
                 _currentWave++;
-                OnStartWave?.Invoke();
+                OnStopTimerStartWave?.Invoke();
             }
         }
 
-        private void DisableTimer()
+        private void DisableWaveTimer()
         {
             _currentTimer += Time.deltaTime;
             if (_currentTimer >= _endTimeout)
@@ -57,7 +64,7 @@ namespace OtusProject.Waves
                 _currentTimer = 0;
                 _stopTimer = false;
                 _characterInstaller.IsAlive = false;
-                OnStopWave?.Invoke();
+                OnStopTimerEndWave?.Invoke();
             }
         }
 
@@ -65,11 +72,11 @@ namespace OtusProject.Waves
         {
             if (_startTimer)
             {
-                EnableTimer();
+                EnableWaveTimer();
             }
             if (_stopTimer)
-            { 
-                DisableTimer();
+            {
+                DisableWaveTimer();
             }
         }
     }

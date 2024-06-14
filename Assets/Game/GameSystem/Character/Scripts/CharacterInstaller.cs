@@ -1,9 +1,6 @@
 using Leopotam.EcsLite.Entities;
 using OtusProject.Component;
 using UnityEngine;
-using System.Collections.Generic;
-using OtusProject.Weapons;
-using OtusProject.ItemSystem;
 
 namespace OtusProject.Player
 {
@@ -16,10 +13,7 @@ namespace OtusProject.Player
         public bool IsAlive = true;
         public bool JoystickInput = false;
         public Vector3 MoveDirection;
-        public IWeapon CurrentWeapon;
         public Animator Animator;
-        [SerializeReference] public IProduct Component;
-        public Dictionary<KeyCode, IWeapon> ListWeapon = new Dictionary<KeyCode, IWeapon>();
 
         protected override void Install(Entity entity)
         {
@@ -34,7 +28,6 @@ namespace OtusProject.Player
             entity.AddData(new MousePosition { Value = Input.mousePosition });
             entity.AddData(new ObjectAnimator { Value = Animator });
             entity.AddData(new CharacterTag());
-            Component.BuyItem();
         }
 
         protected override void Dispose(Entity entity)

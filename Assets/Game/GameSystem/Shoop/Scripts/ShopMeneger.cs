@@ -1,8 +1,6 @@
 using OtusProject.ItemSystem;
 using OtusProject.RecourcesConfig;
 using OtusProject.View;
-using UnityEngine;
-
 namespace OtusProject.Shoop
 {
     public sealed class ShopMeneger
@@ -24,7 +22,7 @@ namespace OtusProject.Shoop
         {
             _resource.OnChangeResources += OnMoneyChange;
 
-            _productView.Icon.sprite = _product.Product.GetIcon();
+            _productView.Icon.sprite = _product.Icon;
             _productView.BuyButton.AddListener(OnBuyClick);
             _productView.BuyButton.SetIcon(_product.Resource.Icon);
             _productView.BuyButton.SetPrice(_product.Price.ToString());
@@ -37,6 +35,7 @@ namespace OtusProject.Shoop
             if(_shopSystem.CanBay(_product))
             {
                 _shopSystem.Buy(_product);
+                UpdateButtonState();
             }
         }
 
