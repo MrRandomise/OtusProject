@@ -40,7 +40,7 @@ namespace OtusProject.PlayerInput
         {
             if (_weaponInventory.TryGetWeapon(code, out var weapon))
             {
-                _weaponInventory.ChangeActiveWeapon(weapon.WeaponConfig.UseKey);
+                _weaponInventory.ChangeActiveWeapon(code);
             }
         }
 

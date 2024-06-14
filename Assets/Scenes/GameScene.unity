@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43667546, g: 0.48427135, b: 0.5645225, a: 1}
+  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -528,10 +528,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 343026308344123410, guid: d1ebed702588f42bba379a80e6e03e25, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 343026308344123410, guid: d1ebed702588f42bba379a80e6e03e25, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 343026308344123410, guid: d1ebed702588f42bba379a80e6e03e25, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1046935826}
+    - target: {fileID: 343026308344123410, guid: d1ebed702588f42bba379a80e6e03e25, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 343026308344123410, guid: d1ebed702588f42bba379a80e6e03e25, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReloadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 343026308344123410, guid: d1ebed702588f42bba379a80e6e03e25, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: OtusProject.GameOver.GameOverButton, World
+      objectReference: {fileID: 0}
+    - target: {fileID: 343026308344123410, guid: d1ebed702588f42bba379a80e6e03e25, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 343026308344123408, guid: d1ebed702588f42bba379a80e6e03e25, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1046935826}
   m_SourcePrefab: {fileID: 100100000, guid: d1ebed702588f42bba379a80e6e03e25, type: 3}
 --- !u!224 &172296184 stripped
 RectTransform:
@@ -2091,6 +2122,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 808649029}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1046935822 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 343026308344123408, guid: d1ebed702588f42bba379a80e6e03e25, type: 3}
+  m_PrefabInstance: {fileID: 172296183}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1046935826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046935822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4d29cf08ec278849990d0c6e3b64cae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1047481964
 GameObject:
   m_ObjectHideFlags: 0

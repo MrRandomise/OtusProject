@@ -1,14 +1,16 @@
 using OtusProject.View;
+using System;
 using UnityEngine;
 using Zenject;
 
 namespace OtusProject.Waves
 {
-    public sealed class WaveTextUpdate : ITickable
+    public sealed class WaveTextUpdate : ITickable, IDisposable
     {
         private WaveTextView _waveTextView;
         private WaveView _waveView;
-        private WaveSystem _waveSystem;
+        private NewWave _newWave;
+        private EndWave _endWave;
         private float _timerLastMessage = 2;
         private float _currTimer = 0;
         private float _lastMessageTimer = 0;
@@ -16,15 +18,16 @@ namespace OtusProject.Waves
         private bool _lastMessage = false;
 
 
-        WaveTextUpdate(WaveTextView waveTextView, WaveView waveView, WaveSystem waveSystem)
+        WaveTextUpdate(WaveTextView waveTextView, WaveView waveView, NewWave newWave, EndWave endWave)
         {
             _waveTextView = waveTextView;
             _waveView = waveView;
-            _waveSystem = waveSystem;
-            _lastMessageTimer = _waveSystem._endTimeout;
-            _waveSystem.OnSartWave += StartMessageUpdate;
-            _waveSystem.OnEndWave += EndMessageUpdate;
-            _waveSystem.OnStopTimerStartWave += LastMessage;
+            _newWave = newWave;
+            _endWave = endWave;
+            _lastMessageTimer = _endWave._timeout;
+            _newWave.OnSartTimer += StartMessageUpdate;
+            _endWave.OnSartTimer += EndMessageUpdate;
+            _newWave.OnStopTimer += LastMessage;
         }
 
         private void StartMessageUpdate()
@@ -67,9 +70,8 @@ namespace OtusProject.Waves
             if (_lastMessageTimer < 0)
             {
                 _startWave = false;
-                _lastMessageTimer = _waveSystem._endTimeout;
+                _lastMessageTimer = _endWave._timeout;
             }
-
         }
 
         public void Tick()
@@ -82,6 +84,13 @@ namespace OtusProject.Waves
             {
                 TimeToStartWave();
             }
+        }
+
+        public void Dispose()
+        {
+            _newWave.OnSartTimer -= StartMessageUpdate;
+            _endWave.OnSartTimer -= EndMessageUpdate;
+            _newWave.OnStopTimer -= LastMessage;
         }
     }
 }

@@ -6,24 +6,23 @@ namespace OtusProject.Waves
     public sealed class WaveViewUpdate : IDisposable
     {
         private WaveView _waveView;
-        
-        private WaveSystem _waveSystem;
+        private EndWave _endWave;
 
-        WaveViewUpdate(WaveView waveView, WaveSystem waveSystem)
+        WaveViewUpdate(WaveView waveView, EndWave endWave)
         {
             _waveView = waveView;
-            _waveSystem = waveSystem;
-            _waveSystem.OnStopTimerStartWave += ViewUpdate;
+            _endWave = endWave;
+            _endWave.OnStopTimer += ViewUpdate;
         }
 
         private void ViewUpdate()
         {
-            _waveView.SetWaveView(_waveSystem.GetCurrentWave());
+            _waveView.SetWaveView(_endWave.GetCurrentWave());
         }
 
         public void Dispose()
         {
-            _waveSystem.OnStopTimerStartWave -= ViewUpdate;
+            _endWave.OnStopTimer -= ViewUpdate;
         }
     }
 }

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using OtusProject.Weapons;
 using System;
 using UnityEngine;
+using Zenject.ReflectionBaking.Mono.Cecil.Cil;
 
 namespace OtusProject.Inventary
 {
@@ -13,6 +14,28 @@ namespace OtusProject.Inventary
         public event Action<Weapon> OnChangeActive;
 
         private Weapon ActiveWeapon = null;
+
+        public Weapon GetActiveWeapon() => ActiveWeapon;
+
+        public void AddWeapon(Weapon weapon)
+        {
+            var item = GameObject.Instantiate(weapon, weapon.WeaponContainer.transform.position, weapon.WeaponContainer.transform.rotation, weapon.WeaponContainer.transform);
+            _weapon.Add(weapon.WeaponConfig.UseKey, item);
+            ActiveWeapon = item;
+            OnAddWeapon?.Invoke(item);
+        }
+
+        public void RemoveWeapon(KeyCode key)
+        {
+            _weapon.Remove(key);
+            OnRemoveWeapon?.Invoke();
+        }
+        public void ChangeActiveWeapon(KeyCode key)
+        {
+            ActiveWeapon = _weapon[key];
+            OnChangeActive?.Invoke(_weapon[key]);
+        }
+
 
         public bool TryGetWeapon(KeyCode key, out Weapon data)
         {
@@ -30,29 +53,6 @@ namespace OtusProject.Inventary
             }
             data = null;
             return false;
-        }
-
-        public Weapon GetActiveWeapon() => ActiveWeapon;
-
-        public void AddWeapon(Weapon weapon)
-        {
-            var item = GameObject.Instantiate(weapon, weapon.WeaponContainer.transform.position, weapon.WeaponContainer.transform.rotation, weapon.WeaponContainer.transform);
-
-            _weapon.Add(item.WeaponConfig.UseKey, item);
-            ActiveWeapon = item;
-            OnAddWeapon?.Invoke(item);
-            ChangeActiveWeapon(item.WeaponConfig.UseKey);
-        }
-
-        public void RemoveWeapon(KeyCode key)
-        {
-            _weapon.Remove(key);
-            OnRemoveWeapon?.Invoke();
-        }
-        public void ChangeActiveWeapon(KeyCode key)
-        {
-            OnChangeActive?.Invoke(_weapon[key]);
-            ActiveWeapon = _weapon[key];
         }
     }
 }

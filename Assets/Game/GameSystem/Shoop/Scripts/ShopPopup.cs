@@ -20,14 +20,16 @@ namespace OtusProject.View
         [Inject]
         private ResourcesStorage _resource;
         [Inject]
-        private WaveSystem _waveSystem;
+        private EndWave _endWave;
+        [Inject]
+        private NewWave _newWave;
 
         private List<ShopMeneger> _managerList = new List<ShopMeneger>();
         private ContentItemCreator _creator;
 
         private void Awake()
         {
-            _waveSystem.OnStopTimerEndWave += ShowPopup;
+            _endWave.OnStopTimer += ShowPopup;
             _creator = new ContentItemCreator(_productView, _container);
             ShoopInitial();
         }
@@ -57,13 +59,13 @@ namespace OtusProject.View
             {
                 manager.Disabled();
             }
-            _waveSystem.Start();
+            _newWave.StartTimer();
             _menu.SetActive(false);
         }
 
         private void OnDisable()
         {
-            _waveSystem.OnStopTimerEndWave -= ShowPopup;
+            _endWave.OnStopTimer += ShowPopup;
         }
     }
 }

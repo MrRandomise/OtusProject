@@ -1,5 +1,6 @@
 using OtusProject.Inventary;
 using System;
+using UnityEngine;
 
 namespace OtusProject.Weapons
 {
@@ -15,12 +16,9 @@ namespace OtusProject.Weapons
 
         public void Change(Weapon weapon)
         {
-            if (weapon != null)
-            {
-                weapon.gameObject.SetActive(false);
-            }
-            var newWeapon = _inventory.GetActiveWeapon();
-            newWeapon.gameObject.SetActive(true);
+            weapon.gameObject.SetActive(false);
+            weapon = _inventory.GetActiveWeapon();
+            weapon.gameObject.SetActive(true);
         }
 
         public void Dispose()

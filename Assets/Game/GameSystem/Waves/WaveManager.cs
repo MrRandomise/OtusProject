@@ -10,26 +10,26 @@ namespace OtusProject.Waves
     public sealed class WaveManager
     {
         private OnDeathInECS _onDeathInECS;
-        private WaveSystem _waveSystem;
+        private EndWave _endWave;
         private PoolZombieManager _poolZombieManager;
         private int _currentKillZombie = 0;
 
-        WaveManager(OnDeathInECS onDeathInECS, WaveSystem waveSystem, PoolZombieManager poolZombieManager)
+        WaveManager(OnDeathInECS onDeathInECS, EndWave endWave, PoolZombieManager poolZombieManager)
         {
             _onDeathInECS = onDeathInECS;
-            _waveSystem = waveSystem;
-            _onDeathInECS.OnDeath += EndWave;
+            _endWave = endWave;
+            _onDeathInECS.OnDeath += PlayerDeath;
             _poolZombieManager = poolZombieManager;
         }
 
-        private void EndWave(Entity entity, Transform pos)
+        private void PlayerDeath(Entity entity, Transform pos)
         {
             _currentKillZombie++;
             ref var total = ref _poolZombieManager.InitialCountZombie;
             if (entity.CompareTag("Zombie") && _currentKillZombie == total)
             {
                 _currentKillZombie = 0;
-                _waveSystem.Stop();
+                _endWave.StartTimer();
                 total *= 2;
             }
         }

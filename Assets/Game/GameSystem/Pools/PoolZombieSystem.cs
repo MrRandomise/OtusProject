@@ -13,7 +13,8 @@ namespace OtusProject.Pools
 
     public sealed class PoolZombieSystem: ITickable, IDisposable, IInActiveEvent
     {
-        private WaveSystem _waveSystem;
+        private NewWave _newWave;
+        private EndWave _endWave;
         private PoolSystem _poolSystem;
         private PoolZombieManager _manager;
         private Entity _entity;
@@ -22,11 +23,12 @@ namespace OtusProject.Pools
         private int _currentCountZombie = 0;
         public event Action<Entity> OnSpawnEvent;
 
-        PoolZombieSystem(WaveSystem waveSystem, PoolZombieManager manager, EcsStartup ecsStartup, CharacterInstaller characterInstaller)
+        PoolZombieSystem(NewWave newWave, EndWave endWave, PoolZombieManager manager, EcsStartup ecsStartup, CharacterInstaller characterInstaller)
         {
-            _waveSystem = waveSystem;
-            _waveSystem.OnStopTimerStartWave += StartSpawnActivePool;
-            _waveSystem.OnStopTimerEndWave += StopSpawnActivePool;
+            _newWave = newWave;
+            _endWave = endWave;
+            _newWave.OnStopTimer += StartSpawnActivePool;
+            _endWave.OnStopTimer += StopSpawnActivePool;
             _manager = manager;
             _entity = characterInstaller.GetComponent<Entity>();
             _poolSystem = new PoolSystem(_manager, ecsStartup);
@@ -68,12 +70,11 @@ namespace OtusProject.Pools
         {
             _poolSystem.InActivePool(_entity);
         }
-        
 
         public void Dispose()
         {
-            _waveSystem.OnStopTimerStartWave -= StartSpawnActivePool;
-            _waveSystem.OnStopTimerEndWave -= StopSpawnActivePool;
+            _newWave.OnStopTimer -= StartSpawnActivePool;
+            _endWave.OnStopTimer -= StopSpawnActivePool;
         }
     }
 }

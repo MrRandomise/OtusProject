@@ -7,7 +7,7 @@ namespace OtusProject.Weapons
     {
         public WeaponConfig WeaponConfig;
         public BulletConfig BulletConfig;
-        public WeaponPanel WeaponView;
+        [HideInInspector] public WeaponPanel View;
         public Transform Point;
         public Transform WeaponContainer;
         public Sprite Icon;

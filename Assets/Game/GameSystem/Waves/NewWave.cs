@@ -1,33 +1,52 @@
-using OtusProject.Config.Map;
 using OtusProject.Player;
-using OtusProject.Waves;
 using System;
 using UnityEngine;
-namespace OtusProject.View
+using Zenject;
+
+namespace OtusProject.Waves
 {
-    public sealed class NewWave : IDisposable
+    public sealed class NewWave : ITickable
     {
-        private readonly MapLoader _loader;
         private readonly CharacterInstaller _character;
-        private WaveSystem _waveSystem;
+        private float _currentTimer = 0;
+        public readonly float _timeout = 3;
+        private bool _startTimer = false;
+        public event Action OnSartTimer;
+        public event Action OnStopTimer;
         
-        NewWave(CharacterInstaller character, MapLoader loader, WaveSystem waveSystem)
+        public NewWave(CharacterInstaller character)
         {
             _character = character;
-            _loader = loader;
-            _waveSystem = waveSystem;
-            _waveSystem.OnStopTimerEndWave += LoadNewWave;
+            StartTimer();
         }
 
-        public void LoadNewWave()
+
+        public void StartTimer()
         {
-            _loader.ChangeMap();
-            _character.transform.position = Vector3.zero;
+            _character.IsAlive = true;
+            OnSartTimer?.Invoke();
+            _startTimer = true;
         }
 
-        public void Dispose()
+        private void Timer()
         {
-            _waveSystem.OnStopTimerEndWave -= LoadNewWave;
+            _currentTimer += Time.deltaTime;
+            if (_currentTimer >= _timeout)
+            {
+                _currentTimer = 0;
+                _startTimer = false;
+                OnStopTimer?.Invoke();
+            }
         }
+
+        public void Tick()
+        {
+            if (_startTimer)
+            {
+                Timer();
+            }
+        }
+
+
     }
 }
