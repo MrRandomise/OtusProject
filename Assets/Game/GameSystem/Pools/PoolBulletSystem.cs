@@ -14,9 +14,9 @@ namespace OtusProject.Pools
         private PoolSystem _poolSystem;
         private PoolBulletManager _manager;
         private Entity _bullet;
-        private WeaponInventory _weapon;
+        private WeaponStorage _weapon;
 
-        PoolBulletSystem(PoolBulletManager view, EcsStartup ecsStartup, WeaponInventory weapon)
+        PoolBulletSystem(PoolBulletManager view, EcsStartup ecsStartup, WeaponStorage weapon)
         {
             _manager = view;
             _weapon = weapon;

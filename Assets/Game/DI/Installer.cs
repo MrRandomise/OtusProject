@@ -21,15 +21,13 @@ namespace OtusProject.Installer
             Container.Bind<Camera>().FromComponentInHierarchy().AsSingle();
             Container.Bind<CharacterInstaller>().FromInstance(_character).AsSingle();
             Container.BindInterfacesAndSelfTo<GameOverMenu>().FromComponentInHierarchy().AsSingle();
-            Container.BindInterfacesAndSelfTo<GameOverSystem>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<CharacterDeathObserver>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<PlayerHealth>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<CameraController>().AsSingle();
             Container.BindInterfacesAndSelfTo<InputManager>().AsSingle();
-            Container.BindInterfacesAndSelfTo<AttackInputCharacter>().AsSingle().NonLazy();
-            Container.BindInterfacesAndSelfTo<CharacterInputController>().AsSingle();
-            Container.BindInterfacesAndSelfTo<AtttackAnimator>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<AttackController>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<MoveController>().AsSingle();
             Container.Bind<ResourcesStorage>().FromComponentInHierarchy().AsSingle();
-            Container.Bind<KillZombieManager>().AsSingle().NonLazy();
             Container.Bind<EcsStartup>().FromComponentInHierarchy().AsSingle().NonLazy();
             Container.Bind<OnDeathInECS>().AsSingle();
             Container.Bind<OnHitInECS>().AsSingle();
@@ -37,12 +35,6 @@ namespace OtusProject.Installer
             Container.Bind<ResourcesInstaler>().AsCached();
             Container.Bind<BulletInstaller>().AsCached();
             Container.Bind<ZombieInstaller>().AsCached();
-
-
-
-            //Container.Bind<FixedJoystick>().FromComponentInHierarchy().AsSingle();
-            //Container.BindInterfacesAndSelfTo<JoystickInput>().AsSingle().NonLazy();
-            //Container.Bind<JoystickAttack>().FromComponentInHierarchy().AsSingle();
         }
     }
 }

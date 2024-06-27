@@ -3,23 +3,29 @@ using OtusProject.Weapons;
 using OtusProject.ItemSystem;
 using OtusProject.View;
 using Zenject;
+using UnityEngine;
 using OtusProject.Inventary;
+using OtusProject.WeaponComponents;
+using OtusProject.PlayerInput;
 
 namespace OtusProject.Installer
 {
     public sealed class WeaponInstaller : MonoInstaller
     {
+        [SerializeField] private WeaponPanel _weapoulPanel;
         public override void InstallBindings()
         {
-            Container.Bind<WeaponInventory>().AsSingle().NonLazy();
-            Container.Bind<WeaponInventoryView>().AsSingle().NonLazy();
+            Container.Bind<WeaponStorage>().AsSingle().NonLazy();
+            Container.Bind<WeaponInventoryPresenter>().AsSingle().NonLazy();
+            Container.Bind<WeaponPanel>().FromComponentInNewPrefab(_weapoulPanel).AsCached();
             Container.Bind<WeaponsBuyer>().AsSingle().NonLazy();
             Container.Bind<WeaponContainer>().FromComponentInHierarchy().AsSingle();
-            Container.Bind<WeaponPanel>().FromComponentInHierarchy().AsSingle();
             Container.BindInterfacesAndSelfTo<BleedingEffects>().AsCached().NonLazy();
-            Container.BindInterfacesAndSelfTo<ReloadWeapon>().AsSingle().NonLazy();
-            Container.BindInterfacesAndSelfTo<ChangeViewWeapon>().AsSingle().NonLazy();
-            Container.Bind<ChangeWeapon>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<ReloadWeaponComponent>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<FireWeaponComponent>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<ChangeWeaponController>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<WeaponViewPresenter>().AsSingle().NonLazy();
+            Container.Bind<ChangeWeaponComponent>().AsSingle().NonLazy();
             Container.Bind<AddWeapon>().FromComponentInHierarchy().AsSingle();
             
 

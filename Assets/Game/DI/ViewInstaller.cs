@@ -14,10 +14,10 @@ namespace OtusProject.Installer
             Container.Bind<KillsView>().FromComponentInHierarchy().AsSingle();
             Container.Bind<HealthView>().FromComponentInHierarchy().AsSingle();
             Container.Bind<CoinView>().FromComponentInHierarchy().AsSingle();
-            Container.BindInterfacesAndSelfTo<SetViewResources>().AsSingle().NonLazy();
-            Container.BindInterfacesAndSelfTo<ZombieHealthBarUpdate>().AsSingle().NonLazy();
-            Container.BindInterfacesAndSelfTo<UpdateViewHealth>().AsSingle().NonLazy();
-            Container.Bind<KillZombieView>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<ResourcePresenter>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<ZombieHealthBarPresenter>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<HealthPresenter>().AsSingle().NonLazy();
+            Container.Bind<KillZombiePresenter>().AsSingle().NonLazy();
             Container.Bind<ResourcesHitEvent>().FromComponentInNewPrefab(_resourcesHitEvent).AsCached();
         }
     }

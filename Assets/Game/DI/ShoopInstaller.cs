@@ -11,7 +11,7 @@ namespace OtusProject.Installer
         [SerializeField] private ShopPopup _shopPopup;
         public override void InstallBindings()
         {
-            Container.Bind<ShopSystem>().AsSingle().NonLazy();
+            Container.Bind<ShopManager>().AsSingle().NonLazy();
             Container.Bind<ShopPopup>().FromInstance(_shopPopup).AsSingle();
             Container.Bind<IProduct>().To<HealthBottleBuyer>().AsSingle().NonLazy();    
         }

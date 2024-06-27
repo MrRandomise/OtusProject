@@ -11,7 +11,6 @@ namespace OtusProject.Player
         public float SpeedRotate;
         public bool CanMove = true;
         public bool IsAlive = true;
-        public bool JoystickInput = false;
         public Vector3 MoveDirection;
         public Animator Animator;
 
@@ -27,6 +26,8 @@ namespace OtusProject.Player
             entity.AddData(new MainCamera { Value = Camera.main });
             entity.AddData(new MousePosition { Value = Input.mousePosition });
             entity.AddData(new ObjectAnimator { Value = Animator });
+            entity.AddData(new IsLife { Value = IsAlive });
+            entity.AddData(new CanMove { Value = CanMove });
             entity.AddData(new CharacterTag());
         }
 
