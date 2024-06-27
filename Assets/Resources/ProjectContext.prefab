@@ -74,4 +74,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 729413f674ffa834b947e3994520693a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startScene: {fileID: 2781345618468216422, guid: 1b69359227c781d409c442f3f5d4214a, type: 3}
+  _startScene: {fileID: 517874449507352442, guid: 3f9b842937b0b41408be4d313468cbe7, type: 3}

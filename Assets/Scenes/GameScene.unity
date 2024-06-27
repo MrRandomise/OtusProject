@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43667546, g: 0.48427135, b: 0.5645225, a: 1}
+  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -404,7 +404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c300c813de236e849baf2e5aaf7679fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weapoulPanel: {fileID: 9073103617799431881, guid: f383745e431689843b93aee98f582621, type: 3}
+  _weaponPanel: {fileID: 9073103617799431881, guid: f383745e431689843b93aee98f582621, type: 3}
 --- !u!1001 &172296183
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -540,7 +540,7 @@ PrefabInstance:
     - target: {fileID: 343026308344123410, guid: d1ebed702588f42bba379a80e6e03e25, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1853470717}
+      objectReference: {fileID: 1853470721}
     - target: {fileID: 343026308344123410, guid: d1ebed702588f42bba379a80e6e03e25, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -563,7 +563,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 343026308344123408, guid: d1ebed702588f42bba379a80e6e03e25, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1853470717}
+      addedObject: {fileID: 1853470721}
   m_SourcePrefab: {fileID: 100100000, guid: d1ebed702588f42bba379a80e6e03e25, type: 3}
 --- !u!224 &172296184 stripped
 RectTransform:
@@ -1004,7 +1004,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 395240658}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc166cdbc47d93d4b94095972ec11a07, type: 3}
+  m_Script: {fileID: 11500000, guid: a9cb4bdb9f2140341ada9eb2e2b1fa1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Value: {fileID: 1171231210}
@@ -1082,6 +1082,7 @@ GameObject:
   - component: {fileID: 522451065}
   - component: {fileID: 522451067}
   - component: {fileID: 522451066}
+  - component: {fileID: 522451068}
   m_Layer: 5
   m_Name: GameOver
   m_TagString: Untagged
@@ -1148,6 +1149,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 522451064}
   m_CullTransparentMesh: 1
+--- !u!114 &522451068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522451064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0f8b4c3e370e844899458346c6408de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Menu: {fileID: 522451064}
 --- !u!1 &553745569
 GameObject:
   m_ObjectHideFlags: 0
@@ -1195,7 +1209,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 553745569}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b651edd5039478246b96c816d6ce7704, type: 3}
+  m_Script: {fileID: 11500000, guid: 23c3d62695dbfdd4d8bc85d967ee37d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Value: {fileID: 1297924610}
@@ -2082,15 +2096,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 974872043}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da5cc3d274009714791815a5cc8e2545, type: 3}
+  m_Script: {fileID: 11500000, guid: b1bbaa2df81eb5244b2ca8951d4b39ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _menu: {fileID: 1306507265}
+  _menu: {fileID: 974872043}
   _sellItem:
-  - {fileID: 11400000, guid: a5f92098d1d692b49a4a515c95c60568, type: 2}
-  - {fileID: 11400000, guid: 0655dbf939540714f9554ca79e9b247b, type: 2}
-  - {fileID: 11400000, guid: 9c59847f5f50c0e4babdb2b69363e576, type: 2}
-  _productView: {fileID: 5188107406334181193, guid: 710a046203d958d4ba4f641f47b99afa, type: 3}
+  - {fileID: 11400000, guid: 5e9814a09a49f854ab06a9251ca597bc, type: 2}
+  - {fileID: 11400000, guid: 378fa33ccc3360948a889ad364082d2e, type: 2}
+  - {fileID: 11400000, guid: 5fb81d14b22fadf46ada6e05ed1ca9ed, type: 2}
+  _productView: {fileID: 7386601315159956331, guid: 710a046203d958d4ba4f641f47b99afa, type: 3}
   _container: {fileID: 1220599536}
 --- !u!1 &995794427
 GameObject:
@@ -2993,7 +3007,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1420267527}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 714f319da9bfb8a4682a66108115f6a3, type: 3}
+  m_Script: {fileID: 11500000, guid: 929b916c5234c01449f04492e4dab27d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _resourceConfigs:
@@ -3113,7 +3127,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1530304199}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e08026891a34d01478276be8dea928ef, type: 3}
+  m_Script: {fileID: 11500000, guid: d64471cfcd16366449930c027a9a3eb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Kills: {fileID: 945150076}
@@ -3324,7 +3338,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 343026308344123408, guid: d1ebed702588f42bba379a80e6e03e25, type: 3}
   m_PrefabInstance: {fileID: 172296183}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1853470717
+--- !u!114 &1853470721
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3333,7 +3347,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1853470713}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4d29cf08ec278849990d0c6e3b64cae, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c030ed681547204192bbde173ab76f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1922747909
@@ -3516,7 +3530,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1966684338}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 405ce5a82182f984e8a717a057ebeea7, type: 3}
+  m_Script: {fileID: 11500000, guid: 2e1adaaf8e853e1449941e9e0d8592ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Content: {fileID: 1302729596}
@@ -3550,10 +3564,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1969956690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c1fec89a67df414bb75b4eda2147073, type: 3}
+  m_Script: {fileID: 11500000, guid: bcd4244451377814e9908ddef3be72a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weapon: {fileID: 2366061512907134588, guid: 398d195547acf3c4aab01c53e2e061b7, type: 3}
+  _weapon: {fileID: 8793109676173744586, guid: 398d195547acf3c4aab01c53e2e061b7, type: 3}
 --- !u!1 &2076220334
 GameObject:
   m_ObjectHideFlags: 0
@@ -4147,7 +4161,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3864529718086713799}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6397d0bdba49a5941b4290b29af32d72, type: 3}
+  m_Script: {fileID: 11500000, guid: 390471b4984478145823d8c0cdbd6aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Waves: {fileID: 7654652818794530675}
@@ -4385,15 +4399,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 3864529718086713799}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a01711fbb979b444b94dceb4fd70819, type: 3}
+  m_Script: {fileID: 11500000, guid: eb346fa5cceb4f340adc10c9fdb8af7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   StartWaveMessages:
-  - 1
-  - 2
+  - "\u0423\u0431\u0435\u0439 \u0438\u0445 \u0432\u0441\u0435\u0445!!!!"
+  - "\u041E\u043D\u0438 \u043F\u0440\u0438\u0431\u043B\u0435\u0436\u0430\u044E\u0442\u0441\u044F!!!!"
+  - "\u0421\u0434\u043E\u0445\u043D\u0438 \u0438\u043B\u0438 \u0443\u043C\u0440\u0438!!!!"
+  - "\u041A\u0440\u043E\u0448\u0438, \u043C\u043E\u0447\u0438, \u0443\u0431\u0438\u0432\u0430\u0439!!!!"
+  - "\u0413\u043E\u0442\u043E\u0432 \u043A \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u0439
+    \u0432\u043E\u043B\u043D\u0435???"
   EndVaweMessages:
-  - 1
-  - 2
+  - "\u041F\u043E\u0431\u0435\u0434\u0430 \u043F\u043E\u0431\u0435\u0434\u0430 \u043F\u043E\u0441\u043B\u0435
+    \u043E\u0431\u0435\u0434\u0430!"
+  - "\u0422\u044B \u0443\u0431\u0438\u043B \u044D\u0442\u0443 \u0432\u043E\u043B\u043D\u0443,
+    \u043D\u043E \u0441\u043F\u0440\u0430\u0432\u0438\u0448\u044C\u0441\u044F \u043B\u0438
+    \u0441\u043E \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u0439?"
+  - "\u0410 \u0442\u044B \u0445\u0430\u0440\u043E\u0448\u044C! \u0422\u0430\u043A
+    \u0434\u0435\u0440\u0436\u0430\u0442\u044C!"
+  - "\u0418 \u0443 \u043D\u0430\u0441 \u0435\u0441\u0442\u044C \u0432\u044B\u0436\u0438\u0432\u0448\u0438\u0439!!!"
 --- !u!114 &9059944259676471760
 MonoBehaviour:
   m_ObjectHideFlags: 0

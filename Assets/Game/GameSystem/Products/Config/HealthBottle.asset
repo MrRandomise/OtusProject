@@ -9,21 +9,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cfc376b0c7018c419774c5c2cf6534b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ff19b152b5c23742a373ba25ebbc838, type: 3}
   m_Name: HealthBottle
   m_EditorClassIdentifier: 
   Product:
-    rid: 3586390628026286080
+    rid: 2036248882306875396
   Icon: {fileID: 21300000, guid: 1ce28bd91c12d6f448070dc9ee197d89, type: 3}
-  Name: HealtBooble
+  Name: Health Bottle
   Resource: {fileID: 11400000, guid: 5166c047f099f7346ba762483116530c, type: 2}
-  Price: 1
+  Price: 2
   MaxBuy: 25
   CurrBuy: 0
   references:
     version: 2
     RefIds:
-    - rid: 3586390628026286080
+    - rid: 2036248882306875396
       type: {class: HealthBottleBuyer, ns: OtusProject.ItemSystem, asm: World}
       data:
-        _health: 1
+        _health: 0

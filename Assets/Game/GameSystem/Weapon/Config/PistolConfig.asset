@@ -9,15 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8749f322a12722d468c0d81b95039c78, type: 3}
+  m_Script: {fileID: 11500000, guid: 5095527d3e0433149b79f31e87c5adb4, type: 3}
   m_Name: PistolConfig
   m_EditorClassIdentifier: 
-  Weapon: {fileID: 2366061512907134588, guid: 398d195547acf3c4aab01c53e2e061b7, type: 3}
-  BulletConfig: {fileID: 11400000, guid: 32795c1b4ffa5734b97845d05f5d770c, type: 2}
-  WeaponView: {fileID: 9073103617799431881, guid: f383745e431689843b93aee98f582621, type: 3}
-  BulletPoint: {fileID: 0}
   MaxAmmo: 5
   CurrAmmo: 5
-  FireRate: 1.2
-  ReloadTime: 5
+  FireRate: 1.5
+  ReloadTime: 1.5
   UseKey: 49

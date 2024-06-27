@@ -9,21 +9,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cfc376b0c7018c419774c5c2cf6534b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ff19b152b5c23742a373ba25ebbc838, type: 3}
   m_Name: Rifle
   m_EditorClassIdentifier: 
   Product:
-    rid: 3586390628026286081
+    rid: 2036248882306875397
   Icon: {fileID: 21300000, guid: a724b2d4744fc724f98f1fe6998d5614, type: 3}
   Name: Rifle
   Resource: {fileID: 11400000, guid: 5166c047f099f7346ba762483116530c, type: 2}
   Price: 2
   MaxBuy: 1
-  CurrBuy: 1
+  CurrBuy: 0
   references:
     version: 2
     RefIds:
-    - rid: 3586390628026286081
+    - rid: 2036248882306875397
       type: {class: WeaponsBuyer, ns: OtusProject.ItemSystem, asm: World}
       data:
-        weapon: {fileID: -4488230993439969910, guid: 92603b08d0030544ea51c74f94b404b5, type: 3}
+        weapon: {fileID: 0}

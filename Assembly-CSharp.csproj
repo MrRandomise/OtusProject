@@ -105,7 +105,6 @@
     <Compile Include="Assets\Game\DI\WaveInstaller.cs" />
     <Compile Include="Assets\Pack\TinyUIKit\Assets\Scripts\Demo\DemoDropDown.cs" />
     <Compile Include="Assets\Pack\TinyUIKit\Assets\Scripts\U31Kit\U31Slider.cs" />
-    <Compile Include="Assets\AddWeapon.cs" />
     <Compile Include="Assets\Game\DI\WeaponInstaller.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
   </ItemGroup>
@@ -795,26 +794,50 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.12f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.EditorCoroutines.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.AI.Navigation">
       <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.PlasticSCM.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.ResourceManager">
       <HintPath>Library\ScriptAssemblies\Unity.ResourceManager.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ScriptableBuildPipeline">
+      <HintPath>Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Flow">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
+      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TestTools.CodeCoverage.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VSCode.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.EditorCoroutines.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PlasticSCM.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Shared.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ScriptableBuildPipeline">
-      <HintPath>Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
@@ -828,32 +851,17 @@
     <Reference Include="Unity.VisualScripting.Core.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Flow">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
-      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
@@ -867,9 +875,6 @@
     <Reference Include="Unity.VisualScripting.State.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
@@ -879,14 +884,8 @@
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
-      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.ScriptableBuildPipeline.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Addressables">
       <HintPath>Library\ScriptAssemblies\Unity.Addressables.dll</HintPath>
@@ -897,25 +896,57 @@
       <Project>{E60102C6-C400-1168-4687-7826A7637456}</Project>
       <Name>Leopotam.EcsLite.ExtendedSystems</Name>
     </ProjectReference>
-    <ProjectReference Include="Zenject-Editor.csproj">
-      <Project>{F84BFF2E-CD69-0A77-0B22-762A2DA88573}</Project>
-      <Name>Zenject-Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Leopotam.EcsLite.PhysicsExtensions.csproj">
-      <Project>{4E5F15C6-9E80-8389-ACBF-9825A1BFE576}</Project>
-      <Name>Leopotam.EcsLite.PhysicsExtensions</Name>
-    </ProjectReference>
-    <ProjectReference Include="GameUI.csproj">
-      <Project>{6F310C42-695E-A2E8-FD2A-B0D5C5472CE3}</Project>
-      <Name>GameUI</Name>
+    <ProjectReference Include="Inventory.csproj">
+      <Project>{5AFBDA4B-610A-4D73-45A7-7D511D660992}</Project>
+      <Name>Inventory</Name>
     </ProjectReference>
     <ProjectReference Include="Zenject.csproj">
       <Project>{DFBB2A14-C0D3-C455-DA26-998DE2E3587A}</Project>
       <Name>Zenject</Name>
     </ProjectReference>
+    <ProjectReference Include="Leopotam.EcsLite.PhysicsExtensions.csproj">
+      <Project>{4E5F15C6-9E80-8389-ACBF-9825A1BFE576}</Project>
+      <Name>Leopotam.EcsLite.PhysicsExtensions</Name>
+    </ProjectReference>
     <ProjectReference Include="Leopotam.EcsLite.Entities.csproj">
       <Project>{0511C1CE-AF20-0594-7BD7-F3030499E8AF}</Project>
       <Name>Leopotam.EcsLite.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="Pools.csproj">
+      <Project>{A286FDDE-4D41-920C-1652-50A6C3216866}</Project>
+      <Name>Pools</Name>
+    </ProjectReference>
+    <ProjectReference Include="Leopotam.EcsLite.UnityEditor.Runtime.csproj">
+      <Project>{4E60000D-DDC7-3AB6-24E0-8A10C1BD1D65}</Project>
+      <Name>Leopotam.EcsLite.UnityEditor.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Zenject-PoolMonitor-Editor.csproj">
+      <Project>{688C83A1-07CD-8A77-3AB2-747A7DAAC866}</Project>
+      <Name>Zenject-PoolMonitor-Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="EcsWorld.csproj">
+      <Project>{BD1FA296-55C1-5053-ACD4-2C5F4F7EDBC9}</Project>
+      <Name>EcsWorld</Name>
+    </ProjectReference>
+    <ProjectReference Include="GameResources.csproj">
+      <Project>{A08C1F51-2792-C2AE-442C-474725436218}</Project>
+      <Name>GameResources</Name>
+    </ProjectReference>
+    <ProjectReference Include="Input.csproj">
+      <Project>{164B04B7-662E-E371-9C0D-376E51AAA7F5}</Project>
+      <Name>Input</Name>
+    </ProjectReference>
+    <ProjectReference Include="Weapons.csproj">
+      <Project>{404CA318-2C86-BCF1-9A8A-8DFDFEA4D773}</Project>
+      <Name>Weapons</Name>
+    </ProjectReference>
+    <ProjectReference Include="Zenject-Editor.csproj">
+      <Project>{F84BFF2E-CD69-0A77-0B22-762A2DA88573}</Project>
+      <Name>Zenject-Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Map.csproj">
+      <Project>{531351CD-C26D-9FC9-82AA-E32035C06045}</Project>
+      <Name>Map</Name>
     </ProjectReference>
     <ProjectReference Include="EcsEngine.csproj">
       <Project>{D3597EEC-6E0E-6C86-3B35-0A500B63DB75}</Project>
@@ -929,9 +960,21 @@
       <Project>{BD332AFA-D425-9820-ECE9-614F1D465575}</Project>
       <Name>Sirenix.OdinInspector.Modules.Unity.Addressables</Name>
     </ProjectReference>
+    <ProjectReference Include="UIPresenter.csproj">
+      <Project>{53DE5FEB-F9E6-5498-F72B-0765BE9A5976}</Project>
+      <Name>UIPresenter</Name>
+    </ProjectReference>
     <ProjectReference Include="Zenject-ReflectionBaking-Editor.csproj">
       <Project>{A976B817-276D-22AA-A27D-F620517A10D8}</Project>
       <Name>Zenject-ReflectionBaking-Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Wave.csproj">
+      <Project>{3FF4C941-BB5A-0FA4-5A67-D813B3A975B2}</Project>
+      <Name>Wave</Name>
+    </ProjectReference>
+    <ProjectReference Include="GameView.csproj">
+      <Project>{184291C4-70F3-40FE-AC8A-B2A94B844A1B}</Project>
+      <Name>GameView</Name>
     </ProjectReference>
     <ProjectReference Include="Leopotam.EcsLite.UnityEditor.csproj">
       <Project>{26339D7D-11EE-AC1D-44EC-FCA55B030EF9}</Project>
@@ -949,21 +992,13 @@
       <Project>{4D0B6A97-74DD-CDA3-3741-014E2985314C}</Project>
       <Name>Leopotam.EcsLite.Events</Name>
     </ProjectReference>
-    <ProjectReference Include="Leopotam.EcsLite.UnityEditor.Runtime.csproj">
-      <Project>{4E60000D-DDC7-3AB6-24E0-8A10C1BD1D65}</Project>
-      <Name>Leopotam.EcsLite.UnityEditor.Runtime</Name>
-    </ProjectReference>
     <ProjectReference Include="Leopotam.EcsLite.Di.csproj">
       <Project>{BB087D87-B017-B408-4A3D-07EE0652E68B}</Project>
       <Name>Leopotam.EcsLite.Di</Name>
     </ProjectReference>
-    <ProjectReference Include="Zenject-PoolMonitor-Editor.csproj">
-      <Project>{688C83A1-07CD-8A77-3AB2-747A7DAAC866}</Project>
-      <Name>Zenject-PoolMonitor-Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="EcsWorld.csproj">
-      <Project>{BD1FA296-55C1-5053-ACD4-2C5F4F7EDBC9}</Project>
-      <Name>EcsWorld</Name>
+    <ProjectReference Include="Shop.csproj">
+      <Project>{AC921D2E-E96B-407F-80C1-D393BA753232}</Project>
+      <Name>Shop</Name>
     </ProjectReference>
     <ProjectReference Include="NavMeshComponents.csproj">
       <Project>{B59FA5F2-DE69-F9C9-2DC0-53EF4BD30678}</Project>
@@ -972,10 +1007,6 @@
     <ProjectReference Include="JoystickPAck.csproj">
       <Project>{E2974B25-310A-AE2B-C276-6FFD4FC6CA0C}</Project>
       <Name>JoystickPAck</Name>
-    </ProjectReference>
-    <ProjectReference Include="Map.csproj">
-      <Project>{531351CD-C26D-9FC9-82AA-E32035C06045}</Project>
-      <Name>Map</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

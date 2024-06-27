@@ -15,7 +15,8 @@ namespace OtusProject.Inventary
 
         public void AddWeapon(Weapon weapon, KeyCode key)
         {
-            var item = GameObject.Instantiate(weapon, weapon.WeaponContainer.position, weapon.WeaponContainer.rotation, weapon.WeaponContainer);
+            var item = GameObject.Instantiate(weapon, weapon.WeaponContainer.position, weapon.WeaponContainer.rotation);
+            item.transform.SetParent(weapon.WeaponContainer);
             _weapon.Add(key, item);
             OnAddWeapon?.Invoke(weapon);
         }

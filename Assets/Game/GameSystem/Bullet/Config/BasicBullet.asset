@@ -9,18 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2550fe4f03327324cb69874ffad5922d, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c7adf92349baba4fb4d7bfc6e67f55e, type: 3}
   m_Name: BasicBullet
   m_EditorClassIdentifier: 
   Effects:
-    rid: 3586390624310394880
+    rid: 2036248882306875392
   Bullet: {fileID: 2557774204630130911, guid: ddd4f6f0df8cfa046b927861d7bb0aa2, type: 3}
   Speed: 5
-  LifeTime: 3
+  LifeTime: 5
   references:
     version: 2
     RefIds:
-    - rid: 3586390624310394880
+    - rid: 2036248882306875392
       type: {class: BasicDamageEffects, ns: OtusProject.Effects, asm: World}
       data:
         Name: Basic

@@ -1,5 +1,4 @@
 using Leopotam.EcsLite.Entities;
-using OtusProject.View;
 using OtusProject.Component;
 
 namespace OtusProject.RecourcesConfig

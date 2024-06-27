@@ -9,18 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2550fe4f03327324cb69874ffad5922d, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c7adf92349baba4fb4d7bfc6e67f55e, type: 3}
   m_Name: InstaBullet
   m_EditorClassIdentifier: 
   Effects:
-    rid: 3586390624310394882
+    rid: 2036248882306875394
   Bullet: {fileID: 2557774204630130911, guid: 2fed408e27f05ee4699e66ed0f74886a, type: 3}
   Speed: 5
-  LifeTime: 3
+  LifeTime: 5
   references:
     version: 2
     RefIds:
-    - rid: 3586390624310394882
+    - rid: 2036248882306875394
       type: {class: InstaDeadEffects, ns: OtusProject.Effects, asm: World}
       data:
         Name: Instant Death

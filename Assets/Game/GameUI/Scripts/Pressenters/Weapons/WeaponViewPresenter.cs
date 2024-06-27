@@ -1,20 +1,19 @@
 using OtusProject.Inventary;
 using OtusProject.PlayerInput;
-using OtusProject.View;
 using OtusProject.WeaponComponents;
-using System;
+using OtusProject.View;
 
 namespace OtusProject.Weapons
 {
-    public sealed class WeaponViewPresenter : IDisposable
+    public sealed class WeaponViewPresenter
     {
         private WeaponStorage _inventory;
         private InputManager _attack;
         private ReloadWeaponComponent _reloadWeapon;
-        private WeaponInventoryPresenter _weaponPressenter;
+        private WeaponStoragePresenter _weaponPressenter;
         private const int _alpha = 5;
 
-        WeaponViewPresenter(InputManager attack, WeaponStorage weaponInventory, ReloadWeaponComponent reloadWaeapon, WeaponInventoryPresenter weaponPressenter)
+        WeaponViewPresenter(InputManager attack, WeaponStorage weaponInventory, ReloadWeaponComponent reloadWaeapon, WeaponStoragePresenter weaponPressenter)
         {
             _attack = attack;
             _attack.OnFire += ChangeAmmoView;

@@ -92,14 +92,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 020fd0b5b4d2a7744b144f8782b3e455, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -4488230993439969910}
+      addedObject: {fileID: 7203259881128835491}
   m_SourcePrefab: {fileID: 100100000, guid: 020fd0b5b4d2a7744b144f8782b3e455, type: 3}
 --- !u!1 &5661564576928943318 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 020fd0b5b4d2a7744b144f8782b3e455, type: 3}
   m_PrefabInstance: {fileID: 5661564576928975478}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-4488230993439969910
+--- !u!114 &7203259881128835491
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,13 +108,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5661564576928943318}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cdaecfc3f811ce4dadbcbf29e461d0d, type: 3}
+  m_Script: {fileID: 11500000, guid: 2e020cd76010f2f40819ee87c06f5792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponConfig: {fileID: 11400000, guid: 679917a73fe6b9a47969c044e2b59f63, type: 2}
   BulletConfig: {fileID: 11400000, guid: e0c08d5cd8d18f341a2520d5b524a5a8, type: 2}
-  Point: {fileID: 7776686912904178171}
-  WeaponContainer: {fileID: 0}
+  Point: {fileID: 0}
+  WeaponContainer: {fileID: 7776686912904178171}
   Icon: {fileID: 21300000, guid: a724b2d4744fc724f98f1fe6998d5614, type: 3}
 --- !u!4 &5661564576929370358 stripped
 Transform:
