@@ -6,10 +6,10 @@ namespace OtusProject.Waves
 {
     public sealed class Wave : ITickable, IInitializable
     {
-        public event Action OnStopTimerStartWave;
+        public event Action OnTimerStartWave;
         public event Action OnSartWave;
         public event Action OnEndWave;
-        public event Action OnStopTimerEndWave;
+        public event Action OnTimerEndWave;
         public readonly float _startTimeout = 3;
         public readonly float _endTimeout = 3;
         private int _currentWave = 0;
@@ -25,7 +25,6 @@ namespace OtusProject.Waves
         public void Start()
         {
             OnSartWave?.Invoke();
-            //_characterInstaller.IsAlive = true;
             _startTimer = true;
         }
 
@@ -45,7 +44,7 @@ namespace OtusProject.Waves
                 _currentTimer = 0;
                 _startTimer = false;
                 _currentWave++;
-                OnStopTimerStartWave?.Invoke();
+                OnTimerStartWave?.Invoke();
             }
         }
 
@@ -56,8 +55,7 @@ namespace OtusProject.Waves
             {
                 _currentTimer = 0;
                 _stopTimer = false;
-                //_characterInstaller.IsAlive = false;
-                OnStopTimerEndWave?.Invoke();
+                OnTimerEndWave?.Invoke();
             }
         }
 

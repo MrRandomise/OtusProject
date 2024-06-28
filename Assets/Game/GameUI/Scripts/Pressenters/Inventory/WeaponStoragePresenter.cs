@@ -26,7 +26,6 @@ namespace OtusProject.Inventary
         private void AddViewContent(Weapon weapon)
         {
             var view = GameObject.Instantiate(_prefab, _container.transform.position, Quaternion.identity, _container.Content.transform);
-            Debug.Log(view.name);
             view.ItemIcon.sprite = weapon.Icon;
             _view.Add(weapon.WeaponConfig.UseKey, view);
             ChangeActiveView(weapon.WeaponConfig.UseKey);

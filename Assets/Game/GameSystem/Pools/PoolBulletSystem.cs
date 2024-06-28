@@ -13,7 +13,6 @@ namespace OtusProject.Pools
     {
         private PoolSystem _poolSystem;
         private PoolBulletManager _manager;
-        private Entity _bullet;
         private WeaponStorage _weapon;
 
         PoolBulletSystem(PoolBulletManager view, EcsStartup ecsStartup, WeaponStorage weapon)
@@ -29,7 +28,7 @@ namespace OtusProject.Pools
             BulleCollision.OnBulletHit += InActiveEvent;
             _manager.PrefabBullet = bulletConfig.Bullet;
             _manager.SpawnPoint = _weapon.GetActiveWeapon().Point;
-            _bullet = _poolSystem.ActivePool();
+            var _bullet = _poolSystem.ActivePool();
 
             _bullet.GetData<Speed>().Value = bulletConfig.Speed;
             _bullet.GetData<MoveDirection>().Value = _weapon.GetActiveWeapon().Point.forward;

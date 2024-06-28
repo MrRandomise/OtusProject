@@ -2,12 +2,14 @@ using OtusProject.Inventary;
 using OtusProject.PlayerInput;
 using OtusProject.WeaponComponents;
 using OtusProject.View;
+using UnityEngine;
 
 namespace OtusProject.Weapons
 {
     public sealed class WeaponViewPresenter
     {
         private WeaponStorage _inventory;
+        private Weapon _weapon;
         private InputManager _attack;
         private ReloadWeaponComponent _reloadWeapon;
         private WeaponStoragePresenter _weaponPressenter;
@@ -31,14 +33,19 @@ namespace OtusProject.Weapons
             _weaponPressenter.GetActiveView().ItemMaxCount.text = _inventory.GetActiveWeapon().WeaponConfig.MaxAmmo.ToString();
         }
 
-        public void Change(Weapon weapon)
+        public void Change(Weapon weapon, KeyCode keys)
         {
-            var key = weapon.WeaponConfig.UseKey;
-            var view = _weaponPressenter.GetView(key);
-            view.OpacityItems();
-            _weaponPressenter.ChangeActiveView(key);
-            view = _weaponPressenter.GetActiveView();
+            WeaponPanel view;
+            if(_weapon != null )
+            {
+                var key = _weapon.WeaponConfig.UseKey;
+                view = _weaponPressenter.GetView(key);
+                view.OpacityItems();
+                _weaponPressenter.ChangeActiveView(key);
+            }
+            view = _weaponPressenter.GetView(keys);
             view.ShowItems();
+            _weapon = weapon;
         }
 
         public void InitialView(WeaponPanel view)

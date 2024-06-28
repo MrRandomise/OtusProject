@@ -8,7 +8,6 @@ using OtusProject.Content;
 using EcsEngine;
 using OtusProject.RecourcesConfig;
 using OtusProject.ECSEvent;
-using OtusProject.View;
 
 namespace OtusProject.Installer
 {

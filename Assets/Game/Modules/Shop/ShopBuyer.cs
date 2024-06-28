@@ -3,16 +3,16 @@ using OtusProject.RecourcesConfig;
 
 namespace OtusProject.Shoop
 {
-    public sealed class ShopManager
+    public sealed class ShopBuyer
     {
         private ResourcesStorage _resource;
 
-        ShopManager(ResourcesStorage resource)
+        ShopBuyer(ResourcesStorage resource)
         {
             _resource = resource;
         }
 
-        public void Buy(ProductConfig product)
+        public bool TryBuy(ProductConfig product)
         {
             if(CanBay(product))
             {
@@ -20,7 +20,9 @@ namespace OtusProject.Shoop
                 _resource.SetAmmountResources(resId, -product.Price);
                 product.CurrBuy++;
                 product.Product.BuyProduct();
+                return true;
             }
+            return false;
         }
 
         public bool CanBay(ProductConfig product)

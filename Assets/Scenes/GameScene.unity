@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
+  m_IndirectSpecularColor: {r: 0.43667546, g: 0.48427135, b: 0.5645225, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -726,10 +726,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be3d4b5d4d0d63a43bff91071d84d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnPoint: {fileID: 0}
   _activePool: {fileID: 117232264}
   _inActivePool: {fileID: 1380340721}
   Prefab: {fileID: 0}
+  SpawnPoint: {fileID: 0}
   SpawnTimeout: 10
 --- !u!1 &319178489
 GameObject:
@@ -2064,6 +2064,7 @@ GameObject:
   m_Component:
   - component: {fileID: 974872045}
   - component: {fileID: 974872046}
+  - component: {fileID: 974872047}
   m_Layer: 0
   m_Name: '[SHOOP]'
   m_TagString: Untagged
@@ -2099,13 +2100,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbaa2df81eb5244b2ca8951d4b39ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _menu: {fileID: 974872043}
+  _menu: {fileID: 1306507265}
   _sellItem:
   - {fileID: 11400000, guid: 5e9814a09a49f854ab06a9251ca597bc, type: 2}
   - {fileID: 11400000, guid: 378fa33ccc3360948a889ad364082d2e, type: 2}
   - {fileID: 11400000, guid: 5fb81d14b22fadf46ada6e05ed1ca9ed, type: 2}
   _productView: {fileID: 7386601315159956331, guid: 710a046203d958d4ba4f641f47b99afa, type: 3}
   _container: {fileID: 1220599536}
+--- !u!114 &974872047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974872043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 638e25fa1203b674f8a7776fc1d166bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _popup: {fileID: 974872046}
 --- !u!1 &995794427
 GameObject:
   m_ObjectHideFlags: 0
@@ -2536,7 +2550,7 @@ PrefabInstance:
     - target: {fileID: 8084754808830938642, guid: 3a148360ff0324d149a8141687e071a4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 974872046}
+      objectReference: {fileID: 974872047}
     - target: {fileID: 8084754808830938642, guid: 3a148360ff0324d149a8141687e071a4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -2547,7 +2561,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8084754808830938642, guid: 3a148360ff0324d149a8141687e071a4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: OtusProject.View.ShopPopup, World
+      value: OtusProject.View.ShowHideShopPresenter, UIPresenter
       objectReference: {fileID: 0}
     - target: {fileID: 8084754808830938642, guid: 3a148360ff0324d149a8141687e071a4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -2577,7 +2591,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1242263461}
-  - component: {fileID: 1242263462}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -2601,19 +2614,6 @@ Transform:
   - {fileID: 394494691}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1242263462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1242263460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d849da402f2d7004893b808f63223f1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Menu: {fileID: 522451064}
 --- !u!1 &1297924608
 GameObject:
   m_ObjectHideFlags: 0
@@ -3568,6 +3568,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weapon: {fileID: 8793109676173744586, guid: 398d195547acf3c4aab01c53e2e061b7, type: 3}
+  _weapon1: {fileID: 7203259881128835491, guid: 92603b08d0030544ea51c74f94b404b5, type: 3}
+  _weapon2: {fileID: 2544403583474847594, guid: 3b1db6e668af3894296294d959333695, type: 3}
 --- !u!1 &2076220334
 GameObject:
   m_ObjectHideFlags: 0

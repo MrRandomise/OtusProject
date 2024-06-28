@@ -25,8 +25,8 @@ namespace OtusProject.Pools
         PoolZombieSystem(Wave waveSystem, PoolZombieManager manager, EcsStartup ecsStartup, CharacterInstaller characterInstaller)
         {
             _waveSystem = waveSystem;
-            _waveSystem.OnStopTimerStartWave += StartSpawnActivePool;
-            _waveSystem.OnStopTimerEndWave += StopSpawnActivePool;
+            _waveSystem.OnTimerStartWave += StartSpawnActivePool;
+            _waveSystem.OnTimerEndWave += StopSpawnActivePool;
             _manager = manager;
             _entity = characterInstaller.GetComponent<Entity>();
             _poolSystem = new PoolSystem(_manager, ecsStartup);
@@ -72,8 +72,8 @@ namespace OtusProject.Pools
 
         public void Dispose()
         {
-            _waveSystem.OnStopTimerStartWave -= StartSpawnActivePool;
-            _waveSystem.OnStopTimerEndWave -= StopSpawnActivePool;
+            _waveSystem.OnTimerStartWave -= StartSpawnActivePool;
+            _waveSystem.OnTimerEndWave -= StopSpawnActivePool;
         }
     }
 }

@@ -6,10 +6,12 @@ namespace OtusProject.Weapons
     public sealed class AddWeapon : MonoBehaviour
     {
         [SerializeField] private Weapon _weapon;
+        [SerializeField] private Weapon _weapon1;
+        [SerializeField] private Weapon _weapon2;
         private WeaponStorage _weaponStorage;
 
         [Inject]
-        void Construct(WeaponStorage weaponStorage)
+        private void Construct(WeaponStorage weaponStorage)
         {
             _weaponStorage = weaponStorage;
         }

@@ -1,23 +1,27 @@
 using OtusProject.Inventary;
 using System;
+using UnityEngine;
 
 namespace OtusProject.Weapons
 {
     public sealed class ChangeWeaponComponent : IDisposable
     {
         private WeaponStorage _inventory;
-
+        private Weapon _weapon;
         ChangeWeaponComponent(WeaponStorage inventory)
         {
             _inventory = inventory;
             _inventory.OnChangeActive += Change;
         }
 
-        public void Change(Weapon weapon)
+        public void Change(Weapon weapon, KeyCode key)
         {
-            weapon.gameObject.SetActive(false);
-            var newWeapon = _inventory.GetActiveWeapon();
-            newWeapon.gameObject.SetActive(true);
+            if(_weapon != null )
+            {
+                _weapon.gameObject.SetActive(false);
+            }
+            weapon.gameObject.SetActive(true);
+            _weapon = weapon;
         }
 
         public void Dispose()

@@ -31,7 +31,7 @@ namespace OtusProject.WeaponComponents
         public bool TryAttack(out int ammo)
         {
             var weapon = _inventary.GetActiveWeapon();
-            if(_character.GetData<IsLife>().Value)
+            if (_character.GetData<IsLife>().Value && _character.GetData<CanMove>().Value)
             {
                 if (weapon.WeaponConfig.CurrAmmo > 0)
                 {

@@ -26,4 +26,4 @@ MonoBehaviour:
     - rid: 2036248882306875398
       type: {class: WeaponsBuyer, ns: OtusProject.ItemSystem, asm: World}
       data:
-        weapon: {fileID: 0}
+        weapon: {fileID: 2544403583474847594, guid: 3b1db6e668af3894296294d959333695, type: 3}

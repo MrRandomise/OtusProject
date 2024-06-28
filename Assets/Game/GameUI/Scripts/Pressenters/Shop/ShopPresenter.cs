@@ -7,8 +7,7 @@ using Zenject;
 
 namespace OtusProject.View
 {
-    //ShopPresenter
-    public sealed class ShopPopup : MonoBehaviour
+    public sealed class ShopPresenter : MonoBehaviour
     {
         [SerializeField] private GameObject _menu;
         [SerializeField] public List<ProductConfig> _sellItem = new List<ProductConfig>();
@@ -16,7 +15,7 @@ namespace OtusProject.View
         [SerializeField] private Transform _container;
 
         [Inject]
-        private ShopManager _shopManager;
+        private ShopBuyer _shopManager;
         [Inject]
         private ResourcesStorage _resource;
 
@@ -25,7 +24,6 @@ namespace OtusProject.View
 
         private void Awake()
         {
-            //_waveSystem.OnStopTimerEndWave += ShowPopup;
             _creator = new ItemCreator(_productView, _container);
             ShoopInitial();
         }
@@ -55,13 +53,7 @@ namespace OtusProject.View
             {
                 manager.Disabled();
             }
-            //_waveSystem.Start();
             _menu.SetActive(false);
-        }
-
-        private void OnDisable()
-        {
-            //_waveSystem.OnStopTimerEndWave -= ShowPopup;
         }
     }
 }

@@ -10,21 +10,22 @@ namespace OtusProject.Inventary
         private Dictionary<KeyCode, Weapon> _weapon = new Dictionary<KeyCode, Weapon>();
         public event Action<Weapon> OnAddWeapon;
         public event Action OnRemoveWeapon;
-        public event Action<Weapon> OnChangeActive;
+        public event Action<Weapon, KeyCode> OnChangeActive;
         private Weapon ActiveWeapon = null;
 
         public void AddWeapon(Weapon weapon, KeyCode key)
         {
-            var item = GameObject.Instantiate(weapon, weapon.WeaponContainer.position, weapon.WeaponContainer.rotation);
-            item.transform.SetParent(weapon.WeaponContainer);
+            var item = GameObject.Instantiate(weapon, weapon.WeaponContainer.position, weapon.WeaponContainer.rotation, weapon.WeaponContainer);
             _weapon.Add(key, item);
+            ActiveWeapon = item;
             OnAddWeapon?.Invoke(weapon);
+            ChangeActiveWeapon(key);
         }
 
         public void ChangeActiveWeapon(KeyCode key)
         {
-            OnChangeActive?.Invoke(_weapon[key]);
             ActiveWeapon = _weapon[key];
+            OnChangeActive?.Invoke(ActiveWeapon, key);
         }
 
         public void RemoveWeapon(KeyCode key)

@@ -103,7 +103,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Resources: {fileID: 11400000, guid: 5166c047f099f7346ba762483116530c, type: 2}
   Ammount: 1
-  View: {fileID: 0}
 --- !u!135 &4312299782740554108
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -178,3 +177,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30daf5dca2e08d44e99e513aedb366cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentEntity: {fileID: 1073815549831257955}
+  _config: {fileID: 11400000, guid: 5166c047f099f7346ba762483116530c, type: 2}

@@ -13,7 +13,7 @@ namespace OtusProject.Waves
         {
             _waveView = waveView;
             _waveSystem = waveSystem;
-            _waveSystem.OnStopTimerStartWave += ViewUpdate;
+            _waveSystem.OnTimerStartWave += ViewUpdate;
         }
 
         private void ViewUpdate()
@@ -23,7 +23,7 @@ namespace OtusProject.Waves
 
         public void Dispose()
         {
-            _waveSystem.OnStopTimerStartWave -= ViewUpdate;
+            _waveSystem.OnTimerStartWave -= ViewUpdate;
         }
     }
 }

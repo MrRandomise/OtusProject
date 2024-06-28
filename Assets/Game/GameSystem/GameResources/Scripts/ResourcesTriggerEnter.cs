@@ -5,11 +5,12 @@ using UnityEngine;
 
 namespace OtusProject.RecourcesConfig
 {
-    public class ResourcesHitEvent : MonoBehaviour
+    public class ResourcesTriggerEnter : MonoBehaviour
     {
+        [SerializeField] private Entity _currentEntity;
+        [SerializeField] private ResourceConfig _config;
         private PoolResourcesSystem _poolSystem;
         private ResourcesStorage _resourcesStorage;
-        private Entity _currentEntity;
         private string _id;
 
         [Inject]
@@ -17,8 +18,7 @@ namespace OtusProject.RecourcesConfig
         {
             _poolSystem = poolSystem;
             _resourcesStorage = resourcesStorage;
-            _currentEntity = GetComponent<Entity>();
-            _id = GetComponent<ResourcesInstaler>().Resources.name;
+            _id = _config.NameResources;
         }
 
         private void OnTriggerEnter(Collider other)

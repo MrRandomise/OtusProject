@@ -8,11 +8,11 @@ namespace OtusProject.Installer
 {
     public class ShoopInstaller : MonoInstaller
     {
-        [SerializeField] private ShopPopup _shopPopup;
+        [SerializeField] private ShopPresenter _shopPopup;
         public override void InstallBindings()
         {
-            Container.Bind<ShopManager>().AsSingle().NonLazy();
-            Container.Bind<ShopPopup>().FromInstance(_shopPopup).AsSingle();
+            Container.Bind<ShopBuyer>().AsSingle().NonLazy();
+            Container.Bind<ShopPresenter>().FromInstance(_shopPopup).AsSingle();
             Container.Bind<IProduct>().To<HealthBottleBuyer>().AsSingle().NonLazy();    
         }
     }

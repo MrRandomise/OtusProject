@@ -3,6 +3,7 @@ using OtusProject.Waves;
 using System;
 using OtusProject.Component.Events;
 using OtusProject.Player;
+using OtusProject.Component;
 
 namespace OtusProject.View
 {
@@ -20,6 +21,7 @@ namespace OtusProject.View
         public void EndWaveEvent()
         {
             _character.SetData(new EndWaveEvent());
+            _character.GetData<CanMove>().Value = false;
         }
 
         public void Dispose()

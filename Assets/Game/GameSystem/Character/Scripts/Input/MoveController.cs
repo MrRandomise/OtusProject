@@ -37,7 +37,6 @@ namespace OtusProject.PlayerInput
                 switch (_useKey)
                 {
                     case UseKey.Left:
-                        Debug.Log("Test");
                         return -_character.transform.right;
                     case UseKey.Right:
                         return _character.transform.right;

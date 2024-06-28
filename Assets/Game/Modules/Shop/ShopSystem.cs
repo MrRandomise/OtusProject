@@ -7,10 +7,10 @@ namespace OtusProject.Shoop
     {
         private ProductView _productView;
         private ProductConfig _product;
-        private ShopManager _shopSystem;
+        private ShopBuyer _shopSystem;
         private ResourcesStorage _resource;
 
-        public ShopSystem(ProductConfig product, ProductView productView, ShopManager shopSystem, ResourcesStorage resource)
+        public ShopSystem(ProductConfig product, ProductView productView, ShopBuyer shopSystem, ResourcesStorage resource)
         {
             _product = product;
             _productView = productView;
@@ -34,7 +34,7 @@ namespace OtusProject.Shoop
         {
             if(_shopSystem.CanBay(_product))
             {
-                _shopSystem.Buy(_product);
+                _shopSystem.TryBuy(_product);
                 UpdateButtonState();
             }
         }
