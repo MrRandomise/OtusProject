@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace OtusProject.Pools
 {
-    public sealed class PoolZombieManager : MonoBehaviour, IPoolView
+    public sealed class PoolZombieManager : MonoBehaviour, IPoolView<Entity>
     {
         [SerializeField] private List<Transform> SpawnPoint;
         [SerializeField] private Transform ActivePool;

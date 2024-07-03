@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 124174766}
   - component: {fileID: 124174767}
   - component: {fileID: 124174768}
+  - component: {fileID: 124174769}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -295,6 +296,7 @@ MonoBehaviour:
   - {fileID: 124174766}
   - {fileID: 124174767}
   - {fileID: 124174768}
+  - {fileID: 124174769}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -340,6 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _character: {fileID: 2003170729}
+  _resourcesHitEvent: {fileID: 6466983935584645112, guid: a53c00387ea4aeb49b20ba739e33ba9a, type: 3}
 --- !u!114 &124174763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,7 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3447cae3133b549a4317eb2e459685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _resourcesHitEvent: {fileID: 6466983935584645112, guid: a53c00387ea4aeb49b20ba739e33ba9a, type: 3}
+  _weaponPanel: {fileID: 9073103617799431881, guid: f383745e431689843b93aee98f582621, type: 3}
 --- !u!114 &124174766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,7 +407,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c300c813de236e849baf2e5aaf7679fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponPanel: {fileID: 9073103617799431881, guid: f383745e431689843b93aee98f582621, type: 3}
+--- !u!114 &124174769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124174758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 223adae9ec6c90a41890e449d14981bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &172296183
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3568,8 +3582,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weapon: {fileID: 8793109676173744586, guid: 398d195547acf3c4aab01c53e2e061b7, type: 3}
-  _weapon1: {fileID: 7203259881128835491, guid: 92603b08d0030544ea51c74f94b404b5, type: 3}
-  _weapon2: {fileID: 2544403583474847594, guid: 3b1db6e668af3894296294d959333695, type: 3}
 --- !u!1 &2076220334
 GameObject:
   m_ObjectHideFlags: 0

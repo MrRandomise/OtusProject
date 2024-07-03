@@ -10,14 +10,14 @@ namespace OtusProject.Pools
 {
     public sealed class PoolResourcesSystem : IInActiveEvent, IDisposable
     { 
-        private PoolSystem _poolSystem;
+        private PoolSystem<Entity> _poolSystem;
         private PoolResourcesManager _manager;
         private OnDropInECS _onDropInECS;
 
-        PoolResourcesSystem(PoolResourcesManager view, EcsStartup ecsStartup, OnDropInECS onDropInECS)
+        PoolResourcesSystem(PoolResourcesManager view, FactoryPool factory, OnDropInECS onDropInECS)
         {
             _manager = view;
-            _poolSystem = new PoolSystem(_manager, ecsStartup);
+            _poolSystem = new PoolSystem<Entity>(_manager, factory);
             _onDropInECS = onDropInECS;
             _onDropInECS.OnDrop += ResourceInitial;
         }

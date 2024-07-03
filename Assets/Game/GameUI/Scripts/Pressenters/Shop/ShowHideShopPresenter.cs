@@ -7,10 +7,10 @@ namespace OtusProject.View
     public class ShowHideShopPresenter : MonoBehaviour
     {
         [SerializeField] private ShopPresenter _popup;
-        private Wave _wave;
+        private WaveSystem _wave;
 
         [Inject]
-        private void Construct(Wave wave)
+        private void Construct(WaveSystem wave)
         {
             _wave = wave;
         }
@@ -23,7 +23,7 @@ namespace OtusProject.View
         public void HidePopup()
         {
             _popup.HidePopup();
-            _wave.Start();
+            _wave.StartTimeOutNewWave();
         }
 
         private void OnDisable()

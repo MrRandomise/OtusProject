@@ -9,11 +9,11 @@ namespace OtusProject.Waves
     public sealed class ZombieDeathObserver
     {
         private OnDeathInECS _onDeathInECS;
-        private Wave _waveSystem;
+        private WaveSystem _waveSystem;
         private PoolZombieManager _poolZombieManager;
         private int _currentKillZombie = 0;
 
-        ZombieDeathObserver(OnDeathInECS onDeathInECS, Wave waveSystem, PoolZombieManager poolZombieManager)
+        ZombieDeathObserver(OnDeathInECS onDeathInECS, WaveSystem waveSystem, PoolZombieManager poolZombieManager)
         {
             _onDeathInECS = onDeathInECS;
             _waveSystem = waveSystem;
@@ -28,7 +28,7 @@ namespace OtusProject.Waves
             if (entity.CompareTag("Zombie") && _currentKillZombie == total)
             {
                 _currentKillZombie = 0;
-                _waveSystem.Stop();
+                _waveSystem.StopTimeOutWave();
                 total *= 2;
             }
         }

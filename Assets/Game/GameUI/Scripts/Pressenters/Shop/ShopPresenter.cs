@@ -3,6 +3,7 @@ using OtusProject.RecourcesConfig;
 using OtusProject.Shoop;
 using System.Collections.Generic;
 using UnityEngine;
+using OtusProject.ModulesUI;
 using Zenject;
 
 namespace OtusProject.View
@@ -20,11 +21,9 @@ namespace OtusProject.View
         private ResourcesStorage _resource;
 
         private List<ShopSystem> _managerList = new List<ShopSystem>();
-        private ItemCreator _creator;
 
         private void Awake()
         {
-            _creator = new ItemCreator(_productView, _container);
             ShoopInitial();
         }
 
@@ -32,7 +31,8 @@ namespace OtusProject.View
         {
             foreach (var product in _sellItem)
             {
-                var view = _creator.AddItemPanel();
+                
+                var view = GameObject.Instantiate(_productView, _productView.transform.position, Quaternion.identity, _container);
                 var shopManager = new ShopSystem(product, view, _shopManager, _resource);
                 _managerList.Add(shopManager);
             }

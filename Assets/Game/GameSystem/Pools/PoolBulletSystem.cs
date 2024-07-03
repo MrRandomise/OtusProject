@@ -1,4 +1,3 @@
-using EcsEngine;
 using Leopotam.EcsLite.Entities;
 using OtusProject.Component;
 using OtusProject.Component.Bullet;
@@ -6,25 +5,27 @@ using OtusProject.Component.Request;
 using OtusProject.Content;
 using System;
 using OtusProject.Inventary;
+using OtusProject.Weapons;
 namespace OtusProject.Pools
 {
-
     public sealed class PoolBulletSystem : IInActiveEvent, IDisposable
     {
-        private PoolSystem _poolSystem;
+        private PoolSystem<Entity> _poolSystem;
         private PoolBulletManager _manager;
         private WeaponStorage _weapon;
+        private BulletConfigProvider _configProvider;
 
-        PoolBulletSystem(PoolBulletManager view, EcsStartup ecsStartup, WeaponStorage weapon)
+        PoolBulletSystem(PoolBulletManager view, FactoryPool factoryPool, WeaponStorage weapon)
         {
             _manager = view;
             _weapon = weapon;
-            _poolSystem = new PoolSystem(_manager, ecsStartup);
+            _poolSystem = new PoolSystem<Entity>(_manager, factoryPool);
+            _configProvider = new BulletConfigProvider();
         }
 
         public void BulletInitial()
         {
-            ref var bulletConfig = ref _weapon.GetActiveWeapon().BulletConfig;
+            _configProvider.TryGetBulletConfig(_weapon.GetActiveWeapon().Bullet, out var bulletConfig);
             BulleCollision.OnBulletHit += InActiveEvent;
             _manager.PrefabBullet = bulletConfig.Bullet;
             _manager.SpawnPoint = _weapon.GetActiveWeapon().Point;

@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponConfig: {fileID: 11400000, guid: 679917a73fe6b9a47969c044e2b59f63, type: 2}
-  BulletConfig: {fileID: 11400000, guid: e0c08d5cd8d18f341a2520d5b524a5a8, type: 2}
+  Bullet: {fileID: 227306926306131424, guid: 2fed408e27f05ee4699e66ed0f74886a, type: 3}
   Point: {fileID: 7776686912904178171}
   WeaponContainer: {fileID: 0}
   Icon: {fileID: 21300000, guid: a724b2d4744fc724f98f1fe6998d5614, type: 3}

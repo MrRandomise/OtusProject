@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace OtusProject.Pools
 {
-    public sealed class PoolBulletManager : MonoBehaviour, IPoolView
+    public sealed class PoolBulletManager : MonoBehaviour, IPoolView<Entity>
     {
         public Transform SpawnPoint;
         public Entity PrefabBullet;

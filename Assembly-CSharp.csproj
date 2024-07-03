@@ -70,6 +70,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\Game\DI\PoolsInstaller.cs" />
+    <Compile Include="Assets\Game\DI\PressenterInstaller.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
@@ -896,10 +897,6 @@
       <Project>{EE13C93E-784B-8A43-8272-A269C6BDBFDD}</Project>
       <Name>Leopotam.EcsLite.ExtendedSystems</Name>
     </ProjectReference>
-    <ProjectReference Include="Inventory.csproj">
-      <Project>{D69FF4AE-2FCF-EDF3-8605-24BA4ACB4594}</Project>
-      <Name>Inventory</Name>
-    </ProjectReference>
     <ProjectReference Include="Zenject.csproj">
       <Project>{03146990-0F02-4ED2-7507-2744F1FE1E79}</Project>
       <Name>Zenject</Name>
@@ -912,9 +909,17 @@
       <Project>{CA2C4692-7146-4FC8-79EA-98658EFFB889}</Project>
       <Name>Leopotam.EcsLite.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="Pools.csproj">
-      <Project>{A341158A-467C-DEBB-AC7F-13211295BC4A}</Project>
-      <Name>Pools</Name>
+    <ProjectReference Include="Shop.csproj">
+      <Project>{A79E7F3A-2844-725C-77D3-98230011E365}</Project>
+      <Name>Shop</Name>
+    </ProjectReference>
+    <ProjectReference Include="Input.csproj">
+      <Project>{CB1085EC-F0DC-17BA-1B1E-766B9D68E26B}</Project>
+      <Name>Input</Name>
+    </ProjectReference>
+    <ProjectReference Include="Map.csproj">
+      <Project>{0B43A513-28D6-7888-DA03-EC732EDAAF96}</Project>
+      <Name>Map</Name>
     </ProjectReference>
     <ProjectReference Include="Leopotam.EcsLite.UnityEditor.Runtime.csproj">
       <Project>{AF325CF3-C79A-3A5F-A6B0-76B676B4068B}</Project>
@@ -928,13 +933,9 @@
       <Project>{DE31B5AA-34F1-D7F5-F612-29F4F56CD32A}</Project>
       <Name>EcsWorld</Name>
     </ProjectReference>
-    <ProjectReference Include="GameResources.csproj">
-      <Project>{EF003F21-86E3-4C0C-E689-77AA3D5E4C05}</Project>
-      <Name>GameResources</Name>
-    </ProjectReference>
-    <ProjectReference Include="Input.csproj">
-      <Project>{CB1085EC-F0DC-17BA-1B1E-766B9D68E26B}</Project>
-      <Name>Input</Name>
+    <ProjectReference Include="Pools.csproj">
+      <Project>{A341158A-467C-DEBB-AC7F-13211295BC4A}</Project>
+      <Name>Pools</Name>
     </ProjectReference>
     <ProjectReference Include="Weapons.csproj">
       <Project>{23F4D57D-B43D-95BE-7BB6-318E49AC0842}</Project>
@@ -943,10 +944,6 @@
     <ProjectReference Include="Zenject-Editor.csproj">
       <Project>{AB7274D9-822E-90FA-08F9-72A690ADC3B3}</Project>
       <Name>Zenject-Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Map.csproj">
-      <Project>{0B43A513-28D6-7888-DA03-EC732EDAAF96}</Project>
-      <Name>Map</Name>
     </ProjectReference>
     <ProjectReference Include="EcsEngine.csproj">
       <Project>{CA386E4A-C32C-B5C8-A4B8-7EEAA9533BF7}</Project>
@@ -996,10 +993,6 @@
       <Project>{1C80A6DA-3463-981C-A8F4-F22E62DAE8AE}</Project>
       <Name>Leopotam.EcsLite.Di</Name>
     </ProjectReference>
-    <ProjectReference Include="Shop.csproj">
-      <Project>{A79E7F3A-2844-725C-77D3-98230011E365}</Project>
-      <Name>Shop</Name>
-    </ProjectReference>
     <ProjectReference Include="NavMeshComponents.csproj">
       <Project>{D5DE8444-FEA6-7F43-830F-7C7918DC116C}</Project>
       <Name>NavMeshComponents</Name>
@@ -1007,6 +1000,14 @@
     <ProjectReference Include="JoystickPAck.csproj">
       <Project>{2DF8E268-C7D2-CD68-FD06-053E4D62BE9D}</Project>
       <Name>JoystickPAck</Name>
+    </ProjectReference>
+    <ProjectReference Include="GameResources.csproj">
+      <Project>{EF003F21-86E3-4C0C-E689-77AA3D5E4C05}</Project>
+      <Name>GameResources</Name>
+    </ProjectReference>
+    <ProjectReference Include="ModulesUI.csproj">
+      <Project>{3D02B45A-E381-9454-C4B3-ADE789B841FB}</Project>
+      <Name>ModulesUI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

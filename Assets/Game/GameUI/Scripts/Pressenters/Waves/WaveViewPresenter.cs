@@ -7,9 +7,9 @@ namespace OtusProject.Waves
     {
         private WaveView _waveView;
         
-        private Wave _waveSystem;
+        private WaveSystem _waveSystem;
 
-        WaveViewPresenter(WaveView waveView, Wave waveSystem)
+        WaveViewPresenter(WaveView waveView, WaveSystem waveSystem)
         {
             _waveView = waveView;
             _waveSystem = waveSystem;

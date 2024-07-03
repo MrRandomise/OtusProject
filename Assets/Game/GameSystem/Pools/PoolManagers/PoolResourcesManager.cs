@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace OtusProject.Pools
 {
-    public sealed class PoolResourcesManager : MonoBehaviour, IPoolView
+    public sealed class PoolResourcesManager : MonoBehaviour, IPoolView<Entity>
     {
         [SerializeField] private Transform _activePool;
         [SerializeField] private Transform _inActivePool;

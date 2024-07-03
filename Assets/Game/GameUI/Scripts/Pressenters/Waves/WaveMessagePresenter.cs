@@ -8,17 +8,17 @@ namespace OtusProject.Waves
     {
         private WaveTextView _waveTextView;
         private WaveView _waveView;
-        private Wave _waveSystem;
+        private WaveSystem _waveSystem;
         private float _messageTimer = 0;
         private bool _startWave = false;
 
 
-        WaveMessagePresenter(WaveTextView waveTextView, WaveView waveView, Wave waveSystem)
+        WaveMessagePresenter(WaveTextView waveTextView, WaveView waveView, WaveSystem waveSystem)
         {
             _waveTextView = waveTextView;
             _waveView = waveView;
             _waveSystem = waveSystem;
-            _messageTimer = _waveSystem._endTimeout;
+            _messageTimer = _waveSystem.TimeOut;
             _waveSystem.OnSartWave += StartMessageUpdate;
             _waveSystem.OnEndWave += EndMessageUpdate;
         }
@@ -46,7 +46,7 @@ namespace OtusProject.Waves
             if (_messageTimer < 0)
             {
                 _startWave = false;
-                _messageTimer = _waveSystem._endTimeout;
+                _messageTimer = _waveSystem.TimeOut;
                 ClearEndMessage();
             }
         }

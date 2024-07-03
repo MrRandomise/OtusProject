@@ -1,3 +1,4 @@
+using Leopotam.EcsLite.Entities;
 using OtusProject.Pools;
 using UnityEngine;
 using Zenject;
@@ -12,6 +13,7 @@ namespace OtusProject.Installer
         {
             Container.Bind<PoolZombieManager>().FromInstance(_poolZombieInstall).AsSingle();
             Container.Bind<PoolBulletManager>().FromInstance(_poolBulletInstall).AsSingle();
+            Container.BindInterfacesAndSelfTo<FactoryPool>().AsSingle().NonLazy();
             Container.Bind<PoolResourcesManager>().FromComponentInHierarchy().AsSingle();
             Container.BindInterfacesAndSelfTo<PoolZombieSystem>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<PoolBulletSystem>().AsSingle().NonLazy();
